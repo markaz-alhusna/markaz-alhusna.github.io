@@ -4160,7 +4160,7 @@ function pointAt(el, delay=0, sweep=false){
 }
 document.addEventListener('pointerdown', e=>{ if(!e.target.closest('.k-hand')) hideHand(); }, true);
 
-const kImg = n => `<img src="img/${n}.webp" alt="" draggable="false">`;
+const kImg = n => `<img src="${n}.webp" alt="" draggable="false">`;
 const kPic = p => String(p).split(' ').map(t => t==='#rug' ? RUG() : t.startsWith('%') ? `<span class="k-let" lang="ar">${t.slice(1)}</span>` : t.startsWith('#halq') ? halqSVG(+(t.split(':')[1]||0)) : t.startsWith('#lisan') ? halqSVG(+(t.split(':')[1]||0),'lisan') : t.startsWith('@') ? kImg(t.slice(1)) : t.startsWith('~') ? `<span class="sil">${t.slice(1)}</span>` : `<span>${t}</span>`).join('');
 const kAsk = text => `<div class="k-ask"><button class="k-spk" data-say aria-label="Послушать ещё раз">${ICON.spk}</button><p>${esc(text)}</p></div>`;
 const kNext = (label='Дальше') => `<div class="k-foot"><button class="k-go" data-go aria-label="${esc(label)}">${ICON.play}<span>${esc(label)}</span></button></div>`;
