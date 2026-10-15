@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#FBF7EF">
+<script>window.ALH_CFG={url:"https://navxqjofqvstxfrsaeju.supabase.co",key:"sb_publishable_y4FvUXr3nhMR8dI0CKTrDg_J-SonwKG"};</script>
 <title>AL-HUSNA</title>
 <meta name="description" content="Учебная платформа школы AL-HUSNA">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1239,7 +1240,8 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt
 const shuffle = a => { a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
 const uid = p => p + Math.random().toString(36).slice(2,8);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const TODAY = new Date('2026-10-07T12:00:00');
+const LIVE = !!(window.ALH_CFG && window.ALH_CFG.url);   // рабочая версия с базой; без настроек — демо
+const TODAY = LIVE ? (()=>{ const d=new Date(); d.setHours(12,0,0,0); return d; })() : new Date('2026-10-07T12:00:00');
 const daysAgo = n => new Date(TODAY.getTime() - n*864e5).toISOString();
 const MONTHS = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
 const fmtDate = iso => { if(!iso) return '—'; const d=new Date(iso); return d.getDate()+' '+MONTHS[d.getMonth()]; };
@@ -3309,6 +3311,7 @@ function attStats(sid){
 }
 const attPct = r => (r.p+r.n) ? Math.round(r.p/(r.p+r.n)*100) : null;
 (function seedJournal(){
+  if(LIVE) return;                                    // в рабочей версии журнал только настоящий
   DB.schedule.forEach(e=>lessonDates(e).forEach(date=>{
     if(date===TODAY_ISO) return;                      // сегодняшний урок учитель отмечает сам
     const key=e.id+'|'+date; const hwGiven = hashS(key)%3!==0; DB.journal[key]={};
@@ -3449,6 +3452,7 @@ function render(){
   }
   else if(r==='level'){ const a=actor(); if(!a || a.role!=='student' || !curContent()){ S.route='home'; return render(); } app.innerHTML = viewLevel(); mountLevel(); }
   afterRender();
+  if(LIVE) scheduleSync();
 }
 function afterRender(){
   $$('.jr-wrap').forEach(w=>{ w.scrollLeft = w.scrollWidth; });
@@ -3481,8 +3485,8 @@ function viewLogin(){
         <label for="email">Электронная почта</label>
         <input class="input" id="email" type="email" inputmode="email" autocomplete="email" placeholder="name@mail.ru" value="${esc(S.loginEmail)}" required>
       </div>
-      <button class="btn btn-primary btn-big" type="submit">Получить код</button>
-      <div class="demo-box">
+      <button class="btn btn-primary btn-big" type="submit" ${S.busy?'disabled':''}>${S.busy?'Отправляем…':'Получить код'}</button>
+      ${LIVE ? '' : `<div class="demo-box">
         <div class="hint"><b>Демо-входы.</b> В настоящей версии кнопок нет, вход только по почте из журнала.</div>
         <div class="demo-row">
           <button type="button" class="btn btn-soft btn-sm" data-act="demo" data-email="alhusna0001@gmail.com">${ICON.shield} Главный админ</button>
@@ -3490,8 +3494,7 @@ function viewLogin(){
           <button type="button" class="btn btn-soft btn-sm" data-act="demo" data-email="aisha.family@mail.ru">${ICON.kids} Ученица</button>
         </div>
         <div class="hint">Чтобы увидеть закрытый доступ, введите любую незнакомую почту или <b>tagirovy@gmail.com</b>.</div>
-
-      </div>
+      </div>`}
     </form>
   </section></main>`;
 }
@@ -3508,8 +3511,8 @@ function viewCode(){
       <div class="code-boxes" role="group" aria-label="Код из письма">
         ${Array.from({length:6},(_,i)=>`<input id="c${i}" inputmode="numeric" autocomplete="one-time-code" maxlength="1" aria-label="Цифра ${i+1}" ${locked?'disabled':''}>`).join('')}
       </div>
-      <button class="btn btn-primary btn-big" type="submit" ${locked?'disabled':''}>Войти</button>
-      <div class="alert info">${ICON.info}<div>Демо: код <b>123456</b>. В настоящей версии он приходит письмом.</div></div>
+      <button class="btn btn-primary btn-big" type="submit" ${locked||S.busy?'disabled':''}>${S.busy?'Проверяем…':'Войти'}</button>
+      ${LIVE ? `<button type="button" class="back-link" data-act="resend" style="align-self:center">Прислать код ещё раз</button>` : `<div class="alert info">${ICON.info}<div>Демо: код <b>123456</b>. В настоящей версии он приходит письмом.</div></div>`}
     </form>
   </section></main>`;
 }
@@ -3517,6 +3520,7 @@ function submitEmail(email){
   email = email.trim().toLowerCase();
   S.loginEmail = email; S.loginErr=''; S.codeErr=''; S.attempts=0;
   if(!EMAIL_RE.test(email)){ S.loginErr='Проверьте почту: похоже, в ней ошибка.'; render(); return; }
+  if(LIVE) return liveSendCode(email);
   const u = DB.users.find(x => x.email.toLowerCase()===email);
   if(!u || !u.active){ S.loginErr='Доступ закрыт. Этой почты нет в журнале школы. Обратитесь к администратору AL-HUSNA.'; render(); return; }
   go('code');
@@ -3524,6 +3528,7 @@ function submitEmail(email){
 function submitCode(code){
   if(S.attempts>=5) return;
   if(code.length<6){ S.codeErr='Введите все 6 цифр.'; render(); return; }
+  if(LIVE) return liveVerify(code);
   if(code!=='123456'){ S.attempts++; S.codeErr=`Код не подошёл. Осталось попыток: ${5-S.attempts}.`; render(); return; }
   const u = DB.users.find(x => x.email.toLowerCase()===S.loginEmail);
   S.me = u.id; S.viewAs=null; S.adminTab='overview'; S.tq=0;
@@ -4905,7 +4910,8 @@ document.addEventListener('click', e=>{
   switch(a){
     case 'demo': $('#email').value = el.dataset.email; submitEmail(el.dataset.email); break;
     case 'to-login': go('login',{loginErr:'',codeErr:''}); break;
-    case 'logout': S.me=null; S.viewAs=null; go('login',{loginEmail:'',loginErr:'',codeErr:''}); break;
+    case 'resend': if(LIVE) liveSendCode(S.loginEmail, true); break;
+    case 'logout': if(LIVE){ liveLogout(); break; } S.me=null; S.viewAs=null; go('login',{loginEmail:'',loginErr:'',codeErr:''}); break;
     case 'tq': S.tq = +el.dataset.i; render(); break;
     case 'subj': S.subj = id; render(); break;
     case 'grow': growModal(); break;
@@ -5065,5 +5071,200 @@ document.addEventListener('submit', e=>{
   }
 });
 
-render();
+/* =========================================================================
+   РАБОЧАЯ ВЕРСИЯ: база Supabase (вход по коду, общий журнал, прогресс).
+   Права проверяет сервер (правила RLS в базе), здесь только удобство.
+   ========================================================================= */
+const SB = {
+  url: LIVE ? window.ALH_CFG.url.replace(/\/$/,'') : '', key: LIVE ? window.ALH_CFG.key : '', sess: null,
+  async req(path, opt={}){
+    const h = { apikey: SB.key, 'Content-Type':'application/json', ...(opt.headers||{}) };
+    if(SB.sess && !opt.anon) h.Authorization = 'Bearer ' + SB.sess.access_token;
+    const r = await fetch(SB.url + path, { method: opt.method||'GET', headers: h, body: opt.body!==undefined ? JSON.stringify(opt.body) : undefined });
+    const txt = await r.text(); let data = null; try{ data = txt ? JSON.parse(txt) : null; }catch(_){ data = txt; }
+    if(!r.ok){ const e = new Error((data && (data.msg||data.message||data.error_description||data.error)) || ('HTTP '+r.status)); e.status = r.status; e.data = data; throw e; }
+    return data;
+  },
+  saveSess(s){ SB.sess = s; try{ s ? localStorage.setItem('alh_sess', JSON.stringify(s)) : localStorage.removeItem('alh_sess'); }catch(_){} },
+  storedSess(){ try{ return JSON.parse(localStorage.getItem('alh_sess')||'null'); }catch(_){ return null; } },
+  setSess(d){ SB.saveSess({ access_token:d.access_token, refresh_token:d.refresh_token, expires_at: Date.now()/1000 + (d.expires_in||3600), email: ((d.user&&d.user.email)||'').toLowerCase() }); },
+  async refresh(){
+    const s = SB.sess || SB.storedSess(); if(!s) throw Object.assign(new Error('no_session'), {code:'no_session'});
+    const d = await SB.req('/auth/v1/token?grant_type=refresh_token', { method:'POST', body:{ refresh_token: s.refresh_token }, anon:true });
+    SB.setSess(d);
+  },
+  async ensure(){ if(SB.sess && SB.sess.expires_at - Date.now()/1000 > 90) return; await SB.refresh(); },
+  otp: email => SB.req('/auth/v1/otp', { method:'POST', body:{ email, create_user:true }, anon:true }),
+  async verify(email, token){ SB.setSess(await SB.req('/auth/v1/verify', { method:'POST', body:{ type:'email', email, token }, anon:true })); },
+  async logout(){ try{ if(SB.sess) await SB.req('/auth/v1/logout', { method:'POST' }); }catch(_){} SB.saveSess(null); },
+  async getAll(table, select, order){
+    await SB.ensure(); const out = []; const step = 1000;
+    for(let off=0; ; off+=step){
+      const rows = await SB.req(`/rest/v1/${table}?select=${select}&order=${order}.asc&limit=${step}&offset=${off}`);
+      out.push(...rows); if(rows.length < step) return out;
+    }
+  },
+  async upsert(table, rows){
+    for(let i=0; i<rows.length; i+=200){ await SB.ensure();
+      await SB.req(`/rest/v1/${table}`, { method:'POST', body: rows.slice(i,i+200), headers:{ Prefer:'resolution=merge-duplicates,return=minimal' } }); }
+  },
+  async del(table, col, ids){
+    for(let i=0; i<ids.length; i+=50){ await SB.ensure();
+      const list = ids.slice(i,i+50).map(x => '"'+String(x).replace(/["\\]/g,'')+'"').join(',');
+      await SB.req(`/rest/v1/${table}?${col}=in.(${encodeURIComponent(list)})`, { method:'DELETE', headers:{ Prefer:'return=minimal' } }); }
+  },
+  async rpc(fn, body={}){ await SB.ensure(); return SB.req(`/rest/v1/rpc/${fn}`, { method:'POST', body }); },
+};
+
+const SCHOOL_KEYS = ['classes','subjects','schedule','holidays','quarters','access','cancels'];
+const clone = x => x===undefined ? undefined : JSON.parse(JSON.stringify(x));
+let SEED = null, SNAP = null, lastLoad = 0;
+const isStaffRole = r => r==='owner' || r==='admin' || r==='teacher';
+const isAdminRole = r => r==='owner' || r==='admin';
+const memRow = u => ({ id:u.id, email:(u.email||'').trim().toLowerCase(), role:u.role, name:u.name||'', class_id:u.classId||null, active:u.active!==false });
+const progRow = u => ({ student_id:u.id, data: DB.progress[u.id]||{}, last: u.last||null });
+
+function takeState(){
+  const st = { school:{}, members:{}, journal:{}, progress:{} };
+  SCHOOL_KEYS.forEach(k => { st.school[k] = JSON.stringify(DB[k]); });
+  DB.users.forEach(u => { if(u.email) st.members[u.id] = JSON.stringify(memRow(u)); });
+  Object.keys(DB.journal).forEach(k => { st.journal[k] = JSON.stringify(DB.journal[k]); });
+  DB.users.forEach(u => { if(u.role==='student' && (DB.progress[u.id] || u.last)) st.progress[u.id] = JSON.stringify(progRow(u)); });
+  return st;
+}
+function defaultQuarters(c){
+  return [1,2,3,4,5].map(n => ({ n, open: n===1, date: Q_DATES[n-1],
+    title: (CONTENT[c.dep+c.n+'-'+n]||{}).title || (n===1 ? 'Материал загружается' : 'Четверть '+n) }));
+}
+async function loadAll(){
+  const email = SB.sess.email;
+  const mem = await SB.getAll('members', 'id,email,role,name,class_id,active', 'id');
+  const me = mem.find(m => m.email===email && m.active);
+  if(!me) throw Object.assign(new Error('no_access'), {code:'no_access'});
+  const staff = isStaffRole(me.role);
+  const users = mem.map(m => ({ id:m.id, email:m.email, role:m.role, name:m.name, classId:m.class_id||undefined, active:m.active, last:null }));
+  if(!staff){ (await SB.rpc('staff_list')).forEach(t => { if(!users.some(u=>u.id===t.id)) users.push({ id:t.id, email:'', role:t.role, name:t.name, active:true }); }); }
+  const school = await SB.getAll('school', 'key,data', 'key');
+  const prog = await SB.getAll('progress', 'student_id,data,last', 'student_id');
+  const jr = staff ? await SB.getAll('journal', 'key,data', 'key')
+    : (await SB.rpc('my_journal')).map(r => ({ key:r.key, data:{ [me.id]: r.mark } }));
+  DB.users = users;
+  DB.progress = {}; prog.forEach(p => { DB.progress[p.student_id] = p.data||{}; const u = users.find(x=>x.id===p.student_id); if(u) u.last = p.last; });
+  const sk = {}; school.forEach(r => { sk[r.key] = r.data; });
+  SCHOOL_KEYS.forEach(k => { DB[k] = sk[k]; });
+  DB.journal = {}; jr.forEach(r => { DB.journal[r.key] = r.data; });
+  SNAP = takeState();                       // что лежит на сервере
+  /* чего на сервере ещё нет — берём из начальных данных (админ их сохранит) */
+  SCHOOL_KEYS.forEach(k => { if(DB[k]===undefined || DB[k]===null) DB[k] = clone(SEED[k]) ?? (k==='holidays'||k==='classes'||k==='subjects'||k==='schedule' ? [] : {}); });
+  DB.classes.forEach(c => { if(!DB.quarters[c.id]) DB.quarters[c.id] = defaultQuarters(c); });
+  Object.keys(DB.access).forEach(cid => { if(DB.access[cid].osn && DB.quarters[cid]) DB.access[cid].osn.q = DB.quarters[cid]; });
+  if(isAdminRole(me.role) && sk.classes===undefined){       // самый первый вход админа: заносим учителей
+    SEED.teachers.forEach(t => { if(!DB.users.some(u => u.id===t.id || u.email===t.email)) DB.users.push(clone(t)); });
+  }
+  lastLoad = Date.now();
+  return me.id;
+}
+
+let syncing = false, syncAgain = false, syncTimer = null, syncFails = 0;
+function scheduleSync(){ if(!LIVE || !SNAP) return; clearTimeout(syncTimer); syncTimer = setTimeout(()=>{ syncTimer=null; syncNow(); }, 700); }
+async function syncNow(){
+  if(!SNAP) return;
+  if(syncing){ syncAgain = true; return; }
+  const me = realMe(); if(!me) return;
+  syncing = true;
+  try{
+    const cur = takeState(); const role = me.role; const admin = isAdminRole(role), staff = isStaffRole(role);
+    const changed = (sec, ok) => Object.keys(cur[sec]).filter(k => cur[sec][k]!==SNAP[sec][k] && ok(k));
+    const removed = (sec, ok) => Object.keys(SNAP[sec]).filter(k => cur[sec][k]===undefined && SNAP[sec][k]!==undefined && ok(k));
+    const sk = changed('school', k => admin || (role==='teacher' && (k==='access' || k==='cancels')));
+    if(sk.length){ await SB.upsert('school', sk.map(k => ({ key:k, data:DB[k], updated_by: me.email }))); sk.forEach(k => SNAP.school[k] = cur.school[k]); }
+    if(admin){
+      const mine = k => { const r = JSON.parse(cur.members[k] || SNAP.members[k]); return role==='owner' || r.role!=='owner'; };
+      const up = changed('members', mine), del = removed('members', k => role==='owner' || JSON.parse(SNAP.members[k]).role!=='owner');
+      if(up.length){ await SB.upsert('members', up.map(k => JSON.parse(cur.members[k]))); up.forEach(k => SNAP.members[k] = cur.members[k]); }
+      if(del.length){ await SB.del('members', 'id', del); del.forEach(k => { delete SNAP.members[k]; delete SNAP.progress[k]; }); }
+    }
+    if(staff){
+      const up = changed('journal', ()=>true), del = removed('journal', ()=>true);
+      if(up.length){ await SB.upsert('journal', up.map(k => ({ key:k, data:DB.journal[k], updated_by: me.email }))); up.forEach(k => SNAP.journal[k] = cur.journal[k]); }
+      if(del.length){ await SB.del('journal', 'key', del); del.forEach(k => delete SNAP.journal[k]); }
+    }
+    if(!S.viewAs || admin){
+      const up = changed('progress', k => admin || (k===me.id && !S.viewAs));
+      if(up.length){ await SB.upsert('progress', up.map(k => JSON.parse(cur.progress[k]))); up.forEach(k => SNAP.progress[k] = cur.progress[k]); }
+    }
+    syncFails = 0;
+  }catch(e){
+    syncFails++;
+    if(e.code==='no_session' || e.status===401){ toast('Вход устарел. Войдите снова, чтобы изменения сохранились.'); }
+    else if(e.status===403 || /row-level security|violates/i.test(e.message)){ toast('Нет прав на это изменение, оно не сохранено.'); SNAP = takeState(); }
+    else { toast('Не удалось сохранить: нет связи. Попробуем ещё раз.'); setTimeout(scheduleSync, Math.min(30000, 3000*syncFails)); }
+  }finally{
+    syncing = false;
+    if(syncAgain){ syncAgain = false; scheduleSync(); }
+  }
+}
+['click','change','submit','input'].forEach(ev => document.addEventListener(ev, () => { if(LIVE && SNAP) scheduleSync(); }));
+window.addEventListener('beforeunload', e => { if(LIVE && SNAP && (syncTimer || syncing)){ syncNow(); e.preventDefault(); e.returnValue=''; } });
+document.addEventListener('visibilitychange', async () => {
+  if(!LIVE || !SNAP || document.visibilityState!=='visible' || S.route!=='home' || $('.modal') || syncing || syncTimer) return;
+  if(Date.now() - lastLoad < 60000) return;
+  const before = JSON.stringify(takeState()); if(before!==JSON.stringify(SNAP)) return;   // есть несохранённое — не трогаем
+  try{ await loadAll(); render(); }catch(_){}
+});
+
+function liveLoading(msg){ app.innerHTML = `<main class="login"><section class="login-form" style="margin:auto"><div class="login-card" style="text-align:center"><h2>AL-HUSNA</h2><p class="lead">${esc(msg)}</p></div></section></main>`; }
+async function liveEnter(){
+  liveLoading('Загружаем…');
+  const id = await loadAll();
+  S.me = id; S.viewAs = null; S.adminTab = 'overview'; S.tq = 0; S.busy = false;
+  const u = user(id); if(u.role==='student') u.last = new Date().toISOString();
+  go('home');
+}
+const NO_ACCESS = 'Доступ закрыт. Этой почты нет в журнале школы. Обратитесь к администратору AL-HUSNA.';
+async function liveSendCode(email, again){
+  S.busy = true; S.loginErr = ''; S.codeErr = ''; render();
+  try{
+    await SB.otp(email);
+    S.busy = false; S.attempts = 0;
+    if(again){ toast('Новый код отправлен'); render(); } else go('code');
+  }catch(e){
+    S.busy = false; const t = (e.message||'') + ' ' + JSON.stringify(e.data||'');
+    const msg = /saving new user|not_in_school|signups not allowed|not allowed/i.test(t) ? NO_ACCESS
+      : (e.status===429 || /security purposes|rate limit/i.test(t)) ? 'Код уже отправлен недавно. Подождите минуту и попробуйте снова.'
+      : 'Не получилось отправить код. Проверьте интернет и попробуйте ещё раз.';
+    if(again){ S.codeErr = msg; } else { S.loginErr = msg; S.route = 'login'; }
+    render();
+  }
+}
+async function liveVerify(code){
+  S.busy = true; S.codeErr = ''; render();
+  try{ await SB.verify(S.loginEmail, code); }
+  catch(e){ S.busy = false; S.attempts++; S.codeErr = S.attempts>=5 ? '' : `Код не подошёл или устарел. Осталось попыток: ${5-S.attempts}.`; render(); return; }
+  try{ await liveEnter(); }
+  catch(e){ S.busy = false; await SB.logout(); SNAP = null; S.loginErr = e.code==='no_access' ? NO_ACCESS : 'Не получилось загрузить данные. Проверьте интернет и войдите снова.'; go('login'); }
+}
+async function liveLogout(){
+  liveLoading('Сохраняем и выходим…');
+  clearTimeout(syncTimer); syncTimer = null;
+  try{ await syncNow(); }catch(_){}
+  await SB.logout(); SNAP = null;
+  DB.users = []; DB.progress = {}; DB.journal = {};
+  S.me = null; S.viewAs = null; go('login', { loginEmail:'', loginErr:'', codeErr:'' });
+}
+async function boot(){
+  if(!LIVE){ render(); return; }
+  SEED = clone({ classes:DB.classes, subjects:DB.subjects, schedule:DB.schedule, holidays:DB.holidays, quarters:DB.quarters, access:{}, cancels:{},
+    teachers: DB.users.filter(u => u.role==='teacher') });
+  DB.users = []; DB.progress = {}; DB.journal = {};
+  const s = SB.storedSess();
+  if(s){
+    SB.sess = s; liveLoading('Загружаем…');
+    try{ await SB.ensure(); await liveEnter(); return; }
+    catch(e){ if(e.code==='no_access') S.loginErr = NO_ACCESS; if(e.status===400 || e.status===401 || e.code==='no_access') await SB.logout();
+      else if(!e.status){ S.loginErr = 'Нет связи с сервером. Проверьте интернет и обновите страницу.'; } }
+  }
+  S.route = 'login'; render();
+}
+boot();
 </script>
