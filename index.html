@@ -1240,7 +1240,8 @@ const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt
 const shuffle = a => { a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; };
 const uid = p => p + Math.random().toString(36).slice(2,8);
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const LIVE = !!(window.ALH_CFG && window.ALH_CFG.url);   // рабочая версия с базой; без настроек — демо
+const LIVE = !!(window.ALH_CFG && window.ALH_CFG.url);
+const CODE_LEN = LIVE ? ((window.ALH_CFG.codeLen)||8) : 6;   // длина кода из письма   // рабочая версия с базой; без настроек — демо
 const TODAY = LIVE ? (()=>{ const d=new Date(); d.setHours(12,0,0,0); return d; })() : new Date('2026-10-07T12:00:00');
 const daysAgo = n => new Date(TODAY.getTime() - n*864e5).toISOString();
 const MONTHS = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
@@ -3505,11 +3506,11 @@ function viewCode(){
   <section class="login-form">
     <form class="login-card" data-form="code" novalidate>
       <button type="button" class="back-link" data-act="to-login">${ICON.back} Другая почта</button>
-      <div><h2>Введите код</h2><p class="lead">Мы отправили 6 цифр на <b>${esc(S.loginEmail)}</b>. Письмо придёт от <b>AL-HUSNA</b> (alhusna0001@gmail.com). Если его нет во «Входящих», загляните в «Спам».</p></div>
+      <div><h2>Введите код</h2><p class="lead">Мы отправили ${CODE_LEN} цифр на <b>${esc(S.loginEmail)}</b>. Письмо придёт от <b>AL-HUSNA</b> (alhusna0001@gmail.com). Если его нет во «Входящих», загляните в «Спам».</p></div>
       ${locked ? `<div class="alert bad" role="alert">${ICON.lock}<div>Слишком много неверных попыток. Вход для этой почты закрыт на 15 минут.</div></div>`
         : S.codeErr ? `<div class="alert bad" role="alert">${ICON.info}<div>${S.codeErr}</div></div>` : ''}
-      <div class="code-boxes" role="group" aria-label="Код из письма">
-        ${Array.from({length:6},(_,i)=>`<input id="c${i}" inputmode="numeric" autocomplete="one-time-code" maxlength="1" aria-label="Цифра ${i+1}" ${locked?'disabled':''}>`).join('')}
+      <div class="code-boxes" role="group" aria-label="Код из письма" ${CODE_LEN>6?'style="gap:5px"':''}>
+        ${Array.from({length:CODE_LEN},(_,i)=>`<input id="c${i}" inputmode="numeric" autocomplete="one-time-code" maxlength="${CODE_LEN}" aria-label="Цифра ${i+1}" ${locked?'disabled':''}>`).join('')}
       </div>
       <button class="btn btn-primary btn-big" type="submit" ${locked||S.busy?'disabled':''}>${S.busy?'Проверяем…':'Войти'}</button>
       ${LIVE ? `<button type="button" class="back-link" data-act="resend" style="align-self:center">Прислать код ещё раз</button>` : `<div class="alert info">${ICON.info}<div>Демо: код <b>123456</b>. В настоящей версии он приходит письмом.</div></div>`}
@@ -3527,7 +3528,7 @@ function submitEmail(email){
 }
 function submitCode(code){
   if(S.attempts>=5) return;
-  if(code.length<6){ S.codeErr='Введите все 6 цифр.'; render(); return; }
+  if(code.length<CODE_LEN){ S.codeErr=`Введите все ${CODE_LEN} цифр.`; render(); return; }
   if(LIVE) return liveVerify(code);
   if(code!=='123456'){ S.attempts++; S.codeErr=`Код не подошёл. Осталось попыток: ${5-S.attempts}.`; render(); return; }
   const u = DB.users.find(x => x.email.toLowerCase()===S.loginEmail);
@@ -4998,7 +4999,9 @@ document.addEventListener('input', e=>{
   const el=e.target;
   if(el.id==='f-q'){ clearTimeout(qTimer); qTimer=setTimeout(()=>{ S.filters.q=el.value.trim(); render(); const f=$('#f-q'); if(f){f.focus();f.setSelectionRange(f.value.length,f.value.length);} },250); }
   if(el.closest('.code-boxes')){
-    el.value = el.value.replace(/\D/g,'').slice(-1);
+    const dg = el.value.replace(/\D/g,'');
+    if(dg.length>1){ const all=$$('.code-boxes input'); const i0=all.indexOf(el); dg.slice(0,CODE_LEN-i0).split('').forEach((c,j)=>{ all[i0+j].value=c; }); const nx=all[Math.min(i0+dg.length,CODE_LEN-1)]; nx && nx.focus(); return; }
+    el.value = dg.slice(-1);
     if(el.value && el.nextElementSibling) el.nextElementSibling.focus();
   }
 });
@@ -5009,8 +5012,8 @@ document.addEventListener('keydown', e=>{
 });
 document.addEventListener('paste', e=>{
   const el=e.target; if(!el.closest || !el.closest('.code-boxes')) return;
-  const d=(e.clipboardData.getData('text')||'').replace(/\D/g,'').slice(0,6); if(!d) return;
-  e.preventDefault(); $$('.code-boxes input').forEach((x,i)=>x.value=d[i]||''); $$('.code-boxes input')[Math.min(d.length,5)].focus();
+  const d=(e.clipboardData.getData('text')||'').replace(/\D/g,'').slice(0,CODE_LEN); if(!d) return;
+  e.preventDefault(); $$('.code-boxes input').forEach((x,i)=>x.value=d[i]||''); $$('.code-boxes input')[Math.min(d.length,CODE_LEN-1)].focus();
 });
 document.addEventListener('submit', e=>{
   e.preventDefault(); const f=e.target; const t=f.dataset.form; const err=$('#m-err');
