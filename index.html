@@ -3480,7 +3480,7 @@ function viewLogin(){
   <section class="login-form">
     <form class="login-card" data-form="email" novalidate>
       <div><h2>Вход</h2><p class="lead">Введите почту, которую вы дали школе. Код придёт письмом от AL-HUSNA.</p></div>
-      ${S.loginErr ? `<div class="alert bad" role="alert">${ICON.lock}<div>${S.loginErr}</div></div>` : ''}
+      ${S.loginErr ? `<div class="alert bad" role="alert">${ICON.lock}<div>${S.loginErr}${LIVE && S.errDetail ? `<div style="font-size:12px;opacity:.7;margin-top:6px;word-break:break-word">Для администратора: ${esc(S.errDetail)}</div>` : ''}</div></div>` : ''}
       <div class="field">
         <label for="email">Электронная почта</label>
         <input class="input" id="email" type="email" inputmode="email" autocomplete="email" placeholder="name@mail.ru" value="${esc(S.loginEmail)}" required>
@@ -5223,7 +5223,7 @@ async function liveEnter(){
 }
 const NO_ACCESS = 'Доступ закрыт. Этой почты нет в журнале школы. Обратитесь к администратору AL-HUSNA.';
 async function liveSendCode(email, again){
-  S.busy = true; S.loginErr = ''; S.codeErr = ''; render();
+  S.busy = true; S.loginErr = ''; S.codeErr = ''; S.errDetail = ''; render();
   try{
     await SB.otp(email);
     S.busy = false; S.attempts = 0;
@@ -5232,7 +5232,10 @@ async function liveSendCode(email, again){
     S.busy = false; const t = (e.message||'') + ' ' + JSON.stringify(e.data||'');
     const msg = /saving new user|not_in_school|signups not allowed|not allowed/i.test(t) ? NO_ACCESS
       : (e.status===429 || /security purposes|rate limit/i.test(t)) ? 'Код уже отправлен недавно. Подождите минуту и попробуйте снова.'
+      : /sending|smtp|email/i.test(t) ? 'Не получилось отправить письмо. Сообщите администратору: ошибка отправки почты.'
       : 'Не получилось отправить код. Проверьте интернет и попробуйте ещё раз.';
+    console.warn('otp error', e.status, t);
+    if(e.status || e.message) S.errDetail = (e.status ? e.status+': ' : '') + (e.message||'').slice(0,160);
     if(again){ S.codeErr = msg; } else { S.loginErr = msg; S.route = 'login'; }
     render();
   }
