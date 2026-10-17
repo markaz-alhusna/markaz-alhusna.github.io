@@ -5226,6 +5226,7 @@ async function liveSendCode(email, again){
   S.busy = true; S.loginErr = ''; S.codeErr = ''; S.errDetail = ''; render();
   try{
     await SB.otp(email);
+    try{ localStorage.setItem('alh_last_email', email); }catch(_){}
     S.busy = false; S.attempts = 0;
     if(again){ toast('Новый код отправлен'); render(); } else go('code');
   }catch(e){
@@ -5253,13 +5254,15 @@ async function liveLogout(){
   try{ await syncNow(); }catch(_){}
   await SB.logout(); SNAP = null;
   DB.users = []; DB.progress = {}; DB.journal = {};
-  S.me = null; S.viewAs = null; go('login', { loginEmail:'', loginErr:'', codeErr:'' });
+  let last = ''; try{ last = localStorage.getItem('alh_last_email') || ''; }catch(_){}
+  S.me = null; S.viewAs = null; go('login', { loginEmail:last, loginErr:'', codeErr:'' });
 }
 async function boot(){
   if(!LIVE){ render(); return; }
   SEED = clone({ classes:DB.classes, subjects:DB.subjects, schedule:DB.schedule, holidays:DB.holidays, quarters:DB.quarters, access:{}, cancels:{},
     teachers: DB.users.filter(u => u.role==='teacher') });
   DB.users = []; DB.progress = {}; DB.journal = {};
+  try{ S.loginEmail = localStorage.getItem('alh_last_email') || ''; }catch(_){}
   const s = SB.storedSess();
   if(s){
     SB.sess = s; liveLoading('Загружаем…');
