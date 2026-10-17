@@ -3355,13 +3355,13 @@ function journalView(entries, editable){
   const lessons = pairLessons(S.jr.c, S.jr.s, entries);
   const studs = classStudents(S.jr.c);
   const opts = pairs.map(p=>`<option value="${p.c}|${p.s}" ${p.c===S.jr.c&&p.s===S.jr.s?'selected':''}>${esc(className(cls(p.c)))} — ${esc((subj(p.s)||{}).name||'')}</option>`).join('');
-  const canEdit = editable && !S.viewAs;
+  const canEdit = editable && (!S.viewAs || sandboxTeacher());
   const cell = (l,s)=>{ const m=markOf(l.key,s.id);
     const a = m.a==='p'?'✓':m.a==='n'?'Н':'·';
     const hw = m.hw==='y'?'<i class="hw y" title="ДЗ сдано"></i>':m.hw==='n'?'<i class="hw n" title="ДЗ не сдано"></i>':'';
     return `<td><button class="jc ${m.a?'a-'+m.a:''}" data-act="j-cell" data-key="${l.key}" data-sid="${s.id}" ${canEdit?'':'disabled'} aria-label="${esc(s.name)}, ${fmtDate(l.date)}">${a}${hw}</button></td>`; };
   return `<div class="toolbar"><label class="sr" for="jr-pair">Класс и предмет</label><select class="input" id="jr-pair" style="max-width:420px">${opts}</select>
-      ${S.viewAs?'<span class="pill mute">Только просмотр</span>':''}</div>
+      ${S.viewAs ? (sandboxTeacher() ? '<span class="pill warn">Пробный режим: отметки не сохраняются</span>' : '<span class="pill mute">Только просмотр</span>') : ''}</div>
     ${!lessons.length ? '<div class="box empty">Уроков по этому предмету ещё не было.</div>' : !studs.length ? '<div class="box empty">В классе пока нет учениц.</div>' : `
     <div class="table-wrap jr-wrap"><table class="jr">
       <thead><tr><th class="stick">Ученица</th><th class="tot">Был</th><th class="tot">Пропуски</th><th class="tot">ДЗ ✓</th><th class="tot">ДЗ ✗</th>${lessons.map(l=>{ const d=new Date(l.date+'T12:00:00');
@@ -3384,7 +3384,8 @@ function markModal(key, sid){
   </form>`);
 }
 function canEditKey(key){
-  const me=realMe(); if(S.viewAs || !me) return false;
+  if(S.viewAs){ if(!sandboxTeacher()) return false; const t=actor(); const e=schedById(key.split('|')[0]); return !!e && e.teacherId===t.id; }
+  const me=realMe(); if(!me) return false;
   if(isAdmin(me)) return true;
   const e=schedById(key.split('|')[0]); return !!e && e.teacherId===me.id;
 }
@@ -3458,11 +3459,20 @@ function afterRender(){
   if(S.route==='home' && S.me){ const a=actor(); if(a && a.role==='student' && cls(a.classId).dep==='s') pointAt($('.node.current .node-btn'), 900); }
 }
 const adminPrev = () => !!S.viewAs && isAdmin(realMe()) && !!actor() && actor().role==='student';
+const sandboxTeacher = () => !!S.viewAs && isAdmin(realMe()) && !!actor() && actor().role==='teacher';
+/* «Посмотреть как»: всё, что меняется в этом режиме, после выхода откатывается */
+let SANDBOX = null;
+function sandboxEnter(){ SANDBOX = JSON.stringify({ journal:DB.journal, cancels:DB.cancels, access:DB.access, quarters:DB.quarters, progress:DB.progress }); }
+function sandboxExit(){
+  if(!SANDBOX) return; const b = JSON.parse(SANDBOX); SANDBOX = null;
+  DB.journal=b.journal; DB.cancels=b.cancels; DB.access=b.access; DB.quarters=b.quarters; DB.progress=b.progress;
+  Object.keys(DB.access).forEach(cid => { if(DB.access[cid].osn && DB.quarters[cid]) DB.access[cid].osn.q = DB.quarters[cid]; });
+}
 function viewAsBar(){
   if(!S.viewAs) return '';
   const a = actor();
   const roleName = a.role==='teacher' ? 'учитель' : 'ученица';
-  return `<div class="viewas" role="status">${ICON.eye}<span>Вы смотрите как <b>${esc(a.name)}</b> (${roleName}). ${a.role==='student'?'Для проверки открыты все четверти, уроки и задания. ':''}Ничего не сохраняется.</span>
+  return `<div class="viewas" role="status">${ICON.eye}<span>Вы смотрите как <b>${esc(a.name)}</b> (${roleName}). ${a.role==='student'?'Для проверки открыты все четверти, уроки и задания. ':'Можно отмечать журнал и пробовать всё, как учитель. '}Ничего не сохраняется.</span>
   <button class="btn btn-sm" data-act="exit-viewas">Вернуться в админку</button></div>`;
 }
 
@@ -4615,7 +4625,7 @@ function viewTeacher(){
     const todayIdx=(TODAY.getDay()+6)%7; const todays=myLessons.filter(e=>e.day===todayIdx && !lessonOff(e,TODAY_ISO));
     body = `<div class="main-head"><div class="t"><small>Ас-саляму алейкум</small><h1>${esc(me.name)}</h1><p>Ваши уроки на неделю. Нажмите на урок, чтобы открыть журнал и отметить учениц.</p></div></div>
       ${todays.length?`<div class="today-box">${ICON.info}<span>Сегодня ${todays.length} ${plural(todays.length,'урок','урока','уроков')}: ${todays.map(e=>`${esc(e.time)} ${esc(subj(e.subjectId).name)}, ${esc(className(cls(e.classId)))}`).join('; ')}. Не забудьте отметить посещение.</span></div>`:''}
-      ${myLessons.length ? scheduleGrid(myLessons,'teacher') + `<div style="margin-top:18px">${upcomingBox(myLessons, !S.viewAs, false)}</div>` : '<div class="box empty">В расписании пока нет ваших уроков. Их добавляет администратор.</div>'}`;
+      ${myLessons.length ? scheduleGrid(myLessons,'teacher') + `<div style="margin-top:18px">${upcomingBox(myLessons, !S.viewAs || sandboxTeacher(), false)}</div>` : '<div class="box empty">В расписании пока нет ваших уроков. Их добавляет администратор.</div>'}`;
   } else if(S.teacherTab==='access'){
     if(!S.teacherCls || !my.find(c=>c.id===S.teacherCls)) S.teacherCls = my[0] && my[0].id;
     const c = cls(S.teacherCls);
@@ -4949,8 +4959,10 @@ document.addEventListener('click', e=>{
       closeModal(); render(); toast('Отмечено'); break; }
     case 'atab': S.adminTab = el.dataset.tab; render(); window.scrollTo(0,0); break;
     case 'viewas-open': viewAsModal(); break;
-    case 'viewas': if(!isAdmin(realMe())) return; closeModal(); S.viewAs = id; S.tq=0; S.teacherCls=null; go('home'); break;
-    case 'exit-viewas': S.viewAs=null; go('home'); break;
+    case 'viewas': if(!isAdmin(realMe())) return; closeModal();
+      if(LIVE && SNAP){ clearTimeout(syncTimer); syncTimer=null; syncNow(); }   // сначала сохранить своё
+      sandboxEnter(); S.viewAs = id; S.tq=0; S.teacherCls=null; go('home'); break;
+    case 'exit-viewas': S.viewAs=null; sandboxExit(); go('home'); toast('Вы снова в админке. Пробные отметки не сохранены.'); break;
     case 'modal-close': closeModal(); break;
     case 'f-dep': S.filters.dep = el.dataset.v; S.filters.cls='all'; render(); break;
     case 'student-new': studentModal(null); break;
@@ -5019,7 +5031,7 @@ document.addEventListener('submit', e=>{
   if(t==='cancel'){ const k=f.dataset.key; if(!canEditKey(k)) return; DB.cancels[k]={reason:$('#cn-r').value.trim()}; closeModal(); render(); toast('Урок отменён, ученицы увидят объявление'); return; }
   if(t==='mark'){ const k=f.dataset.key, sid=f.dataset.sid; if(!canEditKey(k)) return;
     const a=(f.querySelector('input[name="a"]:checked')||{}).value||''; const hw=(f.querySelector('input[name="hw"]:checked')||{}).value||'';
-    DB.journal[k]=DB.journal[k]||{}; DB.journal[k][sid]={a:a||undefined, hw:hw||null}; closeModal(); render(); toast('Отметка сохранена'); return; }
+    DB.journal[k]=DB.journal[k]||{}; DB.journal[k][sid]={a:a||undefined, hw:hw||null}; closeModal(); render(); toast(S.viewAs?'Пробная отметка: не сохраняется':'Отметка сохранена'); return; }
   if(!guardAdmin()) return;
   if(t==='student'){
     const name=$('#s-name').value.trim(), email=$('#s-email').value.trim().toLowerCase(), cid=$('#s-cls').value, id=f.dataset.id;
@@ -5168,7 +5180,7 @@ async function loadAll(){
 let syncing = false, syncAgain = false, syncTimer = null, syncFails = 0;
 function scheduleSync(){ if(!LIVE || !SNAP) return; clearTimeout(syncTimer); syncTimer = setTimeout(()=>{ syncTimer=null; syncNow(); }, 700); }
 async function syncNow(){
-  if(!SNAP) return;
+  if(!SNAP || S.viewAs) return;
   if(syncing){ syncAgain = true; return; }
   const me = realMe(); if(!me) return;
   syncing = true;
@@ -5177,7 +5189,7 @@ async function syncNow(){
     const changed = (sec, ok) => Object.keys(cur[sec]).filter(k => cur[sec][k]!==SNAP[sec][k] && ok(k));
     const removed = (sec, ok) => Object.keys(SNAP[sec]).filter(k => cur[sec][k]===undefined && SNAP[sec][k]!==undefined && ok(k));
     const sk = changed('school', k => admin || (role==='teacher' && (k==='access' || k==='cancels')));
-    if(sk.length){ await SB.upsert('school', sk.map(k => ({ key:k, data:DB[k], updated_by: me.email }))); sk.forEach(k => SNAP.school[k] = cur.school[k]); }
+    if(sk.length){ await SB.upsert('school', sk.map(k => ({ key:k, data:JSON.parse(cur.school[k]), updated_by: me.email }))); sk.forEach(k => SNAP.school[k] = cur.school[k]); }
     if(admin){
       const mine = k => { const r = JSON.parse(cur.members[k] || SNAP.members[k]); return role==='owner' || r.role!=='owner'; };
       const up = changed('members', mine), del = removed('members', k => role==='owner' || JSON.parse(SNAP.members[k]).role!=='owner');
@@ -5186,7 +5198,7 @@ async function syncNow(){
     }
     if(staff){
       const up = changed('journal', ()=>true), del = removed('journal', ()=>true);
-      if(up.length){ await SB.upsert('journal', up.map(k => ({ key:k, data:DB.journal[k], updated_by: me.email }))); up.forEach(k => SNAP.journal[k] = cur.journal[k]); }
+      if(up.length){ await SB.upsert('journal', up.map(k => ({ key:k, data:JSON.parse(cur.journal[k]), updated_by: me.email }))); up.forEach(k => SNAP.journal[k] = cur.journal[k]); }
       if(del.length){ await SB.del('journal', 'key', del); del.forEach(k => delete SNAP.journal[k]); }
     }
     if(!S.viewAs || admin){
@@ -5207,7 +5219,7 @@ async function syncNow(){
 ['click','change','submit','input'].forEach(ev => document.addEventListener(ev, () => { if(LIVE && SNAP) scheduleSync(); }));
 window.addEventListener('beforeunload', e => { if(LIVE && SNAP && (syncTimer || syncing)){ syncNow(); e.preventDefault(); e.returnValue=''; } });
 document.addEventListener('visibilitychange', async () => {
-  if(!LIVE || !SNAP || document.visibilityState!=='visible' || S.route!=='home' || $('.modal') || syncing || syncTimer) return;
+  if(!LIVE || !SNAP || S.viewAs || document.visibilityState!=='visible' || S.route!=='home' || $('.modal') || syncing || syncTimer) return;
   if(Date.now() - lastLoad < 60000) return;
   const before = JSON.stringify(takeState()); if(before!==JSON.stringify(SNAP)) return;   // есть несохранённое — не трогаем
   try{ await loadAll(); render(); }catch(_){}
