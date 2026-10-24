@@ -5708,7 +5708,7 @@ function progressTable(list, cid){
 function viewTeacher(){
   const me = actor(); const my = teacherClasses(me.id);
   const myLessons = DB.schedule.filter(e=>e.teacherId===me.id);
-  const TT = [['schedule','Расписание','layers'],['journal','Журнал','edit'],['recs','Записи','spk'],['courses','Курсы','trophy'],['access','Доступ','lock'],['games','Игры учениц','kids']];
+  const TT = [['schedule','Расписание','layers'],['journal','Журнал','edit'],['recs','Записи','spk'],['courses','Курсы','trophy'],['access','Доступ','lock'],['games','Игры учениц','kids']].filter(t=>t[0]!=='courses' || COURSES_ON);
   if(!TT.find(t=>t[0]===S.teacherTab)) S.teacherTab='schedule';
   const nav = TT.map(([id,n,ic])=>`<button data-act="ttab" data-tab="${id}" ${S.teacherTab===id?'aria-current="page"':''}>${ICON[ic]} ${n}</button>`).join('');
   const mnav = TT.map(([id,n])=>`<button data-act="ttab" data-tab="${id}" ${S.teacherTab===id?'aria-current="page"':''}>${n}</button>`).join('');
@@ -5842,6 +5842,7 @@ document.addEventListener('click', e=>{
    Урок = видео → конспект → презентация → проверка. Админ создаёт, учитель видит прогресс.
    Хранится в DB.courses (ключ school.courses), файлы — в хранилище course-files.
    ========================================================================= */
+const COURSES_ON = !LIVE;   // на рабочем сайте курсы включим позже
 DB.courses = LIVE ? [] : [
   { id:'c_sira', title:'Сира Пророка ﷺ для детей', subtitle:'Пример курса: материалы добавит устаза', color:'sand', icon:'mosque', published:true, order:'seq',
     access:{ all:true, classes:[], members:[] },
@@ -5863,7 +5864,7 @@ function canSeeCourse(u, c){
   if(!c.published) return false; const a=c.access||{};
   return !!(a.all || (a.classes||[]).includes(u.classId) || (a.members||[]).includes(u.id));
 }
-const myCourses = u => (DB.courses||[]).filter(c=>canSeeCourse(u,c) && (u.role!=='student' || c.published));
+const myCourses = u => !COURSES_ON ? [] : (DB.courses||[]).filter(c=>canSeeCourse(u,c) && (u.role!=='student' || c.published));
 function courseDone(sid, c){ const p=DB.progress[sid]||{}; return c.lessons.filter(l=>p[cKey(c,l)]).length; }
 function lessonUnlocked(sid, c, i){ if(adminPrev() || c.order==='all' || i===0) return true; const p=DB.progress[sid]||{}; return !!p[cKey(c,c.lessons[i-1])]; }
 
@@ -5989,6 +5990,13 @@ function adCourses(){
 function courseAudience(c){ const a=c.access||{}; if(a.all) return 'для всех учеников';
   const n=(a.classes||[]).length, m=(a.members||[]).length; if(!n && !m) return 'доступ никому не выдан';
   return [n?`${n} ${plural(n,'группа','группы','групп')}`:'', m?`${m} ${plural(m,'ученик','ученика','учеников')}`:''].filter(Boolean).join(' и '); }
+const courseRoster = c => students().filter(s=>{ const a=c.access||{}; return a.all || (a.classes||[]).includes(s.classId) || (a.members||[]).includes(s.id); }).sort((x,y)=>x.name.localeCompare(y.name));
+function rosterTable(c){
+  const who=courseRoster(c); if(!who.length) return '<p class="hint">Пока никого. Выберите выше всех учеников, группы или отдельных учеников.</p>';
+  return `<div class="table-wrap"><table class="tbl"><thead><tr><th>Ученица</th><th>Группа</th><th>Пройдено</th><th>Последний вход</th></tr></thead>
+    <tbody>${who.map(s=>`<tr><td><b>${esc(s.name)}</b><div class="hint">${esc(s.email||'')}</div></td><td>${s.classId?esc(className(cls(s.classId))):'<span class="pill rose">только курс</span>'}</td>
+      <td class="tnum"><b>${courseDone(s.id,c)}</b> из ${c.lessons.length}</td><td>${esc(ago(s.last))}</td></tr>`).join('')}</tbody></table></div>`;
+}
 function courseEditor(c){
   const a=c.access=c.access||{all:false,classes:[],members:[]};
   const grp = d => [1,2,3].map(n=>sortGroups(DB.classes.filter(x=>x.dep===d && x.n===n)).map(x=>`<label class="chk"><input type="checkbox" data-act="crs-cls" data-id="${x.id}" ${a.classes.includes(x.id)?'checked':''} ${a.all?'disabled':''}><span>${esc(className(x))}</span></label>`).join('')).join('');
@@ -6013,6 +6021,7 @@ function courseEditor(c){
       <div class="crs-mem">${others.length?others.map(s=>`<label class="chk"><input type="checkbox" data-act="crs-mem" data-id="${s.id}" ${a.members.includes(s.id)?'checked':''}><span>${esc(s.name)}${s.classId?` <small>${esc(className(cls(s.classId)))}</small>`:' <small>только курсы</small>'}</span></label>`).join(''):'<p class="hint">Все ученики уже в выбранных группах.</p>'}</div>`}
       <p class="hint">Ученика «только для курса» можно добавить в разделе «Ученицы» без группы.</p>
     </section>
+    <section class="box crs-ed"><div class="box-h"><h3>Ученицы курса</h3><span class="pill info">${courseRoster(c).length}</span></div>${rosterTable(c)}</section>
     <section class="box crs-ed"><div class="box-h"><h3>Уроки</h3><button class="btn btn-primary btn-sm" data-act="crs-ladd">${ICON.plus} Добавить урок</button></div>
       ${c.lessons.length?`<ol class="crs-ed-list">${les}</ol>`:'<p class="hint">Уроков пока нет.</p>'}</section>
     <div class="row"><button class="btn btn-soft" data-act="crs-del" data-id="${c.id}" style="color:var(--bad)">${ICON.trash} Удалить курс</button></div>`;
@@ -6166,12 +6175,14 @@ document.addEventListener('submit', e=>{
 /* =========================================================================
    ADMIN
    ========================================================================= */
-const ADMIN_TABS = [
+const ADMIN_TABS_ALL = [
   ['overview','Обзор','home'],['students','Ученицы','kids'],['teachers','Учителя','teacher'],
-  ['classes','Классы','arch'],['schedule','Расписание','layers'],['journal','Журнал','edit'],['quarters','Доступ','lock'],['recs','Записи','spk'],['courses','Курсы','trophy'],['admins','Админы','shield']
+  ['classes','Классы','arch'],['schedule','Расписание','layers'],['journal','Журнал','edit'],['courses','Курсы','trophy'],['admins','Админы','shield']
 ];
 function viewAdmin(){
   const me = actor();
+  const ADMIN_TABS = ADMIN_TABS_ALL.filter(t=>t[0]!=='courses' || COURSES_ON);
+  if(!ADMIN_TABS.find(t=>t[0]===S.adminTab)) S.adminTab='overview';
   const counts = {students:students().length, teachers:teachers().length, classes:DB.classes.length, admins:admins().length};
   const nav = ADMIN_TABS.map(([id,n,ic])=>`<button data-act="atab" data-tab="${id}" ${S.adminTab===id?'aria-current="page"':''}>${ICON[ic]} ${n}${counts[id]!=null?`<span class="cnt tnum">${counts[id]}</span>`:''}</button>`).join('');
   const mnav = ADMIN_TABS.map(([id,n])=>`<button data-act="atab" data-tab="${id}" ${S.adminTab===id?'aria-current="page"':''}>${n}</button>`).join('');
@@ -6328,7 +6339,7 @@ function adClasses(){
         ${c.dep==='s'&&sx?`<span class="pill ${sx==='b'?'info':'rose'}">${sx==='b'?'Мальчики':'Девочки'}</span>`:''}</div></div>
       <div class="meta"><div><b class="tnum">${list.length}</b>${sx==='b'?'учеников':'учениц'}</div><div><b class="tnum">${n}</b>уроков в неделю</div></div>
       <p class="hint" style="margin:0">Учителя: ${tt.length?tt.map(x=>esc(x.name)).join(', '):'нет уроков'}</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-soft btn-sm" data-act="class-open" data-id="${c.id}">${sx==='b'?'Ученики':'Ученицы'}</button><button class="btn btn-soft btn-sm" data-act="class-sched" data-id="${c.id}">Расписание</button><button class="btn btn-soft btn-sm" data-act="class-quarters" data-id="${c.id}">Доступ</button></div></article>`; };
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-soft btn-sm" data-act="class-open" data-id="${c.id}">${sx==='b'?'Ученики':'Ученицы'}</button><button class="btn btn-soft btn-sm" data-act="class-sched" data-id="${c.id}">Расписание</button></div></article>`; };
   const block = d => [1,2,3].map(n=>{ const L=sortGroups(DB.classes.filter(c=>c.dep===d && c.n===n)); if(!L.length) return '';
       const tot=L.reduce((a,c)=>a+classStudents(c.id).length,0); const bg=['var(--sky)','var(--sun-soft)','var(--sage)'][n-1];
       return `<section class="cls-block"><div class="cls-head"><span class="arch-ic" style="background:${bg}">${n}</span><div><h3>${n} класс</h3><span class="hint">${L.length} ${plural(L.length,'группа','группы','групп')} · ${tot} ${plural(tot,'ребёнок','ребёнка','детей')}</span></div></div>
@@ -6625,7 +6636,7 @@ const SB = {
     if(!r.ok){ const t=await r.text(); throw Object.assign(new Error(t||('HTTP '+r.status)), {status:r.status}); } },
 };
 
-const SCHOOL_KEYS = ['classes','subjects','schedule','holidays','quarters','access','cancels','courses'];
+const SCHOOL_KEYS = ['classes','subjects','schedule','holidays','quarters','access','cancels','courses'].filter(k=>k!=='courses' || COURSES_ON);
 const clone = x => x===undefined ? undefined : JSON.parse(JSON.stringify(x));
 let SEED = null, SNAP = null, lastLoad = 0;
 const isStaffRole = r => r==='owner' || r==='admin' || r==='teacher';
