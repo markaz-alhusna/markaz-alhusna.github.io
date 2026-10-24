@@ -553,6 +553,93 @@ select.input{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg 
 .rec-chip.err .k-let{box-shadow:0 0 0 4px #E0574A;background:radial-gradient(circle at 32% 24%,#fff 0%,#FFD9D4 55%,#E9837A 100%)}
 .rec-f{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .rec-f .hint{flex:1;min-width:180px;margin:0}
+/* ===== Курсы ===== */
+.crs{min-height:100dvh;background:linear-gradient(180deg,var(--cb,#FBEFD8) 0%,var(--paper) 340px)}
+.crs-top{display:flex;align-items:center;gap:12px;padding:14px clamp(16px,4vw,40px)}
+.crs-top .spacer{flex:1}
+.crs-ttl{display:grid;min-width:0}
+.crs-ttl small{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--navy-soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.crs-ttl b{font-size:18px;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.crs-main{max-width:820px;margin:0 auto;padding:6px 16px 60px;display:grid;gap:16px}
+.crs-list{display:grid;gap:14px}
+.crs-card{display:flex;align-items:center;gap:16px;padding:16px;border-radius:24px;background:#FFFDF7;text-align:left;box-shadow:0 8px 0 rgba(20,49,92,.08),inset 0 0 0 2px var(--cb)}
+.crs-ic{flex:none;width:72px;height:72px;border-radius:22px;background:var(--cb,#FBEFD8);display:grid;place-items:center}
+.crs-ic img{width:70%;height:auto}
+.crs-ic.big{width:96px;height:96px;border-radius:28px}
+.crs-t{display:grid;gap:4px;min-width:0;flex:1}
+.crs-t b{font-size:18px;color:var(--navy)}
+.crs-t small{color:var(--navy-soft);font-size:13px}
+.crs-bar{display:block;height:8px;border-radius:9px;background:#EFE6D2;overflow:hidden;margin-top:4px}
+.crs-bar i{display:block;height:100%;background:linear-gradient(90deg,#86BC97,#2E8B8F)}
+.crs-hero{display:flex;align-items:center;gap:18px;padding:18px;border-radius:28px;background:#FFFDF7;box-shadow:0 8px 0 rgba(20,49,92,.06)}
+.crs-hero h1{font-size:clamp(22px,4vw,30px);margin:0 0 4px}
+.crs-hero p{margin:0 0 8px;color:var(--navy-soft)}
+.crs-lessons{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.crs-les{width:100%;display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:20px;background:#FFFDF7;text-align:left;box-shadow:0 6px 0 rgba(20,49,92,.07)}
+.crs-les svg{width:20px;height:20px;flex:none;color:var(--navy-soft)}
+.crs-les.locked{opacity:.55}
+.crs-num{flex:none;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:800;background:var(--cb,#FBEFD8);color:var(--navy)}
+.crs-num svg{width:20px;height:20px}
+.crs-les.done .crs-num{background:#DDF4E2;color:#2E8B4F}
+.crs-lt{display:grid;flex:1;min-width:0}
+.crs-lt b{color:var(--navy)}
+.crs-lt small{color:var(--navy-soft);font-size:13px}
+.crs-tabs{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none;padding:4px;border-radius:18px;background:rgba(255,255,255,.7)}
+.crs-tabs button{flex:none;padding:10px 16px;border-radius:14px;font-weight:800;color:var(--navy-soft)}
+.crs-tabs button[aria-selected="true"]{background:var(--navy);color:#fff}
+.crs-video{position:relative;width:100%;aspect-ratio:16/9;border-radius:22px;overflow:hidden;background:#0E1E33}
+.crs-video iframe,.crs-video video{position:absolute;inset:0;width:100%;height:100%;border:0}
+.crs-notes{line-height:1.6;font-size:17px}
+.crs-notes h3{margin:14px 0 6px}
+.crs-notes p,.crs-notes ul{margin:0 0 12px}
+.crs-slides{display:grid;gap:10px;justify-items:center}
+.crs-slides img{width:100%;border-radius:18px;background:#fff;box-shadow:0 8px 20px -10px rgba(20,49,92,.35)}
+.crs-snav{display:flex;align-items:center;gap:16px}
+.round-btn.flip svg{transform:rotate(180deg)}
+.crs-pdf{display:grid;gap:10px;justify-items:center}
+.crs-pdf iframe{width:100%;height:70vh;border:0;border-radius:18px;background:#fff}
+.crs-check{display:grid;justify-items:center;text-align:center;gap:8px;padding:24px}
+.crs-check img{width:64px}
+.crs-foot{display:flex;justify-content:center}
+.crs-adm{display:grid;gap:12px}
+.crs-adm-card{display:grid;gap:12px}
+.crs-adm-h{display:flex;align-items:center;gap:14px}
+.crs-adm-h .crs-ic{width:56px;height:56px;border-radius:16px}
+.crs-adm-h>div{flex:1;display:grid;min-width:0}
+.crs-adm-h span{color:var(--navy-soft);font-size:13px}
+.crs-ed{display:grid;gap:12px}
+.crs-ed h3{margin:0}
+.crs-swatches,.crs-icons{display:flex;flex-wrap:wrap;gap:8px}
+.crs-swatches .sw{width:40px;height:40px;border-radius:12px}
+.crs-swatches .sw.on,.crs-icons .ic.on{outline:3px solid var(--navy);outline-offset:2px}
+.crs-icons .ic{width:48px;height:48px;border-radius:12px;background:var(--sand);display:grid;place-items:center}
+.crs-icons .ic img{width:76%}
+.crs-grp{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.crs-grp>div{display:grid;gap:6px;align-content:start}
+.crs-mem{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px;max-height:280px;overflow:auto}
+.chk{display:flex;align-items:center;gap:8px;font-size:14px;cursor:pointer}
+.chk input{width:18px;height:18px;accent-color:var(--navy)}
+.chk small{color:var(--navy-soft)}
+.chk.big{font-weight:800;font-size:16px}
+.crs-ed-list{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.crs-ed-les{display:flex;align-items:center;gap:10px;padding:10px;border-radius:16px;background:var(--paper);box-shadow:inset 0 0 0 1.5px var(--line-2)}
+.crs-ed-les>div{flex:1;display:grid;min-width:0}
+.crs-ed-les small{color:var(--navy-soft);font-size:12px}
+.modal.wide{max-width:720px}
+.modal .m-h{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.modal h3{margin:6px 0 0;font-size:17px}
+.crs-file{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.crs-file label.btn{cursor:pointer}
+.crs-fname{display:inline-flex;align-items:center;gap:6px;font-weight:700;color:#2E8B4F;word-break:break-all}
+.crs-fname svg{width:18px;height:18px;flex:none}
+.crs-prog{font-size:13px;font-weight:700;color:var(--navy-soft)}
+.crs-q{display:grid;gap:8px;padding:12px;border-radius:16px;background:var(--paper);box-shadow:inset 0 0 0 1.5px var(--line-2)}
+.crs-qh{display:flex;align-items:center;justify-content:space-between}
+.crs-opt{display:flex;align-items:center;gap:8px}
+.crs-opt input[type=radio]{width:20px;height:20px;accent-color:#2E8B4F;flex:none}
+.course-chip{display:inline-flex;align-items:center;gap:8px;padding:6px 14px 6px 6px;border-radius:999px;background:rgba(255,253,247,.95);font-weight:800;color:var(--navy);box-shadow:0 6px 14px -8px rgba(20,49,92,.4)}
+.course-chip img{width:34px;height:34px}
+@media (max-width:560px){ .crs-card{gap:12px;padding:12px} .crs-ic{width:58px;height:58px} .crs-hero{flex-direction:column;text-align:center} .course-chip span{display:none} .course-chip{padding:4px} }
 
 @media (max-width:560px){ .hs-cur{min-height:130px} .hs-houses{gap:6px} }
 .k-arch{padding:12px}
@@ -3796,7 +3883,7 @@ function accessPanel(cid, subjList, sid){
 }
 const levelsFor = classId => (CONTENT[lvlKey(classId)+'-1']||{}).levels || [];
 const starsOf = sid => Object.values(DB.progress[sid]||{}).reduce((a,b)=>a+b,0);
-const doneCount = sid => Object.keys(DB.progress[sid]||{}).length;
+const doneCount = sid => Object.keys(DB.progress[sid]||{}).filter(k=>!k.startsWith('C:')).length;
 function statusOf(s){
   const total = levelsFor(s.classId).length;
   if(!s.active) return ['bad','Доступ закрыт'];
@@ -4106,16 +4193,20 @@ function render(){
     if(!a){ go('login'); return; }
     if(isAdmin(a)) app.innerHTML = viewAdmin();
     else if(a.role==='teacher') app.innerHTML = viewTeacher();
-    else app.innerHTML = viewKid();
+    else app.innerHTML = a.classId ? viewKid() : viewCourses();
   }
+  else if(r==='courses') app.innerHTML = viewCourses();
+  else if(r==='course') app.innerHTML = viewCourse();
+  else if(r==='clesson') app.innerHTML = viewCLesson();
   else if(r==='level'){ const a=actor(); if(!a || a.role!=='student' || !curContent()){ S.route='home'; return render(); } app.innerHTML = viewLevel(); mountLevel(); }
   afterRender();
   if(LIVE) scheduleSync();
 }
 function afterRender(){
+  if(S.route==='clesson') hydrateFiles(app);
   $$('.jr-wrap').forEach(w=>{ w.scrollLeft = w.scrollWidth; });
   if(S.route==='code'){ const f=$('.code-boxes input'); f && f.focus(); }
-  if(S.route==='home' && S.me){ const a=actor(); if(a && a.role==='student' && cls(a.classId).dep==='s') pointAt($('.node.current .node-btn'), 900); }
+  if(S.route==='home' && S.me){ const a=actor(); if(a && a.role==='student' && (cls(a.classId)||{}).dep==='s') pointAt($('.node.current .node-btn'), 900); }
 }
 const adminPrev = () => !!S.viewAs && isAdmin(realMe()) && !!actor() && actor().role==='student';
 const sandboxTeacher = () => !!S.viewAs && isAdmin(realMe()) && !!actor() && actor().role==='teacher';
@@ -4271,12 +4362,13 @@ function viewKid(){
         <div class="kid-hello"><b>Ас-саляму алейкум, ${esc(first)}!</b><span>${esc(className(c))}</span></div>
         <span class="spacer"></span>
         
+        ${myCourses(me).length ? `<button class="course-chip" data-act="crs-mine">${kImg('book')}<span>Курсы</span></button>` : ''}
         <span class="star-count tnum" style="color:var(--navy)">${ICON.star}${starsOf(me.id)}</span>
         ${S.viewAs ? '' : `<button class="round-btn" data-act="logout" aria-label="Выйти" style="color:var(--navy)">${ICON.logout}</button>`}
       </header>
       ${subjTabs(c,false)}
       <nav class="q-tabs" role="tablist" aria-label="Четверти">${tabs}</nav>
-      ${attPlaques(me.id)}${noticesFor(me.id)}${growFab(me)}${growFab(me)}
+      ${attPlaques(me.id)}${noticesFor(me.id)}${growFab(me)}
       <div class="world-inner" style="flex:1;width:100%">${inner}</div>
     </div></div>`;
 }
@@ -4288,9 +4380,9 @@ const STEP_LABEL = {learn:'Узнай',intro:'Начало',cards:'Выучи',b
 const isAr = t => /[؀-ۿ]/.test(t);
 const txt = t => isAr(t) ? `<span class="ar" lang="ar">${esc(t)}</span>` : esc(t);
 const mix = t => esc(t).replace(/[\u0600-\u06FF\uFDFA][\u0600-\u06FF\uFDFA\s]*/g, m => { const t=m.trimEnd(); return `<span class="ar" lang="ar">${t}</span>`+m.slice(t.length); });
-function curContent(){ const me=actor(); return contentFor(me.classId, S.tq, curSubj(me.classId).id); }
+function curContent(){ if(S.courseCtx) return courseContent(S.courseCtx.cid); const me=actor(); return contentFor(me.classId, S.tq, curSubj(me.classId).id); }
 function curLevel(){ return curContent().levels[S.level.i]; }
-const isMz = () => cls(actor().classId).dep==='m';
+const isMz = () => !!S.courseCtx || (cls(actor().classId)||{}).dep==='m';
 
 function viewLevel(){
   const lv = curLevel(); const mz = isMz();
@@ -4574,15 +4666,15 @@ const STEPS = { learn:stepLearn, intro:stepLearn, cards:stepCards, build:stepBui
 /* --- итог уровня --- */
 function finishLevel(lv){
   const m = S.level.mistakes; const stars = m<=1?3 : m<=4?2 : 1;
-  const me = actor(); const preview = !!S.viewAs; const g0 = growInfo(me);
+  const me = actor(); const preview = !!S.viewAs; const inCourse = !!S.courseCtx; const g0 = inCourse ? null : growInfo(me);
   if(!preview){
     DB.progress[me.id] = DB.progress[me.id] || {};
     DB.progress[me.id][lv.id] = Math.max(DB.progress[me.id][lv.id]||0, stars);
     me.last = TODAY.toISOString();
   }
   const L = curContent().levels; const isLast = S.level.i===L.length-1;
-  const title = isLast ? 'Четверть пройдена!' : stars===3?'Ма ша Аллах!':stars===2?'Отлично!':'Молодец!';
-  const msg = isLast
+  const title = isLast && !inCourse ? 'Четверть пройдена!' : stars===3?'Ма ша Аллах!':stars===2?'Отлично!':'Молодец!';
+  const msg = isLast && !inCourse
     ? (stars===3 ? 'Итоговое испытание пройдено почти без ошибок. Ты собрала все звёзды!' : 'Итоговое испытание пройдено. Пройди его ещё раз, чтобы собрать все звёзды.')
     : (stars===3 ? 'Урок пройден почти без ошибок. Ты собрала все звёзды!' : stars===2 ? 'Хороший результат. Пройди урок ещё раз, чтобы получить третью звезду.' : 'Урок пройден! Повтори его, чтобы собрать больше звёзд.');
   const kid = !isMz();
@@ -4594,8 +4686,8 @@ function finishLevel(lv){
     <div class="big-stars">${[1,2,3].map(()=>ICON.star).join('')}</div>
     <h2>${title}</h2><p>${msg2}</p>
     ${preview?'<span class="preview-note">Режим просмотра: звёзды не сохранены</span>':''}
-    ${growResult(me, g0, preview)}
-    <div class="row">${!isLast?`<button class="btn btn-primary btn-big" data-act="next-level">Следующий урок</button>`:`<button class="btn btn-primary btn-big" data-act="to-map">К карте</button>`}
+    ${inCourse ? '' : growResult(me, g0, preview)}
+    <div class="row">${inCourse?`<button class="btn btn-primary btn-big" data-act="crs-tocourse">К курсу</button>`:!isLast?`<button class="btn btn-primary btn-big" data-act="next-level">Следующий урок</button>`:`<button class="btn btn-primary btn-big" data-act="to-map">К карте</button>`}
     <button class="btn btn-soft btn-big" data-act="retry">Ещё раз</button></div></div>`;
   setProgress(1);
   $$('.big-stars svg',root).forEach((s,i)=>{ if(i<stars) setTimeout(()=>s.classList.add('on'),250+i*280); });
@@ -4735,6 +4827,7 @@ function viewMz(me, c){
       <span class="logo">${LOGO}</span>
       <div class="mz-hello"><b>Ас-саляму алейкум, ${esc(first)}!</b><span>${esc(className(c))}</span></div>
       <span class="spacer"></span>
+      ${myCourses(me).length ? `<button class="course-chip" data-act="crs-mine">${kImg('book')}<span>Курсы</span></button>` : ''}
       <span class="mz-stars tnum">${ICON.star}${starsOf(me.id)}</span>
       ${S.viewAs ? '' : `<button class="round-btn" data-act="logout" aria-label="Выйти">${ICON.logout}</button>`}
     </header>
@@ -5615,7 +5708,7 @@ function progressTable(list, cid){
 function viewTeacher(){
   const me = actor(); const my = teacherClasses(me.id);
   const myLessons = DB.schedule.filter(e=>e.teacherId===me.id);
-  const TT = [['schedule','Расписание','layers'],['journal','Журнал','edit'],['recs','Записи','spk'],['access','Доступ','lock'],['games','Игры учениц','kids']];
+  const TT = [['schedule','Расписание','layers'],['journal','Журнал','edit'],['recs','Записи','spk'],['courses','Курсы','trophy'],['access','Доступ','lock'],['games','Игры учениц','kids']];
   if(!TT.find(t=>t[0]===S.teacherTab)) S.teacherTab='schedule';
   const nav = TT.map(([id,n,ic])=>`<button data-act="ttab" data-tab="${id}" ${S.teacherTab===id?'aria-current="page"':''}>${ICON[ic]} ${n}</button>`).join('');
   const mnav = TT.map(([id,n])=>`<button data-act="ttab" data-tab="${id}" ${S.teacherTab===id?'aria-current="page"':''}>${n}</button>`).join('');
@@ -5634,6 +5727,8 @@ function viewTeacher(){
     body = `<div class="main-head"><div class="t"><small>Учёба</small><h1>Доступ к урокам</h1><p>Открывайте четверти и уроки для своих групп. Ученицы сразу видят изменения.</p></div></div>
       ${my.length?`<div class="toolbar"><div class="seg" role="group" aria-label="Группа">${tabs}</div></div>${subjs.length?accessPanel(c.id, subjs, S.accSubj):'<div class="box empty">В этой группе у вас нет предметов из программы платформы.</div>'}`
       :'<div class="box empty">У вас пока нет групп в расписании.</div>'}`;
+  } else if(S.teacherTab==='courses'){
+    body = tCourses();
   } else if(S.teacherTab==='recs'){
     body = recsView(my.map(c=>c.id));
   } else if(S.teacherTab==='journal'){
@@ -5743,18 +5838,344 @@ document.addEventListener('click', e=>{
 });
 
 /* =========================================================================
+   КУРСЫ: отдельные курсы (например, «Сира в Рамадан»), не внутри садика и мадрасы.
+   Урок = видео → конспект → презентация → проверка. Админ создаёт, учитель видит прогресс.
+   Хранится в DB.courses (ключ school.courses), файлы — в хранилище course-files.
+   ========================================================================= */
+DB.courses = LIVE ? [] : [
+  { id:'c_sira', title:'Сира Пророка ﷺ для детей', subtitle:'Пример курса: материалы добавит устаза', color:'sand', icon:'mosque', published:true, order:'seq',
+    access:{ all:true, classes:[], members:[] },
+    lessons:[
+      { id:'l1', title:'Урок 1. Пример урока', video:null,
+        notes:'Здесь будет текстовый конспект урока.\n\n- Главные мысли урока списком\n- **Важное** выделяется жирным\n\nАдмин вставляет текст в редакторе курса.',
+        slides:null,
+        check:[ { kind:'choice', q:'Пример вопроса: в каком городе родился Пророк ﷺ?', o:['Мекка','Медина','Иерусалим'], a:0, why:'Пророк ﷺ родился в Мекке.' },
+                { kind:'tf', s:'Пример: проверка идёт после видео, конспекта и презентации.', a:true, why:'Верно! Сначала изучаем, потом проверяем себя.' } ] },
+      { id:'l2', title:'Урок 2. Ждёт материалы', video:null, notes:'', slides:null, check:[] },
+    ] },
+];
+const COURSE_COLORS = { sky:['#DDF0F7','#7DB5CF'], sand:['#FBEFD8','#D9B46A'], sage:['#E5F1E2','#86BC97'], rose:['#FBE6E1','#E39C94'], navy:['#E2E8F3','#1F3A5F'] };
+const COURSE_ICONS = ['mosque','kaaba','book','moon','crescent','star','sun','mountain','dune','tree','rahle','envelope'];
+const courseById = id => (DB.courses||[]).find(c=>c.id===id);
+const cKey = (c,l) => `C:${c.id}:${l.id}`;
+function canSeeCourse(u, c){
+  if(!c || !u) return false; if(isAdmin(u) || u.role==='teacher') return true;
+  if(!c.published) return false; const a=c.access||{};
+  return !!(a.all || (a.classes||[]).includes(u.classId) || (a.members||[]).includes(u.id));
+}
+const myCourses = u => (DB.courses||[]).filter(c=>canSeeCourse(u,c) && (u.role!=='student' || c.published));
+function courseDone(sid, c){ const p=DB.progress[sid]||{}; return c.lessons.filter(l=>p[cKey(c,l)]).length; }
+function lessonUnlocked(sid, c, i){ if(adminPrev() || c.order==='all' || i===0) return true; const p=DB.progress[sid]||{}; return !!p[cKey(c,c.lessons[i-1])]; }
+
+/* --- проверка урока превращается в обычные шаги уровня (мадраса-стиль) --- */
+function courseSteps(l){
+  const ch=(l.check||[]); const steps=[];
+  const qs = ch.filter(x=>x.kind==='choice' && x.q && (x.o||[]).filter(Boolean).length>=2).map(x=>({ q:x.q, o:x.o.filter(Boolean), a:Math.min(x.a||0, x.o.filter(Boolean).length-1), why:x.why||'' }));
+  if(qs.length) steps.push({ t:'think', qs });
+  const tf = ch.filter(x=>x.kind==='tf' && x.s).map(x=>[x.s, !!x.a, x.why||(x.a?'Верно!':'Неверно.')]);
+  if(tf.length) steps.push({ t:'tf', title:'Верно или неверно?', hint:'Прочитай и реши.', cards:tf });
+  return steps;
+}
+function courseContent(cid){ const c=courseById(cid); if(!c) return null;
+  return { title:c.title, ar:'', levels:c.lessons.map((l,i)=>({ id:cKey(c,l), tag:'Урок '+(i+1), name:l.title, bg:'q1', steps:courseSteps(l) })) }; }
+
+/* --- файлы: подписанные ссылки на закрытые файлы --- */
+const FILE_CACHE = {};
+async function fileUrl(ref){
+  if(!ref) return ''; if(ref.url) return ref.url; if(!ref.path) return '';
+  if(!LIVE) return '';
+  const c=FILE_CACHE[ref.path]; if(c && c.t>Date.now()) return c.u;
+  const d = await SB.req(`/storage/v1/object/sign/course-files/${ref.path}`, { method:'POST', body:{ expiresIn:3600 } });
+  const u = SB.url+'/storage/v1'+(d.signedURL||d.signedUrl); FILE_CACHE[ref.path]={u, t:Date.now()+50*60e3}; return u;
+}
+async function hydrateFiles(root=document){
+  for(const el of $$('[data-fref]',root)){ try{ const ref=JSON.parse(el.dataset.fref); const u=await fileUrl(ref); if(!u) continue;
+    if(el.tagName==='A') el.href=u; else el.src=u; el.removeAttribute('data-fref'); }catch(_){} }
+}
+function toEmbed(url){
+  const u=String(url||'').trim(); let m;
+  if((m=u.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([\w-]{6,})/))) return 'https://www.youtube.com/embed/'+m[1];
+  if((m=u.match(/rutube\.ru\/video\/([\w]+)/))) return 'https://rutube.ru/play/embed/'+m[1];
+  if((m=u.match(/(?:vk\.com|vkvideo\.ru)\/video(-?\d+)_(\d+)/))) return `https://vk.com/video_ext.php?oid=${m[1]}&id=${m[2]}&hd=2`;
+  if(/canva\.com\/design\//.test(u)) return u.split('?')[0].replace(/\/(edit|view)$/,'')+'/view?embed';
+  if(/docs\.google\.com\/presentation\//.test(u)) return u.replace(/\/(edit|pub)(\?.*)?$/,'/embed');
+  return u;
+}
+const fref = ref => esc(JSON.stringify({path:ref.path||'', url:ref.url||''}));
+
+/* --- текст конспекта: абзацы, списки «- », **жирный** --- */
+function notesHTML(t){
+  const blocks = String(t||'').trim().split(/\n\s*\n/);
+  return blocks.map(b=>{ const lines=b.split('\n');
+    const fmt = s => mix(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>');
+    if(lines.every(x=>/^\s*[-•]\s+/.test(x))) return `<ul>${lines.map(x=>`<li>${fmt(x.replace(/^\s*[-•]\s+/,''))}</li>`).join('')}</ul>`;
+    if(/^#\s+/.test(lines[0])) return `<h3>${fmt(lines[0].replace(/^#\s+/,''))}</h3>${lines.slice(1).length?`<p>${lines.slice(1).map(fmt).join('<br>')}</p>`:''}`;
+    return `<p>${lines.map(fmt).join('<br>')}</p>`; }).join('');
+}
+
+/* ================= ученица: список курсов, курс, урок ================= */
+function courseCard(c, sid){
+  const [bg,fg]=COURSE_COLORS[c.color]||COURSE_COLORS.sand; const n=c.lessons.length, d=sid?courseDone(sid,c):0;
+  return `<button class="crs-card" data-act="crs-open" data-id="${c.id}" style="--cb:${bg};--cf:${fg}">
+    <span class="crs-ic">${kImg(c.icon||'book')}</span>
+    <span class="crs-t"><b>${esc(c.title)}</b><small>${esc(c.subtitle||'')}</small>
+      <span class="crs-bar"><i style="width:${n?Math.round(d/n*100):0}%"></i></span><small>${d} из ${n} ${plural(n,'урока','уроков','уроков')}</small></span></button>`;
+}
+function crsTop(back, title, sub){
+  const me=actor();
+  return `${viewAsBar()}<header class="crs-top"><button class="round-btn" data-act="${back}" aria-label="Назад">${ICON.back}</button>
+    <div class="crs-ttl"><small>${esc(sub||'Курсы')}</small><b>${esc(title)}</b></div><span class="spacer"></span>
+    ${me && !me.classId && !S.viewAs ? `<button class="round-btn" data-act="logout" aria-label="Выйти">${ICON.logout}</button>` : ''}</header>`;
+}
+function crsTopNoBack(title, sub){
+  return `${viewAsBar()}<header class="crs-top"><span class="logo" style="height:44px;display:inline-flex">${LOGO}</span><div class="crs-ttl"><small>${esc(sub||'')}</small><b>${esc(title)}</b></div><span class="spacer"></span>
+    ${S.viewAs?'':`<button class="round-btn" data-act="logout" aria-label="Выйти">${ICON.logout}</button>`}</header>`;
+}
+function viewCourses(){
+  const me=actor(); const L=myCourses(me);
+  return `<div class="crs">${me.classId?crsTop('crs-home','Мои курсы', me.name):crsTopNoBack('Мои курсы', me.name)}
+    <main class="crs-main">${L.length?`<div class="crs-list">${L.map(c=>courseCard(c, me.id)).join('')}</div>`:'<div class="box empty">Пока нет открытых курсов.</div>'}</main></div>`;
+}
+function viewCourse(){
+  const me=actor(); const c=courseById(S.courseId); if(!c) return viewCourses();
+  const p=DB.progress[me.id]||{}; const [bg,fg]=COURSE_COLORS[c.color]||COURSE_COLORS.sand;
+  return `<div class="crs" style="--cb:${bg};--cf:${fg}">${crsTop('crs-list', c.title, 'Курс')}
+    <main class="crs-main"><section class="crs-hero"><span class="crs-ic big">${kImg(c.icon||'book')}</span><div><h1>${esc(c.title)}</h1>${c.subtitle?`<p>${esc(c.subtitle)}</p>`:''}
+      <span class="pill info">${courseDone(me.id,c)} из ${c.lessons.length} пройдено</span></div></section>
+    <ol class="crs-lessons">${c.lessons.map((l,i)=>{ const done=!!p[cKey(c,l)], open=lessonUnlocked(me.id,c,i);
+      const parts=[l.video&&'видео', l.notes&&'конспект', l.slides&&'презентация', courseSteps(l).length&&'проверка'].filter(Boolean);
+      return `<li><button class="crs-les ${done?'done':open?'open':'locked'}" data-act="crs-les" data-i="${i}" ${open?'':'disabled'}>
+        <span class="crs-num">${done?ICON.check:open?i+1:ICON.lock}</span><span class="crs-lt"><b>${esc(l.title)}</b><small>${parts.length?parts.join(' · '):'материалы готовятся'}</small></span>${open?ICON.chev:''}</button></li>`; }).join('')}</ol></main></div>`;
+}
+function lessonParts(l){ return [l.video&&['video','Видео'], l.notes&&['notes','Конспект'], l.slides&&['slides','Презентация'], courseSteps(l).length&&['check','Проверка']].filter(Boolean); }
+function viewCLesson(){
+  const me=actor(); const c=courseById(S.courseId); const l=c && c.lessons[S.cLes]; if(!l) return viewCourse();
+  const parts=lessonParts(l); if(!parts.find(x=>x[0]===S.cPart)) S.cPart=(parts[0]||['none'])[0];
+  const i=parts.findIndex(x=>x[0]===S.cPart);
+  let body='';
+  if(!parts.length) body='<div class="box empty">Материалы этого урока скоро появятся.</div>';
+  else if(S.cPart==='video'){ const v=l.video;
+    body = v.kind==='link' ? `<div class="crs-video"><iframe src="${esc(toEmbed(v.url))}" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen loading="lazy" title="Видеоурок"></iframe></div>`
+      : `<div class="crs-video"><video controls playsinline preload="metadata" data-fref="${fref(v)}" ${v.url?`src="${esc(v.url)}"`:''}></video></div>${!LIVE&&!v.url?'<p class="hint">В демо загруженные файлы не сохраняются.</p>':''}`; }
+  else if(S.cPart==='notes') body = `<article class="box crs-notes">${notesHTML(l.notes)}</article>`;
+  else if(S.cPart==='slides'){ const sl=l.slides;
+    if(sl.kind==='images'){ const k=Math.min(S.cSlide||0, sl.files.length-1);
+      body = `<div class="crs-slides"><img alt="Слайд ${k+1}" data-fref="${fref(sl.files[k])}" ${sl.files[k].url?`src="${esc(sl.files[k].url)}"`:''}>
+        <div class="crs-snav"><button class="round-btn" data-act="crs-slide" data-d="-1" ${k===0?'disabled':''} aria-label="Назад">${ICON.back}</button><b class="tnum">${k+1} / ${sl.files.length}</b><button class="round-btn flip" data-act="crs-slide" data-d="1" ${k>=sl.files.length-1?'disabled':''} aria-label="Дальше">${ICON.back}</button></div></div>`; }
+    else if(sl.kind==='pdf') body = `<div class="crs-pdf"><iframe data-fref="${fref(sl)}" ${sl.url?`src="${esc(sl.url)}"`:''} title="Презентация"></iframe><a class="btn btn-soft" target="_blank" rel="noopener" data-fref="${fref(sl)}" ${sl.url?`href="${esc(sl.url)}"`:''}>Открыть на весь экран</a></div>`;
+    else body = `<div class="crs-video"><iframe src="${esc(toEmbed(sl.url))}" allowfullscreen loading="lazy" title="Презентация"></iframe></div>`; }
+  else if(S.cPart==='check'){ const done=(DB.progress[me.id]||{})[cKey(c,l)];
+    body = `<section class="box crs-check">${kImg('star')}<h2>Проверь себя</h2><p>${courseSteps(l).reduce((a,s)=>a+(s.qs||s.cards||[]).length,0)} заданий по уроку. ${done?`Пройдено: ${'★'.repeat(done)}`:'Звёзды сохранятся в курсе.'}</p>
+      <button class="btn btn-primary btn-big" data-act="crs-check">${done?'Пройти ещё раз':'Начать проверку'}</button></section>`; }
+  const tabs = parts.map(([k,n])=>`<button role="tab" aria-selected="${k===S.cPart}" data-act="crs-part" data-id="${k}">${n}</button>`).join('');
+  const nx = parts[i+1];
+  return `<div class="crs">${crsTop('crs-back', l.title, `${c.title} · Урок ${S.cLes+1}`)}
+    <main class="crs-main"><nav class="crs-tabs" role="tablist">${tabs}</nav>${body}
+      ${nx?`<div class="crs-foot"><button class="btn btn-primary btn-big" data-act="crs-part" data-id="${nx[0]}">Дальше: ${nx[1]}</button></div>`
+        : (S.cPart!=='check' && parts.length && !courseSteps(l).length ? `<div class="crs-foot"><button class="btn btn-primary btn-big" data-act="crs-done">Урок пройден</button></div>`:'')}</main></div>`;
+}
+
+/* ================= админ: список курсов и редактор ================= */
+function adCourses(){
+  if(S.editCourse && courseById(S.editCourse)) return courseEditor(courseById(S.editCourse));
+  const L=DB.courses||[];
+  return headBlock('Учёба','Курсы','Отдельные курсы вне садика и мадрасы: видеоурок, конспект, презентация и проверка.', `<button class="btn btn-primary" data-act="crs-new">${ICON.plus} Новый курс</button>`)
+    + (L.length?`<div class="crs-adm">${L.map(c=>`<section class="box crs-adm-card"><div class="crs-adm-h"><span class="crs-ic" style="--cb:${(COURSE_COLORS[c.color]||COURSE_COLORS.sand)[0]}">${kImg(c.icon||'book')}</span>
+        <div><b>${esc(c.title)}</b><span>${c.lessons.length} ${plural(c.lessons.length,'урок','урока','уроков')} · ${courseAudience(c)}</span></div>
+        ${c.published?'<span class="pill good">Открыт</span>':'<span class="pill mute">Черновик</span>'}</div>
+        <div class="row"><button class="btn btn-soft btn-sm" data-act="crs-edit" data-id="${c.id}">${ICON.edit} Редактировать</button><button class="btn btn-soft btn-sm" data-act="crs-preview" data-id="${c.id}">${ICON.eye} Посмотреть</button></div></section>`).join('')}</div>`
+      : '<div class="box empty">Курсов пока нет. Нажмите «Новый курс».</div>');
+}
+function courseAudience(c){ const a=c.access||{}; if(a.all) return 'для всех учеников';
+  const n=(a.classes||[]).length, m=(a.members||[]).length; if(!n && !m) return 'доступ никому не выдан';
+  return [n?`${n} ${plural(n,'группа','группы','групп')}`:'', m?`${m} ${plural(m,'ученик','ученика','учеников')}`:''].filter(Boolean).join(' и '); }
+function courseEditor(c){
+  const a=c.access=c.access||{all:false,classes:[],members:[]};
+  const grp = d => [1,2,3].map(n=>sortGroups(DB.classes.filter(x=>x.dep===d && x.n===n)).map(x=>`<label class="chk"><input type="checkbox" data-act="crs-cls" data-id="${x.id}" ${a.classes.includes(x.id)?'checked':''} ${a.all?'disabled':''}><span>${esc(className(x))}</span></label>`).join('')).join('');
+  const others = students().filter(s=>!a.classes.includes(s.classId)).sort((x,y)=>x.name.localeCompare(y.name));
+  const les = c.lessons.map((l,i)=>`<li class="crs-ed-les"><span class="crs-num">${i+1}</span><div><b>${esc(l.title)}</b><small>${lessonParts(l).map(x=>x[1]).join(' · ')||'пусто'}</small></div>
+      <button class="icon-btn" data-act="crs-lmove" data-i="${i}" data-d="-1" ${i===0?'disabled':''} aria-label="Выше">↑</button><button class="icon-btn" data-act="crs-lmove" data-i="${i}" data-d="1" ${i===c.lessons.length-1?'disabled':''} aria-label="Ниже">↓</button>
+      <button class="btn btn-soft btn-sm" data-act="crs-ledit" data-i="${i}">${ICON.edit} Открыть</button><button class="icon-btn" data-act="crs-ldel" data-i="${i}" aria-label="Удалить урок">${ICON.trash}</button></li>`).join('');
+  return `<button class="back-link" data-act="crs-close">${ICON.back} Все курсы</button>`
+    + headBlock('Курс', esc(c.title), '', `<button class="btn btn-soft" data-act="crs-preview" data-id="${c.id}">${ICON.eye} Посмотреть как ученик</button>`)
+    + `<section class="box crs-ed"><h3>Основное</h3>
+      <div class="field"><label for="crs-title">Название</label><input class="input" id="crs-title" data-act="crs-field" data-f="title" maxlength="80" value="${esc(c.title)}"></div>
+      <div class="field"><label for="crs-sub">Подзаголовок</label><input class="input" id="crs-sub" data-act="crs-field" data-f="subtitle" maxlength="140" value="${esc(c.subtitle||'')}" placeholder="Например: для детей 7–12 лет, 10 уроков"></div>
+      <div class="field"><span class="lbl">Цвет</span><div class="crs-swatches">${Object.entries(COURSE_COLORS).map(([k,[b,f]])=>`<button class="sw ${c.color===k?'on':''}" style="background:${b};box-shadow:inset 0 0 0 3px ${f}" data-act="crs-color" data-id="${k}" aria-label="Цвет ${k}"></button>`).join('')}</div></div>
+      <div class="field"><span class="lbl">Значок</span><div class="crs-icons">${COURSE_ICONS.map(n=>`<button class="ic ${c.icon===n?'on':''}" data-act="crs-icon" data-id="${n}" aria-label="${n}">${kImg(n)}</button>`).join('')}</div></div>
+      <label class="switch"><input type="checkbox" data-act="crs-pub" ${c.published?'checked':''}><span>${c.published?'Курс открыт ученикам':'Черновик: ученики не видят'}</span></label>
+      <label class="switch"><input type="checkbox" data-act="crs-order" ${c.order!=='all'?'checked':''}><span>${c.order!=='all'?'Уроки открываются по порядку':'Все уроки открыты сразу'}</span></label>
+    </section>
+    <section class="box crs-ed"><h3>Кому доступен</h3>
+      <label class="chk big"><input type="checkbox" data-act="crs-all" ${a.all?'checked':''}><span>Всем ученикам платформы</span></label>
+      ${a.all?'':`<p class="hint">Или выберите группы:</p><div class="crs-grp"><div><b>Садик</b>${grp('s')}</div><div><b>Мадраса</b>${grp('m')}</div></div>
+      <p class="hint">И отдельных учеников (например, кто купил только этот курс):</p>
+      <div class="crs-mem">${others.length?others.map(s=>`<label class="chk"><input type="checkbox" data-act="crs-mem" data-id="${s.id}" ${a.members.includes(s.id)?'checked':''}><span>${esc(s.name)}${s.classId?` <small>${esc(className(cls(s.classId)))}</small>`:' <small>только курсы</small>'}</span></label>`).join(''):'<p class="hint">Все ученики уже в выбранных группах.</p>'}</div>`}
+      <p class="hint">Ученика «только для курса» можно добавить в разделе «Ученицы» без группы.</p>
+    </section>
+    <section class="box crs-ed"><div class="box-h"><h3>Уроки</h3><button class="btn btn-primary btn-sm" data-act="crs-ladd">${ICON.plus} Добавить урок</button></div>
+      ${c.lessons.length?`<ol class="crs-ed-list">${les}</ol>`:'<p class="hint">Уроков пока нет.</p>'}</section>
+    <div class="row"><button class="btn btn-soft" data-act="crs-del" data-id="${c.id}" style="color:var(--bad)">${ICON.trash} Удалить курс</button></div>`;
+}
+function lessonModal(c, i){
+  const l=c.lessons[i]; S.edLes={cid:c.id,i};
+  const fileBox = (what, ref, accept, label) => `<div class="crs-file" id="fb-${what}">${ref?`<span class="crs-fname">${ICON.check} ${esc(ref.kind==='link'?ref.url:(ref.name||'файл загружен'))}</span><button class="btn btn-soft btn-sm" data-act="crs-fclear" data-w="${what}">Убрать</button>`
+      : `<label class="btn btn-soft btn-sm">${ICON.upload} ${label}<input type="file" hidden accept="${accept}" ${what==='slides-img'?'multiple':''} data-act="crs-upload" data-w="${what}"></label>`}<span class="crs-prog" id="pr-${what}"></span></div>`;
+  const sl=l.slides;
+  const q = l.check||(l.check=[]);
+  openModal(`<form class="modal wide" data-form="crs-les" novalidate><div class="m-h"><h2>Урок ${i+1}</h2><button type="button" class="icon-btn" data-act="modal-close" aria-label="Закрыть">${ICON.x}</button></div>
+    <div class="field"><label for="cl-title">Название урока</label><input class="input" id="cl-title" maxlength="120" value="${esc(l.title)}"></div>
+    <h3>1. Видео</h3><p class="hint">Загрузите файл (до 50 МБ на бесплатном тарифе) или вставьте ссылку на YouTube, Rutube или VK Видео.</p>
+    ${fileBox('video', l.video&&l.video.kind!=='link'?l.video:null, 'video/mp4,video/webm,video/quicktime', 'Загрузить видео')}
+    <div class="field"><input class="input" id="cl-vlink" placeholder="или ссылка на видео" value="${esc(l.video&&l.video.kind==='link'?l.video.url:'')}"></div>
+    <h3>2. Конспект</h3><p class="hint">Пустая строка — новый абзац. Строка с «- » — пункт списка. **Слово** — жирным. Строка с «# » — подзаголовок.</p>
+    <textarea class="input" id="cl-notes" rows="8">${esc(l.notes||'')}</textarea>
+    <h3>3. Презентация</h3><p class="hint">Лучше всего картинками (PNG или JPG по слайдам): так удобнее листать на телефоне. Можно PDF или ссылку на Canva.</p>
+    ${sl && sl.kind==='images' ? `<div class="crs-file"><span class="crs-fname">${ICON.check} ${sl.files.length} ${plural(sl.files.length,'слайд','слайда','слайдов')}</span><button class="btn btn-soft btn-sm" data-act="crs-fclear" data-w="slides">Убрать</button></div>`
+      : sl && sl.kind==='pdf' ? fileBox('slides-pdf', sl, 'application/pdf', 'PDF')
+      : `<div class="crs-file">${fileBox('slides-img', null, 'image/png,image/jpeg,image/webp', 'Слайды картинками')}${fileBox('slides-pdf', null, 'application/pdf', 'PDF')}</div>`}
+    <div class="field"><input class="input" id="cl-slink" placeholder="или ссылка на Canva / Google Презентации" value="${esc(sl&&sl.kind==='link'?sl.url:'')}"></div>
+    <h3>4. Проверка</h3>
+    <div id="cl-qs">${q.map((x,k)=>qEditor(x,k)).join('')}</div>
+    <div class="row"><button type="button" class="btn btn-soft btn-sm" data-act="crs-qadd" data-k="choice">${ICON.plus} Вопрос с вариантами</button><button type="button" class="btn btn-soft btn-sm" data-act="crs-qadd" data-k="tf">${ICON.plus} Верно или неверно</button></div>
+    <div class="err" id="m-err" role="alert"></div>
+    <div class="modal-foot"><button type="button" class="btn btn-soft" data-act="modal-close">Отмена</button><button class="btn btn-primary" type="submit">Сохранить урок</button></div></form>`);
+}
+function qEditor(x,k){
+  if(x.kind==='tf') return `<div class="crs-q" data-k="${k}"><div class="crs-qh"><b>Верно или неверно</b><button type="button" class="icon-btn" data-act="crs-qdel" data-k="${k}" aria-label="Удалить">${ICON.trash}</button></div>
+    <input class="input" data-q="s" placeholder="Утверждение" value="${esc(x.s||'')}">
+    <div class="seg-opts"><label class="seg-opt"><input type="radio" name="tf${k}" value="1" ${x.a?'checked':''}><span>Верно</span></label><label class="seg-opt"><input type="radio" name="tf${k}" value="0" ${!x.a?'checked':''}><span>Неверно</span></label></div>
+    <input class="input" data-q="why" placeholder="Пояснение после ответа" value="${esc(x.why||'')}"></div>`;
+  const o=x.o||['','',''];
+  return `<div class="crs-q" data-k="${k}"><div class="crs-qh"><b>Вопрос с вариантами</b><button type="button" class="icon-btn" data-act="crs-qdel" data-k="${k}" aria-label="Удалить">${ICON.trash}</button></div>
+    <input class="input" data-q="q" placeholder="Вопрос" value="${esc(x.q||'')}">
+    ${[0,1,2,3].map(j=>`<label class="crs-opt"><input type="radio" name="ch${k}" value="${j}" ${(x.a||0)===j?'checked':''} aria-label="Правильный ответ"><input class="input" data-q="o${j}" placeholder="Вариант ${j+1}${j>=2?' (можно пусто)':''}" value="${esc(o[j]||'')}"></label>`).join('')}
+    <input class="input" data-q="why" placeholder="Пояснение после ответа" value="${esc(x.why||'')}"></div>`;
+}
+function readQs(){ return $$('#cl-qs .crs-q').map(el=>{ const k=+el.dataset.k; const g=n=>((el.querySelector(`[data-q="${n}"]`)||{}).value||'').trim();
+  if(el.querySelector('[data-q="s"]')) return { kind:'tf', s:g('s'), a:(el.querySelector(`input[name="tf${k}"]:checked`)||{}).value==='1', why:g('why') };
+  const o=[0,1,2,3].map(j=>g('o'+j)); const a=+((el.querySelector(`input[name="ch${k}"]:checked`)||{}).value||0);
+  const keep=o.map((v,j)=>[v,j]).filter(([v])=>v); return { kind:'choice', q:g('q'), o:keep.map(x=>x[0]), a:Math.max(0,keep.findIndex(x=>x[1]===a)), why:g('why') }; }); }
+let LES_DRAFT=null;
+function draftFromModal(){ const c=courseById(S.edLes.cid), l=c.lessons[S.edLes.i]; LES_DRAFT = LES_DRAFT || JSON.parse(JSON.stringify(l));
+  LES_DRAFT.title=$('#cl-title').value; LES_DRAFT.notes=$('#cl-notes').value; LES_DRAFT.check=readQs();
+  const vl=$('#cl-vlink').value.trim(); if(vl) LES_DRAFT.video={kind:'link',url:vl}; else if(LES_DRAFT.video && LES_DRAFT.video.kind==='link') LES_DRAFT.video=null;
+  const sk=$('#cl-slink').value.trim(); if(sk) LES_DRAFT.slides={kind:'link',url:sk}; else if(LES_DRAFT.slides && LES_DRAFT.slides.kind==='link') LES_DRAFT.slides=null;
+  return LES_DRAFT; }
+function reopenDraft(){ const c=courseById(S.edLes.cid); const keep=c.lessons[S.edLes.i]; c.lessons[S.edLes.i]=LES_DRAFT; lessonModal(c,S.edLes.i); c.lessons[S.edLes.i]=keep; }
+
+/* загрузка файла с прогрессом */
+function uploadFile(bucket, path, file, onProg){
+  return new Promise(async (res, rej)=>{ try{ await SB.ensure(); }catch(e){ return rej(e); }
+    const x=new XMLHttpRequest(); x.open('POST', `${SB.url}/storage/v1/object/${bucket}/${path}`);
+    x.setRequestHeader('apikey', SB.key); x.setRequestHeader('Authorization','Bearer '+SB.sess.access_token);
+    x.setRequestHeader('Content-Type', (file.type||'application/octet-stream').split(';')[0]); x.setRequestHeader('x-upsert','false');
+    x.upload.onprogress = e=>{ if(e.lengthComputable) onProg(e.loaded/e.total); };
+    x.onload = ()=> x.status<300 ? res() : rej(Object.assign(new Error(x.responseText||('HTTP '+x.status)),{status:x.status}));
+    x.onerror = ()=> rej(new Error('network')); x.send(file); });
+}
+const safeName = n => String(n).toLowerCase().replace(/[^a-z0-9._-]+/g,'-').slice(-60) || 'file';
+async function handleUpload(input){
+  const w=input.dataset.w; const files=[...input.files]; if(!files.length) return; const d=draftFromModal(); const c=courseById(S.edLes.cid);
+  const big=files.find(f=>f.size>50*1024*1024); if(big){ $('#m-err').textContent=`Файл «${big.name}» больше 50 МБ. Для больших видео подключим видеосервис, а пока сожмите видео или дайте ссылку.`; return; }
+  const pr=$('#pr-'+w); const refs=[];
+  for(const [n,f] of files.entries()){
+    if(!LIVE){ refs.push({ kind:'file', url:URL.createObjectURL(f), name:f.name, size:f.size }); continue; }
+    const path=`${c.id}/${d.id}/${Date.now()}-${n}-${safeName(f.name)}`;
+    try{ await uploadFile('course-files', path, f, p=>{ if(pr) pr.textContent=`Загружаем ${files.length>1?`${n+1}/${files.length} `:''}… ${Math.round(p*100)}%`; }); refs.push({ kind:'file', path, name:f.name, size:f.size }); }
+    catch(e){ $('#m-err').textContent='Не получилось загрузить файл. Проверьте интернет и что хранилище курсов подключено (файл 06-courses).'; if(pr) pr.textContent=''; return; }
+  }
+  if(w==='video') d.video=refs[0];
+  if(w==='slides-pdf') d.slides={ ...refs[0], kind:'pdf' };
+  if(w==='slides-img') d.slides={ kind:'images', files:refs };
+  reopenDraft(); toast(LIVE?'Файл загружен':'Файл добавлен (в демо не сохраняется)');
+}
+
+/* ================= учитель: кто как проходит курсы ================= */
+function tCourses(){
+  const L=(DB.courses||[]).filter(c=>c.published);
+  if(!L.length) return headBlock('Учёба','Курсы','Здесь будут курсы, которые открыл администратор.')+'<div class="box empty">Открытых курсов пока нет.</div>';
+  if(!courseById(S.tCourse)) S.tCourse=L[0].id; const c=courseById(S.tCourse);
+  const who = students().filter(s=>canSeeCourse(s,c));
+  const seg = L.map(x=>`<button aria-pressed="${x.id===c.id}" data-act="crs-tsel" data-id="${x.id}">${esc(x.title)}</button>`).join('');
+  return headBlock('Учёба','Курсы','Кто сколько уроков прошёл. Посмотреть курс глазами ученика можно кнопкой справа.', `<button class="btn btn-soft btn-sm" data-act="crs-preview" data-id="${c.id}">${ICON.eye} Посмотреть курс</button>`)
+    + `<div class="toolbar"><div class="seg" role="group" aria-label="Курс">${seg}</div></div>`
+    + (who.length?`<div class="table-wrap"><table class="tbl"><thead><tr><th>Ученик</th><th>Группа</th>${c.lessons.map((l,i)=>`<th title="${esc(l.title)}">${i+1}</th>`).join('')}<th>Итого</th></tr></thead>
+      <tbody>${who.map(s=>{ const p=DB.progress[s.id]||{}; return `<tr><td><b>${esc(s.name)}</b></td><td>${s.classId?esc(className(cls(s.classId))):'<span class="hint">только курс</span>'}</td>${c.lessons.map(l=>`<td>${p[cKey(c,l)]?'★'.repeat(p[cKey(c,l)]):'<span class="hint">·</span>'}</td>`).join('')}<td class="tnum"><b>${courseDone(s.id,c)}</b>/${c.lessons.length}</td></tr>`; }).join('')}</tbody></table></div>`
+      : '<div class="box empty">Курс пока никому не открыт.</div>');
+}
+
+/* ================= события ================= */
+document.addEventListener('click', e=>{
+  const el=e.target.closest('[data-act^="crs-"]'); if(!el) return;
+  const a=el.dataset.act; const c=courseById(S.editCourse);
+  switch(a){
+    case 'crs-open': S.courseId=el.dataset.id; go('course'); return;
+    case 'crs-list': S.courseCtx=null; go('courses'); return;
+    case 'crs-mine': S.courseCtx=null; go('courses'); return;
+    case 'crs-home': S.courseCtx=null; go('home'); return;
+    case 'crs-les': S.cLes=+el.dataset.i; S.cPart=null; S.cSlide=0; go('clesson'); return;
+    case 'crs-back': go('course'); return;
+    case 'crs-part': S.cPart=el.dataset.id; S.cSlide=0; render(); window.scrollTo(0,0); return;
+    case 'crs-slide': S.cSlide=Math.max(0,(S.cSlide||0)+(+el.dataset.d)); render(); return;
+    case 'crs-check': S.courseCtx={cid:S.courseId}; S.level={i:S.cLes}; go('level'); return;
+    case 'crs-done': { const me=actor(), cc=courseById(S.courseId), l=cc.lessons[S.cLes]; if(!S.viewAs){ DB.progress[me.id]=DB.progress[me.id]||{}; DB.progress[me.id][cKey(cc,l)]=Math.max(1,DB.progress[me.id][cKey(cc,l)]||0); me.last=new Date().toISOString(); } toast('Ма ша Аллах! Урок пройден'); go('course'); return; }
+    case 'crs-preview': { const cc=courseById(el.dataset.id); const st=students().find(s=>canSeeCourse(s,cc)) || students()[0];
+      if(!st){ toast('Сначала добавьте хотя бы одного ученика'); return; } sandboxEnter(); S.viewAs=st.id; S.courseId=cc.id; go('course'); return; }
+    case 'crs-tsel': S.tCourse=el.dataset.id; render(); return;
+    case 'crs-tocourse': S.courseCtx=null; go('course'); return;
+  }
+  if(!guardAdmin()) return;
+  switch(a){
+    case 'crs-new': { const id=uid('c'); DB.courses=DB.courses||[]; DB.courses.push({ id, title:'Новый курс', subtitle:'', color:'sand', icon:'book', published:false, order:'seq', access:{all:false,classes:[],members:[]}, lessons:[] }); S.editCourse=id; render(); break; }
+    case 'crs-edit': S.editCourse=el.dataset.id; render(); window.scrollTo(0,0); break;
+    case 'crs-close': S.editCourse=null; render(); break;
+    case 'crs-color': c.color=el.dataset.id; render(); break;
+    case 'crs-icon': c.icon=el.dataset.id; render(); break;
+    case 'crs-ladd': c.lessons.push({ id:uid('l'), title:`Урок ${c.lessons.length+1}`, video:null, notes:'', slides:null, check:[] }); LES_DRAFT=null; lessonModal(c, c.lessons.length-1); render(); break;
+    case 'crs-ledit': LES_DRAFT=null; lessonModal(c, +el.dataset.i); break;
+    case 'crs-lmove': { const i=+el.dataset.i, j=i+(+el.dataset.d); [c.lessons[i],c.lessons[j]]=[c.lessons[j],c.lessons[i]]; render(); break; }
+    case 'crs-ldel': { const i=+el.dataset.i; confirmBox('Удалить урок?', `«${esc(c.lessons[i].title)}» и его материалы пропадут из курса. Звёзды учеников за этот урок перестанут считаться.`, 'Удалить', ()=>{ c.lessons.splice(i,1); render(); toast('Урок удалён'); }); break; }
+    case 'crs-del': confirmBox('Удалить курс?', `«${esc(c.title)}» исчезнет у всех учеников. Это нельзя отменить.`, 'Удалить', ()=>{ DB.courses=DB.courses.filter(x=>x.id!==c.id); S.editCourse=null; render(); toast('Курс удалён'); }); break;
+    case 'crs-qadd': { const d=draftFromModal(); d.check.push(el.dataset.k==='tf'?{kind:'tf',s:'',a:true,why:''}:{kind:'choice',q:'',o:['','',''],a:0,why:''}); reopenDraft(); break; }
+    case 'crs-qdel': { const d=draftFromModal(); d.check.splice(+el.dataset.k,1); reopenDraft(); break; }
+    case 'crs-fclear': { const d=draftFromModal(); if(el.dataset.w==='video') d.video=null; else d.slides=null; reopenDraft(); break; }
+  }
+});
+document.addEventListener('change', e=>{
+  const el=e.target; if(!el.dataset || !el.dataset.act || !el.dataset.act.startsWith('crs-')) return;
+  if(el.dataset.act==='crs-upload'){ if(!guardAdmin()) return; handleUpload(el); return; }
+  const c=courseById(S.editCourse); if(!c || !guardAdmin()) return; const A=c.access;
+  switch(el.dataset.act){
+    case 'crs-field': c[el.dataset.f]=el.value.trim() || (el.dataset.f==='title'?'Без названия':''); render(); break;
+    case 'crs-pub': c.published=el.checked; render(); toast(c.published?'Курс открыт ученикам':'Курс скрыт'); break;
+    case 'crs-order': c.order=el.checked?'seq':'all'; render(); break;
+    case 'crs-all': A.all=el.checked; render(); break;
+    case 'crs-cls': { const s=new Set(A.classes); el.checked?s.add(el.dataset.id):s.delete(el.dataset.id); A.classes=[...s]; render(); break; }
+    case 'crs-mem': { const s=new Set(A.members); el.checked?s.add(el.dataset.id):s.delete(el.dataset.id); A.members=[...s]; render(); break; }
+  }
+});
+document.addEventListener('submit', e=>{
+  if(e.target.dataset.form!=='crs-les') return; e.preventDefault(); e.stopImmediatePropagation(); if(!guardAdmin()) return;
+  const d=draftFromModal(); const c=courseById(S.edLes.cid);
+  if(!d.title.trim()){ $('#m-err').textContent='Введите название урока.'; return; }
+  const bad=d.check.find(x=>x.kind==='choice'?(!x.q||x.o.length<2):!x.s); if(bad){ $('#m-err').textContent='В проверке есть незаполненный вопрос: у вопроса нужен текст и хотя бы 2 варианта.'; return; }
+  c.lessons[S.edLes.i]=d; LES_DRAFT=null; closeModal(); render(); toast('Урок сохранён');
+}, true);
+
+/* =========================================================================
    ADMIN
    ========================================================================= */
 const ADMIN_TABS = [
   ['overview','Обзор','home'],['students','Ученицы','kids'],['teachers','Учителя','teacher'],
-  ['classes','Классы','arch'],['schedule','Расписание','layers'],['journal','Журнал','edit'],['quarters','Доступ','lock'],['recs','Записи','spk'],['admins','Админы','shield']
+  ['classes','Классы','arch'],['schedule','Расписание','layers'],['journal','Журнал','edit'],['quarters','Доступ','lock'],['recs','Записи','spk'],['courses','Курсы','trophy'],['admins','Админы','shield']
 ];
 function viewAdmin(){
   const me = actor();
   const counts = {students:students().length, teachers:teachers().length, classes:DB.classes.length, admins:admins().length};
   const nav = ADMIN_TABS.map(([id,n,ic])=>`<button data-act="atab" data-tab="${id}" ${S.adminTab===id?'aria-current="page"':''}>${ICON[ic]} ${n}${counts[id]!=null?`<span class="cnt tnum">${counts[id]}</span>`:''}</button>`).join('');
   const mnav = ADMIN_TABS.map(([id,n])=>`<button data-act="atab" data-tab="${id}" ${S.adminTab===id?'aria-current="page"':''}>${n}</button>`).join('');
-  const body = ({schedule:adSchedule,journal:adJournal,overview:adOverview,students:adStudents,teachers:adTeachers,classes:adClasses,quarters:adQuarters,recs:adRecs,admins:adAdmins})[S.adminTab]();
+  const body = ({schedule:adSchedule,journal:adJournal,overview:adOverview,students:adStudents,teachers:adTeachers,classes:adClasses,quarters:adQuarters,recs:adRecs,courses:adCourses,admins:adAdmins})[S.adminTab]();
   return `<div class="panel">
     <aside class="side">
       <div class="side-brand"><span class="logo">${LOGO}</span><div><b>AL-HUSNA</b><span>Панель управления</span></div></div>
@@ -5814,7 +6235,7 @@ function adOverview(){
 function adStudents(){
   const f = S.filters;
   let list = students();
-  if(f.dep!=='all') list = list.filter(s=>cls(s.classId).dep===f.dep);
+  if(f.dep!=='all') list = list.filter(s=>(cls(s.classId)||{}).dep===f.dep);
   if(f.cls!=='all') list = list.filter(s=>s.classId===f.cls);
   if(f.q) { const q=f.q.toLowerCase(); list = list.filter(s=>s.name.toLowerCase().includes(q)||s.email.includes(q)); }
   const clsOpts = DB.classes.filter(c=>f.dep==='all'||c.dep===f.dep).map(c=>`<option value="${c.id}" ${f.cls===c.id?'selected':''}>${esc(className(c))}</option>`).join('');
@@ -5847,7 +6268,7 @@ function adStudents(){
 function classSelect(id, val){
   const keys=[]; sortGroups(DB.classes).forEach(c=>{ const k=c.dep+c.n; if(!keys.includes(k)) keys.push(k); });
   return `<select class="input" id="${id}">${keys.map(k=>{ const L=sortGroups(DB.classes.filter(c=>c.dep+c.n===k)); const c0=L[0];
-    return `<optgroup label="${DEPS[c0.dep]} · ${c0.n} класс">${L.map(c=>`<option value="${c.id}" ${val===c.id?'selected':''}>${esc(DEPS[c.dep]+' '+c.n+' · '+(groupLabel(c)||'одна группа'))}</option>`).join('')}</optgroup>`; }).join('')}</select>`;
+    return `<optgroup label="${DEPS[c0.dep]} · ${c0.n} класс">${L.map(c=>`<option value="${c.id}" ${val===c.id?'selected':''}>${esc(DEPS[c.dep]+' '+c.n+' · '+(groupLabel(c)||'одна группа'))}</option>`).join('')}</optgroup>`; }).join('')}${id==='s-cls'?`<option value="" ${val===''?'selected':''}>Без группы — только курсы</option>`:''}</select>`;
 }
 function studentModal(s){
   const isNew = !s;
@@ -5957,7 +6378,7 @@ function viewAsModal(){
   openModal(`<div class="modal" role="dialog" aria-label="Посмотреть как">
     <div><h2>Посмотреть как…</h2><p class="sub">Откроется кабинет глазами учителя или ученицы. Ничего не изменится и не сохранится.</p></div>
     <div class="field"><label>Учителя</label><div class="va-list">${teachers().map(t=>row(t, teacherClasses(t.id).map(className).join(', ')||'без класса')).join('')}</div></div>
-    ${['m','s'].map(d=>`<div class="field"><label>Ученицы: ${DEPS[d]}</label><div class="va-list">${students().filter(s=>cls(s.classId).dep===d).map(s=>row(s, className(cls(s.classId)).replace(DEPS[d]+' · ',''))).join('')}</div></div>`).join('')}
+    ${['m','s'].map(d=>`<div class="field"><label>Ученицы: ${DEPS[d]}</label><div class="va-list">${students().filter(s=>(cls(s.classId)||{}).dep===d).map(s=>row(s, className(cls(s.classId)).replace(DEPS[d]+' · ',''))).join('')}</div></div>`).join('')}
     <div class="modal-foot"><button class="btn btn-soft" data-act="modal-close">Закрыть</button></div></div>`);
 }
 
@@ -6001,7 +6422,7 @@ document.addEventListener('click', e=>{
       const a=acc(cid,sid); const cont=contentFor(cid,qi,sid); const max=cont?cont.levels.length:(((subjectsFor(cid).find(x=>x.id===sid)||{}).q||[])[qi]||[]).length;
       a.upto[qi]=Math.max(0,Math.min(max,(a.upto[qi]||0)+(el.dataset.act==='acc-up'?1:-1))); render(); toast(el.dataset.act==='acc-up'?'Урок открыт':'Урок закрыт'); break; }
     case 'open-level': S.level = {i:+el.dataset.i}; go('level'); break;
-    case 'to-map': go('home'); break;
+    case 'to-map': if(S.courseCtx){ S.courseCtx=null; go('clesson'); break; } go('home'); break;
     case 'retry': S.level={i:S.level.i}; go('level'); break;
     case 'next-level': S.level={i:S.level.i+1}; go('level'); break;
     case 'tcls': S.teacherCls = id; render(); break;
@@ -6035,7 +6456,7 @@ document.addEventListener('click', e=>{
     case 'viewas': if(!isAdmin(realMe())) return; closeModal();
       if(LIVE && SNAP){ clearTimeout(syncTimer); syncTimer=null; syncNow(); }   // сначала сохранить своё
       sandboxEnter(); S.viewAs = id; S.tq=0; S.teacherCls=null; go('home'); break;
-    case 'exit-viewas': S.viewAs=null; sandboxExit(); go('home'); toast('Вы снова в админке. Пробные отметки не сохранены.'); break;
+    case 'exit-viewas': S.viewAs=null; S.courseCtx=null; sandboxExit(); go('home'); toast('Вы снова в админке. Пробные отметки не сохранены.'); break;
     case 'modal-close': closeModal(); break;
     case 'f-dep': S.filters.dep = el.dataset.v; S.filters.cls='all'; render(); break;
     case 'student-new': studentModal(null); break;
@@ -6204,7 +6625,7 @@ const SB = {
     if(!r.ok){ const t=await r.text(); throw Object.assign(new Error(t||('HTTP '+r.status)), {status:r.status}); } },
 };
 
-const SCHOOL_KEYS = ['classes','subjects','schedule','holidays','quarters','access','cancels'];
+const SCHOOL_KEYS = ['classes','subjects','schedule','holidays','quarters','access','cancels','courses'];
 const clone = x => x===undefined ? undefined : JSON.parse(JSON.stringify(x));
 let SEED = null, SNAP = null, lastLoad = 0;
 const isStaffRole = r => r==='owner' || r==='admin' || r==='teacher';
@@ -6245,7 +6666,7 @@ async function loadAll(){
   DB.journal = {}; jr.forEach(r => { DB.journal[r.key] = r.data; });
   SNAP = takeState();                       // что лежит на сервере
   /* чего на сервере ещё нет — берём из начальных данных (админ их сохранит) */
-  SCHOOL_KEYS.forEach(k => { if(DB[k]===undefined || DB[k]===null) DB[k] = clone(SEED[k]) ?? (k==='holidays'||k==='classes'||k==='subjects'||k==='schedule' ? [] : {}); });
+  SCHOOL_KEYS.forEach(k => { if(DB[k]===undefined || DB[k]===null) DB[k] = clone(SEED[k]) ?? (k==='holidays'||k==='classes'||k==='subjects'||k==='schedule'||k==='courses' ? [] : {}); });
   DB.classes.forEach(c => { if(!DB.quarters[c.id]) DB.quarters[c.id] = defaultQuarters(c); });
   Object.keys(DB.access).forEach(cid => { if(DB.access[cid].osn && DB.quarters[cid]) DB.access[cid].osn.q = DB.quarters[cid]; });
   if(isAdminRole(me.role) && sk.classes===undefined){       // самый первый вход админа: заносим учителей
@@ -6267,7 +6688,11 @@ async function syncNow(){
     const changed = (sec, ok) => Object.keys(cur[sec]).filter(k => cur[sec][k]!==SNAP[sec][k] && ok(k));
     const removed = (sec, ok) => Object.keys(SNAP[sec]).filter(k => cur[sec][k]===undefined && SNAP[sec][k]!==undefined && ok(k));
     const sk = changed('school', k => admin || (role==='teacher' && (k==='access' || k==='cancels')));
-    if(sk.length){ await SB.upsert('school', sk.map(k => ({ key:k, data:JSON.parse(cur.school[k]), updated_by: me.email }))); sk.forEach(k => SNAP.school[k] = cur.school[k]); }
+    for(const k of sk){
+      try{ await SB.upsert('school', [{ key:k, data:JSON.parse(cur.school[k]), updated_by: me.email }]); SNAP.school[k] = cur.school[k]; }
+      catch(e){ if(e.status===403 || e.status===400 || /row-level security|violates/i.test(e.message)){ SNAP.school[k] = cur.school[k];
+          toast(k==='courses' ? 'Курсы не сохранились: в Supabase нужно один раз запустить файл 06-courses.' : 'Нет прав на это изменение, оно не сохранено.'); }
+        else throw e; } }
     if(admin){
       const mine = k => { const r = JSON.parse(cur.members[k] || SNAP.members[k]); return role==='owner' || r.role!=='owner'; };
       const up = changed('members', mine), del = removed('members', k => role==='owner' || JSON.parse(SNAP.members[k]).role!=='owner');
@@ -6336,7 +6761,7 @@ async function liveVerify(code){
   try{ await SB.verify(S.loginEmail, code); }
   catch(e){ S.busy = false; S.attempts++; S.codeErr = S.attempts>=5 ? '' : `Код не подошёл или устарел. Осталось попыток: ${5-S.attempts}.`; render(); return; }
   try{ await liveEnter(); }
-  catch(e){ S.busy = false; await SB.logout(); SNAP = null; S.loginErr = e.code==='no_access' ? NO_ACCESS : 'Не получилось загрузить данные. Проверьте интернет и войдите снова.'; go('login'); }
+  catch(e){ console.warn('enter failed', e); S.busy = false; await SB.logout(); SNAP = null; S.loginErr = e.code==='no_access' ? NO_ACCESS : 'Не получилось загрузить данные. Проверьте интернет и войдите снова.'; go('login'); }
 }
 async function liveLogout(){
   liveLoading('Сохраняем и выходим…');
@@ -6349,7 +6774,7 @@ async function liveLogout(){
 }
 async function boot(){
   if(!LIVE){ S.me='a0'; S.route='home'; render(); return; }   // демо: сразу в админке, без входа
-  SEED = clone({ classes:DB.classes, subjects:DB.subjects, schedule:DB.schedule, holidays:DB.holidays, quarters:DB.quarters, access:{}, cancels:{},
+  SEED = clone({ classes:DB.classes, subjects:DB.subjects, schedule:DB.schedule, holidays:DB.holidays, quarters:DB.quarters, access:{}, cancels:{}, courses:[],
     teachers: DB.users.filter(u => u.role==='teacher') });
   DB.users = []; DB.progress = {}; DB.journal = {};
   try{ S.loginEmail = localStorage.getItem('alh_last_email') || ''; }catch(_){}
