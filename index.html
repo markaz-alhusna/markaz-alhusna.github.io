@@ -347,9 +347,132 @@ select.input{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg 
 .acc-step .icon-btn{width:30px;height:30px;font-size:18px;font-weight:800;background:var(--white)}
 @media (max-width:760px){ .q-row.acc-row{grid-template-columns:48px minmax(0,1fr);row-gap:10px} .acc-row .acc-step,.acc-row .date,.acc-row .switch{grid-column:1/-1} }
 
-.k-let{display:inline-grid;place-items:center;width:1.25em;height:1.25em;border-radius:.28em;font-family:Amiri,'Noto Naskh Arabic',serif;font-size:1em;line-height:1;padding-bottom:.12em;color:#14315C;background:radial-gradient(circle at 35% 28%,#FFFFFF 0%,#FFF1C9 55%,#F2C24A 100%);box-shadow:inset 0 -6px 0 rgba(201,143,30,.35),0 8px 12px -6px rgba(20,49,92,.35)}
-.k-pic .halq{height:2.6em;width:auto}
-.k-pic.big .halq{height:3.4em}
+/* ===== Таджвид садика: цветные буквы, домики, история, поезд, тянем звук ===== */
+.k-let{--c1:#FFF1C9;--c2:#F2C24A;display:inline-grid;place-items:center;width:1.25em;height:1.25em;border-radius:.3em;font-family:Amiri,'Noto Naskh Arabic',serif;font-size:1em;line-height:1;padding-bottom:.12em;color:#14315C;
+  background:radial-gradient(circle at 32% 24%,#FFFFFF 0%,var(--c1) 48%,var(--c2) 100%);
+  box-shadow:inset 0 -.09em 0 rgba(0,0,0,.12),inset 0 .05em 0 rgba(255,255,255,.8),0 .12em .18em -.08em rgba(20,49,92,.4)}
+.k-pic .halq{height:2.8em;width:auto}
+.k-pic.big .halq{height:3.6em}
+.halq .hfl.on rect{animation:floorglow 1.4s ease-in-out infinite}
+@keyframes floorglow{50%{fill:#FFE38A}}
+.halq .hres.pop{animation:respop .6s cubic-bezier(.2,1.6,.4,1) both;transform-box:fill-box;transform-origin:center}
+@keyframes respop{from{transform:scale(0)}}
+.k-bin .halq{height:2.4em}
+
+/* история */
+.k-story{padding:14px;gap:12px;overflow:hidden;position:relative}
+.k-story.bg-sky{background:linear-gradient(180deg,#D6EEF8 0%,#EFF8FB 62%,#DCEFC9 62%,#C7E3AE 100%)}
+.k-story.bg-meadow{background:linear-gradient(180deg,#E3F3DC 0%,#F6FBEF 62%,#CFE7B4 62%,#B9DA9A 100%)}
+.k-story.bg-water{background:linear-gradient(180deg,#D3EEF2 0%,#EEF8F8 62%,#BFE3E3 62%,#A6D6D6 100%)}
+.k-story.bg-gift{background:linear-gradient(180deg,#FCE8DE 0%,#FFF6EF 62%,#F6D9B8 62%,#EFC99F 100%)}
+.k-story.bg-final{background:linear-gradient(180deg,#E8E1FA 0%,#F7F3FF 62%,#D9EFC9 62%,#C3E2AC 100%)}
+.st-bubble{position:relative;width:100%;background:#FFFDF7;border-radius:22px;padding:14px 18px;box-shadow:0 8px 0 rgba(20,49,92,.08),inset 0 0 0 2px rgba(20,49,92,.06);min-height:76px;display:grid;align-items:center}
+.st-bubble::after{content:"";position:absolute;bottom:-14px;right:22%;border:14px solid transparent;border-top-color:#FFFDF7;border-bottom:0}
+.st-bubble.narr{background:#14315C;color:#fff}
+.st-bubble.narr::after{border-top-color:#14315C;right:auto;left:50%;margin-left:-14px}
+.st-bubble p{margin:0;font-size:clamp(16px,2.4vw,19px);font-weight:700;line-height:1.4;color:inherit;text-align:center}
+.st-bubble:not(.narr) p{color:var(--navy)}
+.st-bubble.pop{animation:bubpop .45s cubic-bezier(.2,1.5,.4,1) both}
+@keyframes bubpop{from{transform:scale(.85);opacity:0}}
+.st-scene{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:end;gap:10px;min-height:250px}
+.st-scene.solo{grid-template-columns:minmax(0,1fr);min-height:220px}
+.st-house{display:grid;place-items:end center}
+.st-house .halq{width:100%;max-width:250px;height:auto}
+.st-stage{position:relative;display:grid;place-items:end center;min-height:200px}
+.st-char{position:relative;display:grid;justify-items:center;animation:charin .7s cubic-bezier(.2,1.4,.4,1) both;cursor:pointer;padding-bottom:14px}
+.st-char .st-body{display:grid;place-items:center;width:118px;height:118px;border-radius:34px;font-family:Amiri,'Noto Naskh Arabic',serif;font-size:76px;line-height:1;padding-bottom:12px;color:#14315C;
+  background:radial-gradient(circle at 32% 24%,#FFFFFF 0%,var(--c1,#FFF1C9) 46%,var(--c2,#F2C24A) 100%);
+  box-shadow:inset 0 -8px 0 rgba(0,0,0,.12),inset 0 4px 0 rgba(255,255,255,.8),0 14px 18px -10px rgba(20,49,92,.45)}
+.st-char .st-foot{position:absolute;bottom:0;left:30px;width:26px;height:16px;border-radius:13px 13px 8px 8px;background:var(--c2,#F2C24A);box-shadow:inset 0 -4px 0 rgba(0,0,0,.15)}
+.st-char .st-foot.r{left:auto;right:30px}
+.st-char::after{content:"";position:absolute;bottom:-6px;left:14%;right:14%;height:10px;border-radius:50%;background:rgba(20,49,92,.14);z-index:-1}
+.st-char.talk .st-body{animation:chartalk .5s ease-in-out infinite}
+.st-char.gone{animation:charout .4s forwards}
+@keyframes charin{from{transform:translateX(120px) scale(.6);opacity:0}60%{transform:translateX(-6px) scale(1.04)}}
+@keyframes charout{to{transform:translateX(-60px) scale(.6);opacity:0}}
+@keyframes chartalk{0%,100%{transform:none}30%{transform:translateY(-10px) scaleY(1.04)}60%{transform:translateY(0) scaleY(.94) scaleX(1.04)}}
+.k-story .k-dots{justify-content:center}
+@media (max-width:560px){
+  .st-scene{min-height:200px;gap:6px}
+  .st-char .st-body{width:92px;height:92px;font-size:60px;border-radius:28px}
+  .st-char .st-foot{left:22px;width:22px;height:13px}.st-char .st-foot.r{right:22px;left:auto}
+  .st-stage{min-height:160px}
+}
+
+/* поезд */
+.k-train{padding:14px;gap:12px;overflow:hidden}
+.k-train.bg-sky{background:linear-gradient(180deg,#DDF0F7,#FFF8EC)}
+.tr-track{position:relative;width:100%;overflow:hidden;padding:10px 4px 6px}
+.tr-row{display:flex;align-items:flex-end;justify-content:center;gap:8px;animation:trin 1s cubic-bezier(.2,1,.4,1) both}
+.tr-row.go{animation:trgo 2s ease-in forwards}
+.tr-row.go .tr-puffs circle{animation:puff .6s ease-out infinite}
+@keyframes trin{from{transform:translateX(-110%)}}
+@keyframes trgo{to{transform:translateX(130%)}}
+@keyframes puff{from{transform:translate(0,0) scale(.6);opacity:1}to{transform:translate(-14px,-18px) scale(1.4);opacity:0}}
+.tr-loco{width:clamp(84px,16vw,120px);height:auto;flex:none}
+.tr-car{position:relative;width:clamp(70px,14vw,104px);aspect-ratio:1/1.05;border-radius:18px 18px 12px 12px;background:var(--cc);display:grid;place-items:center;align-content:center;gap:0;padding:6px 4px 18px;box-shadow:inset 0 -8px 0 rgba(0,0,0,.14),0 8px 14px -8px rgba(20,49,92,.4);flex:none;transition:transform .2s}
+.tr-car .tr-let{display:grid;place-items:center;width:80%;aspect-ratio:1/1;border-radius:14px;background:#FFFDF7;font-family:Amiri,'Noto Naskh Arabic',serif;font-size:clamp(34px,6vw,50px);line-height:1;padding-bottom:6px;color:#14315C}
+.tr-car small{position:absolute;bottom:20px;font-weight:800;font-size:13px;color:#14315C}
+.tr-car.ok .tr-let{background:radial-gradient(circle at 32% 24%,#fff 0%,var(--c1,#FFF1C9) 55%,var(--c2,#F2C24A) 100%)}
+.tr-car .tr-w{position:absolute;bottom:-10px;left:12%;width:22px;height:22px;border-radius:50%;background:#2A3E5C;box-shadow:inset 0 0 0 6px #2A3E5C,inset 0 0 0 11px #F6C94B}
+.tr-car .tr-w.r{left:auto;right:12%}
+.tr-rail{height:8px;margin-top:10px;border-radius:4px;background:repeating-linear-gradient(90deg,#9C6A3A 0 14px,#C9A36E 14px 22px)}
+.tr-hint{margin:0;text-align:center;font-weight:700;color:var(--navy-soft);font-size:14px}
+.tr-marks{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;width:100%}
+.tr-mark{display:grid;justify-items:center;gap:2px;padding:10px 6px;border-radius:20px;background:#FFFDF7;box-shadow:0 6px 0 rgba(20,49,92,.12),inset 0 0 0 2px rgba(20,49,92,.08);transition:transform .15s}
+.tr-mark .tr-dot{font-family:Amiri,'Noto Naskh Arabic',serif;font-size:46px;line-height:1.1;color:#14315C}
+.tr-mark b{font-size:16px;color:var(--navy)}
+.tr-mark small{font-size:14px;color:var(--navy-soft);font-weight:700}
+.tr-mark.sel{background:#FFF3C4;box-shadow:0 6px 0 #E0A53A,inset 0 0 0 3px #F2B53A;transform:translateY(-3px)}
+@media (max-width:560px){ .tr-row{gap:5px} .tr-car{width:64px} .tr-loco{width:74px} .tr-car .tr-w{width:18px;height:18px;bottom:-8px} }
+
+/* тянем звук */
+.k-stretch{padding:16px;gap:12px}
+.sx-top{display:flex;align-items:center;justify-content:center;gap:16px;width:100%}
+.sx-top .k-let.sx-syl{font-size:clamp(84px,16vw,110px)}
+.sx-band{position:relative;width:100%;max-width:520px;height:60px}
+.sx-band svg{position:absolute;inset:0;width:100%;height:100%}
+.sx-band .sx-peg{position:absolute;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:#FFFDF7;box-shadow:inset 0 0 0 4px #C9B79A}
+.sx-band .p0{left:3.3%}.sx-band .p1{left:50%}.sx-band .p2{left:96.7%}
+.sx-band .sx-peg.on{background:#F6C94B;box-shadow:inset 0 0 0 4px #E0A53A;animation:respop .4s both}
+.sx-band.snap svg{animation:snap .35s ease-out}
+@keyframes snap{30%{transform:scaleY(1.6)}60%{transform:scaleY(.7)}}
+.sx-lbl{display:flex;justify-content:space-between;width:100%;max-width:520px;font-size:13px;font-weight:700;color:var(--navy-soft)}
+.sx-hold{width:100%;max-width:520px;min-height:72px;border-radius:24px;font-size:20px;font-weight:800;color:#14315C;background:linear-gradient(180deg,#FFE8A3,#F6C94B);box-shadow:0 8px 0 #D89F2A;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;touch-action:none}
+.sx-hold.down{transform:translateY(6px);box-shadow:0 2px 0 #D89F2A;background:linear-gradient(180deg,#FFD66B,#EDB33A)}
+.sx-fb{margin:0;min-height:24px;font-weight:800;text-align:center;color:var(--navy-soft)}
+.sx-fb.ok{color:#2E8B4F}.sx-fb.no{color:#C0453A}
+@media (prefers-reduced-motion:reduce){ .st-char,.st-char.talk .st-body,.tr-row,.tr-row.go,.st-bubble.pop{animation:none} }
+/* где живёт буква */
+.k-hsort{padding:14px;gap:12px;background:linear-gradient(180deg,#E3F3FA,#FFF8EC)}
+.hs-cur{display:grid;justify-items:center;gap:4px;min-height:150px}
+.hs-cur b{font-size:20px;color:var(--navy)}
+.hs-houses{display:grid;gap:12px;width:100%;justify-items:center;align-items:end}
+.hs-houses.n1{grid-template-columns:minmax(0,320px);justify-content:center}
+.hs-houses.n2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.hs-houses.n3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.hs-house{width:100%;cursor:pointer;border-radius:22px;transition:transform .15s}
+.hs-house svg{width:100%;height:auto;display:block}
+.hs-house .hfl{cursor:pointer}
+.hs-house .hfl:hover rect{stroke:#F2B53A;stroke-width:4}
+.hs-houses.whole .hs-house:hover{transform:translateY(-4px)}
+.st-scene{position:relative}
+.st-sun{position:absolute;top:0;right:4px;width:clamp(48px,9vw,70px);opacity:.95;pointer-events:none;animation:sunspin 14s linear infinite}
+.st-sun img{width:100%;height:auto;display:block}
+@keyframes sunspin{to{transform:rotate(360deg)}}
+.st-scene.solo .st-stage{display:flex;justify-content:center;align-items:flex-end;gap:14px;flex-direction:row-reverse}
+.st-scene.solo .st-bubble{}
+.k-story .st-scene.solo ~ .k-dots{margin-top:0}
+.st-char.past{animation:none;opacity:.9;cursor:default}
+.st-char.past .st-body{width:76px;height:76px;font-size:48px;border-radius:22px;padding-bottom:8px}
+.st-char.past .st-foot{left:16px;width:18px;height:11px}.st-char.past .st-foot.r{right:16px;left:auto}
+.k-story:has(.st-scene.solo) .st-bubble::after{right:auto;left:50%;margin-left:-14px}
+@media (max-width:560px){ .st-char.past .st-body{width:58px;height:58px;font-size:36px;border-radius:18px} .st-char.past .st-foot{left:12px;width:14px;height:9px}.st-char.past .st-foot.r{right:12px} .st-scene.solo .st-stage{gap:8px} }
+.tr-car small{position:absolute;bottom:auto;top:-24px;left:0;right:0;text-align:center;font-weight:800;font-size:14px;color:#14315C}
+.tr-marks{grid-template-columns:repeat(auto-fit,minmax(110px,170px));justify-content:center}
+.tr-track{padding-top:30px}
+
+@media (max-width:560px){ .hs-cur{min-height:130px} .hs-houses{gap:6px} }
 .k-arch{padding:12px}
 .k-arch svg{width:100%;max-width:420px;height:auto;touch-action:none;user-select:none;cursor:grab;background:linear-gradient(180deg,#DDF0F7,#FFF6E4);border-radius:22px}
 .k-arch .tg{transition:opacity .3s}
@@ -956,6 +1079,7 @@ button.st:hover{box-shadow:inset 0 0 0 2px var(--navy-soft)}
 .k-bin b{font-size:18px}
 .k-got{display:flex;flex-wrap:wrap;gap:4px;justify-content:center;min-height:30px}
 .k-got .k-pic,.k-got span{font-size:24px}
+.k-got .k-pop{animation:respop .5s cubic-bezier(.2,1.6,.4,1) both}
 
 .k-match{display:grid;grid-template-columns:1fr 1fr;gap:clamp(14px,5vw,40px);max-width:560px;width:100%;margin:0 auto}
 .k-col{display:grid;gap:12px}
@@ -2271,83 +2395,77 @@ Object.assign(AYAH, {
 });
 
 
-/* ============== САДИК 1 · ТАДЖВИД · 1 четверть (по программе) ==============
-   «Домик звуков»: у каждой буквы свой этаж — в горлышке или на язычке.
-   Голоса букв: VOICE.files['ء'] = 'hamza.mp3' — записывает устаза. */
-const TJ_FLOORS3 = { bins:[ {id:'top',pic:'#halq:3',label:'Начало горла'}, {id:'mid',pic:'#halq:2',label:'Середина горла'}, {id:'deep',pic:'#halq:1',label:'Глубина горла'} ] };
+/* ============== САДИК 1 · ТАДЖВИД (по программе) ==============
+   «Домик звуков»: у каждой буквы свой этаж в горлышке, на язычке или на губах.
+   Этажи считаются снизу: горло 1 — глубина, 2 — середина, 3 — начало;
+   язык 1 — корень, 2 — середина, 3 — края, 4 — кончик; губы 1 — обе губки, 2 — губка и зубки.
+   Буквы сами рассказывают о себе (шаг «история»). Голоса букв — записи устазы (VOICE.files). */
+const TJ_SAY_HOUSE = 'Где живёт буква? Нажми на её этаж в домике.';
 CONTENT['s1-tajweed-1'] = {
   title:'Домик звуков', ar:'مَخَارِجُ الْحُرُوفِ',
   levels:[
     { id:'TJ1L1', tag:'Урок 1', icon:'%ه', name:'Буквы ء и ه', bg:'sky', steps:[
-      { t:'listen', slides:[
-        { pic:'#halq', say:'Ас-саляму алейкум! Сегодня мы начинаем учить буквы Корана. У каждой буквы есть свой домик в нашем горлышке или на язычке.' },
-        { pic:'#halq:1', say:'В самом низу, в глубине горла, живут две буквы. Давай с ними познакомимся!' },
-        { pic:'%ء', say:'Это хамза. Она звучит коротко и чётко, как будто мы говорим «а» и сразу останавливаемся.' },
-        { pic:'%ه', say:'А это буква ха. Она мягкая, как тёплый выдох. Так мы дышим на стекло, чтобы оно запотело.' },
-        { pic:'%ء %ه', say:'Положи ладошку на горлышко и скажи хамзу. А теперь подыши на ладошку, как буква ха. Чувствуешь? Оба звука идут из глубины горла.' },
+      { t:'story', house:'halq', bg:'sky', beats:[
+        { line:'Ас-саляму алейкум! Это домик звуков. В нём живут буквы Корана. Сегодня к нам придут две буквы из горлышка.' },
+        { who:'ء', floor:1, line:'Ас-саляму алейкум! Я хамза. Я звучу коротко и чётко: сказали «а» и сразу остановились.' },
+        { who:'ء', floor:1, home:1, line:'Я живу в самой глубине горлышка. Бегу на свой этаж!' },
+        { who:'ه', floor:1, line:'А я буква ха. Я мягкая, как тёплый выдох. Так мы дышим на стекло, чтобы оно запотело.' },
+        { who:'ه', floor:1, home:1, line:'Я живу рядом с хамзой, тоже в глубине горла. Мы соседки!' },
+        { floor:1, line:'Положи ладошку на горлышко и скажи хамзу. А теперь подыши, как буква ха. Чувствуешь, откуда идёт звук?' },
       ]},
       { t:'tapone', rounds:[
         { say:'Нажми на хамзу.', opts:[['%ه','ха'],['%ء','хамза']], a:1 },
         { say:'Нажми на букву ха.', opts:[['%ء','хамза'],['%ه','ха']], a:1 },
-        { say:'Где живут хамза и ха?', opts:[['#halq:3','Начало горла'],['#halq:1','Глубина горла']], a:1 },
       ]},
       { t:'balloons', say:'Лопни все шарики с буквой ха!', target:'ه', others:['ء'], need:5, done:'Ма ша Аллах! Все шарики с буквой ха найдены.' },
       { t:'archery', rounds:[
         { say:'Натяни лук и попади в хамзу!', opts:['ء','ه','ه'], a:'ء' },
         { say:'А теперь попади в букву ха!', opts:['ء','ه','ء'], a:'ه' },
-      ], done:'Ма ша Аллах! Хамза и ха — буквы из глубины горла.' },
-      { t:'yesno', rounds:[
-        { pic:'%ه', say:'Буква ха звучит мягко, как тёплый выдох?', a:true, why:'Верно! Ха — мягкий выдох из глубины горла.' },
-        { pic:'%ء', say:'Хамза звучит долго-долго?', a:false, why:'Нет! Хамза короткая: сказали и сразу остановились.' },
-      ]},
+      ], done:'Ма ша Аллах! Хамза и ха живут в глубине горла.' },
     ]},
 
     { id:'TJ1L2', tag:'Урок 2', icon:'%ع', name:'Буквы ع и ح', bg:'meadow', steps:[
-      { t:'listen', slides:[
-        { pic:'#halq:2', say:'Поднимаемся на этаж выше — в середину горла. Здесь живут две новые буквы.' },
-        { pic:'%ع', say:'Это ‘айн. Середина горлышка немного сжимается, и звук получается глубоким и напряжённым.' },
-        { pic:'%ح', say:'А это ха с хрипотцой. Воздух сильно проходит через середину горла, как будто после горячего чая мы говорим «хаа».' },
-        { pic:'%ه %ح', say:'Не путай двух сестричек! Буква ه живёт внизу и звучит мягко. А буква ح живёт в середине и звучит сильнее.' },
+      { t:'story', house:'halq', bg:'meadow', beats:[
+        { floor:2, line:'Поднимаемся на этаж выше — в середину горла. Кто же там живёт?' },
+        { who:'ع', floor:2, line:'Я ‘айн! Когда меня говорят, середина горлышка немного сжимается, и звук получается глубоким.' },
+        { who:'ع', floor:2, home:2, line:'Мой этаж — середина горла. Побежала домой!' },
+        { who:'ح', floor:2, line:'А я сильная ха. Воздух сильно проходит через середину горла: «хаа», как после горячего чая.' },
+        { who:'ح', floor:2, home:2, line:'Не путай меня с мягкой ха из глубины! Я живу в середине.' },
       ]},
       { t:'tapone', rounds:[
-        { say:'Нажми на букву ‘айн.', opts:[['%ح','ха'],['%ع','‘айн'],['%ء','хамза']], a:1 },
-        { say:'Нажми на букву ха из середины горла.', opts:[['%ه','мягкая ха'],['%ح','сильная ха']], a:1 },
+        { say:'Нажми на букву ‘айн.', opts:[['%ح','сильная ха'],['%ع','‘айн'],['%ء','хамза']], a:1 },
+        { say:'Нажми на сильную ха из середины горла.', opts:[['%ه','мягкая ха'],['%ح','сильная ха']], a:1 },
       ]},
-      { t:'sortkid', say:'Где живёт буква? Нажми на нужный этаж домика.', ...TJ_FLOORS3, bins:TJ_FLOORS3.bins.slice(1),
-        items:[ ['%ء','хамза','deep'], ['%ع','‘айн','mid'], ['%ه','мягкая ха','deep'], ['%ح','сильная ха','mid'] ] },
+      { t:'housesort', say:TJ_SAY_HOUSE, houses:['halq'], items:[ ['ء','хамза','halq:1'], ['ع','‘айн','halq:2'], ['ه','мягкая ха','halq:1'], ['ح','сильная ха','halq:2'] ],
+        done:'Ма ша Аллах! Все буквы дома.' },
       { t:'balloons', say:'Лопни все шарики с буквой ‘айн!', target:'ع', others:['ح','ء','ه'], need:5, done:'Ма ша Аллах! Все шарики с буквой ‘айн лопнули.' },
-      { t:'yesno', rounds:[
-        { pic:'%ح', say:'Буква ح живёт в середине горла?', a:true, why:'Верно! ‘Айн и ха — соседки в середине горла.' },
-        { pic:'%ه %ح', say:'Буквы ه и ح звучат одинаково?', a:false, why:'Нет! ه мягкая, а ح звучит сильнее.' },
-      ]},
     ]},
 
     { id:'TJ1L3', tag:'Урок 3', icon:'%خ', name:'Буквы غ и خ', bg:'water', steps:[
-      { t:'listen', slides:[
-        { pic:'#halq:3', say:'Самый верхний этаж горла — его начало, ближе всего к ротику. Здесь живут буквы гайн и хо.' },
-        { pic:'%غ', say:'Это гайн. Он звучит, как будто мы полощем горлышко водичкой: «ггр».' },
-        { pic:'%خ', say:'А это хо. Она похожа на русское «х», только твёрже. Так звучит, когда мы прочищаем горлышко.' },
-        { pic:'#halq', say:'Теперь мы знаем все три этажа горла: глубина, середина и начало. На каждом живут по две буквы.' },
+      { t:'story', house:'halq', bg:'water', beats:[
+        { floor:3, line:'Самый верхний этаж горла — его начало. Он ближе всего к ротику.' },
+        { who:'غ', floor:3, line:'Я гайн! Я звучу, как будто полощем горлышко водичкой: «ггр».' },
+        { who:'غ', floor:3, home:3, line:'Начало горла — мой дом.' },
+        { who:'خ', floor:3, line:'А я хо. Я похожа на русское «х», только твёрже. Так звучит, когда прочищаем горлышко.' },
+        { who:'خ', floor:3, home:3, line:'Теперь на каждом этаже горлышка живут буквы!' },
       ]},
       { t:'memory', say:'Открывай карточки и находи одинаковые буквы!', letters:[['غ','гайн'],['خ','хо'],['ع','‘айн']], done:'Ма ша Аллах! Все пары найдены.' },
-      { t:'sortkid', say:'Где живёт буква? Нажми на нужный этаж.', ...TJ_FLOORS3,
-        items:[ ['%خ','хо','top'], ['%ع','‘айн','mid'], ['%ء','хамза','deep'], ['%غ','гайн','top'], ['%ح','сильная ха','mid'], ['%ه','мягкая ха','deep'] ] },
+      { t:'housesort', say:TJ_SAY_HOUSE, houses:['halq'], items:[ ['خ','хо','halq:3'], ['ع','‘айн','halq:2'], ['ء','хамза','halq:1'], ['غ','гайн','halq:3'], ['ح','сильная ха','halq:2'], ['ه','мягкая ха','halq:1'] ],
+        done:'Ма ша Аллах! Ты знаешь все буквы горлышка.' },
       { t:'archery', rounds:[
         { say:'Попади в букву гайн!', opts:['غ','خ','ع'], a:'غ' },
         { say:'Попади в букву хо!', opts:['ه','خ','ح'], a:'خ' },
       ], done:'Ма ша Аллах! Все буквы горлышка теперь твои друзья.' },
-      { t:'yesno', rounds:[
-        { pic:'%غ', say:'Гайн звучит, как будто полощем горлышко?', a:true, why:'Верно! «Ггр» — это гайн.' },
-        { pic:'#halq', say:'В горлышке три этажа?', a:true, why:'Да! Глубина, середина и начало горла.' },
-      ]},
     ]},
 
     { id:'TJ1L4', tag:'Урок 4', icon:'%ق', name:'Буквы ق и ك', bg:'gift', steps:[
-      { t:'listen', slides:[
-        { pic:'#lisan', say:'А теперь переходим в новый домик — на язычок! У язычка тоже три этажа.' },
-        { pic:'#lisan:3', say:'Самый дальний этаж — корень языка. Здесь живут буквы каф и кяф.' },
-        { pic:'%ق', say:'Это каф. Корень языка поднимается к самому верху нёба, и звук получается густым и толстым: «ка».' },
-        { pic:'%ك', say:'А это кяф. Он живёт чуть ближе к ротику и звучит тоньше: «кя».' },
+      { t:'story', house:'lisan', bg:'gift', beats:[
+        { line:'Из горлышка переходим в новый домик — на язычок! У язычка четыре этажа.' },
+        { floor:1, line:'Самый нижний этаж, рядом с горлышком, — корень языка.' },
+        { who:'ق', floor:1, line:'Я каф! Корень языка поднимается к самому верху нёба, и я звучу густо и толсто: «ка».' },
+        { who:'ق', floor:1, home:1, line:'Мой этаж — корень языка.' },
+        { who:'ك', floor:1, line:'А я кяф. Я живу чуть ближе к ротику и звучу тоньше: «кя».' },
+        { who:'ك', floor:1, home:1, line:'Мы с кафом соседи, только он толстый, а я тоненькая!' },
       ]},
       { t:'tapone', rounds:[
         { say:'Нажми на толстую букву каф.', opts:[['%ك','кяф'],['%ق','каф']], a:1 },
@@ -2358,51 +2476,48 @@ CONTENT['s1-tajweed-1'] = {
         { say:'Попади в букву кяф!', opts:['ق','ك','ق'], a:'ك' },
         { say:'Попади в букву каф!', opts:['ك','ق','خ'], a:'ق' },
       ], done:'Ма ша Аллах! Каф и кяф живут на корне языка.' },
-      { t:'yesno', rounds:[
-        { pic:'%ق', say:'Каф звучит толсто и густо?', a:true, why:'Верно! А кяф звучит тоньше.' },
-        { pic:'#lisan:3', say:'Каф и кяф живут в горлышке?', a:false, why:'Нет! Они живут на корне языка.' },
-      ]},
     ]},
 
     { id:'TJ1L5', tag:'Урок 5', icon:'%ض', name:'Буква ض', bg:'sky', steps:[
-      { t:'listen', slides:[
-        { pic:'%ض', say:'Познакомься с особенной буквой — дад. Такой буквы почти нет в других языках!' },
-        { pic:'#lisan:2', say:'Арабский язык даже называют языком буквы дад, так она знаменита.' },
-        { pic:'%ض', say:'Чтобы сказать дад, край язычка прижимается к верхним боковым зубкам, и звук получается толстым и сильным.' },
+      { t:'story', house:'lisan', bg:'sky', beats:[
+        { who:'ض', floor:3, line:'Ас-саляму алейкум! Я дад — особенная буква. Меня почти нет в других языках!' },
+        { who:'ض', floor:3, line:'Арабский язык даже называют языком буквы дад. Вот какая я знаменитая!' },
+        { who:'ض', floor:3, line:'Чтобы сказать меня, краешек язычка прижимается к верхним боковым зубкам. Звук получается толстым и сильным.' },
+        { who:'ض', floor:3, home:3, line:'Мой этаж — края языка. Побежала!' },
       ]},
       { t:'tapone', rounds:[
         { say:'Нажми на знаменитую букву дад.', opts:[['%ق','каф'],['%ض','дад'],['%ع','‘айн']], a:1 },
-        { say:'Найди ещё раз букву дад.', opts:[['%ض','дад'],['%ك','кяф'],['%ح','ха']], a:0 },
+        { say:'Найди ещё раз букву дад.', opts:[['%ض','дад'],['%ك','кяф'],['%ح','сильная ха']], a:0 },
       ]},
       { t:'memory', say:'Найди одинаковые буквы!', letters:[['ض','дад'],['ق','каф'],['ك','кяф']], done:'Ма ша Аллах! Все пары найдены.' },
       { t:'balloons', say:'Лопни все шарики с буквой дад!', target:'ض', others:['ق','ك','خ'], need:5, done:'Ма ша Аллах! Все буквы дад найдены.' },
-      { t:'yesno', rounds:[
-        { pic:'%ض', say:'Буква дад есть почти во всех языках?', a:false, why:'Нет! Она особенная, её почти нет в других языках.' },
-      ]},
     ]},
 
     { id:'TJ1L6', tag:'Урок 6', icon:'@star2', name:'Повторяем буквы', bg:'final', steps:[
-      { t:'listen', slides:[
-        { pic:'#halq #lisan', say:'Давай вспомним всех букв, с которыми мы уже подружились: шесть букв горлышка и четыре буквы язычка.' },
+      { t:'story', house:'halq', bg:'final', beats:[
+        { line:'Сегодня в гостях все наши друзья! Шесть букв живут в горлышке, а четыре — на язычке.' },
+        { line:'Давай вспомним, кто где живёт, и поиграем вместе с ними.' },
       ]},
+      { t:'housesort', say:'Эта буква живёт в горлышке или на язычке? Нажми на её домик.', houses:['halq','lisan'], whole:true,
+        items:[ ['ع','‘айн','halq'], ['ق','каф','lisan'], ['ه','мягкая ха','halq'], ['ض','дад','lisan'], ['غ','гайн','halq'], ['ك','кяф','lisan'] ],
+        done:'Ма ша Аллах! Все буквы нашли свои домики.' },
       { t:'memory', say:'Найди одинаковые буквы!', letters:[['ء','хамза'],['ح','сильная ха'],['خ','хо'],['ق','каф']], done:'Ма ша Аллах! Все пары найдены.' },
-      { t:'sortkid', say:'Эта буква живёт в горлышке или на язычке?',
-        bins:[ {id:'halq',pic:'#halq',label:'Горлышко'}, {id:'lisan',pic:'#lisan',label:'Язычок'} ],
-        items:[ ['%ع','‘айн','halq'], ['%ق','каф','lisan'], ['%ه','ха','halq'], ['%ض','дад','lisan'], ['%غ','гайн','halq'], ['%ك','кяф','lisan'] ] },
       { t:'archery', rounds:[
         { say:'Попади в хамзу!', opts:['ء','ع','ه'], a:'ء' },
         { say:'Попади в букву дад!', opts:['ق','ض','ك'], a:'ض' },
         { say:'Попади в букву ‘айн!', opts:['غ','ح','ع'], a:'ع' },
       ], done:'Ма ша Аллах! Ты отлично помнишь буквы.' },
-      { t:'balloons', say:'Лопни все шарики с буквой гайн!', target:'غ', others:['ع','خ','ق','ح'], need:5, done:'Ма ша Аллах! Половина пути пройдена.' },
     ]},
 
     { id:'TJ1L7', tag:'Урок 7', icon:'%ل', name:'Буквы ل، ن، ر', bg:'meadow', steps:[
-      { t:'listen', slides:[
-        { pic:'#lisan:1', say:'Идём на самый передний этаж язычка — кончик языка. Здесь живут три подружки.' },
-        { pic:'%ل', say:'Это лям. Кончик языка касается бугорков над верхними зубками: «ля».' },
-        { pic:'%ن', say:'Это нун. Язычок там же, а звук немного уходит в носик: «н».' },
-        { pic:'%ر', say:'А это ра. Кончик языка легонько стучит: «р».' },
+      { t:'story', house:'lisan', bg:'meadow', beats:[
+        { floor:4, line:'Идём на самый верхний этаж язычка — кончик языка. Здесь живут три подружки.' },
+        { who:'ل', floor:4, line:'Я лям! Кончик языка касается бугорков над верхними зубками: «ля».' },
+        { who:'ل', floor:4, home:4, line:'Кончик языка — мой дом.' },
+        { who:'ن', floor:4, line:'Я нун. Язычок там же, а звук немножко уходит в носик: «н».' },
+        { who:'ن', floor:4, home:4, line:'Попробуй зажать носик, и я сразу стану другой!' },
+        { who:'ر', floor:4, line:'А я ра! Кончик язычка легонько стучит: «р».' },
+        { who:'ر', floor:4, home:4, line:'Нас на кончике языка трое!' },
       ]},
       { t:'tapone', rounds:[
         { say:'Нажми на букву лям.', opts:[['%ن','нун'],['%ل','лям'],['%ر','ра']], a:1 },
@@ -2414,27 +2529,455 @@ CONTENT['s1-tajweed-1'] = {
         { say:'Попади в букву ра!', opts:['ل','ر','ن'], a:'ر' },
         { say:'Попади в букву лям!', opts:['ن','ل','ر'], a:'ل' },
       ], done:'Ма ша Аллах! Лям, нун и ра живут на кончике языка.' },
-      { t:'yesno', rounds:[
-        { pic:'%ن', say:'Звук буквы нун немного уходит в носик?', a:true, why:'Верно! Попробуй закрыть носик — нун сразу станет другой.' },
-      ]},
     ]},
 
     { id:'TJ1L8', tag:'Урок 8', icon:'%ش', name:'Буквы ج، ش، ي', bg:'water', steps:[
-      { t:'listen', slides:[
-        { pic:'#lisan:2', say:'Последний этаж этой четверти — середина языка. Здесь живут буквы джим, шин и йа.' },
-        { pic:'%ج', say:'Это джим: «дж».' },
-        { pic:'%ش', say:'Это шин. Звучит, как когда мы просим тишины: «шшш».' },
-        { pic:'%ي', say:'А это йа: «й».' },
-        { pic:'#halq #lisan', say:'Ма ша Аллах! Теперь мы знаем все буквы первой четверти.' },
+      { t:'story', house:'lisan', bg:'water', beats:[
+        { floor:2, line:'Последний этаж этой четверти — середина языка.' },
+        { who:'ج', floor:2, line:'Я джим! Середина язычка поднимается к нёбу: «дж».' },
+        { who:'ج', floor:2, home:2, line:'Я живу в середине языка.' },
+        { who:'ش', floor:2, line:'Я шин. Я звучу, как когда просим тишины: «шшш».' },
+        { who:'ش', floor:2, home:2, line:'И я в середине!' },
+        { who:'ي', floor:2, line:'А я йа: «й». Я тоже живу в середине языка.' },
+        { who:'ي', floor:2, home:2, line:'Ма ша Аллах! Теперь ты знаешь все буквы первой четверти!' },
       ]},
       { t:'memory', say:'Найди одинаковые буквы!', letters:[['ج','джим'],['ش','шин'],['ي','йа']], done:'Ма ша Аллах! Все пары найдены.' },
-      { t:'sortkid', say:'Где живёт буква на язычке? Нажми на нужный этаж.',
-        bins:[ {id:'tip',pic:'#lisan:1',label:'Кончик'}, {id:'mid',pic:'#lisan:2',label:'Середина'}, {id:'root',pic:'#lisan:3',label:'Корень'} ],
-        items:[ ['%ش','шин','mid'], ['%ل','лям','tip'], ['%ق','каф','root'], ['%ي','йа','mid'], ['%ر','ра','tip'], ['%ج','джим','mid'] ] },
+      { t:'housesort', say:'Где живёт буква на язычке? Нажми на её этаж.', houses:['lisan'],
+        items:[ ['ش','шин','lisan:2'], ['ل','лям','lisan:4'], ['ق','каф','lisan:1'], ['ض','дад','lisan:3'], ['ر','ра','lisan:4'], ['ج','джим','lisan:2'] ],
+        done:'Ма ша Аллах! Все буквы язычка дома.' },
       { t:'balloons', say:'Лопни все шарики с буквой шин!', target:'ش', others:['ج','ي','ن'], need:5, done:'Ма ша Аллах! Первая четверть таджвида пройдена!' },
+    ]},
+  ]
+};
+
+/* ---------------- 2 четверть: кончик языка и губы ---------------- */
+CONTENT['s1-tajweed-2'] = {
+  title:'Кончик языка и губы', ar:'طَرَفُ اللِّسَانِ وَالشَّفَتَانِ',
+  levels:[
+    { id:'TJ2L1', tag:'Урок 1', icon:'%ط', name:'Буквы ط، د، ت', bg:'sky', steps:[
+      { t:'story', house:'lisan', bg:'sky', beats:[
+        { floor:4, line:'Снова идём на кончик язычка! Сегодня здесь новые соседи.' },
+        { who:'ط', floor:4, line:'Я то! Кончик языка прижимается к бугорку за верхними зубками, и я звучу толсто и твёрдо: «то».' },
+        { who:'ط', floor:4, home:4, line:'Я толстая буква, говорю полным ротиком!' },
+        { who:'د', floor:4, line:'Я даль. Язычок там же, а звук мягкий: «д».' },
+        { who:'د', floor:4, home:4, line:'Я тоже живу на кончике языка.' },
+        { who:'ت', floor:4, line:'А я та, тоненькая сестричка буквы то: «т».' },
+        { who:'ت', floor:4, home:4, line:'Не путай нас: то толстая, а я тонкая!' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Нажми на толстую букву то.', opts:[['%ت','та'],['%ط','то'],['%د','даль']], a:1 },
+        { say:'Нажми на тонкую букву та.', opts:[['%ط','то'],['%د','даль'],['%ت','та']], a:2 },
+        { say:'Нажми на букву даль.', opts:[['%د','даль'],['%ت','та']], a:0 },
+      ]},
+      { t:'balloons', say:'Лопни все шарики с толстой буквой то!', target:'ط', others:['ت','د'], need:5, done:'Ма ша Аллах! Все буквы то найдены.' },
+      { t:'archery', rounds:[
+        { say:'Попади в букву даль!', opts:['ت','د','ط'], a:'د' },
+        { say:'Попади в тонкую букву та!', opts:['ط','ت','د'], a:'ت' },
+      ], done:'Ма ша Аллах! То, даль и та живут на кончике языка.' },
+    ]},
+
+    { id:'TJ2L2', tag:'Урок 2', icon:'@star2', name:'Закрепляем буквы', bg:'meadow', steps:[
+      { t:'story', house:'halq', bg:'meadow', beats:[
+        { line:'Сегодня повторяем! Буквы из горлышка и с язычка пришли поиграть.' },
+      ]},
+      { t:'housesort', say:'Эта буква живёт в горлышке или на язычке? Нажми на её домик.', houses:['halq','lisan'], whole:true,
+        items:[ ['ع','‘айн','halq'], ['ط','то','lisan'], ['ه','мягкая ха','halq'], ['د','даль','lisan'], ['خ','хо','halq'], ['ت','та','lisan'] ],
+        done:'Ма ша Аллах! Все буквы дома.' },
+      { t:'memory', say:'Найди одинаковые буквы!', letters:[['ط','то'],['ت','та'],['د','даль'],['غ','гайн']], done:'Ма ша Аллах! Все пары найдены.' },
       { t:'yesno', rounds:[
-        { pic:'%ش', say:'Шин звучит, как «шшш»?', a:true, why:'Верно! Как когда мы просим тишины.' },
-        { pic:'%ي', say:'Буква йа живёт в горлышке?', a:false, why:'Нет! Йа живёт в середине языка.' },
+        { pic:'%ط', say:'Буква то звучит толсто?', a:true, why:'Верно! То толстая, а та тоненькая.' },
+        { pic:'%ق', say:'Каф живёт на кончике языка?', a:false, why:'Нет! Каф живёт на корне языка.' },
+      ]},
+    ]},
+
+    { id:'TJ2L3', tag:'Урок 3', icon:'%س', name:'Буквы ص، س، ز', bg:'water', steps:[
+      { t:'story', house:'lisan', bg:'water', beats:[
+        { floor:4, line:'На кончике языка живут ещё три буквы-свистульки!' },
+        { who:'ص', floor:4, line:'Я сод! Кончик языка у нижних зубок, а звук толстый, со свистом: «со».' },
+        { who:'ص', floor:4, home:4, line:'Я толстая свистулька!' },
+        { who:'س', floor:4, line:'Я син. Я свищу тонко, как маленький свисток: «ссс».' },
+        { who:'س', floor:4, home:4, line:'Бегу к сестричке!' },
+        { who:'ز', floor:4, line:'А я зай. Я звеню, как пчёлка: «ззз».' },
+        { who:'ز', floor:4, home:4, line:'Мы три буквы-свистульки!' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Нажми на толстую свистульку сод.', opts:[['%س','син'],['%ص','сод'],['%ز','зай']], a:1 },
+        { say:'Нажми на букву зай, которая звенит, как пчёлка.', opts:[['%ز','зай'],['%س','син']], a:0 },
+      ]},
+      { t:'memory', say:'Найди одинаковые буквы!', letters:[['ص','сод'],['س','син'],['ز','зай']], done:'Ма ша Аллах! Все свистульки нашлись.' },
+      { t:'balloons', say:'Лопни все шарики с буквой син!', target:'س', others:['ص','ز','ش'], need:5, done:'Ма ша Аллах! Все шарики с син лопнули.' },
+    ]},
+
+    { id:'TJ2L4', tag:'Урок 4', icon:'%ث', name:'Буквы ظ، ذ، ث', bg:'gift', steps:[
+      { t:'story', house:'lisan', bg:'gift', beats:[
+        { floor:4, line:'А эти три буквы любят выглядывать! Кончик языка чуть-чуть показывается и касается краешков верхних зубок.' },
+        { who:'ظ', floor:4, line:'Я зо. Язычок выглянул, а звук толстый: «зо».' },
+        { who:'ظ', floor:4, home:4, line:'Я толстая буква!' },
+        { who:'ذ', floor:4, line:'Я заль. Язычок между зубками, а звук звонкий и тонкий: «з».' },
+        { who:'ذ', floor:4, home:4, line:'Я живу на кончике языка.' },
+        { who:'ث', floor:4, line:'А я са. Язычок тоже между зубками, а я тихо шепчу: «с».' },
+        { who:'ث', floor:4, home:4, line:'Посмотри в зеркальце: видно кончик язычка?' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Нажми на толстую букву зо.', opts:[['%ذ','заль'],['%ظ','зо'],['%ث','са']], a:1 },
+        { say:'Нажми на букву са, которая тихо шепчет.', opts:[['%ث','са'],['%ذ','заль']], a:0 },
+      ]},
+      { t:'balloons', say:'Лопни все шарики с буквой са!', target:'ث', others:['ذ','ظ','ت'], need:5, done:'Ма ша Аллах! Все шарики с са лопнули.' },
+      { t:'archery', rounds:[
+        { say:'Попади в букву заль!', opts:['ظ','ذ','ث'], a:'ذ' },
+        { say:'Попади в толстую букву зо!', opts:['ث','ذ','ظ'], a:'ظ' },
+      ], done:'Ма ша Аллах! Зо, заль и са любят выглядывать между зубками.' },
+    ]},
+
+    { id:'TJ2L5', tag:'Урок 5', icon:'%ف', name:'Буквы ف и و', bg:'sky', steps:[
+      { t:'story', house:'shafa', bg:'sky', beats:[
+        { line:'Новый домик — губы! Здесь живут буквы, которые мы говорим губками.' },
+        { who:'ف', floor:2, line:'Я фа! Нижняя губка касается верхних зубок, и воздух выходит: «ф».' },
+        { who:'ف', floor:2, home:2, line:'Мой этаж — губка и зубки.' },
+        { who:'و', floor:1, line:'А я уау. Губки становятся кружочком, как трубочка: «у».' },
+        { who:'و', floor:1, home:1, line:'Я живу на этаже «обе губки».' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Нажми на букву фа.', opts:[['%و','уау'],['%ف','фа'],['%ق','каф']], a:1 },
+        { say:'Нажми на букву уау.', opts:[['%و','уау'],['%ف','фа']], a:0 },
+      ]},
+      { t:'housesort', say:'В каком домике живёт буква? Горлышко, язычок или губы?', houses:['halq','lisan','shafa'], whole:true,
+        items:[ ['ف','фа','shafa'], ['ع','‘айн','halq'], ['ت','та','lisan'], ['و','уау','shafa'], ['ق','каф','lisan'], ['خ','хо','halq'] ],
+        done:'Ма ша Аллах! Все буквы нашли свои домики.' },
+      { t:'balloons', say:'Лопни все шарики с буквой фа!', target:'ف', others:['و','ق','ث'], need:5, done:'Ма ша Аллах! Все шарики с фа лопнули.' },
+    ]},
+
+    { id:'TJ2L6', tag:'Урок 6', icon:'%م', name:'Буквы ب и م', bg:'meadow', steps:[
+      { t:'story', house:'shafa', bg:'meadow', beats:[
+        { floor:1, line:'На этаже «обе губки» живут ещё две буквы.' },
+        { who:'ب', floor:1, line:'Я ба! Губки сжимаются и раскрываются: «б».' },
+        { who:'ب', floor:1, home:1, line:'Я живу рядом с уау.' },
+        { who:'م', floor:1, line:'Я мим. Губки сомкнуты, а звук идёт в носик: «ммм».' },
+        { who:'م', floor:1, home:1, line:'Теперь домик губ полный: фа, уау, ба и мим!' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Нажми на букву ба.', opts:[['%م','мим'],['%ب','ба'],['%ف','фа']], a:1 },
+        { say:'Нажми на букву мим.', opts:[['%م','мим'],['%و','уау'],['%ب','ба']], a:0 },
+      ]},
+      { t:'memory', say:'Найди одинаковые буквы губ!', letters:[['ب','ба'],['م','мим'],['و','уау'],['ف','фа']], done:'Ма ша Аллах! Все пары найдены.' },
+      { t:'archery', rounds:[
+        { say:'Попади в букву мим!', opts:['ب','م','ف'], a:'م' },
+        { say:'Попади в букву ба!', opts:['و','ب','م'], a:'ب' },
+      ], done:'Ма ша Аллах! Ба и мим живут на губках.' },
+    ]},
+
+    { id:'TJ2L7', tag:'Урок 7', icon:'@star2', name:'Повторяем все буквы', bg:'water', steps:[
+      { t:'story', house:'shafa', bg:'water', beats:[
+        { line:'Все буквы в сборе! У нас три домика: горлышко, язычок и губы.' },
+        { line:'Сейчас буквы перепутались. Помоги каждой найти свой домик!' },
+      ]},
+      { t:'housesort', say:'В каком домике живёт буква?', houses:['halq','lisan','shafa'], whole:true,
+        items:[ ['م','мим','shafa'], ['ح','сильная ха','halq'], ['س','син','lisan'], ['ب','ба','shafa'], ['غ','гайн','halq'], ['ل','лям','lisan'], ['ء','хамза','halq'], ['ظ','зо','lisan'] ],
+        done:'Ма ша Аллах! Все буквы дома.' },
+      { t:'balloons', say:'Лопни все шарики с буквой мим!', target:'م', others:['ب','ن','و'], need:5, done:'Ма ша Аллах! Все шарики с мим лопнули.' },
+      { t:'memory', say:'Найди одинаковые буквы!', letters:[['ص','сод'],['ث','са'],['ف','фа'],['ع','‘айн']], done:'Ма ша Аллах! Все пары найдены.' },
+    ]},
+
+    { id:'TJ2L8', tag:'Урок 8', icon:'@star2', name:'Повторяем все буквы', bg:'final', steps:[
+      { t:'story', house:'lisan', bg:'final', beats:[
+        { line:'Последний урок четверти! Самый большой домик — язычок. Вспомним, на каком этаже кто живёт.' },
+      ]},
+      { t:'housesort', say:'Где живёт буква на язычке? Нажми на её этаж.', houses:['lisan'],
+        items:[ ['ض','дад','lisan:3'], ['ق','каф','lisan:1'], ['ش','шин','lisan:2'], ['ط','то','lisan:4'], ['ج','джим','lisan:2'], ['ك','кяф','lisan:1'] ],
+        done:'Ма ша Аллах! Все буквы язычка дома.' },
+      { t:'archery', rounds:[
+        { say:'Попади в букву зай!', opts:['ز','ذ','ر'], a:'ز' },
+        { say:'Попади в букву фа!', opts:['ق','ف','غ'], a:'ف' },
+        { say:'Попади в букву сод!', opts:['س','ص','ث'], a:'ص' },
+      ], done:'Ма ша Аллах! Меткий выстрел!' },
+      { t:'yesno', rounds:[
+        { pic:'%م', say:'Мим живёт на губах?', a:true, why:'Верно! Губки сомкнуты, а звук идёт в носик.' },
+        { pic:'%س', say:'Син живёт в горлышке?', a:false, why:'Нет! Син живёт на кончике языка.' },
+        { pic:'%ع', say:'‘Айн живёт в середине горла?', a:true, why:'Да! ‘Айн и сильная ха — соседки в середине горла.' },
+      ], done:'Ма ша Аллах! Вторая четверть пройдена!' },
+    ]},
+  ]
+};
+
+/* ---------------- 3 четверть: огласовки фатха и кясра ---------------- */
+CONTENT['s1-tajweed-3'] = {
+  title:'Огласовки: фатха и кясра', ar:'الْفَتْحَةُ وَالْكَسْرَةُ',
+  levels:[
+    { id:'TJ3L1', tag:'Урок 1', icon:'%بَ', name:'Фатха: знакомство', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { line:'Буквы любят надевать огласовки. Огласовка подсказывает, как прочитать букву.' },
+        { who:'ب', line:'Я ба. Без огласовки я не знаю, как мне звучать.' },
+        { who:'بَ', line:'Смотри! Сверху появилась маленькая палочка — это фатха. Теперь я читаюсь «ба»!' },
+        { who:'تَ', line:'Фатха делает звук «а». Я та!' },
+        { who:'نَ', line:'И я с фатхой: на!' },
+        { line:'Фатха — палочка сверху. Она говорит букве: «а»!' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Где буква с фатхой?', opts:[['%ب','без огласовки'],['%بَ','ба']], a:1 },
+        { say:'Найди слог «та».', opts:[['%تَ','та'],['%نَ','на'],['%بَ','ба']], a:0 },
+      ]},
+      { t:'train', say:'Поезд фатхи!', marks:['a'], rounds:[
+        { say:'Надень фатху на каждую букву: «ба — та».', cars:[['ب','a'],['ت','a']], syl:['ба','та'], tr:'ба, та' },
+        { say:'Собери слоги: «на — ма — ля».', cars:[['ن','a'],['م','a'],['ل','a']], syl:['на','ма','ля'], tr:'на, ма, ля' },
+      ], done:'Ма ша Аллах! Поезд фатхи поехал!' },
+      { t:'balloons', say:'Лопни все шарики со слогом «ба»!', target:'بَ', others:['ب','تَ','نَ'], need:5, done:'Ма ша Аллах! Все «ба» найдены.' },
+    ]},
+
+    { id:'TJ3L2', tag:'Урок 2', icon:'%مَ', name:'Фатха: читаем слоги', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { who:'مَ', line:'Я мим с фатхой: «ма»!' },
+        { who:'لَ', line:'Я лям с фатхой: «ля»!' },
+        { who:'رَ', line:'А я ра с фатхой: «ра»! Давай читать нас вместе.' },
+      ]},
+      { t:'memory', say:'Найди одинаковые слоги!', letters:[['بَ','ба'],['مَ','ма'],['رَ','ра']], done:'Ма ша Аллах! Все пары найдены.' },
+      { t:'archery', rounds:[
+        { say:'Попади в слог «ма»!', opts:['مَ','بَ','لَ'], a:'مَ' },
+        { say:'Попади в слог «ра»!', opts:['نَ','رَ','تَ'], a:'رَ' },
+      ], done:'Ма ша Аллах! Ты читаешь слоги с фатхой.' },
+      { t:'train', say:'Поезд фатхи!', marks:['a'], rounds:[
+        { say:'Собери слоги: «фа — да — са».', cars:[['ف','a'],['د','a'],['س','a']], syl:['фа','да','са'], tr:'фа, да, са' },
+      ], done:'Ма ша Аллах! Поезд поехал!' },
+    ]},
+
+    { id:'TJ3L3', tag:'Урок 3', icon:'%عَ', name:'Фатха и буквы горла', bg:'water', steps:[
+      { t:'story', house:'halq', bg:'water', beats:[
+        { line:'Буквы горлышка тоже надевают фатху!' },
+        { who:'أَ', floor:1, line:'Я хамза с фатхой: «а», коротко и чётко.' },
+        { who:'هَ', floor:1, line:'Я мягкая ха с фатхой: «ха».' },
+        { who:'عَ', floor:2, line:'Я ‘айн с фатхой: «‘а», из середины горлышка.' },
+        { who:'خَ', floor:3, line:'А я хо с фатхой: «хо», твёрдо и толсто.' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Найди ‘айн с фатхой.', opts:[['%حَ','ха'],['%عَ','‘а'],['%أَ','а']], a:1 },
+        { say:'Найди хамзу с фатхой.', opts:[['%أَ','а'],['%هَ','ха']], a:0 },
+      ]},
+      { t:'train', say:'Поезд горлышка!', marks:['a'], rounds:[
+        { say:'Надень фатху: «а — ха — ‘а».', cars:[['أ','a'],['ه','a'],['ع','a']], syl:['а','ха','‘а'], tr:'а, ха, ‘а' },
+      ], done:'Ма ша Аллах! Поезд поехал!' },
+      { t:'balloons', say:'Лопни все шарики со слогом «‘а»!', target:'عَ', others:['أَ','حَ','هَ'], need:5, done:'Ма ша Аллах! Все шарики найдены.' },
+    ]},
+
+    { id:'TJ3L4', tag:'Урок 4', icon:'@star2', name:'Фатха: закрепление', bg:'gift', steps:[
+      { t:'story', house:'none', bg:'gift', beats:[
+        { line:'Сегодня закрепляем фатху. Вспомни: фатха — палочка сверху, она говорит «а».' },
+      ]},
+      { t:'train', say:'Поезд фатхи!', marks:['a'], rounds:[
+        { say:'Собери слоги: «ка — та — ба».', cars:[['ك','a'],['ت','a'],['ب','a']], syl:['кя','та','ба'], tr:'кя, та, ба' },
+        { say:'Собери слоги: «джа — ша — йа».', cars:[['ج','a'],['ش','a'],['ي','a']], syl:['джа','ша','йа'], tr:'джа, ша, йа' },
+      ], done:'Ма ша Аллах! Два поезда уехали!' },
+      { t:'memory', say:'Найди одинаковые слоги!', letters:[['كَ','кя'],['جَ','джа'],['شَ','ша'],['يَ','йа']], done:'Ма ша Аллах! Все пары найдены.' },
+      { t:'yesno', rounds:[
+        { pic:'%بَ', say:'Это слог «ба»?', a:true, why:'Верно! Ба с фатхой.' },
+        { pic:'%مَ', say:'Фатха стоит под буквой?', a:false, why:'Нет! Фатха всегда сверху.' },
+      ], done:'Ма ша Аллах! Ты знаешь фатху!' },
+    ]},
+
+    { id:'TJ3L5', tag:'Урок 5', icon:'%بِ', name:'Кясра: знакомство', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { line:'К нам пришла новая огласовка!' },
+        { who:'ب', line:'Это снова я, ба. Сегодня палочка будет не сверху, а снизу.' },
+        { who:'بِ', line:'Палочка снизу — это кясра. С ней я читаюсь «би»!' },
+        { who:'تِ', line:'Кясра делает звук «и». Я ти!' },
+        { who:'نِ', line:'И я с кясрой: ни!' },
+        { line:'Кясра — палочка снизу. Она говорит букве: «и»!' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Где буква с кясрой?', opts:[['%بَ','ба'],['%بِ','би']], a:1 },
+        { say:'Найди слог «ни».', opts:[['%نَ','на'],['%تِ','ти'],['%نِ','ни']], a:2 },
+      ]},
+      { t:'train', say:'Поезд кясры!', marks:['i'], rounds:[
+        { say:'Надень кясру: «би — ти».', cars:[['ب','i'],['ت','i']], syl:['би','ти'], tr:'би, ти' },
+        { say:'Собери слоги: «ни — ми — ли».', cars:[['ن','i'],['م','i'],['ل','i']], syl:['ни','ми','ли'], tr:'ни, ми, ли' },
+      ], done:'Ма ша Аллах! Поезд кясры поехал!' },
+      { t:'balloons', say:'Лопни все шарики со слогом «би»!', target:'بِ', others:['بَ','تِ','ب'], need:5, done:'Ма ша Аллах! Все «би» найдены.' },
+    ]},
+
+    { id:'TJ3L6', tag:'Урок 6', icon:'%مِ', name:'Кясра или фатха?', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { who:'مَ', line:'Палочка сверху — я читаюсь «ма».' },
+        { who:'مِ', line:'Палочка снизу — я читаюсь «ми». Смотри, куда спряталась палочка!' },
+      ]},
+      { t:'sortkid', say:'Палочка сверху или снизу? Разложи слоги.', bins:[ {id:'a',pic:'%◌َ',label:'Фатха «а»'}, {id:'i',pic:'%◌ِ',label:'Кясра «и»'} ],
+        items:[ ['%بَ','ба','a'], ['%مِ','ми','i'], ['%رَ','ра','a'], ['%تِ','ти','i'], ['%لِ','ли','i'], ['%نَ','на','a'] ] },
+      { t:'archery', rounds:[
+        { say:'Попади в слог «ми»!', opts:['مَ','مِ','بِ'], a:'مِ' },
+        { say:'Попади в слог «ра»!', opts:['رِ','رَ','لَ'], a:'رَ' },
+      ], done:'Ма ша Аллах! Меткий читатель!' },
+      { t:'balloons', say:'Лопни все шарики со слогом «ми»!', target:'مِ', others:['مَ','بِ','نِ'], need:5, done:'Ма ша Аллах! Все «ми» найдены.' },
+    ]},
+
+    { id:'TJ3L7', tag:'Урок 7', icon:'%فِ', name:'Кясра: читаем слоги', bg:'water', steps:[
+      { t:'story', house:'none', bg:'water', beats:[
+        { who:'فِ', line:'Я фа с кясрой: «фи»!' },
+        { who:'سِ', line:'Я син с кясрой: «си»!' },
+        { who:'دِ', line:'А я даль с кясрой: «ди». Собирай нас в поезд!' },
+      ]},
+      { t:'train', say:'Поезд огласовок!', marks:['a','i'], rounds:[
+        { say:'Собери слоги: «фи — са».', cars:[['ف','i'],['س','a']], syl:['фи','са'], tr:'фи, са' },
+        { say:'Собери слоги: «ди — на — ри».', cars:[['د','i'],['ن','a'],['ر','i']], syl:['ди','на','ри'], tr:'ди, на, ри' },
+      ], done:'Ма ша Аллах! Ты собрал целый поезд!' },
+      { t:'memory', say:'Найди одинаковые слоги!', letters:[['فِ','фи'],['سِ','си'],['دَ','да'],['كِ','ки']], done:'Ма ша Аллах! Все пары найдены.' },
+      { t:'tapone', rounds:[
+        { say:'Найди слог «си».', opts:[['%سَ','са'],['%سِ','си']], a:1 },
+        { say:'Найди слог «да».', opts:[['%دِ','ди'],['%دَ','да'],['%ذَ','за']], a:1 },
+      ]},
+    ]},
+
+    { id:'TJ3L8', tag:'Урок 8', icon:'@star2', name:'Фатха и кясра', bg:'final', steps:[
+      { t:'story', house:'none', bg:'final', beats:[
+        { line:'Последний урок четверти! Палочка сверху — «а», палочка снизу — «и». Поехали!' },
+      ]},
+      { t:'train', say:'Большой поезд!', marks:['a','i'], rounds:[
+        { say:'Собери слоги: «ба — ти — ма».', cars:[['ب','a'],['ت','i'],['م','a']], syl:['ба','ти','ма'], tr:'ба, ти, ма' },
+        { say:'Собери слоги: «ли — ра — ни».', cars:[['ل','i'],['ر','a'],['ن','i']], syl:['ли','ра','ни'], tr:'ли, ра, ни' },
+      ], done:'Ма ша Аллах! Поезда уехали!' },
+      { t:'balloons', say:'Лопни все шарики со слогом «ки»!', target:'كِ', others:['كَ','قِ','تِ'], need:5, done:'Ма ша Аллах! Все «ки» найдены.' },
+      { t:'yesno', rounds:[
+        { pic:'%بِ', say:'Это слог «би»?', a:true, why:'Верно! Кясра снизу говорит «и».' },
+        { pic:'%تَ', say:'Это слог «ти»?', a:false, why:'Нет! Палочка сверху, значит «та».' },
+      ], done:'Ма ша Аллах! Третья четверть пройдена!' },
+    ]},
+  ]
+};
+
+/* ============== САДИК 2 · ТАДЖВИД · 1 четверть: тянем звук (мадд) ============== */
+CONTENT['s2-tajweed-1'] = {
+  title:'Тянем звук', ar:'الْمَدُّ',
+  levels:[
+    { id:'TJ21L1', tag:'Урок 1', icon:'%بُ', name:'Читаем с огласовками', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { line:'Вспомним три огласовки!' },
+        { who:'بَ', line:'Палочка сверху — фатха: «ба».' },
+        { who:'بِ', line:'Палочка снизу — кясра: «би».' },
+        { who:'بُ', line:'А маленькая запятая сверху — дамма: «бу». Губки трубочкой!' },
+      ]},
+      { t:'train', say:'Поезд огласовок!', marks:['a','i','u'], rounds:[
+        { say:'Собери слоги: «ба — ти — ну».', cars:[['ب','a'],['ت','i'],['ن','u']], syl:['ба','ти','ну'], tr:'ба, ти, ну' },
+        { say:'Собери слоги: «му — ли — ра».', cars:[['م','u'],['ل','i'],['ر','a']], syl:['му','ли','ра'], tr:'му, ли, ра' },
+      ], done:'Ма ша Аллах! Поезда уехали!' },
+      { t:'archery', rounds:[
+        { say:'Попади в слог «бу»!', opts:['بَ','بُ','بِ'], a:'بُ' },
+        { say:'Попади в слог «ни»!', opts:['نِ','نُ','نَ'], a:'نِ' },
+      ], done:'Ма ша Аллах! Меткий читатель!' },
+    ]},
+
+    { id:'TJ21L2', tag:'Урок 2', icon:'%نُ', name:'Читаем с огласовками', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { who:'فُ', line:'Я фа с даммой: «фу».' },
+        { who:'سِ', line:'Я син с кясрой: «си».' },
+        { who:'كَ', line:'А я кяф с фатхой: «кя». Читай нас скорее!' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Найди слог «ну».', opts:[['%نَ','на'],['%نِ','ни'],['%نُ','ну']], a:2 },
+        { say:'Найди слог «фи».', opts:[['%فِ','фи'],['%فُ','фу']], a:0 },
+      ]},
+      { t:'train', say:'Поезд огласовок!', marks:['a','i','u'], rounds:[
+        { say:'Собери слоги: «фу — си — кя».', cars:[['ف','u'],['س','i'],['ك','a']], syl:['фу','си','кя'], tr:'фу, си, кя' },
+      ], done:'Ма ша Аллах! Поезд поехал!' },
+      { t:'balloons', say:'Лопни все шарики со слогом «му»!', target:'مُ', others:['مَ','مِ','نُ'], need:5, done:'Ма ша Аллах! Все «му» найдены.' },
+    ]},
+
+    { id:'TJ21L3', tag:'Урок 3', icon:'%بَا', name:'Алиф маддийа', bg:'water', steps:[
+      { t:'story', house:'none', bg:'water', beats:[
+        { who:'ا', line:'Ас-саляму алейкум! Я алиф. Я умею растягивать звук.' },
+        { who:'بَا', line:'Если я стою после буквы с фатхой, звук тянется на два счёта: «баа»!' },
+        { who:'بَ', line:'А без алифа звук короткий, на один счёт: «ба».' },
+        { line:'Давай тянуть звук, как резинку: коротко — быстро нажимаем, длинно — держим до второй точки.' },
+      ]},
+      { t:'stretch', say:'Слушай слог. Длинный — держи кнопку до второй точки. Короткий — быстро нажми.', rounds:[
+        { syl:'بَا', tr:'баа', hear:'ба-а-а', long:true },
+        { syl:'بَ', tr:'ба', hear:'ба', long:false },
+        { syl:'تَا', tr:'таа', hear:'та-а-а', long:true },
+        { syl:'نَ', tr:'на', hear:'на', long:false },
+      ], done:'Ма ша Аллах! Ты умеешь тянуть звук.' },
+      { t:'sortkid', say:'Короткий звук или тянем? Разложи слоги.', bins:[ {id:'s',pic:'%بَ',label:'Коротко: 1 счёт'}, {id:'l',pic:'%بَا',label:'Тянем: 2 счёта'} ],
+        items:[ ['%مَا','маа','l'], ['%رَ','ра','s'], ['%لَا','ляа','l'], ['%تَ','та','s'] ] },
+    ]},
+
+    { id:'TJ21L4', tag:'Урок 4', icon:'%مَا', name:'Алиф маддийа', bg:'gift', steps:[
+      { t:'story', house:'none', bg:'gift', beats:[
+        { who:'مَا', line:'Я «маа». Фатха и алиф вместе тянут звук на два счёта.' },
+        { line:'Раз, два — «маа». Тянем ровно два счёта, не больше!' },
+      ]},
+      { t:'stretch', say:'Тянем или коротко?', rounds:[
+        { syl:'مَا', tr:'маа', hear:'ма-а-а', long:true },
+        { syl:'فَ', tr:'фа', hear:'фа', long:false },
+        { syl:'سَا', tr:'саа', hear:'са-а-а', long:true },
+        { syl:'دَا', tr:'даа', hear:'да-а-а', long:true },
+      ], done:'Ма ша Аллах! Ровно два счёта!' },
+      { t:'tapone', rounds:[
+        { say:'Где длинный слог «маа»?', opts:[['%مَ','ма'],['%مَا','маа']], a:1 },
+        { say:'Где короткий слог «са»?', opts:[['%سَا','саа'],['%سَ','са']], a:1 },
+      ]},
+      { t:'balloons', say:'Лопни все шарики со слогом «баа»!', target:'بَا', others:['بَ','تَا','بِ'], need:5, done:'Ма ша Аллах! Все «баа» найдены.' },
+    ]},
+
+    { id:'TJ21L5', tag:'Урок 5', icon:'%بِي', name:'Йа маддийа', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { who:'ي', line:'Я йа! Я тоже умею тянуть звук.' },
+        { who:'بِي', line:'Если перед мной буква с кясрой, а на мне нет огласовки, тянем «ии» на два счёта: «бии»!' },
+        { who:'بِ', line:'А без йа звук короткий: «би».' },
+      ]},
+      { t:'stretch', say:'Тянем «ии» или коротко?', rounds:[
+        { syl:'بِي', tr:'бии', hear:'би-и-и', long:true },
+        { syl:'بِ', tr:'би', hear:'би', long:false },
+        { syl:'تِي', tr:'тии', hear:'ти-и-и', long:true },
+        { syl:'فِ', tr:'фи', hear:'фи', long:false },
+      ], done:'Ма ша Аллах! Ты тянешь «ии» на два счёта.' },
+      { t:'tapone', rounds:[
+        { say:'Где длинный слог «нии»?', opts:[['%نِي','нии'],['%نِ','ни']], a:0 },
+        { say:'Где длинный слог «мии»?', opts:[['%مِ','ми'],['%مِي','мии'],['%مَا','маа']], a:1 },
+      ]},
+    ]},
+
+    { id:'TJ21L6', tag:'Урок 6', icon:'%فِي', name:'Йа маддийа', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { who:'فِي', line:'Я «фии». Кясра и йа вместе тянут звук.' },
+        { line:'Слушай внимательно: где тянем, а где говорим коротко?' },
+      ]},
+      { t:'stretch', say:'Тянем или коротко?', rounds:[
+        { syl:'فِي', tr:'фии', hear:'фи-и-и', long:true },
+        { syl:'سِ', tr:'си', hear:'си', long:false },
+        { syl:'رِي', tr:'рии', hear:'ри-и-и', long:true },
+        { syl:'لِ', tr:'ли', hear:'ли', long:false },
+      ], done:'Ма ша Аллах! Отлично тянешь!' },
+      { t:'sortkid', say:'Короткий звук или тянем? Разложи слоги.', bins:[ {id:'s',pic:'%بِ',label:'Коротко: 1 счёт'}, {id:'l',pic:'%بِي',label:'Тянем: 2 счёта'} ],
+        items:[ ['%نِي','нии','l'], ['%مِ','ми','s'], ['%دِي','дии','l'], ['%كِ','ки','s'] ] },
+    ]},
+
+    { id:'TJ21L7', tag:'Урок 7', icon:'@star2', name:'Алиф и йа', bg:'water', steps:[
+      { t:'story', house:'none', bg:'water', beats:[
+        { who:'بَا', line:'Фатха и алиф: «баа».' },
+        { who:'بِي', line:'Кясра и йа: «бии». Мы тянем звук на два счёта!' },
+      ]},
+      { t:'stretch', say:'Тянем или коротко?', rounds:[
+        { syl:'نَا', tr:'наа', hear:'на-а-а', long:true },
+        { syl:'نِي', tr:'нии', hear:'ни-и-и', long:true },
+        { syl:'نَ', tr:'на', hear:'на', long:false },
+        { syl:'كِي', tr:'кии', hear:'ки-и-и', long:true },
+      ], done:'Ма ша Аллах! Ты умеешь тянуть звуки.' },
+      { t:'archery', rounds:[
+        { say:'Попади в слог «бии»!', opts:['بَا','بِي','بِ'], a:'بِي' },
+        { say:'Попади в слог «маа»!', opts:['مَا','مِي','مَ'], a:'مَا' },
+      ], done:'Ма ша Аллах! Меткий читатель!' },
+      { t:'balloons', say:'Лопни все шарики со слогом «тии»!', target:'تِي', others:['تَا','تِ','بِي'], need:5, done:'Ма ша Аллах! Все «тии» найдены.' },
+    ]},
+
+    { id:'TJ21L8', tag:'Урок 8', icon:'%بُو', name:'Уау маддийа', bg:'final', steps:[
+      { t:'story', house:'none', bg:'final', beats:[
+        { who:'و', line:'А я уау! Я тоже тяну звук.' },
+        { who:'بُو', line:'Если перед мной буква с даммой, а на мне нет огласовки, тянем «уу»: «буу»!' },
+        { who:'بُ', line:'А без уау звук короткий: «бу».' },
+      ]},
+      { t:'stretch', say:'Тянем «уу» или коротко?', rounds:[
+        { syl:'بُو', tr:'буу', hear:'бу-у-у', long:true },
+        { syl:'بُ', tr:'бу', hear:'бу', long:false },
+        { syl:'نُو', tr:'нуу', hear:'ну-у-у', long:true },
+        { syl:'مُ', tr:'му', hear:'му', long:false },
+      ], done:'Ма ша Аллах! Ты знаешь все три буквы, которые тянут звук!' },
+      { t:'tapone', rounds:[
+        { say:'Где длинный слог «нуу»?', opts:[['%نُ','ну'],['%نُو','нуу']], a:1 },
+        { say:'Какая буква тянет звук после даммы?', opts:[['%ا','алиф'],['%ي','йа'],['%و','уау']], a:2 },
       ]},
     ]},
   ]
@@ -4180,7 +4723,7 @@ function pointAt(el, delay=0, sweep=false){
 document.addEventListener('pointerdown', e=>{ if(!e.target.closest('.k-hand')) hideHand(); }, true);
 
 const kImg = n => `<img src="${n}.webp" alt="" draggable="false">`;
-const kPic = p => String(p).split(' ').map(t => t==='#rug' ? RUG() : t.startsWith('%') ? `<span class="k-let" lang="ar">${t.slice(1)}</span>` : t.startsWith('#halq') ? halqSVG(+(t.split(':')[1]||0)) : t.startsWith('#lisan') ? halqSVG(+(t.split(':')[1]||0),'lisan') : t.startsWith('@') ? kImg(t.slice(1)) : t.startsWith('~') ? `<span class="sil">${t.slice(1)}</span>` : `<span>${t}</span>`).join('');
+const kPic = p => String(p).split(' ').map(t => t==='#rug' ? RUG() : t.startsWith('%') ? letTile(t.slice(1)) : /^#(halq|lisan|shafa)/.test(t) ? housePic(t) : t.startsWith('@') ? kImg(t.slice(1)) : t.startsWith('~') ? `<span class="sil">${t.slice(1)}</span>` : `<span>${t}</span>`).join('');
 const kAsk = text => `<div class="k-ask"><button class="k-spk" data-say aria-label="Послушать ещё раз">${ICON.spk}</button><p>${esc(text)}</p></div>`;
 const kNext = (label='Дальше') => `<div class="k-foot"><button class="k-go" data-go aria-label="${esc(label)}">${ICON.play}<span>${esc(label)}</span></button></div>`;
 function kBind(root, getSay, onClick){
@@ -4259,7 +4802,10 @@ function kSort(root, s, next){
     const b=e.target.closest('.k-bin'); if(!b || busy) return;
     const [p,l,bin]=items[k];
     if(b.dataset.bin===bin){ busy=true; b.classList.add('pop'); setTimeout(()=>b.classList.remove('pop'),450);
-      $('#got-'+bin,root).insertAdjacentHTML('beforeend', `<span>${kPic(p)}</span>`); say(kPraise());
+      const src=$('#ksi .k-pic',root), got=$('#got-'+bin,root);
+      if(src && src.animate){ const a=src.getBoundingClientRect(), z=got.getBoundingClientRect();
+        src.animate([{transform:'none'},{transform:`translate(${(z.left+z.width/2)-(a.left+a.width/2)}px,${(z.top+z.height/2)-(a.top+a.height/2)}px) scale(.3)`,opacity:.4}],{duration:520,easing:'ease-in',fill:'forwards'}); }
+      setTimeout(()=>{ got.insertAdjacentHTML('beforeend', `<span class="k-pop">${kPic(p)}</span>`); }, 480); say(kPraise());
       k++; stepProg(k/items.length);
       setTimeout(()=>{ busy=false; if(k>=items.length) next(); else show(); },1000);
     } else { S.level.mistakes++; wrong++; shakeEl(b); say(kTry()); if(wrong>=2) pointAt($(`.k-bin[data-bin="${bin}"]`,root),900); }
@@ -4423,13 +4969,197 @@ function kidNodePos(n){
   const X=[50,74,30,70,46,26,72,50];
   return Array.from({length:n},(_,i)=>[X[i%X.length], 4+ (i/(n-1))*90]);
 }
-const HOUSES = { halq:['Начало горла','Середина горла','Глубина горла'], lisan:['Кончик языка','Середина языка','Корень языка'] };
-function halqSVG(floor, kind='halq'){
-  const lb = HOUSES[kind]; const roof = kind==='lisan' ? '#E39C94' : '#F2C24A', roofS = kind==='lisan' ? '#B9645A' : '#C98F1E', wall = kind==='lisan' ? '#F2C7A8' : '#7FC9C4';
-  const f = (i,y,label) => `<g><rect x="34" y="${y}" width="152" height="44" rx="12" fill="${floor===i?'#FFE7A6':'#FFF8EA'}" stroke="${floor===i?'#E0A53A':'#E7D7B8'}" stroke-width="3"/><text x="110" y="${y+28}" text-anchor="middle" font-size="15" font-weight="700" fill="#14315C" font-family="system-ui,sans-serif">${label}</text></g>`;
-  return `<svg class="halq" viewBox="0 0 220 230" aria-hidden="true"><path d="M24 76 L110 18 L196 76" fill="${roof}" stroke="${roofS}" stroke-width="4" stroke-linejoin="round"/><rect x="26" y="74" width="168" height="148" rx="16" fill="${wall}"/>
-    ${f(3,84,lb[0])}${f(2,130,lb[1])}${f(1,176,lb[2])}</svg>`;
+/* ===== Таджвид садика: буквы-персонажи, домики звуков (горло, язык, губы) ===== */
+/* У каждой буквы свой цвет: горло — морские, язык — тёплые, губы — сиреневые. Лиц нет. */
+const LET_COL = {
+  'ء':['#CFF3EE','#2BA59E'], 'ه':['#D7F0FF','#3A92D6'], 'ع':['#D4F5E4','#2E9E66'], 'ح':['#E0F7D0','#5BAA3A'], 'غ':['#D8EEF7','#2B87A8'], 'خ':['#DDF3FA','#3AA6C7'],
+  'ق':['#FFE0D6','#E0674E'], 'ك':['#FFE6CC','#E88A32'], 'ض':['#FFD9E3','#D9577A'], 'ج':['#FFEFC2','#E0A21B'], 'ش':['#FFE3F3','#D25AA8'], 'ي':['#FFF0CC','#E6B12A'],
+  'ل':['#FFE1D0','#E07A4A'], 'ن':['#FDE0E6','#E26A84'], 'ر':['#FFE7DB','#EF8B5C'], 'ط':['#FFD8CF','#C9503F'], 'د':['#FFEFD6','#E3962E'], 'ت':['#FFF2D9','#E6A83C'],
+  'ص':['#FFD9EC','#C84E8C'], 'س':['#FFE4F2','#E077B0'], 'ز':['#FFF3C9','#E6BE2A'], 'ظ':['#F9D9D9','#C2464B'], 'ذ':['#FFE9E0','#E5865F'], 'ث':['#FFF0E3','#E8A169'],
+  'ف':['#EDE3FF','#8A63D2'], 'و':['#E3E7FF','#5C6FD6'], 'ب':['#F1E0FF','#A35AD1'], 'م':['#FFE0FA','#C257B8'], 'ا':['#FFF1C9','#E0A53A'], 'أ':['#CFF3EE','#2BA59E'], 'إ':['#CFF3EE','#2BA59E'],
+};
+const baseLet = s => (String(s).match(/[ء-ي]/)||[''])[0];
+const letVars = s => { const c = LET_COL[baseLet(s)]; return c ? `--c1:${c[0]};--c2:${c[1]}` : ''; };
+const letTile = (l, cls='') => `<span class="k-let ${cls}" lang="ar" style="${letVars(l)}">${l}</span>`;
+
+/* Домики: этажи сверху вниз; номер этажа как раньше (3 — верхний). */
+const HOUSES = {
+  halq:  { sign:'Горло', floors:['Начало горла','Середина горла','Глубина горла'], wall:['#8FDCD4','#2E9C98'], roof:['#FFD66B','#E0A53A'] },
+  lisan: { sign:'Язык',  floors:['Кончик языка','Края языка','Середина языка','Корень языка'], wall:['#FBC2B2','#E0705E'], roof:['#8FD3E0','#3A9DB5'] },
+  shafa: { sign:'Губы',  floors:['Губка и зубки','Обе губки'],                    wall:['#D7C6FA','#8A63D2'], roof:['#FFD66B','#E0A53A'] },
+};
+let houseSeq = 0;
+function houseSVG(kind='halq', floor=0, residents={}){
+  const H = HOUSES[kind] || HOUSES.halq; const n = H.floors.length; const id = 'hs'+(++houseSeq);
+  const fh = n>=4 ? 38 : n===3 ? 44 : 58, top = 86, gap = 6, bodyH = n*fh + (n-1)*gap + 22;
+  const fl = (i, k) => { const num = n-k, y = top + k*(fh+gap), on = floor===num, res = residents[num] || '';
+    const badges = [...res].map((l,j)=>{ const c=LET_COL[l]||['#FFF1C9','#E0A53A']; return `<g class="hres" transform="translate(${174-j*30} ${y+fh/2})"><circle r="13" fill="${c[0]}" stroke="${c[1]}" stroke-width="3"/><text y="6" text-anchor="middle" font-size="18" font-family="Amiri,serif" fill="#14315C">${l}</text></g>`; }).join('');
+    return `<g class="hfl${on?' on':''}" data-floor="${num}"><rect x="30" y="${y}" width="160" height="${fh}" rx="12" fill="${on?'#FFF3C4':'#FFFDF7'}" stroke="${on?'#F2B53A':'rgba(255,255,255,.7)'}" stroke-width="${on?4:2}"/>
+      <text x="${res?44:110}" y="${y+fh/2+5}" text-anchor="${res?'start':'middle'}" font-size="${res?12:14}" font-weight="800" fill="#14315C" font-family="system-ui,sans-serif">${H.floors[k]}</text>${badges}</g>`; };
+  return `<svg class="halq house-${kind}" viewBox="0 0 220 ${top+bodyH+8}" aria-hidden="true">
+    <defs><linearGradient id="${id}w" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${H.wall[0]}"/><stop offset="1" stop-color="${H.wall[1]}"/></linearGradient>
+      <linearGradient id="${id}r" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${H.roof[0]}"/><stop offset="1" stop-color="${H.roof[1]}"/></linearGradient></defs>
+    <ellipse cx="110" cy="${top+bodyH+2}" rx="98" ry="6" fill="#14315C" opacity=".1"/>
+    <rect x="150" y="18" width="18" height="34" rx="4" fill="${H.roof[1]}"/>
+    <path d="M14 82 Q110 2 206 82 Z" fill="url(#${id}r)" stroke="${H.roof[1]}" stroke-width="3" stroke-linejoin="round"/>
+    <rect x="70" y="40" width="80" height="28" rx="14" fill="#FFFDF7"/><text x="110" y="60" text-anchor="middle" font-size="16" font-weight="800" fill="#14315C" font-family="system-ui,sans-serif">${H.sign}</text>
+    <rect x="20" y="${top-6}" width="180" height="${bodyH}" rx="18" fill="url(#${id}w)"/>
+    ${H.floors.map((_,k)=>fl(null,k)).join('')}</svg>`;
 }
+function halqSVG(floor, kind='halq'){ return houseSVG(kind, floor); }
+/* токены картинок: %буква, #halq[:этаж], #lisan[:этаж], #shafa[:этаж] */
+const housePic = t => { const [k,f] = t.slice(1).split(':'); return houseSVG(k, +(f||0)); };
+
+/* ---------- История: буква сама рассказывает о себе ---------- */
+function stChar(l){ return `<div class="st-char" style="${letVars(l)}"><span class="st-body" lang="ar">${l}</span><i class="st-foot"></i><i class="st-foot r"></i></div>`; }
+function kStory(root, s, next){
+  let k = -1, cur = null, house = s.house || 'halq', res = {}, homeTimer = null, flying = false, queued = false; const alive = () => document.body.contains(root);
+  root.innerHTML = `<div class="k-card k-story bg-${s.bg||'sky'}">
+      <div class="st-bubble" id="stb"><p></p></div>
+      <div class="st-scene${house==='none'?' solo':''}"><div class="st-sun">${kImg('sun')}</div>${house==='none'?'':`<div class="st-house" id="sth">${houseSVG(house,0,res)}</div>`}<div class="st-stage" id="sts"></div></div>
+      <div class="k-dots">${s.beats.map(()=>'<i></i>').join('')}</div></div>
+    <div class="k-foot"><button class="k-spk big" data-say aria-label="Послушать ещё раз">${ICON.spk}</button>
+      <button class="k-go" data-go aria-label="Дальше">${ICON.play}<span>Дальше</span></button></div>`;
+  const drawHouse = fl => { const h=$('#sth',root); if(h) h.innerHTML = houseSVG(house, fl||0, res); };
+  const talk = text => { const c=$('.st-char:not(.gone):not(.past)',root); if(!c) return; c.classList.remove('talk'); void c.offsetWidth; c.classList.add('talk'); setTimeout(()=>c && c.classList.remove('talk'), Math.min(6000, 900+text.length*55)); };
+  const doHome = () => { clearTimeout(homeTimer); homeTimer=null; const b=s.beats[k], who=b.who||cur, fl=b.home;
+    const ch=$('.st-char:not(.gone)',root), tgt=$(`.hfl[data-floor="${fl}"] rect`,root);
+    const land = () => { if(!alive()) return; if(ch){ ch.classList.add('gone'); ch.remove(); } res[fl]=(res[fl]||'')+baseLet(who); drawHouse(fl);
+      const g=$$(`.hfl[data-floor="${fl}"] .hres`,root).pop(); g && g.classList.add('pop'); cur=null; flying=false; if(queued){ queued=false; step(); } };
+    if(!ch || !tgt){ land(); return; }
+    flying=true; const a=ch.getBoundingClientRect(), r=tgt.getBoundingClientRect();
+    const dx=(r.left+r.width*.82)-(a.left+a.width/2), dy=(r.top+r.height/2)-(a.top+a.height/2);
+    const an = ch.animate([{transform:'none'},{transform:`translate(${dx*.5}px,${dy*.5-70}px) scale(.7) rotate(-8deg)`,offset:.5},{transform:`translate(${dx}px,${dy}px) scale(.25)`,opacity:.3}],{duration:900,easing:'ease-in-out',fill:'forwards'});
+    an.onfinish = land; };
+  const show = () => { const b = s.beats[k];
+    $$('.k-story .k-dots i',root).forEach((d,i)=>d.classList.toggle('on', i<=k));
+    if(b.house && b.house!==house){ house=b.house; res={}; }
+    drawHouse(b.floor);
+    const stage=$('#sts',root);
+    if(b.who && b.who!==cur){
+      if(house==='none'){ $$('.st-char',stage).forEach(c=>c.classList.add('past')); const old=$$('.st-char.past',stage); old.slice(0, Math.max(0, old.length-2)).forEach(c=>c.remove()); }
+      else $$('.st-char',stage).forEach(c=>{ c.classList.add('gone'); setTimeout(()=>c.remove(),400); });
+      stage.insertAdjacentHTML('beforeend', stChar(b.who)); cur=b.who; }
+    const bub=$('#stb',root); bub.classList.toggle('narr', !b.who); bub.classList.remove('pop'); void bub.offsetWidth; bub.classList.add('pop');
+    bub.querySelector('p').textContent = b.line;
+    say(b.line); talk(b.line); stepProg((k+1)/s.beats.length);
+    if(b.home) homeTimer = setTimeout(()=>{ if(alive()) doHome(); }, Math.min(5200, 1400+b.line.length*45));
+    $('[data-go] span',root).textContent = k+1<s.beats.length ? 'Дальше' : 'Играть';
+    kGoHint(root);
+  };
+  const step = () => { k++; if(k>=s.beats.length){ stopSay(); return next(); } show(); };
+  step();
+  kBind(root, ()=>s.beats[Math.max(0,k)].line, e=>{
+    if(e.target.closest('[data-go]')){ if(homeTimer){ queued=true; doHome(); return; } if(flying){ queued=true; return; } step(); return; }
+    if(e.target.closest('.st-char')){ const b=s.beats[Math.max(0,k)]; if(b.who){ say(b.line); talk(b.line); } }
+  });
+}
+
+/* ---------- Поезд харакатов: выбери огласовку, потом вагончик ---------- */
+const HARAKA = { a:{m:'َ',n:'фатха',s:'а'}, i:{m:'ِ',n:'кясра',s:'и'}, u:{m:'ُ',n:'дамма',s:'у'} };
+const TRAIN_COL = ['#F2C24A','#7FC9C4','#E9849C','#8FB8E8','#B79BEA','#86BC97'];
+function trainLoco(){ return `<svg class="tr-loco" viewBox="0 0 120 96" aria-hidden="true">
+  <g class="tr-puffs"><circle cx="30" cy="10" r="8" fill="#fff"/><circle cx="20" cy="4" r="6" fill="#fff"/><circle cx="40" cy="2" r="5" fill="#fff"/></g>
+  <rect x="22" y="18" width="16" height="22" rx="4" fill="#3B5170"/><rect x="18" y="14" width="24" height="8" rx="4" fill="#2A3E5C"/>
+  <rect x="8" y="38" width="76" height="40" rx="12" fill="#E06B5E"/><rect x="64" y="22" width="44" height="56" rx="10" fill="#C9503F"/>
+  <rect x="72" y="30" width="28" height="20" rx="6" fill="#DDF0F7"/><path d="M8 70 L0 82 H16Z" fill="#3B5170"/>
+  <rect x="8" y="50" width="56" height="8" rx="4" fill="#F6C94B"/>
+  <g class="tr-wh"><circle cx="26" cy="82" r="11" fill="#2A3E5C"/><circle cx="26" cy="82" r="4" fill="#F6C94B"/></g>
+  <g class="tr-wh"><circle cx="56" cy="82" r="11" fill="#2A3E5C"/><circle cx="56" cy="82" r="4" fill="#F6C94B"/></g>
+  <g class="tr-wh"><circle cx="90" cy="82" r="11" fill="#2A3E5C"/><circle cx="90" cy="82" r="4" fill="#F6C94B"/></g></svg>`; }
+function kTrain(root, s, next){
+  let k=0, sel=null, done=0, busy=false; const alive=()=>document.body.contains(root);
+  const marks = s.marks || ['a','i','u'];
+  const draw = () => { const r=s.rounds[k]; sel=null; done=0; busy=false;
+    root.innerHTML = kAsk(r.say) + `<div class="k-card k-train bg-${s.bg||'sky'}">
+        <div class="tr-track" id="trk"><div class="tr-row" id="trr" dir="rtl">${trainLoco()}${r.cars.map(([l],i)=>`<button class="tr-car" data-i="${i}" style="--cc:${TRAIN_COL[(i+k)%TRAIN_COL.length]};${letVars(l)}" aria-label="Вагончик ${i+1}"><span class="tr-let" lang="ar">${l}</span><small></small><i class="tr-w"></i><i class="tr-w r"></i></button>`).join('')}</div><div class="tr-rail"></div></div>
+        <p class="tr-hint">Выбери огласовку, потом вагончик</p>
+        <div class="tr-marks" id="trm">${marks.map(m=>`<button class="tr-mark" data-m="${m}"><span class="tr-dot" lang="ar">◌${HARAKA[m].m}</span><b>${HARAKA[m].n}</b><small>«${HARAKA[m].s}»</small></button>`).join('')}</div></div><div id="kf"></div>`;
+    say(r.say); pointAt($('.tr-mark',root), 2800);
+  };
+  const finishRound = () => { busy=true; const row=$('#trr',root); row.classList.add('go'); say(kPraise()+' '+s.rounds[k].tr);
+    setTimeout(()=>{ if(!alive()) return; k++; stepProg(k/s.rounds.length);
+      if(k>=s.rounds.length){ $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done)}</p>`+kNext(); say(s.done); kGoHint(root); }
+      else draw(); }, 2300); };
+  draw();
+  kBind(root, ()=>s.rounds[Math.min(k,s.rounds.length-1)].say, e=>{
+    if(e.target.closest('[data-go]')) return next();
+    if(busy) return;
+    const m=e.target.closest('.tr-mark');
+    if(m){ $$('.tr-mark',root).forEach(x=>x.classList.toggle('sel', x===m)); sel=m.dataset.m; say(HARAKA[sel].n); hideHand(); const nxt=$('.tr-car:not(.ok)',root); nxt && pointAt(nxt, 1200); return; }
+    const c=e.target.closest('.tr-car'); if(!c || c.classList.contains('ok')) return;
+    const r=s.rounds[k], [l,want]=r.cars[+c.dataset.i];
+    if(!sel){ shakeEl(c); say('Сначала выбери огласовку'); pointAt($('.tr-mark',root),400); return; }
+    if(sel===want){ c.classList.add('ok','pop'); const syl=l+HARAKA[want].m; c.querySelector('.tr-let').textContent=syl; c.querySelector('small').textContent=(r.syl||[])[+c.dataset.i]||'';
+      say((r.syl||[])[+c.dataset.i]||kPraise()); done++; if(done===r.cars.length) setTimeout(finishRound, 900);
+    } else { S.level.mistakes++; shakeEl(c); say('Послушай ещё раз: '+((r.syl||[])[+c.dataset.i]||'')); }
+  });
+}
+
+/* ---------- Тянем звук: короткий — быстро нажать, длинный — держать до второй точки ---------- */
+function kStretch(root, s, next){
+  const BEAT = 650; let k=0, t0=0, raf=null, holding=false, busy=false; const alive=()=>document.body.contains(root);
+  const draw = () => { const r=s.rounds[k]; busy=false;
+    root.innerHTML = kAsk(s.say) + `<div class="k-card k-stretch">
+        <div class="sx-top"><button class="k-spk" data-hear aria-label="Послушать слог">${ICON.spk}</button>${letTile(r.syl,'sx-syl')}</div>
+        <div class="sx-band"><svg viewBox="0 0 300 60" preserveAspectRatio="none" aria-hidden="true"><path id="sxp" d="M10 30 Q10 30 10 30" stroke="url(#sxg)" stroke-width="16" stroke-linecap="round" fill="none"/>
+          <defs><linearGradient id="sxg"><stop offset="0" stop-color="#F6C94B"/><stop offset="1" stop-color="#E9849C"/></linearGradient></defs></svg>
+          <i class="sx-peg p0"></i><i class="sx-peg p1"></i><i class="sx-peg p2"></i></div>
+        <div class="sx-lbl"><span>начало</span><span>1 счёт</span><span>2 счёта</span></div>
+        <button class="sx-hold" id="sxh">Нажми и держи</button>
+        <p class="sx-fb" id="sxf"></p>
+        <div class="k-dots">${s.rounds.map((_,i)=>`<i class="${i<k?'on':''}"></i>`).join('')}</div></div><div id="kf"></div>`;
+    const btn=$('#sxh',root);
+    const setBand = f => { const x = 10 + Math.min(1, f/2)*280; const sag = holding ? Math.min(14, f*6) : 0; $('#sxp',root).setAttribute('d',`M10 30 Q${(10+x)/2} ${30+sag} ${x} 30`); };
+    const loop = () => { if(!holding || !alive()) return; const f=(performance.now()-t0)/BEAT; setBand(f); $('.sx-peg.p1',root).classList.toggle('on',f>=1); $('.sx-peg.p2',root).classList.toggle('on',f>=2); raf=requestAnimationFrame(loop); };
+    btn.addEventListener('pointerdown', e=>{ if(busy) return; e.preventDefault(); hideHand(); try{ btn.setPointerCapture(e.pointerId); }catch(_){} holding=true; t0=performance.now(); btn.classList.add('down'); stopSay(); loop(); });
+    const up = () => { if(!holding) return; holding=false; cancelAnimationFrame(raf); btn.classList.remove('down');
+      const f=(performance.now()-t0)/BEAT; const r=s.rounds[k];
+      const ok = r.long ? f>=1.75 : f<0.75;
+      const band=$('.sx-band',root); band.classList.remove('snap'); void band.offsetWidth; band.classList.add('snap'); setTimeout(()=>{ if(alive()) setBand(0); },350);
+      if(ok){ busy=true; $('#sxf',root).textContent = r.long ? `Ма ша Аллах! Тянем на 2 счёта: «${r.tr}»` : `Верно! Короткий звук: «${r.tr}»`; $('#sxf',root).className='sx-fb ok'; say(kPraise()+' '+r.tr);
+        stepProg((k+1)/s.rounds.length);
+        setTimeout(()=>{ if(!alive()) return; k++; if(k>=s.rounds.length){ $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done)}</p>`+kNext(); say(s.done); kGoHint(root); } else draw(); }, 1600);
+      } else { S.level.mistakes++; const t = r.long ? 'Тяни дольше, до второй точки!' : 'Этот звук короткий, не тянем. Нажми быстро!'; $('#sxf',root).textContent=t; $('#sxf',root).className='sx-fb no'; say(t); shakeEl(btn); }
+    };
+    btn.addEventListener('pointerup', up); btn.addEventListener('pointercancel', up); btn.addEventListener('contextmenu', e=>e.preventDefault());
+    setBand(0); say(s.rounds[k].hear || s.say); pointAt(btn, 2600);
+  };
+  draw();
+  kBind(root, ()=>s.say, e=>{
+    if(e.target.closest('[data-go]')) return next();
+    if(e.target.closest('[data-hear]')){ const r=s.rounds[k]; say(r.hear||r.tr); }
+  });
+}
+
+/* ---------- Где живёт буква: нажми на этаж (или домик), буква сама улетит туда ---------- */
+function kHouseSort(root, s, next){
+  const items = shuffle(s.items); let k=0, wrong=0, busy=false; const res = {}; s.houses.forEach(h=>res[h]={}); const alive=()=>document.body.contains(root);
+  const whole = !!s.whole;
+  root.innerHTML = kAsk(s.say) + `<div class="k-card k-hsort"><div class="hs-cur" id="hsc"></div>
+      <div class="hs-houses n${s.houses.length}${whole?' whole':''}">${s.houses.map(h=>`<div class="hs-house" data-kind="${h}" role="button" tabindex="0" aria-label="${HOUSES[h].sign}">${houseSVG(h,0,{})}</div>`).join('')}</div></div><div id="kf"></div>`;
+  const redraw = h => { $(`.hs-house[data-kind="${h}"]`,root).innerHTML = houseSVG(h, 0, res[h]); };
+  const show = () => { wrong=0; const [l,name]=items[k]; $('#hsc',root).innerHTML = `${stChar(l)}<b>${esc(name)}</b>`; say(name); };
+  say(s.say); setTimeout(()=>{ if(alive()) show(); }, 10); pointAt($('.hs-houses',root), 3000, true);
+  const target = it => { const [h,f] = it[2].split(':'); return { h, f: +(f||0) }; };
+  kBind(root, ()=>s.say, e=>{
+    if(e.target.closest('[data-go]')) return next();
+    const hb=e.target.closest('.hs-house'); if(!hb || busy || k>=items.length) return;
+    const fl=e.target.closest('.hfl'); const h=hb.dataset.kind; const f = whole ? 0 : (fl ? +fl.dataset.floor : -1);
+    const it=items[k], t=target(it);
+    if(h===t.h && (whole || f===t.f)){ busy=true; hideHand();
+      const ch=$('#hsc .st-char',root), dst = whole ? hb : fl; const a=ch.getBoundingClientRect(), z=dst.getBoundingClientRect();
+      const done = () => { if(!alive()) return; const nf=HOUSES[h].floors.length, tot=Object.values(res[h]).join('').length; const key = whole ? nf-(tot%nf) : t.f;
+        res[h][key] = (res[h][key]||'') + baseLet(it[0]); redraw(h); const g=$$(`.hs-house[data-kind="${h}"] .hfl[data-floor="${key}"] .hres`,root).pop(); g && g.classList.add('pop');
+        k++; stepProg(k/items.length); busy=false;
+        if(k>=items.length){ $('#hsc',root).innerHTML=''; say(s.done); $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done)}</p>`+kNext(); kGoHint(root); } else show(); };
+      say(kPraise());
+      if(ch.animate){ const an=ch.animate([{transform:'none'},{transform:`translate(${(z.left+z.width*.7)-(a.left+a.width/2)}px,${(z.top+z.height/2)-(a.top+a.height/2)}px) scale(.25)`,opacity:.3}],{duration:650,easing:'ease-in',fill:'forwards'}); an.onfinish=done; } else done();
+    } else { S.level.mistakes++; wrong++; shakeEl(fl||hb); say(s.no||kTry());
+      if(wrong>=2){ const hh=$(`.hs-house[data-kind="${t.h}"]`,root); pointAt(whole ? hh : $(`.hfl[data-floor="${t.f}"]`,hh), 700); } }
+  });
+}
+
 /* --- Лук и стрелы: натяни тетиву и попади в букву, которую назвали --- */
 function kArch(root, s, next){
   let k=0, busy=false, pull=null, raf=null, t0=performance.now();
@@ -4502,7 +5232,7 @@ function kBalloons(root, s, next){
 /* --- Найди пару: открывай карточки и ищи одинаковые буквы --- */
 function kMemory(root, s, next){
   const cards = shuffle(s.letters.flatMap(([l,n])=>[{l,n},{l,n}])); let open=[], lock=false, found=0;
-  root.innerHTML = kAsk(s.say) + `<div class="k-mem n${cards.length}">${cards.map((c,i)=>`<button class="mc" data-i="${i}" aria-label="Карточка"><span class="mc-in"><span class="mc-back">${kImg('star')}</span><span class="mc-front"><span class="k-let">${c.l}</span></span></span></button>`).join('')}</div><div id="kf"></div>`;
+  root.innerHTML = kAsk(s.say) + `<div class="k-mem n${cards.length}">${cards.map((c,i)=>`<button class="mc" data-i="${i}" aria-label="Карточка"><span class="mc-in"><span class="mc-back">${kImg('star')}</span><span class="mc-front">${letTile(c.l)}</span></span></button>`).join('')}</div><div id="kf"></div>`;
   say(s.say); pointAt($('.mc',root), 2600);
   kBind(root, ()=>s.say, e=>{
     if(e.target.closest('[data-go]')) return next();
@@ -4569,8 +5299,8 @@ function growModal(){
     <div class="grow-steps">${GROW_NAMES[g].map((n,i)=>`<div class="${i<=st?'on':''}">${growSVG(g,i)}<small>${n}</small></div>`).join('')}</div>
     <div class="modal-foot"><button class="btn btn-primary" data-act="modal-close">Хорошо</button></div></div>`);
 }
-Object.assign(STEPS, { listen:kListen, yesno:kYesNo, tapone:kTapOne, sortkid:kSort, matchkid:kMatch, tapall:kTapAll, collect:kCollect, pencil:kPencil, rain:kRain, repeat:kRepeat, trace:kTrace, archery:kArch, balloons:kBalloons, memory:kMemory });
-Object.assign(STEP_LABEL, { listen:'Слушай', yesno:'Да или нет', tapone:'Выбери', sortkid:'Разложи', matchkid:'Кто что ест', tapall:'Найди', collect:'Собери', pencil:'Опыт', rain:'Дождик', repeat:'Повтори', trace:'Обведи', archery:'Лук', balloons:'Шарики', memory:'Пары' });
+Object.assign(STEPS, { listen:kListen, yesno:kYesNo, tapone:kTapOne, sortkid:kSort, matchkid:kMatch, tapall:kTapAll, collect:kCollect, pencil:kPencil, rain:kRain, repeat:kRepeat, trace:kTrace, archery:kArch, balloons:kBalloons, memory:kMemory, story:kStory, train:kTrain, stretch:kStretch, housesort:kHouseSort });
+Object.assign(STEP_LABEL, { listen:'Слушай', yesno:'Да или нет', tapone:'Выбери', sortkid:'Разложи', matchkid:'Кто что ест', tapall:'Найди', collect:'Собери', pencil:'Опыт', rain:'Дождик', repeat:'Повтори', trace:'Обведи', archery:'Лук', balloons:'Шарики', memory:'Пары', story:'История', train:'Поезд', stretch:'Тянем звук', housesort:'Где живёт буква' });
 
 function kidLevelDeco(bg){
   const cloud = (top,left,w,cl) => `<div class="deco ${cl}" style="top:${top};left:${left};width:${w}px">${CLOUD}</div>`;
@@ -5270,7 +6000,7 @@ async function liveLogout(){
   S.me = null; S.viewAs = null; go('login', { loginEmail:last, loginErr:'', codeErr:'' });
 }
 async function boot(){
-  if(!LIVE){ render(); return; }
+  if(!LIVE){ S.me='a0'; S.route='home'; render(); return; }   // демо: сразу в админке, без входа
   SEED = clone({ classes:DB.classes, subjects:DB.subjects, schedule:DB.schedule, holidays:DB.holidays, quarters:DB.quarters, access:{}, cancels:{},
     teachers: DB.users.filter(u => u.role==='teacher') });
   DB.users = []; DB.progress = {}; DB.journal = {};
