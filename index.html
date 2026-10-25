@@ -6177,7 +6177,7 @@ document.addEventListener('submit', e=>{
    ========================================================================= */
 const ADMIN_TABS_ALL = [
   ['overview','Обзор','home'],['students','Ученицы','kids'],['teachers','Учителя','teacher'],
-  ['classes','Классы','arch'],['schedule','Расписание','layers'],['journal','Журнал','edit'],['courses','Курсы','trophy'],['admins','Админы','shield']
+  ['classes','Классы','arch'],['schedule','Расписание','layers'],['journal','Журнал','edit'],['quarters','Доступ','lock'],['courses','Курсы','trophy'],['admins','Админы','shield']
 ];
 function viewAdmin(){
   const me = actor();
@@ -6339,7 +6339,7 @@ function adClasses(){
         ${c.dep==='s'&&sx?`<span class="pill ${sx==='b'?'info':'rose'}">${sx==='b'?'Мальчики':'Девочки'}</span>`:''}</div></div>
       <div class="meta"><div><b class="tnum">${list.length}</b>${sx==='b'?'учеников':'учениц'}</div><div><b class="tnum">${n}</b>уроков в неделю</div></div>
       <p class="hint" style="margin:0">Учителя: ${tt.length?tt.map(x=>esc(x.name)).join(', '):'нет уроков'}</p>
-      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-soft btn-sm" data-act="class-open" data-id="${c.id}">${sx==='b'?'Ученики':'Ученицы'}</button><button class="btn btn-soft btn-sm" data-act="class-sched" data-id="${c.id}">Расписание</button></div></article>`; };
+      <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn btn-soft btn-sm" data-act="class-open" data-id="${c.id}">${sx==='b'?'Ученики':'Ученицы'}</button><button class="btn btn-soft btn-sm" data-act="class-sched" data-id="${c.id}">Расписание</button><button class="btn btn-soft btn-sm" data-act="class-quarters" data-id="${c.id}">Доступ</button></div></article>`; };
   const block = d => [1,2,3].map(n=>{ const L=sortGroups(DB.classes.filter(c=>c.dep===d && c.n===n)); if(!L.length) return '';
       const tot=L.reduce((a,c)=>a+classStudents(c.id).length,0); const bg=['var(--sky)','var(--sun-soft)','var(--sage)'][n-1];
       return `<section class="cls-block"><div class="cls-head"><span class="arch-ic" style="background:${bg}">${n}</span><div><h3>${n} класс</h3><span class="hint">${L.length} ${plural(L.length,'группа','группы','групп')} · ${tot} ${plural(tot,'ребёнок','ребёнка','детей')}</span></div></div>
