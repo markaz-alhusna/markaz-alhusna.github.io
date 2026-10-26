@@ -1473,6 +1473,61 @@ button.st:hover{box-shadow:inset 0 0 0 2px var(--navy-soft)}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
+/* ---------- Главная ---------- */
+.hub{min-height:100vh;background:radial-gradient(1200px 500px at 85% -10%,#DCEFF7 0,transparent 60%),radial-gradient(900px 500px at -10% 30%,#F4EAD8 0,transparent 60%),var(--milk);padding:18px clamp(16px,4vw,40px) 60px}
+.hub>*{max-width:1080px;margin-left:auto;margin-right:auto}
+.hub-top{display:flex;align-items:center;gap:12px}
+.hub-top .spacer{flex:1}
+.hub-feed .notice{background:#F3F7FA;border:0;border-left:5px solid var(--sky-deep);border-radius:18px;padding:12px 16px}.hub-feed .notice>b{display:none}.hub-feed .notice ul{margin:0;padding-left:18px}
+.hub-top .logo{width:44px;height:44px;color:var(--gold)}
+.hub-brand{display:grid}.hub-brand b{font-size:18px;letter-spacing:.08em;color:var(--navy)}.hub-brand span{font-size:12px;color:var(--navy-soft)}
+.hub-hero{position:relative;margin-top:18px;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:center;gap:16px;padding:clamp(20px,4vw,36px);border-radius:32px;background:linear-gradient(135deg,#14315C,#24497C 60%,#3B6A9A);color:#fff;box-shadow:0 18px 40px -18px rgba(20,49,92,.55);overflow:hidden}
+.hh-t small{font-size:14px;letter-spacing:.06em;color:var(--sun-soft);font-weight:700}
+.hh-t h1{margin:6px 0 8px;font-size:clamp(26px,4.4vw,40px);line-height:1.12;color:#fff}
+.hh-t p{margin:0 0 18px;color:#DCE6F2;font-size:16px;line-height:1.5}.hh-t p b{color:#fff}
+.hub-hero .btn-primary{background:var(--sun);color:var(--navy);box-shadow:0 6px 0 #C99A2B}
+.hh-pic{position:relative;justify-self:center;width:min(260px,100%)}
+.hh-pic>img{width:100%;height:auto;filter:drop-shadow(0 16px 20px rgba(0,0,0,.3))}
+.hh-star,.hh-moon{position:absolute;width:26%;animation:floaty 4s ease-in-out infinite}.hh-star img,.hh-moon img{width:100%}
+.hh-star{top:-4%;left:-6%}.hh-moon{top:2%;right:-4%;animation-delay:-2s}
+.hub-box{margin-top:20px;background:var(--paper);border-radius:26px;padding:18px clamp(16px,3vw,24px);box-shadow:var(--shadow)}
+.hub-box h2,.hub-h2{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:20px;color:var(--navy)}
+.hub-box h2 svg{width:22px;height:22px;color:var(--gold)}
+.hub-h2{margin:30px auto 12px}
+.hub-feed{display:grid;gap:10px}
+.hub-news{background:#FFF7E6;border-radius:18px;padding:12px 16px;border-left:5px solid var(--sun)}
+.hn-h{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.hn-h b{color:var(--navy);font-size:16px}
+.hn-new{font-size:12px;font-weight:800;background:var(--rose-deep);color:#fff;border-radius:99px;padding:2px 9px}
+.hub-news p{margin:6px 0 4px;color:var(--navy-2);line-height:1.5}.hub-news small{color:var(--navy-soft)}
+.hub-feed .notice{margin:0}
+.hub-empty{margin:0;color:var(--navy-soft)}
+.hub-crs{margin-top:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#FFF1D6;border-radius:24px;padding:16px 20px}
+.hc-t{display:grid;flex:1;min-width:200px}.hc-t b{font-size:18px;color:var(--navy)}.hc-t span{color:var(--navy-soft)}
+.hub-deps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.hub-dep{position:relative;border-radius:30px;padding:20px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:12px}
+.hub-dep.t-s{background:linear-gradient(180deg,#E6F2E3,#F7FBF2)}
+.hub-dep.t-m{background:linear-gradient(180deg,#DCE9F2,#F5F9FC)}
+.hub-dep.mine{outline:3px solid var(--sun);outline-offset:-3px}
+.hd-head{display:flex;align-items:center;gap:12px}
+.hd-pic{width:64px;height:64px;flex:none;display:grid;place-items:center;background:#fff;border-radius:20px;box-shadow:0 6px 14px -8px rgba(20,49,92,.35)}.hd-pic img{width:48px}
+.hd-t{display:grid;min-width:0}.hd-t small{color:var(--navy-soft);font-weight:700}.hd-t h3{margin:0;font-size:24px;color:var(--navy)}
+.hd-ar{font-family:Amiri,'Noto Naskh Arabic',serif;color:var(--gold);font-size:18px}
+.hd-mine{margin-left:auto;align-self:flex-start;background:var(--sun);color:var(--navy);font-weight:800;font-size:13px;border-radius:99px;padding:5px 12px}
+.hd-text{margin:0;color:var(--navy-2);line-height:1.5}
+.hd-subs{display:grid;gap:8px}
+.hd-sub{display:flex;gap:10px;align-items:center;background:rgba(255,255,255,.85);border-radius:16px;padding:8px 12px}
+.hs-ic{width:40px;height:40px;flex:none;display:grid;place-items:center}.hs-ic img{width:38px}
+.hd-sub b{display:block;color:var(--navy);font-size:15px}.hd-sub span{display:block;color:var(--navy-soft);font-size:13.5px;line-height:1.35}
+.hd-go{align-self:flex-start;margin-top:auto}
+.hd-more{margin:auto 0 0;color:var(--navy-soft);font-size:14px}
+.news-add{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr) auto;gap:10px;align-items:end}
+.news-add .nw-text{grid-column:1/-1;order:3}.news-add .btn{order:4;justify-self:start}.news-add .err{grid-column:1/-1;order:5}
+.news-add textarea{resize:vertical;min-height:70px;font:inherit}
+@media (max-width:760px){
+  .hub-hero{grid-template-columns:1fr}.hh-pic{width:150px;grid-row:1}
+  .hub-deps{grid-template-columns:1fr}
+  .news-add{grid-template-columns:1fr}
+}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -4184,8 +4239,10 @@ function render(){
     if(!a){ go('login'); return; }
     if(isAdmin(a)) app.innerHTML = viewAdmin();
     else if(a.role==='teacher') app.innerHTML = viewTeacher();
+    else if(S.hubFor !== a.id){ S.hubFor = a.id; S.route='hub'; app.innerHTML = viewHub(); }
     else app.innerHTML = a.classId ? viewKid() : viewCourses();
   }
+  else if(r==='hub'){ const a=actor(); if(!a){ go('login'); return; } if(a.role!=='student'){ S.route='home'; return render(); } S.hubFor=a.id; app.innerHTML = viewHub(); }
   else if(r==='courses') app.innerHTML = viewCourses();
   else if(r==='course') app.innerHTML = viewCourse();
   else if(r==='clesson') app.innerHTML = viewCLesson();
@@ -4353,6 +4410,7 @@ function viewKid(){
         <div class="kid-hello"><b>Ас-саляму алейкум, ${esc(first)}!</b><span>${esc(className(c))}</span></div>
         <span class="spacer"></span>
         
+        <button class="round-btn" style="color:var(--navy)" data-act="hub" aria-label="Главная">${ICON.home}</button>
         ${myCourses(me).length ? `<button class="course-chip" data-act="crs-mine">${kImg('book')}<span>Курсы</span></button>` : ''}
         <span class="star-count tnum" style="color:var(--navy)">${ICON.star}${starsOf(me.id)}</span>
         ${S.viewAs ? '' : `<button class="round-btn" data-act="logout" aria-label="Выйти" style="color:var(--navy)">${ICON.logout}</button>`}
@@ -4818,6 +4876,7 @@ function viewMz(me, c){
       <span class="logo">${LOGO}</span>
       <div class="mz-hello"><b>Ас-саляму алейкум, ${esc(first)}!</b><span>${esc(className(c))}</span></div>
       <span class="spacer"></span>
+      <button class="round-btn" data-act="hub" aria-label="Главная">${ICON.home}</button>
       ${myCourses(me).length ? `<button class="course-chip" data-act="crs-mine">${kImg('book')}<span>Курсы</span></button>` : ''}
       <span class="mz-stars tnum">${ICON.star}${starsOf(me.id)}</span>
       ${S.viewAs ? '' : `<button class="round-btn" data-act="logout" aria-label="Выйти">${ICON.logout}</button>`}
@@ -5939,7 +5998,7 @@ function crsTop(back, title, sub){
 }
 function crsTopNoBack(title, sub){
   return `${viewAsBar()}<header class="crs-top"><span class="logo" style="height:44px;display:inline-flex">${LOGO}</span><div class="crs-ttl"><small>${esc(sub||'')}</small><b>${esc(title)}</b></div><span class="spacer"></span>
-    ${S.viewAs?'':`<button class="round-btn" data-act="logout" aria-label="Выйти">${ICON.logout}</button>`}</header>`;
+    <button class="round-btn" data-act="hub" aria-label="Главная">${ICON.home}</button>${S.viewAs?'':`<button class="round-btn" data-act="logout" aria-label="Выйти">${ICON.logout}</button>`}</header>`;
 }
 function viewCourses(){
   const me=actor(); const L=myCourses(me);
@@ -6123,6 +6182,113 @@ function tCourses(){
       : '<div class="box empty">Курс пока никому не открыт.</div>');
 }
 
+/* =========================================================================
+   ГЛАВНАЯ: при входе ученица видит всю школу — отделения и разделы с короткими
+   описаниями, объявления школы и кнопку в свой кабинет.
+   ========================================================================= */
+DB.news = LIVE ? [] : [
+  { id:'n1', title:'Скоро курс «Сира для детей»', text:'К Рамадану откроем курс о жизни Пророка ﷺ: видеоуроки, конспекты и интересные проверки. Следите за объявлениями!', to:'all', date:isoD(TODAY-2*864e5) },
+  { id:'n2', title:'Новые игры по таджвиду', text:'В таджвиде появились поезд огласовок, «тянем звук» и чтение вслух для учителя.', to:'s', date:TODAY_ISO },
+];
+const DEP_INFO = {
+  s:{ name:'Садик', ar:'رَوْضَةُ الْحُسْنَى', age:'4–7 лет', pic:'flower', tone:'s',
+      text:'Первые знания об Аллахе, буквы Корана и красивые манеры — через истории, игры и задания. Читать уметь не нужно: всё озвучено.' },
+  m:{ name:'Мадраса', ar:'مَدْرَسَةُ الْحُسْنَى', age:'8–14 лет', pic:'rahle', tone:'m',
+      text:'Основы веры, таджвид, арабский язык, фикх и истории праведных женщин. Уроки с учителем онлайн и задания на платформе.' },
+};
+const SUBJ_INFO = {
+  osn:'Таухид, имена Аллаха, пророки и столпы ислама.',
+  tajweed:'Где живут буквы, огласовки и как красиво читать Коран.',
+  adab:'Красивые манеры: с Кораном, с родителями, на улице.',
+  obzh:'Безопасность дома и на улице: видео и проверка.',
+  army:'Как Аллах помогал верующим: птицы, ветер, дождь.',
+  hadith:'Короткие хадисы о добрых качествах.',
+  arabic:'Слова и фразы: семья, учёба, рынок, больница.',
+  prophets:'Истории пророков: Ибрахим, Юсуф и другие.',
+  fiqh:'Чистота, вуду и намаз: как правильно.',
+  tashih:'Исправляем чтение коротких сур.',
+  mothers:'Жизнь ‘Аиши и других матерей правоверных.',
+};
+const SUBJ_IC = { osn:'book', tajweed:'notebook', adab:'flower', obzh:'house', army:'cloud', hadith:'star2', arabic:'palette', prophets:'star', fiqh:'drop', tashih:'rahle', mothers:'moon' };
+function depSubjects(dep){
+  const seen = {}, out = [];
+  Object.keys(PROGRAM).filter(k=>k[0]===dep).sort().forEach(k=>PROGRAM[k].forEach(x=>{ if(!seen[x.id]){ seen[x.id]=1; out.push(x); } }));
+  return out;
+}
+const newsDate = d => fmtDate(d);
+function newsFor(s){
+  const c = s && s.classId ? cls(s.classId) : null;
+  return (DB.news||[]).filter(n => n.to==='all' || (c && (n.to===c.dep || n.to===c.id)))
+    .slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+}
+function hubNotices(me){
+  const news = newsFor(me).map(n => {
+    const fresh = n.date && (TODAY - new Date(n.date+'T12:00:00'))/864e5 <= 7;
+    return `<article class="hub-news"><div class="hn-h"><b>${esc(n.title)}</b>${fresh?'<span class="hn-new">новое</span>':''}</div>
+      ${n.text?`<p>${esc(n.text)}</p>`:''}<small>${n.date?newsDate(n.date):''}</small></article>`; }).join('');
+  const own = me.classId ? noticesFor(me.id) : '';
+  if(!news && !own) return `<p class="hub-empty">Пока новых объявлений нет. Как только школа что-то напишет, это появится здесь.</p>`;
+  return news + own;
+}
+function viewHub(){
+  const me = actor(); const c = me.classId ? cls(me.classId) : null; const myDep = c ? c.dep : null;
+  const first = (me.name||'').split(' ')[0];
+  const deps = ['s','m'].map(d => {
+    const D = DEP_INFO[d], subs = depSubjects(d), mine = d===myDep;
+    const nCls = DB.classes.filter(x=>x.dep===d).length;
+    return `<section class="hub-dep t-${D.tone}${mine?' mine':''}">
+      <div class="hd-head"><span class="hd-pic">${kImg(D.pic)}</span>
+        <div class="hd-t"><small>${D.age}${nCls?' · 3 класса по 5 четвертей':''}</small><h3>${D.name}</h3><span class="hd-ar" lang="ar">${D.ar}</span></div>
+        ${mine?'<span class="hd-mine">Ты здесь</span>':''}</div>
+      <p class="hd-text">${D.text}</p>
+      <div class="hd-subs">${subs.map(x=>`<div class="hd-sub"><span class="hs-ic">${kImg(SUBJ_IC[x.id]||'star')}</span><div><b>${esc(x.name)}</b><span>${esc(SUBJ_INFO[x.id]||'')}</span></div></div>`).join('')}</div>
+      ${mine?`<button class="btn btn-primary hd-go" data-act="hub-go">Перейти к моим урокам</button>`:`<p class="hd-more">Хотите записать брата или сестру? Напишите администратору школы.</p>`}
+    </section>`; }).join('');
+  const crs = COURSES_ON ? myCourses(me) : [];
+  const crsBox = crs.length ? `<section class="hub-crs"><div class="hc-t"><b>Курсы</b><span>${crs.map(x=>esc(x.title)).join(' · ')}</span></div>
+      <button class="btn btn-sun" data-act="hub-crs">Открыть курсы</button></section>` : '';
+  return `${viewAsBar()}<div class="hub">
+    <header class="hub-top"><span class="logo">${LOGO}</span><div class="hub-brand"><b>AL-HUSNA</b><span>мадраса и садик</span></div><span class="spacer"></span>
+      ${S.viewAs?'':`<button class="round-btn" data-act="logout" aria-label="Выйти">${ICON.logout}</button>`}</header>
+    <section class="hub-hero">
+      <div class="hh-t"><small>Ас-саляму алейкум!</small><h1>${esc(first)}, добро пожаловать</h1>
+        <p>${c?`Твой класс: <b>${esc(className(c))}</b>.`:'Тебе открыты курсы школы.'} Загляни в объявления, а потом — за уроки!</p>
+        <button class="btn btn-primary btn-big" data-act="hub-go">${c?'Мои уроки':'Мои курсы'} →</button></div>
+      <div class="hh-pic" aria-hidden="true">${kImg('mosque')}<span class="hh-star">${kImg('star2')}</span><span class="hh-moon">${kImg('crescent')}</span></div>
+    </section>
+    <section class="hub-box"><h2>${ICON.mail} Объявления школы</h2><div class="hub-feed">${hubNotices(me)}</div></section>
+    ${crsBox}
+    <h2 class="hub-h2">Наша школа</h2>
+    <div class="hub-deps">${deps}</div>
+  </div>`;
+}
+document.addEventListener('click', e=>{
+  const el=e.target.closest('[data-act^="hub"]'); if(!el) return;
+  const a=el.dataset.act;
+  if(a==='hub'){ go('hub'); return; }
+  if(a==='hub-go'){ const me=actor(); S.courseCtx=null; go(me && me.classId ? 'home' : 'courses'); return; }
+  if(a==='hub-crs'){ S.courseCtx=null; go('courses'); return; }
+});
+
+/* --- админка: объявления --- */
+function adNews(){
+  const opts = `<option value="all">Вся школа</option><option value="s">Садик</option><option value="m">Мадраса</option>${DB.classes.map(c=>`<option value="${c.id}">${esc(className(c))}</option>`).join('')}`;
+  const toName = t => t==='all'?'Вся школа':t==='s'?'Садик':t==='m'?'Мадраса':className(cls(t)||{name:'?'});
+  const L = (DB.news||[]).slice().sort((a,b)=>(b.date||'').localeCompare(a.date||''));
+  return headBlock('Связь','Объявления','Ученицы видят объявления на главной странице сразу после входа.') + `
+    <section class="box"><div class="box-h"><h3>Новое объявление</h3></div>
+      <form class="news-add" data-form="news" novalidate>
+        <div class="field"><label for="nw-t">Заголовок</label><input class="input" id="nw-t" maxlength="80" placeholder="Например, Открыта запись на курс"></div>
+        <div class="field"><label for="nw-to">Для кого</label><select class="input" id="nw-to">${opts}</select></div>
+        <div class="field nw-text"><label for="nw-x">Текст</label><textarea class="input" id="nw-x" rows="3" maxlength="600" placeholder="Коротко и понятно"></textarea></div>
+        <button class="btn btn-primary" type="submit">${ICON.plus} Опубликовать</button>
+        <div class="err" id="nw-err" role="alert"></div>
+      </form></section>
+    <section class="box" style="margin-top:18px"><div class="box-h"><h3>Опубликованные</h3></div>
+      <div class="list">${L.length ? L.map(n=>`<div class="list-row"><div class="grow"><b>${esc(n.title)}</b><span>${n.date?fmtDate(n.date)+' · ':''}${esc(toName(n.to))}${n.text?' · '+esc(n.text.slice(0,90))+(n.text.length>90?'…':''):''}</span></div>
+        <button class="icon-btn" data-act="news-del" data-id="${n.id}" aria-label="Удалить ${esc(n.title)}">${ICON.trash}</button></div>`).join('') : '<p class="hint" style="margin:0">Объявлений пока нет.</p>'}</div></section>`;
+}
+
 /* ================= события ================= */
 document.addEventListener('click', e=>{
   const el=e.target.closest('[data-act^="crs-"]'); if(!el) return;
@@ -6186,7 +6352,7 @@ document.addEventListener('submit', e=>{
    ========================================================================= */
 const ADMIN_TABS_ALL = [
   ['overview','Обзор','home'],['students','Ученицы','kids'],['teachers','Учителя','teacher'],
-  ['classes','Классы','arch'],['schedule','Расписание','layers'],['journal','Журнал','edit'],['quarters','Доступ','lock'],['courses','Курсы','trophy'],['admins','Админы','shield']
+  ['classes','Классы','arch'],['schedule','Расписание','layers'],['journal','Журнал','edit'],['quarters','Доступ','lock'],['news','Объявления','mail'],['courses','Курсы','trophy'],['admins','Админы','shield']
 ];
 function viewAdmin(){
   const me = actor();
@@ -6195,7 +6361,7 @@ function viewAdmin(){
   const counts = {students:students().length, teachers:teachers().length, classes:DB.classes.length, admins:admins().length};
   const nav = ADMIN_TABS.map(([id,n,ic])=>`<button data-act="atab" data-tab="${id}" ${S.adminTab===id?'aria-current="page"':''}>${ICON[ic]} ${n}${counts[id]!=null?`<span class="cnt tnum">${counts[id]}</span>`:''}</button>`).join('');
   const mnav = ADMIN_TABS.map(([id,n])=>`<button data-act="atab" data-tab="${id}" ${S.adminTab===id?'aria-current="page"':''}>${n}</button>`).join('');
-  const body = ({schedule:adSchedule,journal:adJournal,overview:adOverview,students:adStudents,teachers:adTeachers,classes:adClasses,quarters:adQuarters,recs:adRecs,courses:adCourses,admins:adAdmins})[S.adminTab]();
+  const body = ({schedule:adSchedule,journal:adJournal,overview:adOverview,students:adStudents,teachers:adTeachers,classes:adClasses,quarters:adQuarters,recs:adRecs,news:adNews,courses:adCourses,admins:adAdmins})[S.adminTab]();
   return `<div class="panel">
     <aside class="side">
       <div class="side-brand"><span class="logo">${LOGO}</span><div><b>AL-HUSNA</b><span>Панель управления</span></div></div>
@@ -6433,7 +6599,7 @@ document.addEventListener('click', e=>{
     case 'demo': $('#email').value = el.dataset.email; submitEmail(el.dataset.email); break;
     case 'to-login': go('login',{loginErr:'',codeErr:''}); break;
     case 'resend': if(LIVE) liveSendCode(S.loginEmail, true); break;
-    case 'logout': if(LIVE){ liveLogout(); break; } S.me=null; S.viewAs=null; go('login',{loginEmail:'',loginErr:'',codeErr:''}); break;
+    case 'logout': S.hubFor=null; if(LIVE){ liveLogout(); break; } S.me=null; S.viewAs=null; go('login',{loginEmail:'',loginErr:'',codeErr:''}); break;
     case 'tq': S.tq = +el.dataset.i; render(); break;
     case 'subj': S.subj = id; render(); break;
     case 'grow': growModal(); break;
@@ -6451,6 +6617,8 @@ document.addEventListener('click', e=>{
         <div class="field"><label for="cn-r">Причина (по желанию)</label><input class="input" id="cn-r" maxlength="80" placeholder="Например, учитель болеет"></div>
         <div class="modal-foot"><button type="button" class="btn btn-soft" data-act="modal-close">Не отменять</button><button class="btn btn-danger" type="submit">Отменить урок</button></div></form>`); break; }
     case 'up-restore': { const k=el.dataset.key; if(!canEditKey(k)) return; delete DB.cancels[k]; render(); toast('Урок снова в расписании'); break; }
+    case 'news-del': { if(!guardAdmin()) return; const n=(DB.news||[]).find(x=>x.id===id); if(!n) return;
+      confirmBox('Удалить объявление?', esc(n.title), 'Удалить', ()=>{ DB.news=DB.news.filter(x=>x.id!==id); render(); toast('Объявление удалено'); }); break; }
     case 'hol-del': { if(!guardAdmin()) return; const h=DB.holidays.find(x=>x.id===id);
       confirmBox('Удалить каникулы?', `${esc(h.title)}: уроки в эти дни снова появятся в расписании и журнале.`, 'Удалить', ()=>{ DB.holidays=DB.holidays.filter(x=>x.id!==id); render(); toast('Каникулы удалены'); }); break; }
     case 'orn': S.orn=+el.dataset.i; S.loginEmail=($('#email')||{}).value||S.loginEmail; render(); break;
@@ -6584,6 +6752,9 @@ document.addEventListener('submit', e=>{
   if(t==='holiday'){ const ttl=$('#hol-t').value.trim(), from=$('#hol-f').value, to=$('#hol-to').value, dep=$('#hol-d').value; const he=$('#hol-err');
     if(ttl.length<2) return he.textContent='Введите название.'; if(!from||!to) return he.textContent='Укажите даты.'; if(to<from) return he.textContent='Дата окончания раньше начала.';
     DB.holidays.push({id:uid('h'),title:ttl,from,to,dep}); render(); toast('Каникулы добавлены'); return; }
+  if(t==='news'){ if(!guardAdmin()) return; const ttl=$('#nw-t').value.trim(), tx=$('#nw-x').value.trim(), to=$('#nw-to').value; const er=$('#nw-err');
+    if(ttl.length<3) return er.textContent='Введите заголовок.';
+    DB.news = DB.news || []; DB.news.push({id:uid('n'), title:ttl.slice(0,80), text:tx.slice(0,600), to, date:TODAY_ISO}); render(); toast('Объявление опубликовано'); return; }
   if(t==='subj'){ const n=$('#subj-name').value.trim(); if(n.length<2) return;
     if(DB.subjects.some(x=>x.name.toLowerCase()===n.toLowerCase())){ toast('Такой предмет уже есть'); return; }
     DB.subjects.push({id:uid('sb'),name:n}); render(); toast('Предмет добавлен'); return; }
@@ -6645,7 +6816,7 @@ const SB = {
     if(!r.ok){ const t=await r.text(); throw Object.assign(new Error(t||('HTTP '+r.status)), {status:r.status}); } },
 };
 
-const SCHOOL_KEYS = ['classes','subjects','schedule','holidays','quarters','access','cancels','courses'].filter(k=>k!=='courses' || COURSES_ON);
+const SCHOOL_KEYS = ['classes','subjects','schedule','holidays','quarters','access','cancels','courses','news'].filter(k=>k!=='courses' || COURSES_ON);
 const clone = x => x===undefined ? undefined : JSON.parse(JSON.stringify(x));
 let SEED = null, SNAP = null, lastLoad = 0;
 const isStaffRole = r => r==='owner' || r==='admin' || r==='teacher';
@@ -6686,7 +6857,8 @@ async function loadAll(){
   DB.journal = {}; jr.forEach(r => { DB.journal[r.key] = r.data; });
   SNAP = takeState();                       // что лежит на сервере
   /* чего на сервере ещё нет — берём из начальных данных (админ их сохранит) */
-  SCHOOL_KEYS.forEach(k => { if(DB[k]===undefined || DB[k]===null) DB[k] = clone(SEED[k]) ?? (k==='holidays'||k==='classes'||k==='subjects'||k==='schedule'||k==='courses' ? [] : {}); });
+  SCHOOL_KEYS.forEach(k => { if(DB[k]===undefined || DB[k]===null) DB[k] = clone(SEED[k]) ?? (k==='holidays'||k==='classes'||k==='subjects'||k==='schedule'||k==='courses'||k==='news' ? [] : {}); });
+  if(sk.news===undefined) SNAP.school.news = JSON.stringify(DB.news);   // пустой список не отправляем, пока админ ничего не написал
   DB.classes.forEach(c => { if(!DB.quarters[c.id]) DB.quarters[c.id] = defaultQuarters(c); });
   Object.keys(DB.access).forEach(cid => { if(DB.access[cid].osn && DB.quarters[cid]) DB.access[cid].osn.q = DB.quarters[cid]; });
   if(isAdminRole(me.role) && sk.classes===undefined){       // самый первый вход админа: заносим учителей
@@ -6711,7 +6883,7 @@ async function syncNow(){
     for(const k of sk){
       try{ await SB.upsert('school', [{ key:k, data:JSON.parse(cur.school[k]), updated_by: me.email }]); SNAP.school[k] = cur.school[k]; }
       catch(e){ if(e.status===403 || e.status===400 || /row-level security|violates/i.test(e.message)){ SNAP.school[k] = cur.school[k];
-          toast(k==='courses' ? 'Курсы не сохранились: в Supabase нужно один раз запустить файл 06-courses.' : 'Нет прав на это изменение, оно не сохранено.'); }
+          toast(k==='courses' ? 'Курсы не сохранились: в Supabase нужно один раз запустить файл 06-courses.' : k==='news' ? 'Объявление не сохранилось: в Supabase нужно один раз запустить файл 07-news.' : 'Нет прав на это изменение, оно не сохранено.'); }
         else throw e; } }
     if(admin){
       const mine = k => { const r = JSON.parse(cur.members[k] || SNAP.members[k]); return role==='owner' || r.role!=='owner'; };
@@ -6794,7 +6966,7 @@ async function liveLogout(){
 }
 async function boot(){
   if(!LIVE){ S.me='a0'; S.route='home'; render(); return; }   // демо: сразу в админке, без входа
-  SEED = clone({ classes:DB.classes, subjects:DB.subjects, schedule:DB.schedule, holidays:DB.holidays, quarters:DB.quarters, access:{}, cancels:{}, courses:[],
+  SEED = clone({ classes:DB.classes, subjects:DB.subjects, schedule:DB.schedule, holidays:DB.holidays, quarters:DB.quarters, access:{}, cancels:{}, courses:[], news:[],
     teachers: DB.users.filter(u => u.role==='teacher') });
   DB.users = []; DB.progress = {}; DB.journal = {};
   try{ S.loginEmail = localStorage.getItem('alh_last_email') || ''; }catch(_){}
