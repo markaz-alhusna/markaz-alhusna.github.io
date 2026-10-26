@@ -567,7 +567,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg 
 .rec-h span{color:var(--navy-soft);font-size:13px}
 .rec-b{display:flex;flex-wrap:wrap;align-items:center;gap:12px}
 .rec-chips{display:flex;flex-wrap:wrap;gap:8px;font-size:40px}
-.rec-chip{background:none;padding:2px;border-radius:14px}
+.rec-chip{background:none;padding:2px;border-radius:14px}.rec-chip:has(.rec-ayah){flex-basis:100%}
 .rec-chip.err .k-let{box-shadow:0 0 0 4px #E0574A;background:radial-gradient(circle at 32% 24%,#fff 0%,#FFD9D4 55%,#E9837A 100%)}
 .rec-f{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
 .rec-f .hint{flex:1;min-width:180px;margin:0}
@@ -1543,6 +1543,33 @@ button.st:hover{box-shadow:inset 0 0 0 2px var(--navy-soft)}
   .hub-deps{grid-template-columns:1fr}
   .news-add{grid-template-columns:1fr}
 }
+/* ---------- аяты (садик) ---------- */
+.k-ayah,.k-abuild,.k-amiss{display:grid;gap:14px;justify-items:center;text-align:center}
+.ay-ar{margin:0;font-family:'Amiri Quran',Amiri,'Noto Naskh Arabic',serif;font-size:clamp(28px,6vw,44px);line-height:2;color:var(--navy);word-spacing:.08em}
+.ay-ar .an{display:inline-grid;place-items:center;min-width:1.4em;height:1.4em;font-size:.55em;border-radius:50%;border:2px solid var(--gold);color:var(--gold);vertical-align:middle}
+mark.madd{background:#FFE3A6;color:#B4540F;border-radius:8px;padding:0 4px}
+.ay-hint{margin:-6px 0 0;font-size:14px;color:var(--navy-soft)}.ay-hint mark{font-weight:800;padding:0 6px}
+.ay-ru{width:100%;max-width:520px;background:#F6F1E6;border-radius:16px;padding:8px 14px;text-align:left}
+.ay-ru summary{cursor:pointer;font-weight:800;color:var(--navy-2);font-size:14px}
+.ay-ru p{margin:8px 0 4px;color:var(--navy-2);line-height:1.5}.ay-ru small{color:var(--navy-soft)}
+.ay-play{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:99px;background:linear-gradient(180deg,#3BB6B0,#1B8A92);color:#fff;font-weight:800;font-size:18px;box-shadow:0 6px 0 #126067}
+.ay-play svg{width:24px;height:24px}.ay-play.on{animation:pulse 1s ease-in-out infinite}
+.ay-play.sm{padding:9px 18px;font-size:15px;box-shadow:0 4px 0 #126067}.ay-play.sm svg{width:18px;height:18px}
+.ay-count{display:flex;gap:10px}.ay-count i{width:22px;height:22px;border-radius:50%;background:#E8DDCB;transition:background .3s,transform .3s}.ay-count i.on{background:#F6C94B;transform:scale(1.15)}
+.ay-note{margin:0;color:var(--navy-soft);font-weight:700}
+.ab-line{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;min-height:70px;margin:0;font-family:'Amiri Quran',Amiri,serif;font-size:clamp(26px,5.4vw,38px);color:var(--navy)}
+.ab-slot{min-width:70px;border-bottom:3px dashed #D7BB8D;padding:0 6px}.ab-slot.ok{border-bottom-color:#4CBF6A;animation:popin .4s}
+.ab-line.done .ab-slot{border-bottom-color:transparent}
+.ab-words,.am-opts{display:flex;flex-wrap:wrap;justify-content:center;gap:10px}
+.ab-w{font-family:'Amiri Quran',Amiri,serif;font-size:clamp(24px,5vw,34px);line-height:1.6;padding:4px 16px;border-radius:18px;background:radial-gradient(circle at 32% 24%,#fff 0%,#FFF1C9 48%,#F2C24A 100%);color:var(--navy);box-shadow:0 5px 0 rgba(20,49,92,.18)}
+.ab-w.used{opacity:.25}.ab-w.ok{background:#CDEFD6;box-shadow:0 5px 0 #4CBF6A}
+.am-gap{display:inline-block;min-width:80px;border-bottom:3px dashed var(--sun);color:var(--sun)}.am-gap.ok{color:#2E8B4E;border-bottom-color:#4CBF6A}
+.rd-ayat{display:grid;gap:8px;width:100%}
+.rd-ayat .rd-chip{display:block;font-family:'Amiri Quran',Amiri,serif;font-size:clamp(24px,5vw,36px);line-height:1.9;color:var(--navy);padding:4px 12px;border-radius:16px;transition:background .3s}
+.rd-ayat .rd-chip.on{background:#FFF3C4;transform:none}
+.rd-ayat .an,.rec-ayah .an{display:inline-grid;place-items:center;min-width:1.4em;height:1.4em;font-size:.55em;border-radius:50%;border:2px solid var(--gold);color:var(--gold);vertical-align:middle}
+.rec-ayah{display:block;font-family:'Amiri Quran',Amiri,serif;font-size:26px;line-height:1.9;color:var(--navy);padding:2px 10px;border-radius:12px;background:#FFFDF7;text-align:right}
+.rec-chip.err .rec-ayah{box-shadow:0 0 0 3px #E0574A;background:#FFE9E6}
 </style>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
@@ -6090,7 +6117,8 @@ function kRead(root, s, next){
   let rec=null, chunks=[], blob=null, url=null, t0=0, timer=null, guide=null, state='idle', stream=null; const alive=()=>document.body.contains(root);
   const lv = curLevel(); const me = actor();
   root.innerHTML = kAsk(s.say) + `<div class="k-card k-read">
-      <div class="rd-row" dir="rtl">${s.items.map((x,i)=>`<span class="rd-chip" data-i="${i}">${letTile(x)}</span>`).join('')}</div>
+      ${s.ayat ? `<div class="rd-ayat" dir="rtl">${s.ayat.map((x,i)=>`<span class="rd-chip" data-i="${i}" lang="ar">${ayahHTML(x)}</span>`).join('')}</div>`
+        : `<div class="rd-row" dir="rtl">${s.items.map((x,i)=>`<span class="rd-chip" data-i="${i}">${letTile(x)}</span>`).join('')}</div>`}
       <button class="rd-mic" id="rdm" aria-label="Начать запись">${MIC_SVG}<span id="rdl">Начать запись</span></button>
       <p class="rd-time" id="rdt"></p>
       <div class="rd-after" id="rda" hidden><button class="btn btn-soft" data-act-r="play">${ICON.play} Послушать себя</button><button class="btn btn-soft" data-act-r="again">Записать заново</button><button class="btn btn-primary" data-act-r="send">${ICON.check} Отправить учителю</button></div>
@@ -6099,7 +6127,7 @@ function kRead(root, s, next){
   const lbl=$('#rdl',root), mic=$('#rdm',root);
   const stopAll = () => { clearInterval(timer); clearInterval(guide); $$('.rd-chip',root).forEach(c=>c.classList.remove('on')); try{ stream && stream.getTracks().forEach(t=>t.stop()); }catch(_){} };
   const finishOK = msg => { stopAll(); state='sent'; mic.hidden=true; $('#rda',root).hidden=true; $('#rdn',root).textContent=msg; stepProg(1); say(msg); $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done||msg)}</p>`+kNext(); kGoHint(root); };
-  const noMic = () => { stopAll(); state='nomic'; mic.hidden=true; $('#rdn',root).textContent='Микрофон недоступен. Прочитай слоги вслух маме или учителю.';
+  const noMic = () => { stopAll(); state='nomic'; mic.hidden=true; $('#rdn',root).textContent='Микрофон недоступен. Прочитай вслух маме или учителю.';
     $('#kf',root).innerHTML = `<div class="k-foot"><button class="k-go" data-go>${ICON.check}<span>Прочитала!</span></button></div>`; kGoHint(root); };
   const start = async () => {
     if(!navigator.mediaDevices || !window.MediaRecorder) return noMic();
@@ -6111,9 +6139,9 @@ function kRead(root, s, next){
     rec.onstop = ()=>{ blob = new Blob(chunks, {type: rec.mimeType || type || 'audio/webm'}); try{ url && URL.revokeObjectURL(url); }catch(_){} url = URL.createObjectURL(blob); const secs=Math.round((Date.now()-t0)/1000); stopAll(); state='done'; $('#rdt',root).textContent='Записано: 0:'+String(secs).padStart(2,'0');
       mic.classList.remove('rec'); lbl.textContent='Записано'; mic.hidden=true; $('#rda',root).hidden=false; say('Послушай себя или отправь учителю'); };
     rec.start(); state='rec'; t0=Date.now(); mic.classList.add('rec'); lbl.textContent='Остановить'; stopSay(); hideHand();
-    timer = setInterval(()=>{ const sec=Math.floor((Date.now()-t0)/1000); $('#rdt',root).textContent='Идёт запись… 0:'+String(sec).padStart(2,'0'); if(sec>=40) rec.stop(); }, 250);
+    timer = setInterval(()=>{ const sec=Math.floor((Date.now()-t0)/1000); $('#rdt',root).textContent='Идёт запись… 0:'+String(sec).padStart(2,'0'); if(sec>=(s.ayat?180:40)) rec.stop(); }, 250);
     let gi=0; const chips=$$('.rd-chip',root); chips[0] && chips[0].classList.add('on');
-    guide = setInterval(()=>{ gi++; chips.forEach((c,i)=>c.classList.toggle('on', i===gi)); if(gi>=chips.length) clearInterval(guide); }, 1500);
+    guide = setInterval(()=>{ gi++; chips.forEach((c,i)=>c.classList.toggle('on', i===gi)); if(gi>=chips.length) clearInterval(guide); }, s.ayat ? 6000 : 1500);
   };
   const send = async () => {
     if(!LIVE || adminPrev() || S.viewAs){ return finishOK(LIVE ? 'Это пробный просмотр: запись не отправлена.' : 'Ма ша Аллах! В рабочей версии запись уйдёт учителю.'); }
@@ -6121,7 +6149,7 @@ function kRead(root, s, next){
     try{ const ext = /mp4/.test(blob.type)?'m4a':/ogg/.test(blob.type)?'ogg':'webm';
       const path = `${me.id}/${lv.id}-${Date.now()}.${ext}`;
       await SB.upload('recordings', path, blob);
-      await SB.req('/rest/v1/recordings', { method:'POST', body:{ student_id:me.id, level_id:lv.id, class_id:me.classId, items:s.items, path }, headers:{ Prefer:'return=minimal' } });
+      await SB.req('/rest/v1/recordings', { method:'POST', body:{ student_id:me.id, level_id:lv.id, class_id:me.classId, items:s.ayat||s.items, path }, headers:{ Prefer:'return=minimal' } });
       finishOK('Ма ша Аллах! Запись у учителя. Она послушает и отметит.');
     }catch(e){ btn.disabled=false; btn.lastChild.textContent=' Отправить учителю'; toast('Не получилось отправить. Проверьте интернет и попробуйте ещё раз.'); }
   };
@@ -6275,8 +6303,254 @@ function growModal(){
     <div class="grow-steps">${GROW_NAMES[g].map((n,i)=>`<div class="${i<=st?'on':''}">${growSVG(g,i)}<small>${n}</small></div>`).join('')}</div>
     <div class="modal-foot"><button class="btn btn-primary" data-act="modal-close">Хорошо</button></div></div>`);
 }
-Object.assign(STEPS, { listen:kListen, yesno:kYesNo, tapone:kTapOne, sortkid:kSort, matchkid:kMatch, tapall:kTapAll, collect:kCollect, pencil:kPencil, rain:kRain, repeat:kRepeat, trace:kTrace, archery:kArch, balloons:kBalloons, memory:kMemory, story:kStory, train:kTrain, stretch:kStretch, housesort:kHouseSort, dots:kDots, catch:kCatch, river:kRiver, oddone:kOdd, readaloud:kRead });
-Object.assign(STEP_LABEL, { listen:'Слушай', yesno:'Да или нет', tapone:'Выбери', sortkid:'Разложи', matchkid:'Кто что ест', tapall:'Найди', collect:'Собери', pencil:'Опыт', rain:'Дождик', repeat:'Повтори', trace:'Обведи', archery:'Лук', balloons:'Шарики', memory:'Пары', story:'История', train:'Поезд', stretch:'Тянем звук', housesort:'Где живёт буква', dots:'Точки', catch:'Лови', river:'Переправа', oddone:'Кто лишний', readaloud:'Прочитай' });
+/* Аяты для уроков таджвида: текст — Танзиль (усмани), смысл — перевод Rowwad (quranenc). */
+const QURAN = {"1:1":{"ar":"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ","ru":"С именем Аллаха, Всемилостивого, Милующего."},"1:2":{"ar":"ٱلْحَمْدُ لِلَّهِ رَبِّ ٱلْعَٰلَمِينَ","ru":"Хвала Аллаху, Господу миров,"},"1:3":{"ar":"ٱلرَّحْمَٰنِ ٱلرَّحِيمِ","ru":"Всемилостивому, Милующему,"},"1:4":{"ar":"مَٰلِكِ يَوْمِ ٱلدِّينِ","ru":"Владыке Дня Воздаяния."},"1:5":{"ar":"إِيَّاكَ نَعْبُدُ وَإِيَّاكَ نَسْتَعِينُ","ru":"Тебе одному мы поклоняемся, и Тебя одного просим о помощи."},"1:6":{"ar":"ٱهْدِنَا ٱلصِّرَٰطَ ٱلْمُسْتَقِيمَ","ru":"Веди нас путём прямым —"},"1:7":{"ar":"صِرَٰطَ ٱلَّذِينَ أَنْعَمْتَ عَلَيْهِمْ غَيْرِ ٱلْمَغْضُوبِ عَلَيْهِمْ وَلَا ٱلضَّآلِّينَ","ru":"путём тех, которых Ты облагодетельствовал, а не тех, на кого пал [Твой] гнев, и не заблудших."},"114:1":{"ar":"قُلْ أَعُوذُ بِرَبِّ ٱلنَّاسِ","ru":"Скажи: «Прибегаю к защите Господа людей,"},"114:2":{"ar":"مَلِكِ ٱلنَّاسِ","ru":"Владыки людей,"},"114:3":{"ar":"إِلَٰهِ ٱلنَّاسِ","ru":"Бога людей,"},"114:4":{"ar":"مِن شَرِّ ٱلْوَسْوَاسِ ٱلْخَنَّاسِ","ru":"от зла наущающего, отступающего,"},"114:5":{"ar":"ٱلَّذِى يُوَسْوِسُ فِى صُدُورِ ٱلنَّاسِ","ru":"который наущает в груди людей,"},"114:6":{"ar":"مِنَ ٱلْجِنَّةِ وَٱلنَّاسِ","ru":"из числа джиннов и людей»."},"113:1":{"ar":"قُلْ أَعُوذُ بِرَبِّ ٱلْفَلَقِ","ru":"Скажи: «Прибегаю к защите Господа рассвета —"},"113:2":{"ar":"مِن شَرِّ مَا خَلَقَ","ru":"от зла того, что Он сотворил,"},"113:3":{"ar":"وَمِن شَرِّ غَاسِقٍ إِذَا وَقَبَ","ru":"и от зла ночного мрака, когда он сгущается,"},"113:4":{"ar":"وَمِن شَرِّ ٱلنَّفَّٰثَٰتِ فِى ٱلْعُقَدِ","ru":"и от зла тех, кто дует на узлы,"},"113:5":{"ar":"وَمِن شَرِّ حَاسِدٍ إِذَا حَسَدَ","ru":"и от зла завистника, когда он завидует»."},"112:1":{"ar":"قُلْ هُوَ ٱللَّهُ أَحَدٌ","ru":"Скажи: «Он — Аллах, Един."},"112:2":{"ar":"ٱللَّهُ ٱلصَّمَدُ","ru":"Аллах — Самодостаточный."},"112:3":{"ar":"لَمْ يَلِدْ وَلَمْ يُولَدْ","ru":"Он не родил и не был рождён,"},"112:4":{"ar":"وَلَمْ يَكُن لَّهُۥ كُفُوًا أَحَدٌۢ","ru":"и нет никого, равного Ему»."},"111:1":{"ar":"تَبَّتْ يَدَآ أَبِى لَهَبٍ وَتَبَّ","ru":"Да сгинут руки Абу Лахаба, и да сгинет он сам!"},"111:2":{"ar":"مَآ أَغْنَىٰ عَنْهُ مَالُهُۥ وَمَا كَسَبَ","ru":"Не спасло его богатство и то, что он приобрёл."},"111:3":{"ar":"سَيَصْلَىٰ نَارًا ذَاتَ لَهَبٍ","ru":"Он будет гореть в пылающем огне,"},"111:4":{"ar":"وَٱمْرَأَتُهُۥ حَمَّالَةَ ٱلْحَطَبِ","ru":"и жена его — носящая дрова,"},"111:5":{"ar":"فِى جِيدِهَا حَبْلٌ مِّن مَّسَدٍۭ","ru":"на шее которой — верёвка из скрученных пальмовых волокон."},"110:1":{"ar":"إِذَا جَآءَ نَصْرُ ٱللَّهِ وَٱلْفَتْحُ","ru":"Когда придёт помощь Аллаха и Победа,"},"110:2":{"ar":"وَرَأَيْتَ ٱلنَّاسَ يَدْخُلُونَ فِى دِينِ ٱللَّهِ أَفْوَاجًا","ru":"и ты увидишь людей, входящих в религию Аллаха толпами,"},"110:3":{"ar":"فَسَبِّحْ بِحَمْدِ رَبِّكَ وَٱسْتَغْفِرْهُ إِنَّهُۥ كَانَ تَوَّابًۢا","ru":"то прославляй хвалой Господа твоего и проси у Него прощения. Воистину, Он всегда был [и пребудет] принимающим покаяние."},"109:1":{"ar":"قُلْ يَٰٓأَيُّهَا ٱلْكَٰفِرُونَ","ru":"Скажи: «О вы, отвергшие веру!"},"109:2":{"ar":"لَآ أَعْبُدُ مَا تَعْبُدُونَ","ru":"Я не поклоняюсь тому, чему вы поклоняетесь."},"109:3":{"ar":"وَلَآ أَنتُمْ عَٰبِدُونَ مَآ أَعْبُدُ","ru":"И вы не поклоняетесь тому, чему поклоняюсь я."},"109:4":{"ar":"وَلَآ أَنَا۠ عَابِدٌ مَّا عَبَدتُّمْ","ru":"И я не буду поклоняться тому, чему вы поклонялись."},"109:5":{"ar":"وَلَآ أَنتُمْ عَٰبِدُونَ مَآ أَعْبُدُ","ru":"И вы не будете поклоняться тому, чему поклоняюсь я."},"109:6":{"ar":"لَكُمْ دِينُكُمْ وَلِىَ دِينِ","ru":"Вам — ваша религия, а мне — моя религия!»"},"108:1":{"ar":"إِنَّآ أَعْطَيْنَٰكَ ٱلْكَوْثَرَ","ru":"Воистину, Мы даровали тебе аль-Каусар."},"108:2":{"ar":"فَصَلِّ لِرَبِّكَ وَٱنْحَرْ","ru":"Так молись же своему Господу и соверши заклание."},"108:3":{"ar":"إِنَّ شَانِئَكَ هُوَ ٱلْأَبْتَرُ","ru":"Воистину, твой ненавистник — он сам окажется без потомства."},"107:1":{"ar":"أَرَءَيْتَ ٱلَّذِى يُكَذِّبُ بِٱلدِّينِ","ru":"Видел ли ты того, кто считает ложью Суд?"},"107:2":{"ar":"فَذَٰلِكَ ٱلَّذِى يَدُعُّ ٱلْيَتِيمَ","ru":"Это тот, кто грубо отталкивает сироту"},"107:3":{"ar":"وَلَا يَحُضُّ عَلَىٰ طَعَامِ ٱلْمِسْكِينِ","ru":"и не побуждает кормить бедняка."},"107:4":{"ar":"فَوَيْلٌ لِّلْمُصَلِّينَ","ru":"Так горе же молящимся,"},"107:5":{"ar":"ٱلَّذِينَ هُمْ عَن صَلَاتِهِمْ سَاهُونَ","ru":"которые небрежны в своих молитвах,"},"107:6":{"ar":"ٱلَّذِينَ هُمْ يُرَآءُونَ","ru":"которые совершают деяния напоказ,"},"107:7":{"ar":"وَيَمْنَعُونَ ٱلْمَاعُونَ","ru":"и отказывают в малой помощи."},"106:1":{"ar":"لِإِيلَٰفِ قُرَيْشٍ","ru":"Ради единения курайшитов —"},"106:2":{"ar":"إِۦلَٰفِهِمْ رِحْلَةَ ٱلشِّتَآءِ وَٱلصَّيْفِ","ru":"их единения в зимних и летних поездках."},"106:3":{"ar":"فَلْيَعْبُدُوا۟ رَبَّ هَٰذَا ٱلْبَيْتِ","ru":"Так пусть же они поклоняются Господу этого Дома,"},"106:4":{"ar":"ٱلَّذِىٓ أَطْعَمَهُم مِّن جُوعٍ وَءَامَنَهُم مِّنْ خَوْفٍۭ","ru":"Который накормил их, [избавив] от голода, и обезопасил их от страха."},"105:1":{"ar":"أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِأَصْحَٰبِ ٱلْفِيلِ","ru":"Разве ты не видел, как поступил твой Господь с обладателями слона?"},"105:2":{"ar":"أَلَمْ يَجْعَلْ كَيْدَهُمْ فِى تَضْلِيلٍ","ru":"Разве Он не сделал их замысел тщетным,"},"105:3":{"ar":"وَأَرْسَلَ عَلَيْهِمْ طَيْرًا أَبَابِيلَ","ru":"и не наслал на них птиц стаями,"},"105:4":{"ar":"تَرْمِيهِم بِحِجَارَةٍ مِّن سِجِّيلٍ","ru":"которые бросали в них камни из обожжённой глины?"},"105:5":{"ar":"فَجَعَلَهُمْ كَعَصْفٍ مَّأْكُولٍۭ","ru":"И Он сделал их подобными изъеденной соломе."},"104:1":{"ar":"وَيْلٌ لِّكُلِّ هُمَزَةٍ لُّمَزَةٍ","ru":"Горе всякому хулителю и насмешнику,"},"104:2":{"ar":"ٱلَّذِى جَمَعَ مَالًا وَعَدَّدَهُۥ","ru":"который накапливает богатство и пересчитывает его,"},"104:3":{"ar":"يَحْسَبُ أَنَّ مَالَهُۥٓ أَخْلَدَهُۥ","ru":"полагая, что его богатство сделает его вечным!"},"104:4":{"ar":"كَلَّا لَيُنۢبَذَنَّ فِى ٱلْحُطَمَةِ","ru":"Отнюдь! Он непременно будет брошен в Сокрушающее."},"104:5":{"ar":"وَمَآ أَدْرَىٰكَ مَا ٱلْحُطَمَةُ","ru":"И откуда тебе знать, что такое Сокрушающее?"},"104:6":{"ar":"نَارُ ٱللَّهِ ٱلْمُوقَدَةُ","ru":"[Это] — разожжённый огонь Аллаха,"},"104:7":{"ar":"ٱلَّتِى تَطَّلِعُ عَلَى ٱلْأَفْـِٔدَةِ","ru":"который проникает в сердца."},"104:8":{"ar":"إِنَّهَا عَلَيْهِم مُّؤْصَدَةٌ","ru":"Воистину, он будет сомкнут над ними"},"104:9":{"ar":"فِى عَمَدٍ مُّمَدَّدَةٍۭ","ru":"в протяжённых столбах."},"103:1":{"ar":"وَٱلْعَصْرِ","ru":"Клянусь предвечерьем!"},"103:2":{"ar":"إِنَّ ٱلْإِنسَٰنَ لَفِى خُسْرٍ","ru":"Воистину, человек пребывает в убытке,"},"103:3":{"ar":"إِلَّا ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ وَتَوَاصَوْا۟ بِٱلْحَقِّ وَتَوَاصَوْا۟ بِٱلصَّبْرِ","ru":"кроме тех, кто которые уверовали, совершали праведные деяния, заповедовали друг другу истину и заповедовали друг другу терпение."},"102:1":{"ar":"أَلْهَىٰكُمُ ٱلتَّكَاثُرُ","ru":"Отвлекло вас приумножение —"},"102:2":{"ar":"حَتَّىٰ زُرْتُمُ ٱلْمَقَابِرَ","ru":"пока вы не навестили могилы."},"102:3":{"ar":"كَلَّا سَوْفَ تَعْلَمُونَ","ru":"Отнюдь! Вы непременно узнаете."},"102:4":{"ar":"ثُمَّ كَلَّا سَوْفَ تَعْلَمُونَ","ru":"Затем — отнюдь! Вы непременно узнаете."},"102:5":{"ar":"كَلَّا لَوْ تَعْلَمُونَ عِلْمَ ٱلْيَقِينِ","ru":"Отнюдь! Если бы вы обладали достоверным знанием..."},"102:6":{"ar":"لَتَرَوُنَّ ٱلْجَحِيمَ","ru":"Вы непременно увидите адское пекло."},"102:7":{"ar":"ثُمَّ لَتَرَوُنَّهَا عَيْنَ ٱلْيَقِينِ","ru":"Затем вы непременно увидите его воочию,"},"102:8":{"ar":"ثُمَّ لَتُسْـَٔلُنَّ يَوْمَئِذٍ عَنِ ٱلنَّعِيمِ","ru":"а затем в тот День вы непременно будете спрошены о благоденствии."},"101:1":{"ar":"ٱلْقَارِعَةُ","ru":"Поражающее!"},"101:2":{"ar":"مَا ٱلْقَارِعَةُ","ru":"Что такое Поражающее?"},"101:3":{"ar":"وَمَآ أَدْرَىٰكَ مَا ٱلْقَارِعَةُ","ru":"И откуда тебе знать, что такое Поражающее?"},"101:4":{"ar":"يَوْمَ يَكُونُ ٱلنَّاسُ كَٱلْفَرَاشِ ٱلْمَبْثُوثِ","ru":"В тот День люди будут словно разлетающиеся мотыльки,"},"101:5":{"ar":"وَتَكُونُ ٱلْجِبَالُ كَٱلْعِهْنِ ٱلْمَنفُوشِ","ru":"а горы станут подобны разноцветной растрёпанной шерсти."},"101:6":{"ar":"فَأَمَّا مَن ثَقُلَتْ مَوَٰزِينُهُۥ","ru":"А что касается того, чья чаша весов окажется тяжёлой, —"},"101:7":{"ar":"فَهُوَ فِى عِيشَةٍ رَّاضِيَةٍ","ru":"он будет в жизни отрадной."},"101:8":{"ar":"وَأَمَّا مَنْ خَفَّتْ مَوَٰزِينُهُۥ","ru":"А что касается того, чья чаша весов окажется лёгкой, —"},"101:9":{"ar":"فَأُمُّهُۥ هَاوِيَةٌ","ru":"его матерь — Бездна."},"101:10":{"ar":"وَمَآ أَدْرَىٰكَ مَا هِيَهْ","ru":"И откуда тебе знать, что это такое?"},"101:11":{"ar":"نَارٌ حَامِيَةٌۢ","ru":"Огонь раскалённый!"},"100:1":{"ar":"وَٱلْعَٰدِيَٰتِ ضَبْحًا","ru":"Клянусь мчащимися во весь опор, запыхавшимися,"},"100:2":{"ar":"فَٱلْمُورِيَٰتِ قَدْحًا","ru":"высекающими [копытами] искры,"},"100:3":{"ar":"فَٱلْمُغِيرَٰتِ صُبْحًا","ru":"нападающими утром,"},"100:4":{"ar":"فَأَثَرْنَ بِهِۦ نَقْعًا","ru":"и поднимающими этим клубы пыли,"},"100:5":{"ar":"فَوَسَطْنَ بِهِۦ جَمْعًا","ru":"и врывающимися с этим в гущу толпы:"},"100:6":{"ar":"إِنَّ ٱلْإِنسَٰنَ لِرَبِّهِۦ لَكَنُودٌ","ru":"воистину, человек неблагодарен своему Господу."},"100:7":{"ar":"وَإِنَّهُۥ عَلَىٰ ذَٰلِكَ لَشَهِيدٌ","ru":"И, воистину, он сам этому свидетель."},"100:8":{"ar":"وَإِنَّهُۥ لِحُبِّ ٱلْخَيْرِ لَشَدِيدٌ","ru":"И, воистину, он сильно любит богатство."},"100:9":{"ar":"أَفَلَا يَعْلَمُ إِذَا بُعْثِرَ مَا فِى ٱلْقُبُورِ","ru":"Неужели он не знает, что когда будет взрыто то, что в могилах,"},"100:10":{"ar":"وَحُصِّلَ مَا فِى ٱلصُّدُورِ","ru":"и извлечено то, что таится в сердцах, —"},"100:11":{"ar":"إِنَّ رَبَّهُم بِهِمْ يَوْمَئِذٍ لَّخَبِيرٌۢ","ru":"воистину, в тот День их Господь будет осведомлён о них?"},"99:1":{"ar":"إِذَا زُلْزِلَتِ ٱلْأَرْضُ زِلْزَالَهَا","ru":"Когда земля сотрясётся своим сотрясением,"},"99:2":{"ar":"وَأَخْرَجَتِ ٱلْأَرْضُ أَثْقَالَهَا","ru":"и земля извергнет свои ноши,"},"99:3":{"ar":"وَقَالَ ٱلْإِنسَٰنُ مَا لَهَا","ru":"и скажет человек: «Что с ней?» —"},"99:4":{"ar":"يَوْمَئِذٍ تُحَدِّثُ أَخْبَارَهَا","ru":"в тот День она поведает свои вести,"},"99:5":{"ar":"بِأَنَّ رَبَّكَ أَوْحَىٰ لَهَا","ru":"потому что твой Господь внушил ей [поведать] это."},"99:6":{"ar":"يَوْمَئِذٍ يَصْدُرُ ٱلنَّاسُ أَشْتَاتًا لِّيُرَوْا۟ أَعْمَٰلَهُمْ","ru":"В тот День люди выйдут разрозненными группами, чтобы им были показаны их деяния."},"99:7":{"ar":"فَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ خَيْرًا يَرَهُۥ","ru":"И кто совершил добро весом с пылинку — увидит его."},"99:8":{"ar":"وَمَن يَعْمَلْ مِثْقَالَ ذَرَّةٍ شَرًّا يَرَهُۥ","ru":"И кто совершил зло весом с пылинку — увидит его."},"98:1":{"ar":"لَمْ يَكُنِ ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَٰبِ وَٱلْمُشْرِكِينَ مُنفَكِّينَ حَتَّىٰ تَأْتِيَهُمُ ٱلْبَيِّنَةُ","ru":"Те, которые отвергли веру, — из людей Писания и придающих Аллаху сотоварищей — не отходили [от своего неверия], пока к ним не пришло ясное доказательство —"},"98:2":{"ar":"رَسُولٌ مِّنَ ٱللَّهِ يَتْلُوا۟ صُحُفًا مُّطَهَّرَةً","ru":"Посланник от Аллаха, который читает очищенные свитки,"},"98:3":{"ar":"فِيهَا كُتُبٌ قَيِّمَةٌ","ru":"в которых — верные писания."},"98:4":{"ar":"وَمَا تَفَرَّقَ ٱلَّذِينَ أُوتُوا۟ ٱلْكِتَٰبَ إِلَّا مِنۢ بَعْدِ مَا جَآءَتْهُمُ ٱلْبَيِّنَةُ","ru":"Те, которым было даровано Писание, разделились только после того, как к ним пришло ясное доказательство."},"98:5":{"ar":"وَمَآ أُمِرُوٓا۟ إِلَّا لِيَعْبُدُوا۟ ٱللَّهَ مُخْلِصِينَ لَهُ ٱلدِّينَ حُنَفَآءَ وَيُقِيمُوا۟ ٱلصَّلَوٰةَ وَيُؤْتُوا۟ ٱلزَّكَوٰةَ وَذَٰلِكَ دِينُ ٱلْقَيِّمَةِ","ru":"А им было велено лишь поклоняться Аллаху, искренне посвящая Ему религию, будучи приверженцами единобожия, выстаивать молитву и выплачивать закят. Такова религия прямоты."},"98:6":{"ar":"إِنَّ ٱلَّذِينَ كَفَرُوا۟ مِنْ أَهْلِ ٱلْكِتَٰبِ وَٱلْمُشْرِكِينَ فِى نَارِ جَهَنَّمَ خَٰلِدِينَ فِيهَآ أُو۟لَٰٓئِكَ هُمْ شَرُّ ٱلْبَرِيَّةِ","ru":"Воистину, те, которые отвергли веру, — из людей Писания и придающих Аллаху сотоварищей — окажутся в огне Геенны, пребывая там вечно. Такие и есть худшие из созданий."},"98:7":{"ar":"إِنَّ ٱلَّذِينَ ءَامَنُوا۟ وَعَمِلُوا۟ ٱلصَّٰلِحَٰتِ أُو۟لَٰٓئِكَ هُمْ خَيْرُ ٱلْبَرِيَّةِ","ru":"Воистину, те, которые уверовали и совершали праведные деяния, — такие и есть лучшие из созданий."},"98:8":{"ar":"جَزَآؤُهُمْ عِندَ رَبِّهِمْ جَنَّٰتُ عَدْنٍ تَجْرِى مِن تَحْتِهَا ٱلْأَنْهَٰرُ خَٰلِدِينَ فِيهَآ أَبَدًا رَّضِىَ ٱللَّهُ عَنْهُمْ وَرَضُوا۟ عَنْهُ ذَٰلِكَ لِمَنْ خَشِىَ رَبَّهُۥ","ru":"Их воздаяние у их Господа — сады Вечного пребывания, внизу которых текут реки, и где они пребудут вечно, навсегда. Аллах доволен ими, и довольны они Им. Это — для того, кто страшился своего Господа."},"91:1":{"ar":"وَٱلشَّمْسِ وَضُحَىٰهَا","ru":"Клянусь солнцем и его утренним сиянием,"},"91:2":{"ar":"وَٱلْقَمَرِ إِذَا تَلَىٰهَا","ru":"и луной, когда она следует за ним,"},"91:3":{"ar":"وَٱلنَّهَارِ إِذَا جَلَّىٰهَا","ru":"и днём, когда он являет его,"},"91:4":{"ar":"وَٱلَّيْلِ إِذَا يَغْشَىٰهَا","ru":"и ночью, когда она покрывает его,"},"89:1":{"ar":"وَٱلْفَجْرِ","ru":"Клянусь зарёй,"},"89:2":{"ar":"وَلَيَالٍ عَشْرٍ","ru":"и десятью ночами,"},"89:3":{"ar":"وَٱلشَّفْعِ وَٱلْوَتْرِ","ru":"и чётом и нечётом,"},"89:4":{"ar":"وَٱلَّيْلِ إِذَا يَسْرِ","ru":"и ночью, когда она проходит."},"89:5":{"ar":"هَلْ فِى ذَٰلِكَ قَسَمٌ لِّذِى حِجْرٍ","ru":"Есть ли в этом клятва для обладающего разумом?"},"89:6":{"ar":"أَلَمْ تَرَ كَيْفَ فَعَلَ رَبُّكَ بِعَادٍ","ru":"Разве ты не видел, как поступил твой Господь с племенем ‘ад,"},"89:7":{"ar":"إِرَمَ ذَاتِ ٱلْعِمَادِ","ru":"— с народом Ира́ма, обладателем колонн,"},"89:8":{"ar":"ٱلَّتِى لَمْ يُخْلَقْ مِثْلُهَا فِى ٱلْبِلَٰدِ","ru":"подобного которому не было создано в городах,"},"89:9":{"ar":"وَثَمُودَ ٱلَّذِينَ جَابُوا۟ ٱلصَّخْرَ بِٱلْوَادِ","ru":"и с племенем самуд, которые вырубали [жилища] в скалах в долине,"},"89:10":{"ar":"وَفِرْعَوْنَ ذِى ٱلْأَوْتَادِ","ru":"и с Фараоном, обладателем кольев,"},"89:11":{"ar":"ٱلَّذِينَ طَغَوْا۟ فِى ٱلْبِلَٰدِ","ru":"— теми, которые бесчинствовали в городах"},"89:12":{"ar":"فَأَكْثَرُوا۟ فِيهَا ٱلْفَسَادَ","ru":"и приумножали в них беззаконие,"},"89:13":{"ar":"فَصَبَّ عَلَيْهِمْ رَبُّكَ سَوْطَ عَذَابٍ","ru":"и тогда твой Господь обрушил на них бич наказания."},"89:14":{"ar":"إِنَّ رَبَّكَ لَبِٱلْمِرْصَادِ","ru":"Воистину, твой Господь — в засаде."},"89:29":{"ar":"فَٱدْخُلِى فِى عِبَٰدِى","ru":"Войди же в число Моих рабов,"},"89:30":{"ar":"وَٱدْخُلِى جَنَّتِى","ru":"и войди в Мой Рай."},"79:1":{"ar":"وَٱلنَّٰزِعَٰتِ غَرْقًا","ru":"Клянусь вырывающими неистово,"},"79:2":{"ar":"وَٱلنَّٰشِطَٰتِ نَشْطًا","ru":"и извлекающими мягко,"},"79:3":{"ar":"وَٱلسَّٰبِحَٰتِ سَبْحًا","ru":"и скользящими плавно,"},"79:4":{"ar":"فَٱلسَّٰبِقَٰتِ سَبْقًا","ru":"и устремляющимися стремительно,"},"79:5":{"ar":"فَٱلْمُدَبِّرَٰتِ أَمْرًا","ru":"и распоряжающимися делами."},"79:15":{"ar":"هَلْ أَتَىٰكَ حَدِيثُ مُوسَىٰٓ","ru":"Дошло ли до тебя повествование о Мусе?"},"79:16":{"ar":"إِذْ نَادَىٰهُ رَبُّهُۥ بِٱلْوَادِ ٱلْمُقَدَّسِ طُوًى","ru":"Когда его Господь воззвал к нему в священной долине Ту́ва:"},"79:17":{"ar":"ٱذْهَبْ إِلَىٰ فِرْعَوْنَ إِنَّهُۥ طَغَىٰ","ru":"«Ступай к Фараону — воистину, он преступил предел,"},"79:40":{"ar":"وَأَمَّا مَنْ خَافَ مَقَامَ رَبِّهِۦ وَنَهَى ٱلنَّفْسَ عَنِ ٱلْهَوَىٰ","ru":"А что же касается того, кто боялся предстать перед своим Господом и удерживал себя от страстей, —"},"79:41":{"ar":"فَإِنَّ ٱلْجَنَّةَ هِىَ ٱلْمَأْوَىٰ","ru":"то, воистину, его прибежище — Рай."}};
+/* ---------- Аяты для садика: слушаем чтеца, повторяем, собираем, читаем учителю ---------- */
+const AR_NUM = n => String(n).replace(/\d/g, d => '٠١٢٣٤٥٦٧٨٩'[d]);
+const ayahRef = sa => { const [s,a]=sa.split(':'); return `${SURA_RU[+s]||('Сура '+s)}, ${a}`; };
+const SURA_RU = {1:'аль-Фатиха',79:'ан-Нази‘ат',89:'аль-Фаджр',91:'аш-Шамс',98:'аль-Баййина',99:'аз-Зальзаля',100:'аль-‘Адийат',101:'аль-Кари‘а',102:'ат-Такасур',103:'аль-‘Аср',104:'аль-Хумаза',105:'аль-Филь',106:'Курайш',107:'аль-Ма‘ун',108:'аль-Каусар',109:'аль-Кафирун',110:'ан-Наср',111:'аль-Масад',112:'аль-Ихляс',113:'аль-Фаляк',114:'ан-Нас'};
+/* подсказка-волна: буква со знаком мадда (ٓ) подсвечивается */
+const ayahHTML = (sa, hl) => { const q=QURAN[sa]; if(!q) return ''; let t=esc(q.ar);
+  if(hl==='madd') t = t.split(' ').map(w=>/\u0653/.test(w)?`<mark class="madd">${w}</mark>`:w).join(' ');
+  return `${t} <span class="an">${AR_NUM(sa.split(':')[1])}</span>`; };
+let ayAudio=null;
+function playAyah(sa, onEnd, onFail){
+  stopSay(); try{ ayAudio && ayAudio.pause(); }catch(e){}
+  const a = new Audio(ayahUrl(sa)); ayAudio=a;
+  a.onended = ()=>{ if(ayAudio===a) onEnd && onEnd(); };
+  a.onerror = ()=>{ if(ayAudio===a) onFail && onFail(); };
+  a.play().catch(()=>{ if(ayAudio===a) onFail && onFail(); });
+}
+function stopAyah(){ try{ ayAudio && ayAudio.pause(); }catch(e){} ayAudio=null; }
+
+/* Слушай и повторяй: каждый аят — послушать чтеца и повторить 3 раза */
+function kAyah(root, s, next){
+  const need = s.times || 3; let k=0, n=0, busy=false; const alive=()=>document.body.contains(root);
+  const draw = () => { const sa=s.ayat[k]; n=0; busy=false; const q=QURAN[sa]||{};
+    root.innerHTML = kAsk(k===0 ? s.say : 'Послушай аят и повтори за чтецом.') + `<div class="k-card k-ayah">
+        <div class="k-dots">${s.ayat.map((_,i)=>`<i class="${i<k?'on':''}"></i>`).join('')}</div>
+        <p class="ay-ar" lang="ar" dir="rtl">${ayahHTML(sa, s.hl)}</p>
+        ${s.hl==='madd'?'<p class="ay-hint"><mark class="madd">~</mark> Волна над буквой — тянем звук долго</p>':''}
+        <details class="ay-ru"><summary>Смысл аята</summary><p>${esc(q.ru||'')}</p><small>${esc(ayahRef(sa))}</small></details>
+        <button class="ay-play" id="ayp">${PLAY_IC}<span>Слушать</span></button>
+        <div class="ay-count" aria-label="Сколько раз повторили">${Array.from({length:need},(_,i)=>`<i data-c="${i}"></i>`).join('')}</div>
+        <p class="ay-note" id="ayn">Послушай и повтори вслух. Так ${need} раза.</p></div><div id="kf"></div>`;
+    if(k===0) say(s.say); pointAt($('#ayp',root), k===0?3200:600);
+  };
+  const tick = () => { if(!alive()) return; const c=$(`.ay-count i[data-c="${n}"]`,root); c && c.classList.add('on'); n++; busy=false;
+    const b=$('#ayp',root); b.classList.remove('on');
+    if(n>=need){ stepProg((k+1)/s.ayat.length); $('#ayn',root).textContent='Ма ша Аллах! Аят повторён.';
+      $('#kf',root).innerHTML = kNext(k+1<s.ayat.length?'Следующий аят':'Дальше'); kGoHint(root); }
+    else { $('#ayn',root).textContent = 'А теперь повтори вслух сам. Потом послушай ещё раз.'; pointAt(b, 2400); } };
+  draw();
+  kBind(root, ()=>k===0?s.say:'Послушай аят и повтори за чтецом.', e=>{
+    if(e.target.closest('[data-go]')){ stopAyah(); k++; if(k>=s.ayat.length) return next(); draw(); window.scrollTo({top:0,behavior:'smooth'}); return; }
+    const b=e.target.closest('#ayp'); if(!b || busy) return;
+    busy=true; hideHand(); b.classList.add('on');
+    playAyah(s.ayat[k], tick, ()=>{ toast(LIVE?'Звук не загрузился. Проверьте интернет.':'В демо внешний звук закрыт. На сайте школы аят прозвучит.'); setTimeout(tick, 400); });
+  });
+}
+
+/* Собери аят: нажимай слова по порядку (только короткие аяты) */
+function kAyahBuild(root, s, next){
+  const words = (QURAN[s.sa]||{ar:''}).ar.split(' ').filter(Boolean); let k=0, wrong=0; const alive=()=>document.body.contains(root);
+  const order = shuffle(words.map((w,i)=>({w,i})));
+  root.innerHTML = kAsk(s.say||'Собери аят: нажимай слова по порядку, справа налево.') + `<div class="k-card k-abuild">
+      <p class="ab-line" id="abl" lang="ar" dir="rtl">${words.map((_,i)=>`<span class="ab-slot" data-s="${i}"></span>`).join('')}</p>
+      <div class="ab-words" dir="rtl">${order.map(({w,i})=>`<button class="ab-w" data-i="${i}" lang="ar">${esc(w)}</button>`).join('')}</div>
+      <button class="ay-play sm" id="abp">${PLAY_IC}<span>Послушать аят</span></button></div><div id="kf"></div>`;
+  say(s.say||'Собери аят: нажимай слова по порядку, справа налево.'); pointAt($('.ab-words',root), 3000, true);
+  kBind(root, ()=>s.say||'Собери аят по порядку.', e=>{
+    if(e.target.closest('[data-go]')){ stopAyah(); return next(); }
+    if(e.target.closest('#abp')){ playAyah(s.sa, null, ()=>toast(LIVE?'Звук не загрузился.':'В демо внешний звук закрыт.')); return; }
+    const b=e.target.closest('.ab-w'); if(!b || b.disabled || k>=words.length) return;
+    if(words[+b.dataset.i]===words[k]){ b.disabled=true; b.classList.add('used'); const sl=$(`.ab-slot[data-s="${k}"]`,root); sl.textContent=words[k]; sl.classList.add('ok'); k++; wrong=0; hideHand(); stepProg(k/words.length);
+      if(k>=words.length){ $('#abl',root).classList.add('done'); say(kPraise()); playAyah(s.sa, null, ()=>{}); $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done||'Ма ша Аллах! Аят собран.')}</p>`+kNext(); kGoHint(root); }
+    } else { S.level.mistakes++; wrong++; shakeEl(b); say(kTry()); if(wrong>=2){ const r=$$('.ab-w:not(.used)',root).find(x=>words[+x.dataset.i]===words[k]); r && pointAt(r, 600); } }
+  });
+}
+
+/* Какое слово пропало? В аяте спрятано одно слово — выбери его */
+function kAyahMiss(root, s, next){
+  const rounds = s.rounds || s.ayat.map(sa=>({sa})); let k=0, wrong=0, busy=false; const alive=()=>document.body.contains(root);
+  const pool = [...new Set(rounds.flatMap(r=>(QURAN[r.sa]||{ar:''}).ar.split(' ')))].filter(w=>w.length>2);
+  const draw = () => { const r=rounds[k]; const W=(QURAN[r.sa]||{ar:''}).ar.split(' '); wrong=0; busy=false;
+    const idx = r.i!=null ? r.i : W.reduce((b,w,i)=>w.length>W[b].length?i:b, 0);
+    const ans = W[idx]; const others = shuffle(pool.filter(w=>w!==ans)).slice(0,2); const opts = shuffle([ans,...others]);
+    r._ans = ans; root.dataset.ans = ans;
+    root.innerHTML = kAsk(k===0 ? (s.say||'Какое слово спряталось? Нажми на него.') : 'А здесь какое слово спряталось?') + `<div class="k-card k-amiss">
+        <div class="k-dots">${rounds.map((_,i)=>`<i class="${i<k?'on':''}"></i>`).join('')}</div>
+        <p class="ay-ar" lang="ar" dir="rtl">${W.map((w,i)=>i===idx?'<span class="am-gap" id="amg">؟</span>':esc(w)).join(' ')}</p>
+        <div class="am-opts" dir="rtl">${opts.map(w=>`<button class="ab-w" data-w="${esc(w)}" lang="ar">${esc(w)}</button>`).join('')}</div>
+        <button class="ay-play sm" id="amp">${PLAY_IC}<span>Подсказка: послушать</span></button></div><div id="kf"></div>`;
+    say(k===0 ? (s.say||'Какое слово спряталось? Нажми на него.') : 'А здесь какое слово спряталось?'); pointAt($('.am-opts',root), 2600, true);
+  };
+  draw();
+  kBind(root, ()=>s.say||'Какое слово спряталось?', e=>{
+    if(e.target.closest('[data-go]')){ stopAyah(); return next(); }
+    if(e.target.closest('#amp')){ playAyah(rounds[k].sa, null, ()=>toast(LIVE?'Звук не загрузился.':'В демо внешний звук закрыт.')); return; }
+    const b=e.target.closest('.ab-w'); if(!b || busy) return; const r=rounds[k];
+    if(b.dataset.w===r._ans){ busy=true; hideHand(); b.classList.add('ok'); const g=$('#amg',root); g.textContent=r._ans; g.classList.add('ok'); say(kPraise()); stepProg((k+1)/rounds.length);
+      setTimeout(()=>{ if(!alive()) return; k++; if(k>=rounds.length){ $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done||'Ма ша Аллах! Ты хорошо знаешь аяты.')}</p>`+kNext(); kGoHint(root); } else draw(); }, 1500);
+    } else { S.level.mistakes++; wrong++; shakeEl(b); say(kTry()); if(wrong>=2) pointAt($(`.ab-w[data-w="${CSS.escape(r._ans)}"]`,root), 600); }
+  });
+}
+
+/* Урок суры: слушаем → игра → читаем учителю */
+function suraLesson(id, tag, name, bg, ayat, o={}){
+  const su = +ayat[0].split(':')[0], sname = SURA_RU[su];
+  const short = ayat.filter(sa=>(QURAN[sa]||{ar:''}).ar.split(' ').length<=5);
+  const steps = [];
+  if(o.story) steps.push({ t:'story', house:'none', bg, beats:o.story });
+  if(!o.review) steps.push({ t:'ayah', say: o.say || `Слушаем суру ${sname}. Нажми «Слушать» и повторяй за чтецом.`, ayat, hl:o.hl });
+  if(o.build!==false && short.length) steps.push({ t:'ayahbuild', sa: o.buildSa || short[short.length-1], say:'Собери аят: нажимай слова по порядку, справа налево.' });
+  if(o.review || ayat.length>1) steps.push({ t:'ayahmiss', ayat: o.review ? ayat : ayat.slice(0,4), say:'Какое слово спряталось? Нажми на него.' });
+  steps.push({ t:'readaloud', ayat, say:`Прочитай учителю: сура ${sname}. Нажми на кнопку и читай.`, done: o.done || 'Ма ша Аллах! Учитель послушает твоё чтение.' });
+  return { id, tag, icon:o.icon||'@book', name, bg, steps };
+}
+const SA = (su, a, b) => Array.from({length:b-a+1},(_,i)=>`${su}:${a+i}`);
+
+/* ============== Суры в таджвиде садика (2 год, 4–5 четверть; 3 год) ============== */
+const SURA_SAY = {
+  1:'Сура аль-Фатиха — «Открывающая». Мы читаем её в каждом ракаате намаза.',
+  79:'Сура ан-Нази‘ат рассказывает об ангелах и о пророке Мусе, мир ему.',
+  89:'Сура аль-Фаджр — «Заря». Аллах клянётся зарёй и десятью ночами.',
+  91:'Сура аш-Шамс — «Солнце». Аллах клянётся солнцем и луной.',
+  98:'Сура аль-Баййина — «Ясное доказательство». Аллах послал Посланника ﷺ с чистыми страницами.',
+  99:'Сура аз-Зальзаля рассказывает о Дне Суда: земля расскажет обо всём, что на ней делали люди.',
+  100:'Сура аль-‘Адийат начинается с клятвы скачущими конями.',
+  101:'Сура аль-Кари‘а рассказывает о Дне Суда и о весах, на которых взвесят дела.',
+  102:'Сура ат-Такасур напоминает: не надо хвастаться, у кого больше вещей. Главное — добрые дела.',
+  103:'Сура аль-‘Аср — «Время». Успешны те, кто верит, делает добро и советует друг другу истину и терпение.',
+  104:'Сура аль-Хумаза учит не насмехаться над людьми и не говорить о них плохо.',
+  105:'Сура аль-Филь — «Слон». Аллах защитил Каабу от войска со слонами и послал птиц.',
+  106:'Сура Курайш напоминает: Аллах накормил людей и защитил их от страха.',
+  107:'Сура аль-Ма‘ун учит заботиться о сиротах, кормить бедных и не лениться в намазе.',
+  108:'Сура аль-Каусар — самая короткая сура Корана. Аллах подарил Пророку ﷺ реку аль-Каусар в Раю.',
+  109:'Сура аль-Кафирун учит: мы поклоняемся только Аллаху.',
+  110:'Сура ан-Наср — о помощи Аллаха и победе. Люди стали принимать ислам целыми группами.',
+  111:'Сура аль-Масад рассказывает об Абу Лахабе: он обижал Пророка ﷺ.',
+  112:'Сура аль-Ихляс говорит: Аллах Один, и нет никого, подобного Ему.',
+  113:'Сура аль-Фаляк — защита. Мы просим Аллаха защитить нас от всякого зла.',
+  114:'Сура ан-Нас — защита. Мы просим Аллаха защитить нас от шайтана.',
+};
+const sayFor = (ayat, first) => { const su=+ayat[0].split(':')[0]; return (first ? SURA_SAY[su]+' ' : '') + 'Нажми «Слушать» и повторяй за чтецом.'; };
+const SL = (id, tag, name, bg, ayat, o={}) => suraLesson(id, tag, name, bg, ayat, Object.assign({ say: sayFor(ayat, o.first) }, o));
+const RV = (id, tag, name, bg, ayat, o={}) => suraLesson(id, tag, name, bg, ayat, Object.assign({ review:true, icon:'@star2' }, o));
+
+CONTENT['s2-tajweed-4'] = {
+  title:'Читаем суры', ar:'قِرَاءَةُ السُّوَرِ',
+  levels:[
+    { id:'TJ24L1', tag:'Урок 1', icon:'@star2', name:'Закрепление: шадда и лям', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { line:'Повторим, что мы знаем. Скоро мы будем читать суры, и всё это нам пригодится!' },
+        { who:'أُمُّ', lips:'u', line:'Шадда — зубчики: букву читаем два раза.' },
+        { who:'الشَّمْسُ', line:'Солнечная буква: лям прячется.' },
+        { who:'الْقَمَرُ', line:'Лунная буква: лям читаем.' },
+      ]},
+      { t:'sortkid', say:'Лунная или солнечная? Разложи слова.', bins:[ {id:'q',pic:'@moon',label:'Лунная: лям читаем'}, {id:'sh',pic:'@sun',label:'Солнечная: лям прячется'} ],
+        items:[ ['%الْبَيْتُ','','q'], ['%النُّورُ','','sh'], ['%الْوَلَدُ','','q'], ['%الرَّجُلُ','','sh'], ['%الْقَلْبُ','','q'], ['%الدَّرْسُ','','sh'] ] },
+      { t:'readaloud', say:'Прочитай вслух слова. Нажми на кнопку и читай.', items:['أُمُّ','رَبِّ','الشَّمْسُ','الْقَمَرُ','النُّورُ','الْكِتَابُ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+    { id:'TJ24L2', tag:'Урок 2', icon:'@star2', name:'Закрепление: тянем и спим', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { who:'نُورٌ', line:'Где уау после даммы — тянем на два счёта.' },
+        { who:'قَلْبٌ', line:'Где сукун — буква спит, звук останавливается.' },
+      ]},
+      { t:'stretch', say:'Тянем или коротко?', rounds:[ { syl:'فِي', long:true }, { syl:'قُلْ', long:false }, { syl:'نَا', long:true }, { syl:'مِنْ', long:false } ], done:'Ма ша Аллах! Отлично!' },
+      { t:'sortkid', say:'Тянем звук или буква спит? Разложи слова.', bins:[ {id:'l',pic:'%بَا',label:'Тянем звук'}, {id:'o',pic:'%بْ',label:'Буква спит'} ],
+        items:[ ['%فِيلٌ','','l'], ['%بِنْتٌ','','o'], ['%بَابٌ','','l'], ['%شَمْسٌ','','o'] ] },
+      { t:'readaloud', say:'Прочитай вслух слова. Нажми на кнопку и читай.', items:['نُورٌ','فِيلٌ','قَلْبٌ','بِنْتٌ','بَابٌ','قُلْ'], done:'Ма ша Аллах! Теперь можно читать суры!' },
+    ]},
+    SL('TJ24L3','Урок 3','Сура аль-Каусар','water', SA(108,1,3), {first:true}),
+    SL('TJ24L4','Урок 4','Ат-Такасур, аяты 1–2','gift', SA(102,1,2), {first:true}),
+    SL('TJ24L5','Урок 5','Ат-Такасур, аяты 3–4','sky', SA(102,3,4)),
+    SL('TJ24L6','Урок 6','Ат-Такасур, аяты 5–6','meadow', SA(102,5,6)),
+    SL('TJ24L7','Урок 7','Аз-Зальзаля, аяты 1–2','water', SA(99,1,2), {first:true}),
+    SL('TJ24L8','Урок 8','Аш-Шамс, аяты 1–4','final', SA(91,1,4), {first:true, done:'Ма ша Аллах! Четвёртая четверть пройдена!'}),
+  ]
+};
+CONTENT['s2-tajweed-5'] = {
+  title:'Читаем суры', ar:'قِرَاءَةُ السُّوَرِ',
+  levels:[
+    SL('TJ25L1','Урок 1','Аль-Фаджр, аяты 1–4','sky', SA(89,1,4), {first:true}),
+    SL('TJ25L2','Урок 2','Аль-Фаджр, аяты 6–9','meadow', SA(89,6,9)),
+    SL('TJ25L3','Урок 3','Аль-Фаджр, аяты 10–14','water', SA(89,10,14)),
+    SL('TJ25L4','Урок 4','Ан-Нази‘ат, аяты 1–5','gift', SA(79,1,5), {first:true}),
+    SL('TJ25L5','Урок 5','Ан-Нази‘ат, аяты 15–17','sky', SA(79,15,17)),
+    SL('TJ25L6','Урок 6','Ан-Нази‘ат, аяты 40–41','meadow', SA(79,40,41)),
+    SL('TJ25L7','Урок 7','Аль-Фаджр, аяты 29–30','water', SA(89,29,30)),
+    { id:'TJ25L8', tag:'Урок 8', icon:'@star2', name:'Экзамен', bg:'final', steps:[
+      { t:'story', house:'none', bg:'final', beats:[
+        { line:'Сегодня экзамен! Прочитай учителю суры, которые мы учили. Не торопись.' },
+        { line:'Пусть Аллах облегчит тебе! У тебя всё получится, ин ша Аллах.' },
+      ]},
+      { t:'ayahmiss', rounds:[ {sa:'108:1'}, {sa:'102:1'}, {sa:'91:1'}, {sa:'89:1'} ], say:'Вспомни: какое слово спряталось?' },
+      { t:'readaloud', ayat:SA(108,1,3), say:'Прочитай учителю суру аль-Каусар.', done:'Ма ша Аллах!' },
+      { t:'readaloud', ayat:SA(102,1,6), say:'Прочитай учителю суру ат-Такасур.', done:'Ма ша Аллах!' },
+      { t:'readaloud', ayat:SA(89,1,4), say:'Прочитай учителю начало суры аль-Фаджр.', done:'Ма ша Аллах! Ты прошёл весь второй год таджвида. Пусть Аллах сделает тебя из людей Корана!' },
+    ]},
+  ]
+};
+
+/* САДИК 3: читаем суры с подсказками мусхафа (волна — тянем звук) */
+const S3 = (id, tag, name, bg, ayat, o={}) => SL(id, tag, name, bg, ayat, Object.assign({ hl:'madd' }, o));
+const S3R = (id, tag, name, bg, ayat, o={}) => RV(id, tag, name, bg, ayat, Object.assign({ hl:'madd' }, o));
+CONTENT['s3-tajweed-1'] = { title:'Аль-Фатиха и ан-Нас', ar:'الْفَاتِحَةُ', levels:[
+  S3('TJ31L1','Урок 1','Аль-Фатиха, аяты 1–4','sky', SA(1,1,4), {first:true}),
+  S3('TJ31L2','Урок 2','Аль-Фатиха, аяты 5–6','meadow', SA(1,5,6)),
+  S3('TJ31L3','Урок 3','Волна-подсказка: аят 7','water', ['1:7'], { story:[
+      { line:'В мусхафе есть подсказки. Посмотри на волну над буквой — это мадд.' },
+      { line:'Где волна, там тянем звук долго. Найди волну в седьмом аяте!' } ] }),
+  S3R('TJ31L4','Урок 4','Аль-Фатиха: закрепление','gift', SA(1,1,7)),
+  S3('TJ31L5','Урок 5','Ан-Нас, аяты 1–3','sky', SA(114,1,3), {first:true}),
+  S3('TJ31L6','Урок 6','Ан-Нас, аяты 4–6','meadow', SA(114,4,6)),
+  S3R('TJ31L7','Урок 7','Ан-Нас: закрепление','water', SA(114,1,6)),
+  S3('TJ31L8','Урок 8','Аль-Фаляк, аяты 1–3','final', SA(113,1,3), {first:true, done:'Ма ша Аллах! Первая четверть пройдена!'}),
+]};
+CONTENT['s3-tajweed-2'] = { title:'Аль-Фаляк, аль-Ихляс, аль-Масад', ar:'الْإِخْلَاصُ', levels:[
+  S3('TJ32L1','Урок 1','Аль-Фаляк, аяты 4–5','sky', SA(113,4,5)),
+  S3R('TJ32L2','Урок 2','Аль-Фаляк: закрепление','meadow', SA(113,1,5)),
+  S3('TJ32L3','Урок 3','Сура аль-Ихляс','water', SA(112,1,4), {first:true}),
+  S3R('TJ32L4','Урок 4','Аль-Ихляс: закрепление','gift', SA(112,1,4)),
+  S3('TJ32L5','Урок 5','Аль-Масад, аяты 1–2','sky', SA(111,1,2), {first:true}),
+  S3('TJ32L6','Урок 6','Аль-Масад, аяты 3–5','meadow', SA(111,3,5)),
+  S3R('TJ32L7','Урок 7','Аль-Масад: закрепление','water', SA(111,1,5)),
+  S3('TJ32L8','Урок 8','Ан-Наср, аяты 1–2','final', SA(110,1,2), {first:true, done:'Ма ша Аллах! Вторая четверть пройдена!'}),
+]};
+CONTENT['s3-tajweed-3'] = { title:'Ан-Наср, аль-Кафирун, аль-Каусар, аль-Ма‘ун', ar:'الْكَافِرُونَ', levels:[
+  S3('TJ33L1','Урок 1','Ан-Наср, аят 3','sky', ['110:3']),
+  S3R('TJ33L2','Урок 2','Ан-Наср: закрепление','meadow', SA(110,1,3)),
+  S3('TJ33L3','Урок 3','Аль-Кафирун, аяты 1–3','water', SA(109,1,3), {first:true}),
+  S3('TJ33L4','Урок 4','Аль-Кафирун, аяты 4–6','gift', SA(109,4,6)),
+  S3R('TJ33L5','Урок 5','Аль-Кафирун: закрепление','sky', SA(109,1,6)),
+  S3('TJ33L6','Урок 6','Сура аль-Каусар','meadow', SA(108,1,3), {first:true}),
+  S3('TJ33L7','Урок 7','Аль-Ма‘ун, аяты 1–3','water', SA(107,1,3), {first:true}),
+  S3('TJ33L8','Урок 8','Аль-Ма‘ун, аяты 4–7','final', SA(107,4,7), {done:'Ма ша Аллах! Третья четверть пройдена!'}),
+]};
+CONTENT['s3-tajweed-4'] = { title:'Аль-Ма‘ун, Курайш, аль-Филь, аль-Хумаза', ar:'الْفِيلُ', levels:[
+  S3R('TJ34L1','Урок 1','Аль-Ма‘ун: закрепление','sky', SA(107,1,7)),
+  S3('TJ34L2','Урок 2','Сура Курайш','meadow', SA(106,1,4), {first:true}),
+  S3R('TJ34L3','Урок 3','Курайш: закрепление','water', SA(106,1,4)),
+  S3('TJ34L4','Урок 4','Сура аль-Филь','gift', SA(105,1,5), {first:true}),
+  S3R('TJ34L5','Урок 5','Аль-Филь: закрепление','sky', SA(105,1,5)),
+  S3('TJ34L6','Урок 6','Аль-Хумаза, аяты 1–4','meadow', SA(104,1,4), {first:true}),
+  S3('TJ34L7','Урок 7','Аль-Хумаза, аяты 5–9','water', SA(104,5,9)),
+  S3R('TJ34L8','Урок 8','Аль-Хумаза: закрепление','final', SA(104,1,9), {done:'Ма ша Аллах! Четвёртая четверть пройдена!'}),
+]};
+CONTENT['s3-tajweed-5'] = { title:'Аль-‘Аср … аль-Баййина', ar:'الْعَصْرُ', levels:[
+  S3('TJ35L1','Урок 1','Сура аль-‘Аср','sky', SA(103,1,3), {first:true}),
+  S3('TJ35L2','Урок 2','Сура ат-Такасур','meadow', SA(102,1,8), {first:true}),
+  S3('TJ35L3','Урок 3','Аль-Кари‘а, аяты 1–5','water', SA(101,1,5), {first:true}),
+  S3('TJ35L4','Урок 4','Аль-Кари‘а, аяты 6–11','gift', SA(101,6,11)),
+  S3('TJ35L5','Урок 5','Сура аль-‘Адийат','sky', SA(100,1,11), {first:true}),
+  S3('TJ35L6','Урок 6','Сура аз-Зальзаля','meadow', SA(99,1,8), {first:true}),
+  S3('TJ35L7','Урок 7','Аль-Баййина, аяты 1–5','water', SA(98,1,5), {first:true}),
+  S3('TJ35L8','Урок 8','Аль-Баййина, аяты 6–8','final', SA(98,6,8), {done:'Ма ша Аллах! Ты прошёл весь таджвид садика. Пусть Аллах сделает тебя из людей Корана!'}),
+]};
+
+Object.assign(STEPS, { listen:kListen, yesno:kYesNo, tapone:kTapOne, sortkid:kSort, matchkid:kMatch, tapall:kTapAll, collect:kCollect, pencil:kPencil, rain:kRain, repeat:kRepeat, trace:kTrace, archery:kArch, balloons:kBalloons, memory:kMemory, story:kStory, train:kTrain, stretch:kStretch, housesort:kHouseSort, dots:kDots, catch:kCatch, river:kRiver, oddone:kOdd, readaloud:kRead, ayah:kAyah, ayahbuild:kAyahBuild, ayahmiss:kAyahMiss });
+Object.assign(STEP_LABEL, { listen:'Слушай', yesno:'Да или нет', tapone:'Выбери', sortkid:'Разложи', matchkid:'Кто что ест', tapall:'Найди', collect:'Собери', pencil:'Опыт', rain:'Дождик', repeat:'Повтори', trace:'Обведи', archery:'Лук', balloons:'Шарики', memory:'Пары', story:'История', train:'Поезд', stretch:'Тянем звук', housesort:'Где живёт буква', dots:'Точки', catch:'Лови', river:'Переправа', oddone:'Кто лишний', readaloud:'Прочитай', ayah:'Слушай аят', ayahbuild:'Собери аят', ayahmiss:'Какое слово?' });
 
 function kidLevelDeco(bg){
   const cloud = (top,left,w,cl) => `<div class="deco ${cl}" style="top:${top};left:${left};width:${w}px">${CLOUD}</div>`;
@@ -6410,7 +6684,7 @@ function recsView(classIds){
       return `<section class="box rec-card" data-id="${r.id}">
         <div class="rec-h">${st?avatar(st):''}<div><b>${esc(st?st.name:'Ученица')}</b><span>${esc(c?className(c):'')} · ${esc(levelTitle(r.level_id))} · ${esc(ago(r.created_at))}</span></div>${pill}</div>
         <div class="rec-b"><button class="btn btn-soft" data-act="rec-play" data-id="${r.id}">${ICON.play} Послушать</button>
-          <div class="rec-chips" dir="rtl">${(r.items||[]).map((x,i)=>`<button class="rec-chip${m.has(i)?' err':''}" data-act="rec-mark" data-id="${r.id}" data-i="${i}" ${ro?'disabled':''} aria-label="Слог ${i+1}${m.has(i)?', ошибка':''}">${letTile(x)}</button>`).join('')}</div></div>
+          <div class="rec-chips" dir="rtl">${(r.items||[]).map((x,i)=>`<button class="rec-chip${m.has(i)?' err':''}" data-act="rec-mark" data-id="${r.id}" data-i="${i}" ${ro?'disabled':''} aria-label="${QURAN[x]?'Аят':'Слог'} ${i+1}${m.has(i)?', ошибка':''}">${QURAN[x]?`<span class="rec-ayah" lang="ar" dir="rtl">${ayahHTML(x)}</span>`:letTile(x)}</button>`).join('')}</div></div>
         <div class="rec-f"><span class="hint">${m.size?`Ошибок: ${m.size}. Ученица увидит, где ошиблась.`:'Нажмите на слог, где была ошибка.'}</span>
           <button class="btn btn-soft btn-sm" data-act="rec-redo" data-id="${r.id}" ${ro?'disabled':''}>Прочитать ещё раз</button>
           <button class="btn btn-primary btn-sm" data-act="rec-ok" data-id="${r.id}" ${ro?'disabled':''}>${ICON.check} Зачесть</button></div>
