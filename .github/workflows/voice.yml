@@ -2,18 +2,19 @@ name: Озвучка
 on:
   workflow_dispatch:
     inputs:
+      limit:
+        description: 'Сколько новых файлов сделать (пусто — все)'
+        required: false
       only:
         description: 'Переозвучить только эту строку (необязательно)'
         required: false
-  push:
-    paths: ['voice/list.json', 'voice/config.json']
 permissions:
   contents: write
 concurrency: { group: voice, cancel-in-progress: false }
 jobs:
   voice:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -21,6 +22,7 @@ jobs:
       - name: Делаем mp3
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          LIMIT: ${{ github.event.inputs.limit }}
           ONLY: ${{ github.event.inputs.only }}
         run: node voice/gen.mjs
       - name: Сохраняем
@@ -28,4 +30,4 @@ jobs:
           git config user.name "al-husna-bot"
           git config user.email "actions@users.noreply.github.com"
           git add voice
-          git diff --cached --quiet || (git commit -m "Озвучка: новые файлы" && git push)
+          git diff --cached --quiet || (git commit -m "Озвучка: новые файлы" && git pull --rebase && git push)

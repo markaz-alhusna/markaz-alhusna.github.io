@@ -3267,11 +3267,11 @@ CONTENT['s1-tajweed-4'] = {
     { id:'TJ4L8', tag:'Урок 8', icon:'@star2', name:'Читаем с огласовками', bg:'final', steps:[
       { t:'story', house:'none', bg:'final', beats:[
         { line:'Последний урок четверти! Читаем слова, где есть разные огласовки.' },
-        { who:'سَمِعَ', lips:'i', line:'Син и мим с фатхой, а ‘айн с кясрой. Это слово значит «услышал».' },
+        { who:'سَمِعَ', lips:'i', line:'Син с фатхой, мим с кясрой, ‘айн с фатхой. Это слово значит «услышал».' },
         { who:'رُسُلُ', lips:'u', line:'Ра, син и лям — все с даммой. Это слово значит «посланники».' },
       ]},
       { t:'train', say:'Поезд-слово!', marks:['a','i','u'], rounds:[
-        { say:'Собери слово «услышал»: син и мим с фатхой, ‘айн с кясрой.', cars:[['س','a'],['م','a'],['ع','i']], word:true },
+        { say:'Собери слово «услышал»: син с фатхой, мим с кясрой, ‘айн с фатхой.', cars:[['س','a'],['م','i'],['ع','a']], word:true },
         { say:'Собери слово «посланники»: ра, син и лям — с даммой.', cars:[['ر','u'],['س','u'],['ل','u']], word:true },
       ], done:'Ма ша Аллах! Слова готовы!' },
       { t:'river', hero:'سَ', rows:[
@@ -3339,7 +3339,7 @@ CONTENT['s1-tajweed-5'] = {
       ]},
       { t:'train', say:'Поезд-слово!', marks:['a','i','u'], rounds:[
         { say:'Собери слово «сотворил».', cars:[['خ','a'],['ل','a'],['ق','a']], word:true },
-        { say:'Собери слово «услышал».', cars:[['س','a'],['م','a'],['ع','i']], word:true },
+        { say:'Собери слово «услышал».', cars:[['س','a'],['م','i'],['ع','a']], word:true },
       ], done:'Ма ша Аллах! Слова готовы!' },
       { t:'memory', say:'Найди одинаковые слова!', letters:[['خَلَقَ','сотворил'],['سَمِعَ','услышал'],['أُذُنُ','ухо'],['كُتُبُ','книги']], done:'Ма ша Аллах! Все пары найдены.' },
       { t:'readaloud', say:'Прочитай вслух слова. Нажми на кнопку и читай.', items:['خَلَقَ','سَمِعَ','أُذُنُ','عَلِمَ','شَرِبَ','كُتُبُ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
@@ -5294,7 +5294,7 @@ function finishLevel(lv){
   const kid = !isMz();
   const msgK = isLast ? 'Ма ша Аллах! Все уроки четверти пройдены. Пусть Аллах благословит тебя и увеличит твои знания!' : stars===3 ? 'Без ошибок! Все звёздочки твои.' : stars===2 ? 'Хорошо! Пройди ещё раз, чтобы получить третью звёздочку.' : 'Урок пройден! Давай попробуем ещё раз.';
   const msg2 = kid ? msgK : msg;
-  if(kid) setTimeout(()=>say(title+' '+msg2), 300);
+  if(kid) setTimeout(()=>say([title, msg2]), 300);
   const root = freshBody();
   root.innerHTML = `<div class="result" role="status">
     <div class="big-stars">${[1,2,3].map(()=>ICON.star).join('')}</div>
@@ -5514,17 +5514,23 @@ function sayAr(t){
 }
 /* Готовые файлы озвучки (делает GitHub Action «Озвучка» → voice/index.json) */
 try{ if(location.protocol.startsWith('http')) fetch('voice/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(m=>{ if(m) Object.assign(VOICE.files, m); }).catch(()=>{}); }catch(e){}
-function stopSay(){ try{ curAudio && curAudio.pause(); }catch(e){} try{ speechSynthesis.cancel(); }catch(e){} }
+function stopSay(){ sayTok++; try{ curAudio && curAudio.pause(); }catch(e){} try{ speechSynthesis.cancel(); }catch(e){} }
+/* say('текст') или say(['часть 1', 'ar:ل', 'часть 2']) — части звучат по очереди.
+   'ar:…' — арабская часть (буква, слог), её читает арабский голос. */
+let sayTok = 0;
 function say(text){
   stopSay(); if(!text) return;
-  const f = VOICE.files[text];
-  if(f){ try{ curAudio = new Audio(f); curAudio.play().catch(()=>{}); }catch(e){} return; }
-  try{
-    const u = new SpeechSynthesisUtterance(text.replace(/ﷺ/g,'саллаллаху алейхи ва саллям'));
-    u.lang='ru-RU'; if(ruVoice) u.voice=ruVoice; u.rate=.9; u.pitch=1.15;
-    speechSynthesis.speak(u);
-  }catch(e){}
+  const parts = (Array.isArray(text) ? text : [text]).filter(Boolean); const tok = sayTok; let i = 0;
+  const tts = t => { if(t.startsWith('ar:')){ if(!sayArPart(t.slice(3), nextPart)) nextPart(); return; }
+    try{ const u = new SpeechSynthesisUtterance(t.replace(/ﷺ/g,'саллаллаху алейхи ва саллям'));
+      u.lang='ru-RU'; if(ruVoice) u.voice=ruVoice; u.rate=.9; u.pitch=1.15; u.onend=nextPart; u.onerror=nextPart; speechSynthesis.speak(u); }catch(e){} };
+  function nextPart(){ if(tok!==sayTok || i>=parts.length) return; const t = parts[i++]; const f = VOICE.files[t.startsWith('ar:')?t.slice(3):t];
+    if(f){ try{ const a = new Audio(f); curAudio = a; a.onended = nextPart; a.onerror = ()=>{ if(curAudio===a) tts(t); }; a.play().catch(()=>{ if(curAudio===a) tts(t); }); }catch(e){ tts(t); } }
+    else tts(t); }
+  nextPart();
 }
+function sayArPart(t, done){ if(!arVoice) pickAr(); if(!arVoice) return false;
+  try{ const u=new SpeechSynthesisUtterance(t); u.lang=arVoice.lang; u.voice=arVoice; u.rate=.7; u.onend=done; u.onerror=done; speechSynthesis.speak(u); return true; }catch(e){ return false; } }
 const K_PRAISE = ['Ма ша Аллах!','Баракаллаху фик!','Пусть Аллах благословит тебя!','Пусть Аллах увеличит твои знания!','Пусть Аллах будет доволен тобой!','Пусть Аллах сделает тебя из людей Корана!'];
 const K_TRY = ['Попробуй ещё раз','Подумай ещё','Почти! Попробуй ещё'];
 const kPraise = () => K_PRAISE[Math.floor(Math.random()*K_PRAISE.length)];
@@ -5604,7 +5610,7 @@ function kYesNo(root, s, next){
     const b=e.target.closest('[data-a]'); if(!b || b.disabled) return;
     const r=s.rounds[k]; const ok=(b.dataset.a==='1')===r.a;
     if(ok){ $$('[data-a]',root).forEach(x=>x.disabled=true); b.classList.add('ok','pop');
-      say(kPraise()+' '+r.why); $('#ynf',root).innerHTML = `<p class="k-why">${esc(r.why)}</p>`+kNext(); kGoHint(root);
+      say([kPraise(), r.why]); $('#ynf',root).innerHTML = `<p class="k-why">${esc(r.why)}</p>`+kNext(); kGoHint(root);
     } else { S.level.mistakes++; wrong++; shakeEl(b); b.classList.add('no'); say(kTry());
       if(wrong>=2) pointAt($(`[data-a="${r.a?1:0}"]`,root), 900); }
   });
@@ -5939,13 +5945,13 @@ function kTrain(root, s, next){
     if(e.target.closest('[data-go]')) return next();
     if(busy) return;
     const m=e.target.closest('.tr-mark');
-    if(m){ $$('.tr-mark',root).forEach(x=>x.classList.toggle('sel', x===m)); sel=m.dataset.m; say(`${HARAKA[sel].n} — ${HARAKA[sel].cue}`); hideHand(); const nxt=$('.tr-car:not(.ok)',root); nxt && pointAt(nxt, 1200); return; }
+    if(m){ $$('.tr-mark',root).forEach(x=>x.classList.toggle('sel', x===m)); sel=m.dataset.m; say([`${HARAKA[sel].n} — ${HARAKA[sel].cue}`]); hideHand(); const nxt=$('.tr-car:not(.ok)',root); nxt && pointAt(nxt, 1200); return; }
     const c=e.target.closest('.tr-car'); if(!c || c.classList.contains('ok')) return;
     const r=s.rounds[k], [l,want]=r.cars[+c.dataset.i];
     if(!sel){ shakeEl(c); say('Сначала выбери огласовку'); pointAt($('.tr-mark',root),400); return; }
     if(sel===want){ c.classList.add('ok','pop'); const syl=l+HARAKA[want].m; c.querySelector('.tr-let').textContent=syl;
       if(!sayAr(syl)) say(kPraise()); done++; if(done===r.cars.length) setTimeout(finishRound, 900);
-    } else { S.level.mistakes++; shakeEl(c); say(`Посмотри на ротик: здесь ${HARAKA[want].n}, ${HARAKA[want].cue}`); }
+    } else { S.level.mistakes++; shakeEl(c); say(['Посмотри на ротик!', `${HARAKA[want].n} — ${HARAKA[want].cue}`]); }
   });
 }
 
@@ -5970,7 +5976,7 @@ function kStretch(root, s, next){
       const f=(performance.now()-t0)/BEAT; const r=s.rounds[k];
       const ok = r.long ? f>=1.75 : f<0.75;
       const band=$('.sx-band',root); band.classList.remove('snap'); void band.offsetWidth; band.classList.add('snap'); setTimeout(()=>{ if(alive()) setBand(0); },350);
-      if(ok){ busy=true; const t = r.long ? 'Тянем на 2 счёта!' : 'Коротко, на 1 счёт!'; $('#sxf',root).textContent = t; $('#sxf',root).className='sx-fb ok'; if(!sayAr(r.syl)) say(kPraise()+' '+t);
+      if(ok){ busy=true; const t = r.long ? 'Тянем на 2 счёта!' : 'Коротко, на 1 счёт!'; $('#sxf',root).textContent = t; $('#sxf',root).className='sx-fb ok'; if(!sayAr(r.syl)) say([kPraise(), t]);
         stepProg((k+1)/s.rounds.length);
         setTimeout(()=>{ if(!alive()) return; k++; if(k>=s.rounds.length){ $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done)}</p>`+kNext(); say(s.done); kGoHint(root); } else draw(); }, 1600);
       } else { S.level.mistakes++; const t = r.long ? 'Тяни дольше, до второй точки!' : 'Этот звук короткий, не тянем. Нажми быстро!'; $('#sxf',root).textContent=t; $('#sxf',root).className='sx-fb no'; say(t); shakeEl(btn); }
@@ -6029,16 +6035,16 @@ function kDots(root, s, next){
         <div class="dg-char" id="dgc" style="${letVars(r.l)}"><span class="st-body" lang="ar">${r.rasm}</span><i class="st-foot"></i><i class="st-foot r"></i></div>
         <div class="dg-opts n${opts.length}">${opts.map(o=>`<button class="dg-opt" data-o="${o}">${dotIcon(o)}<small>${DOT_OPTS[o]}</small></button>`).join('')}</div>
         <div class="k-dots">${s.rounds.map((_,i)=>`<i class="${i<k?'on':''}"></i>`).join('')}</div></div><div id="kf"></div>`;
-    say(r.say || `Поставь точки букве ${r.name}.`); pointAt($('.dg-opts',root), 2600, true);
+    say(r.say || ['Поставь точки букве', 'ar:'+r.l]); pointAt($('.dg-opts',root), 2600, true);
   };
   draw();
-  kBind(root, ()=>{ const r=s.rounds[Math.min(k,s.rounds.length-1)]; return r.say || `Поставь точки букве ${r.name}.`; }, e=>{
+  kBind(root, ()=>{ const r=s.rounds[Math.min(k,s.rounds.length-1)]; return r.say || ['Поставь точки букве', 'ar:'+r.l]; }, e=>{
     if(e.target.closest('[data-go]')) return next();
     const b=e.target.closest('.dg-opt'); if(!b || busy) return; const r=s.rounds[k];
     if(b.dataset.o===r.d){ busy=true; b.classList.add('ok','pop'); const c=$('#dgc',root); c.classList.add('done'); c.querySelector('.st-body').textContent=r.l;
-      say(`${kPraise()} Это буква ${r.name}.`); stepProg((k+1)/s.rounds.length);
+      say([kPraise(), 'Это буква', 'ar:'+r.l]); stepProg((k+1)/s.rounds.length);
       setTimeout(()=>{ if(!alive()) return; k++; if(k>=s.rounds.length){ $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done)}</p>`+kNext(); say(s.done); kGoHint(root); } else draw(); }, 1700);
-    } else { S.level.mistakes++; wrong++; shakeEl(b); say(`Послушай ещё: ${r.name}`); if(wrong>=2) pointAt($(`.dg-opt[data-o="${r.d}"]`,root),700); }
+    } else { S.level.mistakes++; wrong++; shakeEl(b); say(['Подумай ещё. Это буква', 'ar:'+r.l]); if(wrong>=2) pointAt($(`.dg-opt[data-o="${r.d}"]`,root),700); }
   });
 }
 
@@ -6087,7 +6093,7 @@ function kRiver(root, s, next){
     const st=e.target.closest('.rv-stone'); if(!st || busy) return; const col=st.closest('.rv-col');
     if(+col.dataset.c!==k){ shakeEl(st); return; }
     const r=s.rows[k];
-    if(st.dataset.o===r.a){ busy=true; hideHand(); st.classList.add('ok'); place(st); hero.classList.remove('hop'); void hero.offsetWidth; hero.classList.add('hop'); say(kPraise()+' '+(r.ok||''));
+    if(st.dataset.o===r.a){ busy=true; hideHand(); st.classList.add('ok'); place(st); hero.classList.remove('hop'); void hero.offsetWidth; hero.classList.add('hop'); say([kPraise(), r.ok]);
       k++; stepProg(k/cols);
       setTimeout(()=>{ if(!alive()) return; busy=false;
         if(k>=cols){ place($('.rv-bank.r',root)); hero.classList.remove('hop'); void hero.offsetWidth; hero.classList.add('hop'); setTimeout(()=>{ if(!alive()) return; confetti(); say(s.done); $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done)}</p>`+kNext(); kGoHint(root); },600); }
@@ -6108,7 +6114,7 @@ function kOdd(root, s, next){
     if(e.target.closest('[data-go]')) return next();
     const b=e.target.closest('.od-it'); if(!b || busy) return; const r=s.rounds[k];
     if(b.dataset.l===r.a){ busy=true; b.classList.add('out'); $$('.od-it',root).filter(x=>x!==b).forEach((x,i)=>setTimeout(()=>x.classList.add('yay'), 200+i*120));
-      const w=$('#odw',root); w.hidden=false; w.textContent=r.why; say(kPraise()+' '+r.why); stepProg((k+1)/s.rounds.length);
+      const w=$('#odw',root); w.hidden=false; w.textContent=r.why; say([kPraise(), r.why]); stepProg((k+1)/s.rounds.length);
       setTimeout(()=>{ if(!alive()) return; k++; if(k>=s.rounds.length){ $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done)}</p>`+kNext(); say(s.done); kGoHint(root); } else draw(); }, Math.min(5200, 1800+r.why.length*40));
     } else { S.level.mistakes++; wrong++; shakeEl(b); say(kTry()); if(wrong>=2) pointAt($(`.od-it[data-l="${r.a}"]`,root),800); }
   });
@@ -6203,7 +6209,7 @@ function kArch(root, s, next){
         if(p<1) return requestAnimationFrame(fly);
         if(hit==null){ S.level.mistakes++; say(kTry()); setTimeout(()=>{ ar.setAttribute('transform',`translate(${BOW.x} ${BOW.y})`); $('#bow',root).setAttribute('transform',`translate(${BOW.x} ${BOW.y})`); busy=false; },500); return; }
         const g=$(`.tg[data-i="${hit}"]`,root);
-        if(tg[hit].l===s.rounds[k].a){ g.classList.add('hit'); say(kPraise()+' '+(s.rounds[k].ok||'')); stepProg((k+1)/s.rounds.length);
+        if(tg[hit].l===s.rounds[k].a){ g.classList.add('hit'); say([kPraise(), s.rounds[k].ok]); stepProg((k+1)/s.rounds.length);
           setTimeout(()=>{ k++; if(k>=s.rounds.length){ cancelAnimationFrame(raf); $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done)}</p>`+kNext(); say(s.done); kGoHint(root); } else draw(); },1100);
         } else { S.level.mistakes++; g.classList.add('miss'); say(s.rounds[k].no || 'Это другая буква. Попробуй ещё!'); setTimeout(()=>{ g.classList.remove('miss'); ar.setAttribute('transform',`translate(${BOW.x} ${BOW.y})`); $('#bow',root).setAttribute('transform',`translate(${BOW.x} ${BOW.y})`); busy=false; },700); }
       }; requestAnimationFrame(fly); };
