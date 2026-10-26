@@ -428,6 +428,7 @@ select.input{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg 
 .tr-mark{display:grid;justify-items:center;gap:2px;padding:10px 6px;border-radius:20px;background:#FFFDF7;box-shadow:0 6px 0 rgba(20,49,92,.12),inset 0 0 0 2px rgba(20,49,92,.08);transition:transform .15s}
 .tr-mark .tr-dot{font-family:Amiri,'Noto Naskh Arabic',serif;font-size:46px;line-height:1.1;color:#14315C}
 .tr-mark b{font-size:16px;color:var(--navy)}
+.tr-word{margin:4px 0 0;text-align:center;font-family:Amiri,'Noto Naskh Arabic',serif;font-size:clamp(40px,8vw,60px);line-height:1.3;color:var(--navy);animation:popin .5s}
 .tr-mark small{font-size:14px;color:var(--navy-soft);font-weight:700;text-align:center;line-height:1.2}
 .lips-pic{display:inline-grid;place-items:center}.lips-pic .lips{width:76px;height:auto;filter:drop-shadow(0 5px 6px rgba(150,40,70,.22))}
 .k-bin .lips-pic .lips,.k-tile .lips-pic .lips{width:84px}
@@ -542,6 +543,8 @@ select.input{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg 
 .k-read{padding:18px;gap:14px;background:linear-gradient(180deg,#FFF3E0,#FFFDF7)}
 .rd-row{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;font-size:clamp(44px,8vw,60px)}
 .rd-chip{transition:transform .25s}
+.k-let.wide{width:auto;min-width:1.25em;padding:0 .28em .12em;font-size:.82em;height:1.5em}
+.mc-front .k-let.wide{font-size:clamp(24px,7vw,34px);max-width:94%}.k-tile .k-let.wide,.k-item .k-let.wide{font-size:.7em}
 .rd-chip.on{transform:translateY(-10px) scale(1.12)}
 .rd-chip.on .k-let{box-shadow:0 0 0 4px #F6C94B,0 10px 14px -6px rgba(20,49,92,.4)}
 .rd-mic{display:flex;align-items:center;gap:12px;padding:14px 26px;border-radius:999px;background:linear-gradient(180deg,#FF8A7A,#E0574A);color:#fff;font-weight:800;font-size:19px;box-shadow:0 8px 0 #B7433A}
@@ -3105,6 +3108,274 @@ CONTENT['s1-tajweed-3'] = {
   ]
 };
 
+/* ---------------- 4 четверть: дамма ---------------- */
+CONTENT['s1-tajweed-4'] = {
+  title:'Огласовка дамма', ar:'الضَّمَّةُ',
+  levels:[
+    { id:'TJ4L1', tag:'Урок 1', icon:'%رِ', name:'Фатха и кясра: повторяем', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { line:'Вспомним наших друзей — огласовки!' },
+        { who:'رَ', lips:'a', line:'Палочка сверху — фатха. Приоткрой ротик!' },
+        { who:'رِ', lips:'i', line:'Палочка снизу — кясра. Улыбнись!' },
+      ]},
+      { t:'sortkid', say:'Палочка сверху или снизу? Разложи слоги.', bins:[ {id:'a',pic:'&a',label:'Фатха: приоткрой ротик'}, {id:'i',pic:'&i',label:'Кясра: улыбнись'} ],
+        items:[ ['%سَ','','a'], ['%سِ','','i'], ['%كَ','','a'], ['%كِ','','i'], ['%دِ','','i'], ['%دَ','','a'] ] },
+      { t:'train', say:'Поезд огласовок!', marks:['a','i'], rounds:[
+        { say:'Ра с фатхой, син с кясрой, мим с фатхой.', cars:[['ر','a'],['س','i'],['م','a']] },
+        { say:'Каф с кясрой, лям с фатхой, ба с кясрой.', cars:[['ق','i'],['ل','a'],['ب','i']] },
+      ], done:'Ма ша Аллах! Поезда уехали!' },
+      { t:'readaloud', say:'Прочитай вслух слоги. Смотри, где палочка. Нажми на кнопку и читай.', items:['رَ','سِ','مَ','قِ','لَ','بِ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ4L2', tag:'Урок 2', icon:'%بُ', name:'Дамма: знакомство', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { line:'Сегодня к нам придёт третья огласовка!' },
+        { who:'ب', line:'Это я, ба. Что же я сегодня надену?' },
+        { who:'بُ', lips:'u', line:'Над буквой маленькая запятая — это дамма. Когда видишь дамму, сделай губки трубочкой!' },
+        { who:'تُ', lips:'u', line:'Я та с даммой. Губки трубочкой!' },
+        { who:'نُ', lips:'u', line:'И я, нун, надела дамму.' },
+        { lips:'u', line:'Дамма — запятая сверху. Увидел дамму — губки трубочкой!' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Где буква с даммой?', opts:[['%بَ'],['%بِ'],['%بُ']], a:2 },
+        { say:'Найди та с даммой.', opts:[['%تُ'],['%تَ'],['%نُ']], a:0 },
+      ]},
+      { t:'train', say:'Поезд даммы!', marks:['u'], rounds:[
+        { say:'Надень дамму на ба и та. Губки трубочкой!', cars:[['ب','u'],['ت','u']] },
+        { say:'Надень дамму на нун, мим и лям.', cars:[['ن','u'],['م','u'],['ل','u']] },
+      ], done:'Ма ша Аллах! Поезд даммы поехал!' },
+      { t:'catch', say:'Лови в корзинку только ба с даммой!', target:'بُ', others:['بَ','بِ','تُ'], need:5, done:'Ма ша Аллах! Корзинка полная.' },
+    ]},
+
+    { id:'TJ4L3', tag:'Урок 3', icon:'%مُ', name:'Дамма: читаем слоги', bg:'water', steps:[
+      { t:'story', house:'none', bg:'water', beats:[
+        { who:'مُ', lips:'u', line:'Я мим с даммой. Губки сначала сомкнуты, а потом трубочкой.' },
+        { who:'رُ', lips:'u', line:'Я ра с даммой. Кончик язычка стучит, а губки трубочкой.' },
+        { who:'لُ', lips:'u', line:'А я лям с даммой. Читай нас вместе!' },
+      ]},
+      { t:'memory', say:'Найди одинаковые карточки!', letters:[['مُ','мим с даммой'],['رُ','ра с даммой'],['لُ','лям с даммой']], done:'Ма ша Аллах! Все пары найдены.' },
+      { t:'river', hero:'مُ', rows:[
+        { say:'Переправа! Прыгай на мим с даммой.', opts:['مُ','مَ'], a:'مُ' },
+        { say:'Теперь на ра с даммой.', opts:['رِ','رُ'], a:'رُ' },
+        { say:'И на лям с даммой.', opts:['لُ','نُ'], a:'لُ' },
+      ], done:'Ма ша Аллах! Ты читаешь слоги с даммой.' },
+      { t:'train', say:'Поезд даммы!', marks:['u'], rounds:[
+        { say:'Надень дамму на фа, даль и син.', cars:[['ف','u'],['د','u'],['س','u']] },
+      ], done:'Ма ша Аллах! Поезд поехал!' },
+    ]},
+
+    { id:'TJ4L4', tag:'Урок 4', icon:'%عُ', name:'Дамма и буквы горла', bg:'gift', steps:[
+      { t:'story', house:'halq', bg:'gift', beats:[
+        { line:'Буквы горлышка тоже надевают дамму!' },
+        { who:'أُ', floor:1, lips:'u', line:'Я хамза с даммой. Звук идёт из глубины горлышка, а губки трубочкой.' },
+        { who:'هُ', floor:1, lips:'u', line:'Я мягкая ха с даммой: тёплый выдох и губки трубочкой.' },
+        { who:'عُ', floor:2, lips:'u', line:'Я ‘айн с даммой. Я звучу из середины горлышка.' },
+        { who:'خُ', floor:3, lips:'u', line:'А я хо с даммой. Я звучу из начала горла, толсто и твёрдо.' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Найди ‘айн с даммой.', opts:[['%حُ'],['%عُ'],['%عَ']], a:1 },
+        { say:'Найди хамзу с даммой.', opts:[['%أُ'],['%أَ']], a:0 },
+      ]},
+      { t:'train', say:'Поезд горлышка!', marks:['u'], rounds:[
+        { say:'Надень дамму на буквы горлышка: хамза, ха и ‘айн.', cars:[['أ','u'],['ه','u'],['ع','u']] },
+      ], done:'Ма ша Аллах! Поезд поехал!' },
+      { t:'readaloud', say:'Прочитай вслух буквы горлышка с даммой. Нажми на кнопку и читай.', items:['أُ','هُ','عُ','حُ','غُ','خُ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ4L5', tag:'Урок 5', icon:'%كُ', name:'Дамма или фатха?', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { who:'كَ', lips:'a', line:'Палочка сверху — фатха. Приоткрой ротик!' },
+        { who:'كُ', lips:'u', line:'Запятая сверху — дамма. Губки трубочкой! Смотри внимательно: обе сверху, но они разные.' },
+      ]},
+      { t:'sortkid', say:'Палочка или запятая? Разложи слоги.', bins:[ {id:'a',pic:'&a',label:'Фатха: приоткрой ротик'}, {id:'u',pic:'&u',label:'Дамма: губки трубочкой'} ],
+        items:[ ['%كَ','','a'], ['%كُ','','u'], ['%دُ','','u'], ['%دَ','','a'], ['%سُ','','u'], ['%سَ','','a'] ] },
+      { t:'archery', rounds:[
+        { say:'Попади в кяф с даммой!', opts:['كَ','كُ','قُ'], a:'كُ' },
+        { say:'Попади в даль с фатхой!', opts:['دُ','دَ','ذَ'], a:'دَ' },
+      ], done:'Ма ша Аллах! Меткий читатель!' },
+      { t:'oddone', bg:'sky', rounds:[
+        { say:'Кто лишний? У одного слога нет даммы.', opts:['بُ','تُ','نَ','مُ'], a:'نَ', why:'У нуна фатха, а у остальных — дамма.' },
+        { say:'А здесь кто лишний?', opts:['سُ','سِ','شُ','صُ'], a:'سِ', why:'У сина здесь кясра, а у остальных — дамма.' },
+      ], done:'Ма ша Аллах! Ты всё замечаешь.' },
+    ]},
+
+    { id:'TJ4L6', tag:'Урок 6', icon:'%جُ', name:'Три огласовки', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { who:'جَ', lips:'a', line:'Джим с фатхой — приоткрой ротик.' },
+        { who:'جِ', lips:'i', line:'Джим с кясрой — улыбнись.' },
+        { who:'جُ', lips:'u', line:'Джим с даммой — губки трубочкой. Три огласовки — три подсказки для ротика!' },
+      ]},
+      { t:'sortkid', say:'Какая огласовка? Разложи слоги.', bins:[ {id:'a',pic:'&a',label:'Фатха'}, {id:'i',pic:'&i',label:'Кясра'}, {id:'u',pic:'&u',label:'Дамма'} ],
+        items:[ ['%شَ','','a'], ['%شِ','','i'], ['%شُ','','u'], ['%يُ','','u'], ['%يَ','','a'], ['%يِ','','i'] ] },
+      { t:'train', say:'Поезд огласовок!', marks:['a','i','u'], rounds:[
+        { say:'Шин с даммой, йа с фатхой, джим с кясрой.', cars:[['ش','u'],['ي','a'],['ج','i']] },
+        { say:'Заль с фатхой, ‘айн с даммой, ба с кясрой.', cars:[['ذ','a'],['ع','u'],['ب','i']] },
+      ], done:'Ма ша Аллах! Поезда уехали!' },
+      { t:'catch', say:'Лови в корзинку только шин с даммой!', target:'شُ', others:['شَ','شِ','سُ'], need:5, done:'Ма ша Аллах! Корзинка полная.' },
+    ]},
+
+    { id:'TJ4L7', tag:'Урок 7', icon:'@book', name:'Читаем с огласовками', bg:'water', steps:[
+      { t:'story', house:'none', bg:'water', beats:[
+        { line:'Теперь буквы с огласовками встают рядом — и получается слово!' },
+        { who:'كَتَبَ', lips:'a', line:'Каф, та и ба — все с фатхой. Три раза приоткрой ротик, и слово готово! Это слово значит «написал».' },
+        { who:'جَلَسَ', lips:'a', line:'А это слово значит «сел». Читай по слогам, не торопись.' },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['a'], rounds:[
+        { say:'Собери слово «написал»: каф, та и ба — с фатхой.', cars:[['ك','a'],['ت','a'],['ب','a']], word:true },
+        { say:'Собери слово «сел»: джим, лям и син — с фатхой.', cars:[['ج','a'],['ل','a'],['س','a']], word:true },
+      ], done:'Ма ша Аллах! Ты собрал целые слова!' },
+      { t:'tapone', rounds:[
+        { say:'Найди слово «написал».', opts:[['%جَلَسَ'],['%كَتَبَ']], a:1 },
+        { say:'Найди слово «сел».', opts:[['%جَلَسَ'],['%ذَهَبَ']], a:0 },
+      ]},
+      { t:'readaloud', say:'Прочитай вслух слова по слогам. Нажми на кнопку и читай.', items:['كَتَبَ','جَلَسَ','ذَهَبَ','فَتَحَ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ4L8', tag:'Урок 8', icon:'@star2', name:'Читаем с огласовками', bg:'final', steps:[
+      { t:'story', house:'none', bg:'final', beats:[
+        { line:'Последний урок четверти! Читаем слова, где есть разные огласовки.' },
+        { who:'سَمِعَ', lips:'i', line:'Син и мим с фатхой, а ‘айн с кясрой. Это слово значит «услышал».' },
+        { who:'رُسُلُ', lips:'u', line:'Ра, син и лям — все с даммой. Это слово значит «посланники».' },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['a','i','u'], rounds:[
+        { say:'Собери слово «услышал»: син и мим с фатхой, ‘айн с кясрой.', cars:[['س','a'],['م','a'],['ع','i']], word:true },
+        { say:'Собери слово «посланники»: ра, син и лям — с даммой.', cars:[['ر','u'],['س','u'],['ل','u']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'river', hero:'سَ', rows:[
+        { say:'Переправа! Прыгай на слог с даммой.', opts:['بُ','بَ'], a:'بُ' },
+        { say:'Теперь на слог с кясрой.', opts:['تِ','تُ'], a:'تِ' },
+        { say:'И на слог с фатхой.', opts:['مَ','مِ'], a:'مَ' },
+      ], done:'Ма ша Аллах! Меткий читатель!' },
+      { t:'readaloud', say:'Прочитай вслух слова. Нажми на кнопку и читай.', items:['سَمِعَ','رُسُلُ','عَلِمَ','خَلَقَ'], done:'Ма ша Аллах! Четвёртая четверть пройдена!' },
+    ]},
+  ]
+};
+
+/* ---------------- 5 четверть: читаем слова и танвин ---------------- */
+CONTENT['s1-tajweed-5'] = {
+  title:'Читаем слова и танвин', ar:'التَّنْوِينُ',
+  levels:[
+    { id:'TJ5L1', tag:'Урок 1', icon:'@book', name:'Читаем слова', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { who:'ذَهَبَ', lips:'a', line:'Заль, ха и ба — все с фатхой. Это слово значит «ушёл».' },
+        { who:'فَتَحَ', lips:'a', line:'А это слово «открыл». Читай по слогам, не торопись.' },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['a'], rounds:[
+        { say:'Собери слово «ушёл».', cars:[['ذ','a'],['ه','a'],['ب','a']], word:true },
+        { say:'Собери слово «открыл».', cars:[['ف','a'],['ت','a'],['ح','a']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'memory', say:'Найди одинаковые слова!', letters:[['ذَهَبَ','ушёл'],['فَتَحَ','открыл'],['كَتَبَ','написал']], done:'Ма ша Аллах! Все пары найдены.' },
+      { t:'readaloud', say:'Прочитай вслух слова. Нажми на кнопку и читай.', items:['ذَهَبَ','فَتَحَ','كَتَبَ','جَلَسَ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ5L2', tag:'Урок 2', icon:'%شَرِبَ', name:'Слова с кясрой', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { who:'عَلِمَ', lips:'i', line:'Это слово «узнал». ‘Айн с фатхой, лям с кясрой, мим с фатхой.' },
+        { who:'شَرِبَ', lips:'i', line:'А это «выпил». Где здесь улыбка? Под буквой ра!' },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['a','i'], rounds:[
+        { say:'Собери слово «узнал».', cars:[['ع','a'],['ل','i'],['م','a']], word:true },
+        { say:'Собери слово «выпил».', cars:[['ش','a'],['ر','i'],['ب','a']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'oddone', bg:'meadow', rounds:[
+        { say:'Кто лишний? В одном слове есть кясра.', opts:['كَتَبَ','ذَهَبَ','شَرِبَ','فَتَحَ'], a:'شَرِبَ', why:'В слове «выпил» под буквой ра кясра, а в остальных словах только фатхи.' },
+      ], done:'Ма ша Аллах! Ты всё замечаешь.' },
+      { t:'readaloud', say:'Прочитай вслух слова. Нажми на кнопку и читай.', items:['عَلِمَ','شَرِبَ','سَمِعَ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ5L3', tag:'Урок 3', icon:'%أُذُنُ', name:'Слова с даммой', bg:'water', steps:[
+      { t:'story', house:'none', bg:'water', beats:[
+        { who:'أُذُنُ', lips:'u', line:'Хамза, заль и нун — все с даммой. Это слово «ухо». Три раза губки трубочкой!' },
+        { who:'كُتُبُ', lips:'u', line:'А это слово «книги».' },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['u'], rounds:[
+        { say:'Собери слово «ухо».', cars:[['أ','u'],['ذ','u'],['ن','u']], word:true },
+        { say:'Собери слово «книги».', cars:[['ك','u'],['ت','u'],['ب','u']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'tapone', rounds:[
+        { say:'Найди слово «книги». Буквы одинаковые, а огласовки разные!', opts:[['%كَتَبَ'],['%كُتُبُ']], a:1 },
+        { say:'А теперь найди слово «написал».', opts:[['%كُتُبُ'],['%كَتَبَ']], a:1 },
+      ]},
+      { t:'readaloud', say:'Прочитай вслух слова. Нажми на кнопку и читай.', items:['أُذُنُ','كُتُبُ','رُسُلُ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ5L4', tag:'Урок 4', icon:'%خَلَقَ', name:'Читаем разные слова', bg:'gift', steps:[
+      { t:'story', house:'none', bg:'gift', beats:[
+        { line:'Смотри на огласовки и читай смело!' },
+        { who:'خَلَقَ', lips:'a', line:'Это слово «сотворил». Аллах сотворил всё!' },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['a','i','u'], rounds:[
+        { say:'Собери слово «сотворил».', cars:[['خ','a'],['ل','a'],['ق','a']], word:true },
+        { say:'Собери слово «услышал».', cars:[['س','a'],['م','a'],['ع','i']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'memory', say:'Найди одинаковые слова!', letters:[['خَلَقَ','сотворил'],['سَمِعَ','услышал'],['أُذُنُ','ухо'],['كُتُبُ','книги']], done:'Ма ша Аллах! Все пары найдены.' },
+      { t:'readaloud', say:'Прочитай вслух слова. Нажми на кнопку и читай.', items:['خَلَقَ','سَمِعَ','أُذُنُ','عَلِمَ','شَرِبَ','كُتُبُ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ5L5', tag:'Урок 5', icon:'%بٌ', name:'Танвин: знакомство', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { line:'Иногда огласовка удваивается. Это танвин!' },
+        { who:'بً', lips:'a', line:'Две палочки сверху — фатхатан. Ротик приоткрыт, а в конце тихонько звучит нун.' },
+        { who:'بٍ', lips:'i', line:'Две палочки снизу — кясратан. Улыбнись, и в конце звучит нун.' },
+        { who:'بٌ', lips:'u', line:'Две запятые сверху — дамматан. Губки трубочкой, и в конце звучит нун.' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Где танвин — две палочки сверху?', opts:[['%بَ'],['%بً']], a:1 },
+        { say:'Где дамматан — две запятые?', opts:[['%بُ'],['%بٌ'],['%بٍ']], a:1 },
+      ]},
+      { t:'sortkid', say:'Одна огласовка или танвин? Разложи слоги.', bins:[ {id:'one',pic:'%بَ',label:'Одна огласовка'}, {id:'two',pic:'%بً',label:'Танвин'} ],
+        items:[ ['%تَ','','one'], ['%تً','','two'], ['%نٍ','','two'], ['%نِ','','one'], ['%مُ','','one'], ['%مٌ','','two'] ] },
+      { t:'catch', say:'Лови в корзинку только ба с дамматаном!', target:'بٌ', others:['بُ','بً','بٍ'], need:5, done:'Ма ша Аллах! Корзинка полная.' },
+    ]},
+
+    { id:'TJ5L6', tag:'Урок 6', icon:'%قَمَرٌ', name:'Танвин в словах', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { who:'قَمَرٌ', lips:'u', line:'Каф и мим с фатхой, а ра с дамматаном. Это слово «луна». В конце тихонько звучит нун.' },
+        { who:'قَلَمٌ', lips:'u', line:'А это слово «ручка». Где здесь танвин? На последней букве!' },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['a','un'], rounds:[
+        { say:'Собери слово «луна»: в конце — дамматан.', cars:[['ق','a'],['م','a'],['ر','un']], word:true },
+        { say:'Собери слово «гора».', cars:[['ج','a'],['ب','a'],['ل','un']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'tapone', rounds:[
+        { say:'Найди слово «луна».', opts:[['%قَلَمٌ'],['%قَمَرٌ']], a:1 },
+        { say:'Найди слово «ручка».', opts:[['%قَلَمٌ'],['%جَبَلٌ']], a:0 },
+      ]},
+      { t:'readaloud', say:'Прочитай вслух слова с танвином. Нажми на кнопку и читай.', items:['قَمَرٌ','قَلَمٌ','جَبَلٌ','أَسَدٌ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ5L7', tag:'Урок 7', icon:'@star2', name:'Закрепление', bg:'water', steps:[
+      { t:'story', house:'none', bg:'water', beats:[
+        { line:'Мы знаем фатху, кясру, дамму и танвин. Давай повторим всё вместе!' },
+      ]},
+      { t:'sortkid', say:'Какая огласовка? Разложи слоги.', bins:[ {id:'a',pic:'&a',label:'Фатха'}, {id:'i',pic:'&i',label:'Кясра'}, {id:'u',pic:'&u',label:'Дамма'} ],
+        items:[ ['%فَ','','a'], ['%زِ','','i'], ['%طُ','','u'], ['%صَ','','a'], ['%ظِ','','i'], ['%ثُ','','u'] ] },
+      { t:'train', say:'Поезд-слово!', marks:['a','un'], rounds:[
+        { say:'Собери слово «лев».', cars:[['أ','a'],['س','a'],['د','un']], word:true },
+        { say:'Собери слово «конь».', cars:[['ف','a'],['ر','a'],['س','un']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'memory', say:'Найди одинаковые слова!', letters:[['أَسَدٌ','лев'],['قَمَرٌ','луна'],['جَبَلٌ','гора']], done:'Ма ша Аллах! Все пары найдены.' },
+    ]},
+
+    { id:'TJ5L8', tag:'Урок 8', icon:'@star2', name:'Экзамен', bg:'final', steps:[
+      { t:'story', house:'none', bg:'final', beats:[
+        { line:'Сегодня большой экзамен! Покажи, чему ты научился за год.' },
+        { line:'Не торопись и смотри на огласовки. У тебя всё получится, ин ша Аллах!' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Где дамма?', opts:[['%سَ'],['%سُ'],['%سِ']], a:1 },
+        { say:'Где танвин?', opts:[['%مٌ'],['%مُ']], a:0 },
+        { say:'Найди слово «книги».', opts:[['%كَتَبَ'],['%كُتُبُ']], a:1 },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['a','i','u'], rounds:[
+        { say:'Собери слово «сотворил».', cars:[['خ','a'],['ل','a'],['ق','a']], word:true },
+        { say:'Собери слово «ухо».', cars:[['أ','u'],['ذ','u'],['ن','u']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'readaloud', say:'Прочитай вслух все слова для учителя. Нажми на кнопку и читай.', items:['كَتَبَ','عَلِمَ','أُذُنُ','قَمَرٌ','جَبَلٌ','سَمِعَ'], done:'Ма ша Аллах! Ты прошёл весь первый год таджвида. Пусть Аллах сделает тебя из людей Корана!' },
+    ]},
+  ]
+};
+
 /* ============== САДИК 2 · ТАДЖВИД · 1 четверть: тянем звук (мадд) ============== */
 CONTENT['s2-tajweed-1'] = {
   title:'Тянем звук', ar:'الْمَدُّ',
@@ -5259,7 +5530,8 @@ const LET_COL = {
 };
 const baseLet = s => (String(s).match(/[ء-ي]/)||[''])[0];
 const letVars = s => { const c = LET_COL[baseLet(s)]; return c ? `--c1:${c[0]};--c2:${c[1]}` : ''; };
-const letTile = (l, cls='') => `<span class="k-let ${cls}" lang="ar" style="${letVars(l)}">${l}</span>`;
+const arBase = l => String(l).replace(/[\u064B-\u0652\u0670\u0640]/g,'').length;
+const letTile = (l, cls='') => `<span class="k-let ${cls}${arBase(l)>=2?' wide':''}" lang="ar" style="${letVars(l)}">${l}</span>`;
 
 /* Домики: этажи сверху вниз; номер этажа как раньше (3 — верхний). */
 const HOUSES = {
@@ -5336,7 +5608,8 @@ function kStory(root, s, next){
 }
 
 /* ---------- Поезд харакатов: выбери огласовку, потом вагончик ---------- */
-const HARAKA = { a:{m:'َ',n:'фатха',cue:'приоткрой ротик',pos:'сверху'}, i:{m:'ِ',n:'кясра',cue:'улыбнись',pos:'снизу'}, u:{m:'ُ',n:'дамма',cue:'губки трубочкой',pos:'сверху'} };
+const HARAKA = { a:{m:'َ',n:'фатха',cue:'приоткрой ротик',lip:'a'}, i:{m:'ِ',n:'кясра',cue:'улыбнись',lip:'i'}, u:{m:'ُ',n:'дамма',cue:'губки трубочкой',lip:'u'},
+  an:{m:'ً',n:'фатхатан',cue:'ротик приоткрыт, в конце нун',lip:'a'}, in:{m:'ٍ',n:'кясратан',cue:'улыбнись, в конце нун',lip:'i'}, un:{m:'ٌ',n:'дамматан',cue:'губки трубочкой, в конце нун',lip:'u'} };
 /* Картинки губок: фатха — ротик приоткрыт, кясра — улыбка, дамма — губки трубочкой */
 const LIP_G = id => `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7A9B5"/><stop offset=".55" stop-color="#E56F84"/><stop offset="1" stop-color="#C94A62"/></linearGradient></defs>`;
 const LIPS = {
@@ -5360,14 +5633,17 @@ function kTrain(root, s, next){
   const draw = () => { const r=s.rounds[k]; sel=null; done=0; busy=false;
     root.innerHTML = kAsk(r.say) + `<div class="k-card k-train bg-${s.bg||'sky'}">
         <div class="tr-track" id="trk"><div class="tr-row" id="trr" dir="rtl">${trainLoco()}${r.cars.map(([l],i)=>`<button class="tr-car" data-i="${i}" style="--cc:${TRAIN_COL[(i+k)%TRAIN_COL.length]};${letVars(l)}" aria-label="Вагончик ${i+1}"><span class="tr-let" lang="ar">${l}</span><small></small><i class="tr-w"></i><i class="tr-w r"></i></button>`).join('')}</div><div class="tr-rail"></div></div>
+        <p class="tr-word" id="trw" hidden></p>
         <p class="tr-hint">Выбери огласовку, потом вагончик</p>
-        <div class="tr-marks" id="trm">${marks.map(m=>`<button class="tr-mark" data-m="${m}">${lipsPic(m)}<span class="tr-dot" lang="ar">◌${HARAKA[m].m}</span><b>${HARAKA[m].n}</b><small>${HARAKA[m].cue}</small></button>`).join('')}</div></div><div id="kf"></div>`;
+        <div class="tr-marks" id="trm">${marks.map(m=>`<button class="tr-mark" data-m="${m}">${lipsPic(HARAKA[m].lip)}<span class="tr-dot" lang="ar">◌${HARAKA[m].m}</span><b>${HARAKA[m].n}</b><small>${HARAKA[m].cue}</small></button>`).join('')}</div></div><div id="kf"></div>`;
     say(r.say); pointAt($('.tr-mark',root), 2800);
   };
-  const finishRound = () => { busy=true; const row=$('#trr',root); row.classList.add('go'); say(kPraise());
+  const finishRound = () => { busy=true; const row=$('#trr',root); const r0=s.rounds[k];
+    if(r0.word){ const w=r0.cars.map(([l,m])=>l+HARAKA[m].m).join(''); $('#trw',root).innerHTML=`<span lang="ar">${w}</span>`; $('#trw',root).hidden=false; if(!sayAr(w)) say(kPraise()); setTimeout(()=>{ if(alive()) row.classList.add('go'); }, 1200); }
+    else { row.classList.add('go'); say(kPraise()); }
     setTimeout(()=>{ if(!alive()) return; k++; stepProg(k/s.rounds.length);
       if(k>=s.rounds.length){ $('#kf',root).innerHTML=`<p class="k-why">${esc(s.done)}</p>`+kNext(); say(s.done); kGoHint(root); }
-      else draw(); }, 2300); };
+      else draw(); }, r0.word ? 3600 : 2300); };
   draw();
   kBind(root, ()=>s.rounds[Math.min(k,s.rounds.length-1)].say, e=>{
     if(e.target.closest('[data-go]')) return next();
