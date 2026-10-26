@@ -1,0 +1,25 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Проверка озвучки</title><meta name="robots" content="noindex">
+<style>
+:root{--navy:#14315C;--bg:#FFF9F0;--line:#E8DDCB}
+body{margin:0;background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;color:var(--navy)}
+main{max-width:760px;margin:0 auto;padding:20px 16px 60px}
+h1{font-size:24px;margin:0 0 6px}p{margin:0 0 16px;color:#4A6283}
+.f{display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap}.f button{border:0;border-radius:99px;padding:8px 14px;background:#fff;box-shadow:0 0 0 1px var(--line);font:inherit;cursor:pointer}.f button.on{background:var(--navy);color:#fff}
+.it{background:#fff;border-radius:16px;padding:12px 14px;margin-bottom:10px;box-shadow:0 0 0 1px var(--line)}
+.k{font-size:16px;line-height:1.4}.k[lang=ar]{font-family:Amiri,'Noto Naskh Arabic',serif;font-size:30px;direction:rtl;text-align:right}
+.t{font-size:13px;color:#7A8BA3;margin:4px 0 8px}.t[lang=ar]{font-size:20px;direction:rtl;text-align:right}
+audio{width:100%;height:36px}.n{font-size:12px;color:#9AA7B8}
+</style></head><body><main>
+<h1>Проверка озвучки</h1><p>Послушайте каждый звук. Если что-то звучит неправильно, напишите номер — переозвучим.</p>
+<div class="f"><button data-f="all" class="on">Всё</button><button data-f="ar">Арабский</button><button data-f="ru">Русский</button></div>
+<div id="l">Загружаем…</div></main>
+<script>
+Promise.all([fetch('index.json',{cache:'no-cache'}).then(r=>r.json()),fetch('list.json',{cache:'no-cache'}).then(r=>r.json())]).then(([idx,list])=>{
+  const items=list.items.filter(i=>idx[i.key]).map((i,n)=>({...i,n:n+1,f:idx[i.key].replace(/^voice\//,'')}));
+  const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const draw=f=>{ document.getElementById('l').innerHTML=items.filter(i=>f==='all'||i.lang===f).map(i=>`<div class="it"><div class="n">№ ${i.n} · ${i.lang==='ar'?'арабский':'русский'}</div><div class="k" lang="${/[؀-ۿ]/.test(i.key)?'ar':'ru'}">${esc(i.key)}</div>${i.text!==i.key?`<div class="t" lang="${i.lang}">голос читает: ${esc(i.text)}</div>`:''}<audio controls preload="none" src="${i.f}"></audio></div>`).join('')||'Пока нет файлов.'; };
+  draw('all');
+  document.querySelectorAll('.f button').forEach(b=>b.onclick=()=>{ document.querySelectorAll('.f button').forEach(x=>x.classList.toggle('on',x===b)); draw(b.dataset.f); });
+});
+</script></body></html>
