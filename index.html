@@ -518,6 +518,10 @@ select.input{appearance:none;background-image:url("data:image/svg+xml;utf8,<svg 
 .rv-col{position:relative;z-index:1;grid-row:1;display:grid;gap:14px;justify-items:center;padding:10px 2px;opacity:.55;transition:opacity .3s}
 .rv-col.cur{opacity:1}
 .rv-stone{width:clamp(58px,11vw,82px);aspect-ratio:1.25/1;border-radius:46% 54% 50% 50%/55% 50% 50% 45%;background:radial-gradient(circle at 35% 30%,#F4EFE6,#CFC4B2 70%,#A99C87);box-shadow:0 6px 0 rgba(0,0,0,.18);font-family:Amiri,'Noto Naskh Arabic',serif;font-size:clamp(28px,5vw,40px);color:#14315C;line-height:1;padding-bottom:6px}
+.rv-stone.wide{width:clamp(84px,17vw,128px);font-size:clamp(20px,3.6vw,30px);aspect-ratio:1.6/1}
+.st-char.wide .st-body{width:auto;min-width:118px;padding:0 22px 12px;font-size:58px}
+.st-char.past.wide .st-body{width:auto;min-width:0;padding:0 12px 8px;font-size:34px}
+@media (max-width:560px){ .st-char.wide .st-body{min-width:92px;font-size:42px;padding:0 14px 10px} .st-char.past.wide .st-body{font-size:24px;padding:0 8px 6px} .rv-stone.wide{width:clamp(76px,22vw,100px);font-size:20px} }
 .rv-col.cur .rv-stone{box-shadow:0 6px 0 rgba(0,0,0,.18),0 0 0 4px rgba(246,201,75,.8)}
 .rv-stone.ok{background:radial-gradient(circle at 35% 30%,#FFF6D6,#F6C94B 70%,#E0A53A)}
 .rv-stone.sink{animation:sink .9s ease-in-out}
@@ -3510,6 +3514,259 @@ CONTENT['s2-tajweed-1'] = {
   ]
 };
 
+/* ============== САДИК 2 · ТАДЖВИД · 2 четверть: уау, сукун, практика ============== */
+CONTENT['s2-tajweed-2'] = {
+  title:'Сукун', ar:'السُّكُونُ',
+  levels:[
+    { id:'TJ22L1', tag:'Урок 1', icon:'%نُو', name:'Уау маддийа', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { who:'و', line:'Вспомни меня, я уау! После даммы я тяну звук на два счёта.' },
+        { who:'نُو', lips:'u', line:'Нун с даммой, а за ним уау: губки трубочкой — и тянем!' },
+        { who:'نُ', lips:'u', line:'А без уау звук короткий.' },
+      ]},
+      { t:'stretch', say:'Тянем или коротко? Смотри, есть ли уау.', rounds:[
+        { syl:'نُو', long:true }, { syl:'نُ', long:false }, { syl:'سُو', long:true }, { syl:'رُ', long:false },
+      ], done:'Ма ша Аллах! Ровно два счёта!' },
+      { t:'tapone', rounds:[
+        { say:'Где длинный слог с уау?', opts:[['%تُ'],['%تُو']], a:1 },
+        { say:'А здесь где тянем звук?', opts:[['%لُو'],['%لُ'],['%لَ']], a:0 },
+      ]},
+      { t:'readaloud', say:'Прочитай вслух: где уау, тяни на два счёта. Нажми на кнопку и читай.', items:['نُو','سُو','بُو','نُ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ22L2', tag:'Урок 2', icon:'@star2', name:'Алиф, йа и уау', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { line:'Три буквы умеют тянуть звук: алиф, йа и уау.' },
+        { who:'بَا', lips:'a', line:'После фатхи тянет алиф.' },
+        { who:'بِي', lips:'i', line:'После кясры тянет йа.' },
+        { who:'بُو', lips:'u', line:'После даммы тянет уау.' },
+      ]},
+      { t:'sortkid', say:'Какая буква тянет звук? Разложи слоги.', bins:[ {id:'a',pic:'%ا',label:'Тянет алиф'}, {id:'i',pic:'%ي',label:'Тянет йа'}, {id:'u',pic:'%و',label:'Тянет уау'} ],
+        items:[ ['%مَا','','a'], ['%مِي','','i'], ['%مُو','','u'], ['%لَا','','a'], ['%لِي','','i'], ['%لُو','','u'] ] },
+      { t:'stretch', say:'Тянем или коротко?', rounds:[
+        { syl:'قَا', long:true }, { syl:'قِ', long:false }, { syl:'فِي', long:true }, { syl:'فُو', long:true },
+      ], done:'Ма ша Аллах! Отлично тянешь!' },
+      { t:'memory', say:'Найди одинаковые карточки!', letters:[['بَا','ба с алифом'],['بِي','ба с йа'],['بُو','ба с уау']], done:'Ма ша Аллах! Все пары найдены.' },
+    ]},
+
+    { id:'TJ22L3', tag:'Урок 3', icon:'%بْ', name:'Сукун: знакомство', bg:'water', steps:[
+      { t:'story', house:'none', bg:'water', beats:[
+        { line:'Сегодня новый знак — сукун. Это маленький кружочек над буквой.' },
+        { who:'بْ', line:'Когда на мне кружочек, я сплю. Звук на мне останавливается.' },
+        { who:'أَبْ', lips:'a', line:'Хамза с фатхой, а ба с сукуном. Читаем вместе, и звук останавливается на ба.' },
+        { who:'أَتْ', lips:'a', line:'Хамза с фатхой и та с сукуном. Остановились на та!' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Где буква с сукуном?', opts:[['%بَ'],['%بْ'],['%بُ']], a:1 },
+        { say:'Найди та с сукуном.', opts:[['%تْ'],['%نْ'],['%تَ']], a:0 },
+      ]},
+      { t:'train', say:'Поезд-слог!', marks:['a','o'], rounds:[
+        { say:'Хамза с фатхой, ба с сукуном.', cars:[['أ','a'],['ب','o']], word:true },
+        { say:'Хамза с фатхой, та с сукуном.', cars:[['أ','a'],['ت','o']], word:true },
+      ], done:'Ма ша Аллах! Поезд поехал!' },
+      { t:'catch', say:'Лови в корзинку только ба с сукуном!', target:'بْ', others:['بَ','بِ','بُ'], need:5, done:'Ма ша Аллах! Корзинка полная.' },
+    ]},
+
+    { id:'TJ22L4', tag:'Урок 4', icon:'%أُبْ', name:'Сукун после огласовок', bg:'gift', steps:[
+      { t:'story', house:'none', bg:'gift', beats:[
+        { who:'أَبْ', lips:'a', line:'С фатхой приоткрой ротик — и остановись на ба.' },
+        { who:'إِبْ', lips:'i', line:'С кясрой улыбнись — и остановись.' },
+        { who:'أُبْ', lips:'u', line:'С даммой губки трубочкой — и остановись.' },
+      ]},
+      { t:'train', say:'Поезд-слог!', marks:['a','i','u','o'], rounds:[
+        { say:'Хамза с кясрой, ба с сукуном.', cars:[['إ','i'],['ب','o']], word:true },
+        { say:'Хамза с даммой, ба с сукуном.', cars:[['أ','u'],['ب','o']], word:true },
+      ], done:'Ма ша Аллах! Поезда уехали!' },
+      { t:'sortkid', say:'Какая огласовка у хамзы? Разложи слоги.', bins:[ {id:'a',pic:'&a',label:'Фатха'}, {id:'i',pic:'&i',label:'Кясра'}, {id:'u',pic:'&u',label:'Дамма'} ],
+        items:[ ['%أَتْ','','a'], ['%إِتْ','','i'], ['%أُتْ','','u'], ['%أَدْ','','a'], ['%إِدْ','','i'], ['%أُدْ','','u'] ] },
+      { t:'readaloud', say:'Прочитай вслух. Помни: на сукуне звук останавливается. Нажми на кнопку и читай.', items:['أَبْ','إِبْ','أُبْ','أَتْ','إِتْ','أُتْ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ22L5', tag:'Урок 5', icon:'%أَعْ', name:'Сукун и буквы горла', bg:'sky', steps:[
+      { t:'story', house:'halq', bg:'sky', beats:[
+        { line:'Буквы горлышка тоже засыпают с сукуном. Послушай, где останавливается звук.' },
+        { who:'أَعْ', floor:2, line:'Хамза с фатхой, ‘айн с сукуном. ‘Айн остановился в середине горлышка.' },
+        { who:'أَحْ', floor:2, line:'А теперь сильная ха с сукуном. Тоже середина горла.' },
+        { who:'أَخْ', floor:3, line:'Хо с сукуном — звук остановился в начале горла.' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Где ‘айн с сукуном?', opts:[['%أَعْ'],['%أَحْ']], a:0 },
+        { say:'Где хо с сукуном?', opts:[['%أَغْ'],['%أَخْ']], a:1 },
+      ]},
+      { t:'river', hero:'ع', rows:[
+        { say:'Переправа! Прыгай на ‘айн с сукуном.', opts:['أَعْ','عَ'], a:'أَعْ' },
+        { say:'Теперь на хо с сукуном.', opts:['أَخْ','أَحْ'], a:'أَخْ' },
+        { say:'И на мягкую ха с сукуном.', opts:['أَهْ','أَعْ'], a:'أَهْ' },
+      ], done:'Ма ша Аллах! Меткий читатель!' },
+      { t:'readaloud', say:'Прочитай вслух буквы горлышка с сукуном. Нажми на кнопку и читай.', items:['أَهْ','أَعْ','أَحْ','أَغْ','أَخْ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ22L6', tag:'Урок 6', icon:'%قُلْ', name:'Сукун в словах', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { who:'مِنْ', lips:'i', line:'Мим с кясрой, нун с сукуном. Это слово «из».' },
+        { who:'قُلْ', lips:'u', line:'Каф с даммой, лям с сукуном. Это слово «скажи». Оно есть в сурах Корана!' },
+        { who:'هَلْ', lips:'a', line:'А это слово «разве?». Ха с фатхой, а лям спит.' },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['a','i','u','o'], rounds:[
+        { say:'Собери слово «из».', cars:[['م','i'],['ن','o']], word:true },
+        { say:'Собери слово «скажи».', cars:[['ق','u'],['ل','o']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'tapone', rounds:[
+        { say:'Найди слово «скажи».', opts:[['%قُلْ'],['%هَلْ']], a:0 },
+        { say:'Найди слово «из».', opts:[['%عَنْ'],['%مِنْ']], a:1 },
+      ]},
+      { t:'readaloud', say:'Прочитай вслух слова с сукуном. Нажми на кнопку и читай.', items:['مِنْ','قُلْ','هَلْ','عَنْ','لَمْ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ22L7', tag:'Урок 7', icon:'%قَلْبٌ', name:'Практика чтения', bg:'water', steps:[
+      { t:'story', house:'none', bg:'water', beats:[
+        { line:'Читаем слова, где есть всё, что мы знаем: огласовки, танвин и сукун.' },
+        { who:'قَلْبٌ', line:'Это слово «сердце». Лям спит, а в конце дамматан.' },
+        { who:'بِنْتٌ', line:'А это слово «девочка». Нун спит.' },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['a','i','o','un'], rounds:[
+        { say:'Собери слово «сердце».', cars:[['ق','a'],['ل','o'],['ب','un']], word:true },
+        { say:'Собери слово «девочка».', cars:[['ب','i'],['ن','o'],['ت','un']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'memory', say:'Найди одинаковые слова!', letters:[['قَلْبٌ','сердце'],['بِنْتٌ','девочка'],['شَمْسٌ','солнце']], done:'Ма ша Аллах! Все пары найдены.' },
+      { t:'readaloud', say:'Прочитай вслух слова. Нажми на кнопку и читай.', items:['قَلْبٌ','بِنْتٌ','شَمْسٌ','مِنْ','قُلْ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ22L8', tag:'Урок 8', icon:'@star2', name:'Практика чтения', bg:'final', steps:[
+      { t:'story', house:'none', bg:'final', beats:[
+        { line:'Последний урок четверти! Смотри внимательно: где тянем звук, а где буква спит?' },
+      ]},
+      { t:'sortkid', say:'Тянем звук или буква спит? Разложи слова.', bins:[ {id:'l',pic:'%بَا',label:'Тянем звук'}, {id:'o',pic:'%بْ',label:'Буква спит'} ],
+        items:[ ['%نُورٌ','','l'], ['%قَلْبٌ','','o'], ['%فِيلٌ','','l'], ['%بِنْتٌ','','o'], ['%بَابٌ','','l'], ['%شَمْسٌ','','o'] ] },
+      { t:'stretch', say:'Тянем или коротко?', rounds:[
+        { syl:'فِي', long:true }, { syl:'مِنْ', long:false }, { syl:'نُو', long:true }, { syl:'قُلْ', long:false },
+      ], done:'Ма ша Аллах! Отлично!' },
+      { t:'readaloud', say:'Прочитай вслух все слова для учителя. Нажми на кнопку и читай.', items:['نُورٌ','فِيلٌ','بَابٌ','قَلْبٌ','بِنْتٌ','شَمْسٌ'], done:'Ма ша Аллах! Вторая четверть пройдена!' },
+    ]},
+  ]
+};
+
+/* ============== САДИК 2 · ТАДЖВИД · 3 четверть: шадда, лунные и солнечные буквы ============== */
+CONTENT['s2-tajweed-3'] = {
+  title:'Шадда, лунные и солнечные буквы', ar:'الشَّدَّةُ',
+  levels:[
+    { id:'TJ23L1', tag:'Урок 1', icon:'%بَّ', name:'Шадда: знакомство', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { line:'Сегодня новый знак — шадда. Он похож на маленькие зубчики над буквой.' },
+        { who:'أَبْ', line:'Помнишь: ба с сукуном спит.' },
+        { who:'أَبَّ', lips:'a', line:'А это шадда! Ба читаем два раза: сначала она спит, а потом просыпается с фатхой.' },
+        { who:'رَبِّ', lips:'i', line:'Это слово «Господь мой». Ба с шаддой и кясрой. Мы часто говорим это слово в дуа.' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Где буква с шаддой?', opts:[['%بَ'],['%بَّ']], a:1 },
+        { say:'Найди шадду — зубчики.', opts:[['%مْ'],['%مَّ'],['%مُ']], a:1 },
+      ]},
+      { t:'sortkid', say:'Кружочек или зубчики? Разложи слоги.', bins:[ {id:'o',pic:'%بْ',label:'Сукун: буква спит'}, {id:'s',pic:'%بَّ',label:'Шадда: читаем два раза'} ],
+        items:[ ['%تْ','','o'], ['%تَّ','','s'], ['%نْ','','o'], ['%نِّ','','s'], ['%مُّ','','s'], ['%لْ','','o'] ] },
+      { t:'catch', say:'Лови в корзинку только ба с шаддой!', target:'بَّ', others:['بَ','بْ','بُ'], need:5, done:'Ма ша Аллах! Корзинка полная.' },
+    ]},
+
+    { id:'TJ23L2', tag:'Урок 2', icon:'%أُمُّ', name:'Шадда с огласовками', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { who:'أَمَّ', lips:'a', line:'Мим с шаддой и фатхой: два раза, ротик приоткрыт.' },
+        { who:'أُمِّ', lips:'i', line:'Мим с шаддой и кясрой: два раза, улыбнись.' },
+        { who:'أُمُّ', lips:'u', line:'Мим с шаддой и даммой: два раза, губки трубочкой. Это слово «мама»!' },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['a','u','si','su'], rounds:[
+        { say:'Собери слово «мама»: на миме шадда и дамма.', cars:[['أ','u'],['م','su']], word:true },
+        { say:'Собери слово «Господь мой»: на ба шадда и кясра.', cars:[['ر','a'],['ب','si']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'memory', say:'Найди одинаковые слова!', letters:[['أُمُّ','мама'],['جَدٌّ','дедушка'],['رَبِّ','Господь мой']], done:'Ма ша Аллах! Все пары найдены.' },
+      { t:'readaloud', say:'Прочитай вслух слова с шаддой. Нажми на кнопку и читай.', items:['أُمُّ','رَبِّ','جَدٌّ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ23L3', tag:'Урок 3', icon:'%قِطٌّ', name:'Шадда в словах', bg:'water', steps:[
+      { t:'story', house:'none', bg:'water', beats:[
+        { who:'قِطٌّ', line:'Это слово «кот». Та с шаддой: читаем два раза.' },
+        { who:'دُبٌّ', line:'А это слово «медведь». Шадда на букве ба.' },
+      ]},
+      { t:'train', say:'Поезд-слово!', marks:['a','i','u','sun'], rounds:[
+        { say:'Собери слово «кот».', cars:[['ق','i'],['ط','sun']], word:true },
+        { say:'Собери слово «медведь».', cars:[['د','u'],['ب','sun']], word:true },
+        { say:'Собери слово «хадж».', cars:[['ح','a'],['ج','sun']], word:true },
+      ], done:'Ма ша Аллах! Слова готовы!' },
+      { t:'tapone', rounds:[
+        { say:'Найди слово «кот».', opts:[['%دُبٌّ'],['%قِطٌّ']], a:1 },
+        { say:'Найди слово «медведь».', opts:[['%دُبٌّ'],['%حَجٌّ']], a:0 },
+      ]},
+      { t:'readaloud', say:'Прочитай вслух слова с шаддой. Нажми на кнопку и читай.', items:['قِطٌّ','دُبٌّ','حَجٌّ','بَطٌّ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ23L4', tag:'Урок 4', icon:'@star2', name:'Шадда: закрепление', bg:'gift', steps:[
+      { t:'story', house:'none', bg:'gift', beats:[
+        { line:'Шадда — зубчики. Букву читаем два раза: сначала она спит, потом просыпается!' },
+      ]},
+      { t:'oddone', bg:'gift', rounds:[
+        { say:'Кто лишний? В одном слове нет шадды.', opts:['قِطٌّ','دُبٌّ','قَلْبٌ','أُمُّ'], a:'قَلْبٌ', why:'В слове «сердце» на ляме сукун, а шадды нет.' },
+      ], done:'Ма ша Аллах! Ты всё замечаешь.' },
+      { t:'sortkid', say:'Сукун или шадда? Разложи слова.', bins:[ {id:'o',pic:'%بْ',label:'Сукун'}, {id:'s',pic:'%بَّ',label:'Шадда'} ],
+        items:[ ['%مِنْ','','o'], ['%أُمُّ','','s'], ['%قُلْ','','o'], ['%رَبِّ','','s'], ['%هَلْ','','o'], ['%حَجٌّ','','s'] ] },
+      { t:'readaloud', say:'Прочитай вслух слова. Нажми на кнопку и читай.', items:['أُمُّ','قِطٌّ','مِنْ','رَبِّ','قَلْبٌ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ23L5', tag:'Урок 5', icon:'@moon', name:'Лунные буквы', bg:'sky', steps:[
+      { t:'story', house:'none', bg:'sky', beats:[
+        { line:'Посмотри на слово «луна». В начале стоят алиф и лям.' },
+        { who:'الْقَمَرُ', line:'На ляме сукун, и мы его читаем. Буква каф — лунная!' },
+        { line:'Лунные буквы не прячут лям. Мы его слышим.' },
+        { who:'الْكِتَابُ', line:'Это слово «книга». Кяф — тоже лунная буква, лям читаем.' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Найди слово «луна».', opts:[['%الْقَمَرُ'],['%الْكِتَابُ']], a:0 },
+        { say:'Найди слово «книга».', opts:[['%الْقَمَرُ'],['%الْكِتَابُ']], a:1 },
+      ]},
+      { t:'memory', say:'Найди одинаковые слова!', letters:[['الْقَمَرُ','луна'],['الْكِتَابُ','книга'],['الْبَابُ','дверь']], done:'Ма ша Аллах! Все пары найдены.' },
+      { t:'readaloud', say:'Прочитай вслух слова. Лям читаем! Нажми на кнопку и читай.', items:['الْقَمَرُ','الْكِتَابُ','الْبَابُ','الْوَلَدُ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ23L6', tag:'Урок 6', icon:'@moon', name:'Лунные буквы', bg:'meadow', steps:[
+      { t:'story', house:'none', bg:'meadow', beats:[
+        { line:'Запомни: если после алифа и ляма стоит лунная буква, лям читаем. На нём сукун!' },
+        { who:'الْبَيْتُ', line:'Это слово «дом». Ба — лунная буква.' },
+        { who:'الْوَلَدُ', line:'А это «мальчик». Уау — тоже лунная.' },
+      ]},
+      { t:'river', hero:'ل', rows:[
+        { say:'Переправа! Прыгай на слово «дом».', opts:['الْبَيْتُ','الْبَابُ'], a:'الْبَيْتُ' },
+        { say:'Теперь на слово «мальчик».', opts:['الْقَمَرُ','الْوَلَدُ'], a:'الْوَلَدُ' },
+        { say:'И на слово «книга».', opts:['الْكِتَابُ','الْبَيْتُ'], a:'الْكِتَابُ' },
+      ], done:'Ма ша Аллах! Меткий читатель!' },
+      { t:'tapone', rounds:[
+        { say:'Где лям с сукуном?', opts:[['%الْ'],['%الَ']], a:0 },
+      ]},
+      { t:'readaloud', say:'Прочитай вслух слова. Нажми на кнопку и читай.', items:['الْبَيْتُ','الْوَلَدُ','الْقَلْبُ','الْفِيلُ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ23L7', tag:'Урок 7', icon:'@sun', name:'Солнечные буквы', bg:'water', steps:[
+      { t:'story', house:'none', bg:'water', beats:[
+        { who:'الشَّمْسُ', line:'Это слово «солнце». Посмотри: на ляме нет сукуна, а на шин — шадда. Лям спрятался!' },
+        { line:'Солнечные буквы прячут лям. Мы его не читаем, а следующую букву читаем с шаддой.' },
+        { who:'النُّورُ', line:'Это слово «свет». Нун — солнечная буква: лям прячется.' },
+      ]},
+      { t:'tapone', rounds:[
+        { say:'Где лям прячется?', opts:[['%الْقَمَرُ'],['%الشَّمْسُ']], a:1 },
+        { say:'Найди слово «свет».', opts:[['%النُّورُ'],['%الْبَابُ']], a:0 },
+      ]},
+      { t:'memory', say:'Найди одинаковые слова!', letters:[['الشَّمْسُ','солнце'],['النُّورُ','свет'],['الرَّجُلُ','мужчина']], done:'Ма ша Аллах! Все пары найдены.' },
+      { t:'readaloud', say:'Прочитай вслух слова. Лям не читаем! Нажми на кнопку и читай.', items:['الشَّمْسُ','النُّورُ','الرَّجُلُ','الدَّرْسُ'], done:'Ма ша Аллах! Учитель послушает твоё чтение.' },
+    ]},
+
+    { id:'TJ23L8', tag:'Урок 8', icon:'@star2', name:'Лунные и солнечные', bg:'final', steps:[
+      { t:'story', house:'none', bg:'final', beats:[
+        { who:'الْقَمَرُ', line:'Лунная буква: лям читаем.' },
+        { who:'الشَّمْسُ', line:'Солнечная буква: лям прячется, а на следующей букве шадда.' },
+      ]},
+      { t:'sortkid', say:'Лунная или солнечная? Разложи слова.', bins:[ {id:'q',pic:'@moon',label:'Лунная: лям читаем'}, {id:'sh',pic:'@sun',label:'Солнечная: лям прячется'} ],
+        items:[ ['%الْقَمَرُ','','q'], ['%الشَّمْسُ','','sh'], ['%الْبَابُ','','q'], ['%النُّورُ','','sh'], ['%الْكِتَابُ','','q'], ['%الرَّجُلُ','','sh'] ] },
+      { t:'readaloud', say:'Прочитай вслух все слова для учителя. Нажми на кнопку и читай.', items:['الْقَمَرُ','الشَّمْسُ','الْبَيْتُ','النُّورُ','الْوَلَدُ','الرَّجُلُ'], done:'Ма ша Аллах! Третья четверть пройдена!' },
+    ]},
+  ]
+};
+
 /* ============================ 2 ЧЕТВЕРТЬ ============================ */
 CONTENT['s1-2'] = {
   title:'Аллах — наш Творец', ar:'اللَّهُ الْخَالِقُ',
@@ -5562,7 +5819,7 @@ function halqSVG(floor, kind='halq'){ return houseSVG(kind, floor); }
 const housePic = t => { const [k,f] = t.slice(1).split(':'); return houseSVG(k, +(f||0)); };
 
 /* ---------- История: буква сама рассказывает о себе ---------- */
-function stChar(l){ return `<div class="st-char" style="${letVars(l)}"><span class="st-body" lang="ar">${l}</span><i class="st-foot"></i><i class="st-foot r"></i></div>`; }
+function stChar(l){ return `<div class="st-char${arBase(l)>=3?' wide':''}" style="${letVars(l)}"><span class="st-body" lang="ar">${l}</span><i class="st-foot"></i><i class="st-foot r"></i></div>`; }
 function kStory(root, s, next){
   let k = -1, cur = null, house = s.house || 'halq', res = {}, homeTimer = null, flying = false, queued = false; const alive = () => document.body.contains(root);
   root.innerHTML = `<div class="k-card k-story bg-${s.bg||'sky'}">
@@ -5609,7 +5866,10 @@ function kStory(root, s, next){
 
 /* ---------- Поезд харакатов: выбери огласовку, потом вагончик ---------- */
 const HARAKA = { a:{m:'َ',n:'фатха',cue:'приоткрой ротик',lip:'a'}, i:{m:'ِ',n:'кясра',cue:'улыбнись',lip:'i'}, u:{m:'ُ',n:'дамма',cue:'губки трубочкой',lip:'u'},
-  an:{m:'ً',n:'фатхатан',cue:'ротик приоткрыт, в конце нун',lip:'a'}, in:{m:'ٍ',n:'кясратан',cue:'улыбнись, в конце нун',lip:'i'}, un:{m:'ٌ',n:'дамматан',cue:'губки трубочкой, в конце нун',lip:'u'} };
+  an:{m:'ً',n:'фатхатан',cue:'ротик приоткрыт, в конце нун',lip:'a'}, in:{m:'ٍ',n:'кясратан',cue:'улыбнись, в конце нун',lip:'i'}, un:{m:'ٌ',n:'дамматан',cue:'губки трубочкой, в конце нун',lip:'u'},
+  o:{m:'ْ',n:'сукун',cue:'буква спит, звук остановился',lip:null},
+  sa:{m:'َّ',n:'шадда и фатха',cue:'два раза, ротик приоткрыт',lip:'a'}, si:{m:'ِّ',n:'шадда и кясра',cue:'два раза, улыбнись',lip:'i'}, su:{m:'ُّ',n:'шадда и дамма',cue:'два раза, губки трубочкой',lip:'u'},
+  sun:{m:'ٌّ',n:'шадда и дамматан',cue:'два раза, в конце нун',lip:'u'} };
 /* Картинки губок: фатха — ротик приоткрыт, кясра — улыбка, дамма — губки трубочкой */
 const LIP_G = id => `<defs><linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F7A9B5"/><stop offset=".55" stop-color="#E56F84"/><stop offset="1" stop-color="#C94A62"/></linearGradient></defs>`;
 const LIPS = {
@@ -5635,7 +5895,7 @@ function kTrain(root, s, next){
         <div class="tr-track" id="trk"><div class="tr-row" id="trr" dir="rtl">${trainLoco()}${r.cars.map(([l],i)=>`<button class="tr-car" data-i="${i}" style="--cc:${TRAIN_COL[(i+k)%TRAIN_COL.length]};${letVars(l)}" aria-label="Вагончик ${i+1}"><span class="tr-let" lang="ar">${l}</span><small></small><i class="tr-w"></i><i class="tr-w r"></i></button>`).join('')}</div><div class="tr-rail"></div></div>
         <p class="tr-word" id="trw" hidden></p>
         <p class="tr-hint">Выбери огласовку, потом вагончик</p>
-        <div class="tr-marks" id="trm">${marks.map(m=>`<button class="tr-mark" data-m="${m}">${lipsPic(HARAKA[m].lip)}<span class="tr-dot" lang="ar">◌${HARAKA[m].m}</span><b>${HARAKA[m].n}</b><small>${HARAKA[m].cue}</small></button>`).join('')}</div></div><div id="kf"></div>`;
+        <div class="tr-marks" id="trm">${marks.map(m=>`<button class="tr-mark" data-m="${m}">${HARAKA[m].lip?lipsPic(HARAKA[m].lip):'<span class="lips-pic"><svg class="lips" viewBox="0 0 120 84" aria-hidden="true"><defs><radialGradient id="skg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#8FB6E0"/><stop offset="1" stop-color="#24497C"/></radialGradient></defs><circle cx="60" cy="42" r="26" fill="none" stroke="url(#skg)" stroke-width="12"/><path d="M44 28q8-8 18-8" stroke="#fff" stroke-opacity=".6" stroke-width="4" fill="none" stroke-linecap="round"/></svg></span>'}<span class="tr-dot" lang="ar">◌${HARAKA[m].m}</span><b>${HARAKA[m].n}</b><small>${HARAKA[m].cue}</small></button>`).join('')}</div></div><div id="kf"></div>`;
     say(r.say); pointAt($('.tr-mark',root), 2800);
   };
   const finishRound = () => { busy=true; const row=$('#trr',root); const r0=s.rounds[k];
@@ -5785,7 +6045,7 @@ function kRiver(root, s, next){
   root.innerHTML = `<div class="k-ask"><button class="k-spk" data-say aria-label="Послушать ещё раз">${ICON.spk}</button><p id="rvq"></p></div>
     <div class="k-card k-river"><div class="rv-field" id="rvf" style="--cols:${cols}">
       <div class="rv-bank l"></div><div class="rv-water"></div><div class="rv-bank r">${kImg('house')}</div>
-      ${s.rows.map((r,i)=>`<div class="rv-col${i===0?' cur':''}" data-c="${i}" style="grid-column:${i+2}">${shuffle(r.opts).map(o=>`<button class="rv-stone" data-o="${o}" lang="ar">${o}</button>`).join('')}</div>`).join('')}
+      ${s.rows.map((r,i)=>`<div class="rv-col${i===0?' cur':''}" data-c="${i}" style="grid-column:${i+2}">${shuffle(r.opts).map(o=>`<button class="rv-stone${arBase(o)>=3?' wide':''}" data-o="${o}" lang="ar">${o}</button>`).join('')}</div>`).join('')}
       <div class="rv-hero" id="rvh">${stChar(s.hero)}</div></div></div><div id="kf"></div>`;
   const f=$('#rvf',root), hero=$('#rvh',root);
   const place = el => { const a=f.getBoundingClientRect(), b=el.getBoundingClientRect(); hero.style.left=(b.left-a.left+b.width/2)+'px'; hero.style.top=(b.top-a.top+b.height/2)+'px'; };
