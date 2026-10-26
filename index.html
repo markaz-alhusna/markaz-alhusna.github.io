@@ -7149,6 +7149,39 @@ CONTENT['m1-tajweed-5'] = {
   ]
 };
 
+/* ============== МАДРАСА 2 · ТАСХИХ: исправляем чтение коротких сур ============== */
+const TS = (id, tag, name, bg, ayat, o={}) => SL(id, tag, name, bg, ayat, Object.assign({ hl:'madd', first:true }, o));
+CONTENT['m2-tashih-1'] = { title:'Тасхих: аль-Фатиха, ан-Нас, аль-Фаляк', ar:'تَصْحِيحُ التِّلَاوَةِ', levels:[
+  TS('MTS1L1','Урок 1','Аль-Фатиха, аяты 1–4','night', SA(1,1,4)),
+  TS('MTS1L2','Урок 2','Аль-Фатиха, аяты 5–7','sky', SA(1,5,7), {first:false}),
+  TS('MTS1L3','Урок 3','Сура ан-Нас','sand', SA(114,1,6)),
+  TS('MTS1L4','Урок 4','Сура аль-Фаляк','night', SA(113,1,5), {done:'Ма ша Аллах! Первая четверть пройдена.'}),
+]};
+CONTENT['m2-tashih-2'] = { title:'Тасхих: аль-Ихляс … аль-Кафирун', ar:'تَصْحِيحُ التِّلَاوَةِ', levels:[
+  TS('MTS2L1','Урок 1','Сура аль-Ихляс','night', SA(112,1,4)),
+  TS('MTS2L2','Урок 2','Сура аль-Масад','sky', SA(111,1,5)),
+  TS('MTS2L3','Урок 3','Сура ан-Наср','sand', SA(110,1,3)),
+  TS('MTS2L4','Урок 4','Сура аль-Кафирун','night', SA(109,1,6), {done:'Ма ша Аллах! Вторая четверть пройдена.'}),
+]};
+CONTENT['m2-tashih-3'] = { title:'Тасхих: аль-Каусар … Курайш', ar:'تَصْحِيحُ التِّلَاوَةِ', levels:[
+  TS('MTS3L1','Урок 1','Сура аль-Каусар','night', SA(108,1,3)),
+  TS('MTS3L2','Урок 2','Аль-Ма‘ун, аяты 1–3','sky', SA(107,1,3)),
+  TS('MTS3L3','Урок 3','Аль-Ма‘ун, аяты 4–7','sand', SA(107,4,7), {first:false}),
+  TS('MTS3L4','Урок 4','Сура Курайш','night', SA(106,1,4), {done:'Ма ша Аллах! Третья четверть пройдена.'}),
+]};
+CONTENT['m2-tashih-4'] = { title:'Тасхих: аль-Филь … аль-‘Аср', ar:'تَصْحِيحُ التِّلَاوَةِ', levels:[
+  TS('MTS4L1','Урок 1','Сура аль-Филь','night', SA(105,1,5)),
+  TS('MTS4L2','Урок 2','Аль-Хумаза, аяты 1–4','sky', SA(104,1,4)),
+  TS('MTS4L3','Урок 3','Аль-Хумаза, аяты 5–9','sand', SA(104,5,9), {first:false}),
+  TS('MTS4L4','Урок 4','Сура аль-‘Аср','night', SA(103,1,3), {done:'Ма ша Аллах! Четвёртая четверть пройдена.'}),
+]};
+CONTENT['m2-tashih-5'] = { title:'Тасхих: ат-Такасур, аль-Кари‘а', ar:'تَصْحِيحُ التِّلَاوَةِ', levels:[
+  TS('MTS5L1','Урок 1','Ат-Такасур, аяты 1–4','night', SA(102,1,4)),
+  TS('MTS5L2','Урок 2','Ат-Такасур, аяты 5–8','sky', SA(102,5,8), {first:false}),
+  TS('MTS5L3','Урок 3','Аль-Кари‘а, аяты 1–5','sand', SA(101,1,5)),
+  TS('MTS5L4','Урок 4','Аль-Кари‘а, аяты 6–11','night', SA(101,6,11), {first:false, done:'Ма ша Аллах! Ты прошла весь тасхих года.'}),
+]};
+
 Object.assign(STEPS, { listen:kListen, yesno:kYesNo, tapone:kTapOne, sortkid:kSort, matchkid:kMatch, tapall:kTapAll, collect:kCollect, pencil:kPencil, rain:kRain, repeat:kRepeat, trace:kTrace, archery:kArch, balloons:kBalloons, memory:kMemory, story:kStory, train:kTrain, stretch:kStretch, housesort:kHouseSort, dots:kDots, catch:kCatch, river:kRiver, oddone:kOdd, readaloud:kRead, ayah:kAyah, ayahbuild:kAyahBuild, ayahmiss:kAyahMiss });
 Object.assign(STEP_LABEL, { listen:'Слушай', yesno:'Да или нет', tapone:'Выбери', sortkid:'Разложи', matchkid:'Кто что ест', tapall:'Найди', collect:'Собери', pencil:'Опыт', rain:'Дождик', repeat:'Повтори', trace:'Обведи', archery:'Лук', balloons:'Шарики', memory:'Пары', story:'История', train:'Поезд', stretch:'Тянем звук', housesort:'Где живёт буква', dots:'Точки', catch:'Лови', river:'Переправа', oddone:'Кто лишний', readaloud:'Прочитай', ayah:'Слушай аят', ayahbuild:'Собери аят', ayahmiss:'Какое слово?' });
 
