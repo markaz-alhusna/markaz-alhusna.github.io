@@ -3,7 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#FBF7EF">
+<meta name="theme-color" content="#14315C">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-180.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="AL-HUSNA">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <script>window.ALH_CFG={url:"https://navxqjofqvstxfrsaeju.supabase.co",key:"sb_publishable_y4FvUXr3nhMR8dI0CKTrDg_J-SonwKG"};</script>
 <title>AL-HUSNA</title>
 <meta name="description" content="Учебная платформа школы AL-HUSNA">
@@ -1501,6 +1507,8 @@ button.st:hover{box-shadow:inset 0 0 0 2px var(--navy-soft)}
 .hub-news p{margin:6px 0 4px;color:var(--navy-2);line-height:1.5}.hub-news small{color:var(--navy-soft)}
 .hub-feed .notice{margin:0}
 .hub-empty{margin:0;color:var(--navy-soft)}
+.hub-app{margin-top:16px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#E7F0F7;border-radius:24px;padding:14px 18px}
+.ha-ic img{width:52px;height:52px;border-radius:14px;display:block}.ha-t{display:grid;flex:1;min-width:200px}.ha-t b{color:var(--navy);font-size:17px}.ha-t small{color:var(--navy-soft);font-size:14px;line-height:1.4}
 .hub-crs{margin-top:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;background:#FFF1D6;border-radius:24px;padding:16px 20px}
 .hc-t{display:grid;flex:1;min-width:200px}.hc-t b{font-size:18px;color:var(--navy)}.hc-t span{color:var(--navy-soft)}
 .hub-deps{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
@@ -6258,11 +6266,26 @@ function viewHub(){
         <button class="btn btn-primary btn-big" data-act="hub-go">${c?'Мои уроки':'Мои курсы'} →</button></div>
       <div class="hh-pic" aria-hidden="true">${kImg('mosque')}<span class="hh-star">${kImg('star2')}</span><span class="hh-moon">${kImg('crescent')}</span></div>
     </section>
+    ${installCard()}
     <section class="hub-box"><h2>${ICON.mail} Объявления школы</h2><div class="hub-feed">${hubNotices(me)}</div></section>
     ${crsBox}
     <h2 class="hub-h2">Наша школа</h2>
     <div class="hub-deps">${deps}</div>
   </div>`;
+}
+/* --- приложение на телефоне: значок на экране, работает как приложение --- */
+let installEvt = null;
+try{ if(LIVE && location.protocol==='https:' && 'serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(()=>{}); }catch(e){}
+window.addEventListener('beforeinstallprompt', e=>{ e.preventDefault(); installEvt=e; if(S.route==='hub') render(); });
+window.addEventListener('appinstalled', ()=>{ installEvt=null; if(S.route==='hub') render(); });
+const isStandalone = () => { try{ return matchMedia('(display-mode: standalone)').matches || navigator.standalone===true; }catch(e){ return false; } };
+const isIOS = () => /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform==='MacIntel' && navigator.maxTouchPoints>1);
+function installCard(){
+  if(!LIVE || isStandalone()) return '';
+  const head = `<span class="ha-ic"><img src="icon-192.png" alt=""></span><div class="ha-t"><b>Приложение AL-HUSNA</b>`;
+  if(installEvt) return `<section class="hub-app">${head}<small>Значок на экране телефона: уроки в одно касание.</small></div><button class="btn btn-sun" data-act="hub-install">Установить</button></section>`;
+  if(isIOS()) return `<section class="hub-app">${head}<small>Добавьте значок на экран: в Safari нажмите «Поделиться» внизу, затем «На экран „Домой“».</small></div></section>`;
+  return '';
 }
 document.addEventListener('click', e=>{
   const el=e.target.closest('[data-act^="hub"]'); if(!el) return;
@@ -6270,6 +6293,7 @@ document.addEventListener('click', e=>{
   if(a==='hub'){ go('hub'); return; }
   if(a==='hub-go'){ const me=actor(); S.courseCtx=null; go(me && me.classId ? 'home' : 'courses'); return; }
   if(a==='hub-crs'){ S.courseCtx=null; go('courses'); return; }
+  if(a==='hub-install' && installEvt){ installEvt.prompt(); installEvt.userChoice.finally(()=>{ installEvt=null; render(); }); return; }
 });
 
 /* --- админка: объявления --- */
