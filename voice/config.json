@@ -1,0 +1,14 @@
+{
+ "_note": "Голоса ElevenLabs: Voice ID из библиотеки голосов (это не секрет). Ключ API — только в GitHub Secrets: ELEVENLABS_API_KEY.",
+ "model": "eleven_multilingual_v2",
+ "voices": {
+  "ar": "",
+  "ru": ""
+ },
+ "settings": {
+  "stability": 0.6,
+  "similarity_boost": 0.8,
+  "style": 0.0,
+  "speed": 0.85
+ }
+}

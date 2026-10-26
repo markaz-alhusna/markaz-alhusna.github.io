@@ -4946,6 +4946,8 @@ function sayAr(t){
   if(!arVoice) pickAr(); if(!arVoice) return false;
   try{ const u=new SpeechSynthesisUtterance(t); u.lang=arVoice.lang; u.voice=arVoice; u.rate=.7; speechSynthesis.speak(u); return true; }catch(e){ return false; }
 }
+/* Готовые файлы озвучки (делает GitHub Action «Озвучка» → voice/index.json) */
+try{ if(location.protocol.startsWith('http')) fetch('voice/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(m=>{ if(m) Object.assign(VOICE.files, m); }).catch(()=>{}); }catch(e){}
 function stopSay(){ try{ curAudio && curAudio.pause(); }catch(e){} try{ speechSynthesis.cancel(); }catch(e){} }
 function say(text){
   stopSay(); if(!text) return;
