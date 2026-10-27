@@ -1,0 +1,82 @@
+ok ar 7 مَا شَاءَ اللَّهُ → voice/files/64e82b5d5c98d651.mp3
+ok ar 8 بَارَكَ اللَّهُ فِيكَ → voice/files/5db37abd7a7c8721.mp3
+ok ru 13 Пусть Аллах благословит тебя! → voice/files/3cd0be6c58e955cd.mp3
+ok ru 15 Пусть Аллах увеличит твои знания! → voice/files/dce5f7cb68465bcc.mp3
+ok ru 14 Пусть Аллах будет доволен тобой! → voice/files/382856483e1613c7.mp3
+ok ru 18 Пусть Аллах сделает тебя из людей Корана! → voice/files/47f9b3f886f340ee.mp3
+ok ru 7 Попробуй ещё раз → voice/files/a64d2592fb1670e8.mp3
+ok ru 5 Подумай ещё → voice/files/5fc6da9e56b8a71b.mp3
+ok ru 8 Почти! Попробуй ещё → voice/files/b26d4e8e3f867f12.mp3
+ok ru 10 фатха — приоткрой ротик → voice/files/fc127051c07c6ce5.mp3
+ok ru 7 кясра — улыбнись → voice/files/9f914473ad6e610c.mp3
+ok ru 10 дамма — губки трубочкой → voice/files/c0294f712ec4dc55.mp3
+ok ru 8 Посмотри на ротик! → voice/files/73897a0567f1b1fa.mp3
+ok ru 9 Поставь точки букве → voice/files/8180f5c39a06a6af.mp3
+ok ru 4 Это буква → voice/files/e4a45c411d9edbd0.mp3
+ok ru 10 Подумай ещё. Это буква → voice/files/ec6c0acae2f7f70b.mp3
+ok ru 11 Сначала выбери огласовку → voice/files/4187390c77722f2d.mp3
+ok ru 15 Послушай себя или отправь учителю → voice/files/385b9e4c22ef625b.mp3
+ok ar 14 مَا شَاءَ اللَّهُ تَبَارَكَ اللَّهُ → voice/files/cf77be5e3b6c2f64.mp3
+ok ru 12 Пусть Аллах облегчит тебе! → voice/files/58636767c076eee7.mp3
+ok ru 8 Четверть пройдена! → voice/files/50896a27393b6b9f.mp3
+ok ru 13 Без ошибок! Все звёздочки твои. → voice/files/981d214eb3a0f0ab.mp3
+ok ru 24 Хорошо! Пройди ещё раз, чтобы получить третью звёздочку. → voice/files/21342e6d19e6dfc7.mp3
+ok ru 17 Урок пройден! Давай попробуем ещё раз. → voice/files/ca10af3cc0a3e7a6.mp3
+ok ru 36 Все уроки четверти пройдены. Пусть Аллах благословит тебя и  → voice/files/be4a6f66db4fc2d0.mp3
+ok ru 16 В рабочей версии запись уйдёт учителю → voice/files/f7aa66e1e7abdd78.mp3
+ok ru 18 Запись у учителя. Она послушает и отметит → voice/files/33afbc60dd00f142.mp3
+ok ru 8 Это другая буква! → voice/files/4ffffe57a8bb60c3.mp3
+ok ru 13 Это другая буква. Ищи свою! → voice/files/74d49d17fa59315e.mp3
+ok ru 14 Это другая буква. Попробуй ещё! → voice/files/62f60af80e8f307a.mp3
+ok ru 18 Ракета собирается! Новая деталь: чертёж. → voice/files/59740cccacd9d681.mp3
+ok ru 18 Ракета собирается! Новая деталь: опоры. → voice/files/0cf18147a705354f.mp3
+ok ru 18 Ракета собирается! Новая деталь: корпус. → voice/files/80a6835febda7984.mp3
+ok ru 18 Ракета собирается! Новая деталь: окошко. → voice/files/6f1e2a6756623320.mp3
+ok ru 20 Ракета собирается! Новая деталь: нос ракеты. → voice/files/404790ca171b99f0.mp3
+ok ru 19 Ракета собирается! Новая деталь: двигатель. → voice/files/788188943eef67ce.mp3
+ok ru 22 Ракета собирается! Новая деталь: ракета взлетает. → voice/files/07769f46e7c25bcb.mp3
+ok ru 18 Твой цветок подрос! Теперь это семечко. → voice/files/afa57e33048a68ef.mp3
+ok ru 17 Твой цветок подрос! Теперь это росток. → voice/files/e198e19a657e00de.mp3
+ok ru 18 Твой цветок подрос! Теперь это листочки. → voice/files/ae8ba7d54f03d6fd.mp3
+ok ru 17 Твой цветок подрос! Теперь это бутон. → voice/files/551b3da6b5d40471.mp3
+ok ru 17 Твой цветок подрос! Теперь это цветок. → voice/files/7ebae81e86138c79.mp3
+ok ru 20 Твой цветок подрос! Теперь это цветущий сад. → voice/files/97a018564e932a24.mp3
+ok ru 21 Твой цветок подрос! Теперь это сад распустился. → voice/files/e5033e92c5204d32.mp3
+node:internal/child_process:1123
+    result.error = new ErrnoException(result.error, 'spawnSync ' + options.file);
+                   ^
+
+<ref *1> Error: spawnSync ffmpeg ENOENT
+    at Object.spawnSync (node:internal/child_process:1123:20)
+    at spawnSync (node:child_process:877:24)
+    at execFileSync (node:child_process:920:15)
+    at file:///home/runner/work/markaz-alhusna.github.io/markaz-alhusna.github.io/voice/gen.mjs:43:7
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5) {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'spawnSync ffmpeg',
+  path: 'ffmpeg',
+  spawnargs: [
+    '-y',
+    '-loglevel',
+    'error',
+    '-i',
+    'voice/tmp.mp3',
+    '-t',
+    '0.7',
+    '-af',
+    'afade=t=out:st=0.62:d=0.08',
+    '-b:a',
+    '64k',
+    'voice/files/a110588c62ecf521.mp3'
+  ],
+  error: [Circular *1],
+  status: null,
+  signal: null,
+  output: null,
+  pid: 0,
+  stdout: null,
+  stderr: null
+}
+
+Node.js v20.20.2
