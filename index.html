@@ -5513,7 +5513,7 @@ function sayAr(t){
   try{ const u=new SpeechSynthesisUtterance(t); u.lang=arVoice.lang; u.voice=arVoice; u.rate=.7; speechSynthesis.speak(u); return true; }catch(e){ return false; }
 }
 /* Готовые файлы озвучки (делает GitHub Action «Озвучка» → voice/index.json) */
-try{ if(location.protocol.startsWith('http')) fetch('voice/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(m=>{ if(m){ if(m.__parts){ Object.assign(VOICE.parts, m.__parts); delete m.__parts; } Object.assign(VOICE.files, m); } }).catch(()=>{}); }catch(e){}
+try{ if(location.protocol.startsWith('http')) fetch('voice/live.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(m=>{ if(m){ if(m.__parts){ Object.assign(VOICE.parts, m.__parts); delete m.__parts; } Object.assign(VOICE.files, m); } }).catch(()=>{}); }catch(e){}
 function stopSay(){ sayTok++; try{ curAudio && curAudio.pause(); }catch(e){} try{ speechSynthesis.cancel(); }catch(e){} }
 /* say('текст') или say(['часть 1', 'ar:ل', 'часть 2']) — части звучат по очереди.
    'ar:…' — арабская часть (буква, слог), её читает арабский голос. */
