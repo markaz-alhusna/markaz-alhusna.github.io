@@ -5495,7 +5495,7 @@ function loginArt(title, text){
    ========================================================================= */
 /* --- голос: сначала файл озвучки (VOICE.files[текст] = 'audio.mp3'),
        пока файлов нет — временный голос браузера, только для проверки --- */
-const VOICE = { files:{}, ayah:{}, names:{} };
+const VOICE = { files:{}, ayah:{}, names:{}, parts:{} };
 let ruVoice = null, curAudio = null;
 function pickVoice(){
   try{ const vs = speechSynthesis.getVoices().filter(v=>/^ru/i.test(v.lang));
@@ -5513,18 +5513,18 @@ function sayAr(t){
   try{ const u=new SpeechSynthesisUtterance(t); u.lang=arVoice.lang; u.voice=arVoice; u.rate=.7; speechSynthesis.speak(u); return true; }catch(e){ return false; }
 }
 /* Готовые файлы озвучки (делает GitHub Action «Озвучка» → voice/index.json) */
-try{ if(location.protocol.startsWith('http')) fetch('voice/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(m=>{ if(m) Object.assign(VOICE.files, m); }).catch(()=>{}); }catch(e){}
+try{ if(location.protocol.startsWith('http')) fetch('voice/index.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(m=>{ if(m){ if(m.__parts){ Object.assign(VOICE.parts, m.__parts); delete m.__parts; } Object.assign(VOICE.files, m); } }).catch(()=>{}); }catch(e){}
 function stopSay(){ sayTok++; try{ curAudio && curAudio.pause(); }catch(e){} try{ speechSynthesis.cancel(); }catch(e){} }
 /* say('текст') или say(['часть 1', 'ar:ل', 'часть 2']) — части звучат по очереди.
    'ar:…' — арабская часть (буква, слог), её читает арабский голос. */
 let sayTok = 0;
-function say(text){
+function say(text, onDone){
   stopSay(); if(!text) return;
-  const parts = (Array.isArray(text) ? text : [text]).filter(Boolean); const tok = sayTok; let i = 0;
+  const parts = (Array.isArray(text) ? text : [text]).filter(Boolean).flatMap(t => VOICE.parts[t] || [t]); const tok = sayTok; let i = 0;
   const tts = t => { if(t.startsWith('ar:')){ if(!sayArPart(t.slice(3), nextPart)) nextPart(); return; }
     try{ const u = new SpeechSynthesisUtterance(t.replace(/ﷺ/g,'саллаллаху алейхи ва саллям'));
       u.lang='ru-RU'; if(ruVoice) u.voice=ruVoice; u.rate=.9; u.pitch=1.15; u.onend=nextPart; u.onerror=nextPart; speechSynthesis.speak(u); }catch(e){} };
-  function nextPart(){ if(tok!==sayTok || i>=parts.length) return; const t = parts[i++]; const f = VOICE.files[t.startsWith('ar:')?t.slice(3):t];
+  function nextPart(){ if(tok!==sayTok) return; if(i>=parts.length){ onDone && onDone(); return; } const t = parts[i++]; const f = VOICE.files[t.startsWith('ar:')?t.slice(3):t];
     if(f){ try{ const a = new Audio(f); curAudio = a; a.onended = nextPart; a.onerror = ()=>{ if(curAudio===a) tts(t); }; a.play().catch(()=>{ if(curAudio===a) tts(t); }); }catch(e){ tts(t); } }
     else tts(t); }
   nextPart();
@@ -5724,11 +5724,8 @@ function kPencil(root, s, next){
 /* --- Дождик: тучка → ду‘а три раза «повторяй за мной» → цветы распускаются --- */
 function sayThen(text, pause, cb){
   let fired=false; const fin=()=>{ if(fired) return; fired=true; setTimeout(cb, pause); };
-  stopSay();
-  const f=VOICE.files[text];
-  if(f){ try{ curAudio=new Audio(f); curAudio.onended=fin; curAudio.play().catch(()=>{}); }catch(e){} }
-  else { try{ const u=new SpeechSynthesisUtterance(text); u.lang='ru-RU'; if(ruVoice) u.voice=ruVoice; u.rate=.9; u.pitch=1.15; u.onend=fin; u.onerror=fin; speechSynthesis.speak(u); }catch(e){} }
-  setTimeout(fin, text.length*95+1500);
+  say(text, fin);
+  setTimeout(fin, (Array.isArray(text)?text.join(' '):text).length*95+3000);
 }
 function kRain(root, s, next){
   let n=0, busy=false; const alive=()=>document.body.contains(root);
@@ -5757,7 +5754,7 @@ function kRain(root, s, next){
     const c=$('#kc',root); c.classList.remove('pop'); void c.offsetWidth; c.classList.add('pop');
     $$('#krep i',root).forEach(x=>x.classList.toggle('on', +x.dataset.r<=n));
     $('#kline',root).textContent = `${s.lines[n-1]} «${s.dua}»`; stepProg(n*.28);
-    sayThen(`${s.lines[n-1]} ${s.dua}`, 1800, ()=>{ if(!alive()) return; busy=false;
+    sayThen([s.lines[n-1], s.dua], 1800, ()=>{ if(!alive()) return; busy=false;
       if(n<3){ $('#kline',root).textContent = n===1 ? 'Нажми на тучку ещё раз' : 'И последний раз — нажми на тучку'; pointAt($('#kc',root), 200); }
       else bloom();
     });
