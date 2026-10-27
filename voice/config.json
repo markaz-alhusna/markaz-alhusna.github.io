@@ -1,9 +1,25 @@
 {
- "_note": "Голоса ElevenLabs: Voice ID (не секрет). Ключ API — только в GitHub Secrets: ELEVENLABS_API_KEY. Арабский — лучшая модель (точность), русский — быстрая (экономия символов).",
- "voices": { "ar": "gMB389pj77Qe5nErWNjd", "ru": "GN4wbsbejSnGSa1AzjH5" },
- "models": { "ar": "eleven_multilingual_v2", "ru": "eleven_flash_v2_5" },
+ "_note": "Голоса ElevenLabs (Voice ID — не секрет). Ключ API — только в GitHub Secrets: ELEVENLABS_API_KEY. Сейчас озвучиваем только русский садика лучшей моделью; арабский отложен.",
+ "voices": {
+  "ar": "gMB389pj77Qe5nErWNjd",
+  "ru": "GN4wbsbejSnGSa1AzjH5"
+ },
+ "models": {
+  "ar": "eleven_multilingual_v2",
+  "ru": "eleven_multilingual_v2"
+ },
  "settings": {
-  "ar": { "stability": 0.7, "similarity_boost": 0.8, "style": 0.0, "speed": 0.8 },
-  "ru": { "stability": 0.55, "similarity_boost": 0.8, "style": 0.15, "speed": 0.95 }
+  "ar": {
+   "stability": 0.7,
+   "similarity_boost": 0.8,
+   "style": 0.0,
+   "speed": 0.8
+  },
+  "ru": {
+   "stability": 0.6,
+   "similarity_boost": 0.8,
+   "style": 0.15,
+   "speed": 0.92
+  }
  }
 }
