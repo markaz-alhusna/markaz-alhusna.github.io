@@ -31,8 +31,9 @@ for(const it of list){
   if(kv) body.text = it.text + ' وَهُوَ';
   const url = `https://api.elevenlabs.io/v1/text-to-speech/${voice}${kv?'/with-timestamps':''}?output_format=mp3_44100_64`;
   const r = await fetch(url, { method:'POST', headers:{'xi-api-key':KEY,'content-type':'application/json','accept':kv?'application/json':'audio/mpeg'}, body: JSON.stringify(body) });
-  if(!r.ok){ const t=(await r.text()).slice(0,300); console.log('Ошибка', r.status, it.key, t); failed++;
-    if(r.status===401 || /quota|credit|limit/i.test(t)){ console.log('Стоп: нет доступа или закончились символы.'); break; } continue; }
+  if(!r.ok && kv){ console.log('Метки времени недоступны:', r.status, (await r.text()).slice(0,200)); }
+  if(!r.ok){ const t=(await r.text().catch(()=>'')).slice(0,300); console.log('Ошибка', r.status, it.key, t); failed++;
+    if(r.status===401 || /quota_exceeded|insufficient|credits? (?:limit|remaining)/i.test(t)){ console.log('Стоп: нет доступа или закончились символы.'); break; } continue; }
   const cost = +(r.headers.get('character-cost') || r.headers.get('x-character-count') || 0); chars += cost;
   if(kv){
     const j = await r.json(); const al = j.alignment || j.normalized_alignment;
