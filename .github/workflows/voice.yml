@@ -5,6 +5,9 @@ on:
       limit:
         description: 'Сколько новых файлов сделать (пусто — все)'
         required: false
+      stages:
+        description: 'Какие этапы (через запятую): common, artest, q1 …'
+        required: false
       only:
         description: 'Переозвучить только эту строку (необязательно)'
         required: false
@@ -24,6 +27,7 @@ jobs:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
           LIMIT: ${{ github.event.inputs.limit }}
           ONLY: ${{ github.event.inputs.only }}
+          STAGES: ${{ github.event.inputs.stages }}
         run: node voice/gen.mjs
       - name: Сохраняем
         run: |
