@@ -22,7 +22,8 @@ for(const it of list){
   if(!voice){ skipped++; continue; }
   const h = crypto.createHash('sha1').update([it.lang,voice,model,it.text,JSON.stringify(st),it.keepvowel?'kv2':''].join('|')).digest('hex').slice(0,16);
   const file = `voice/files/${h}.mp3`;
-  if(only ? only!==it.key : (fs.existsSync(file) && index[it.key]===file)){ skipped++; continue; }
+  if(only && only!==it.key){ skipped++; continue; }
+  if(!only && fs.existsSync(file)){ index[it.key]=file; skipped++; continue; }   // уже озвучено — не тратим символы
   const body = { text: it.text, model_id: model, voice_settings: st };
   if(/flash|turbo/.test(model)) body.language_code = it.lang;
   // Последнюю огласовку модель «съедает», как при остановке. Поэтому после слова добавляем ещё одно,
@@ -45,7 +46,7 @@ for(const it of list){
     } else { fs.copyFileSync(tmp, file); console.log('нет меток времени — без обрезки'); }
     fs.unlinkSync(tmp);
   } else fs.writeFileSync(file, Buffer.from(await r.arrayBuffer()));
-  index[it.key] = file; made++;
+  index[it.key] = file; made++; fs.writeFileSync(idxPath, JSON.stringify(index));
   console.log('ok', it.lang, cost||'', it.key.slice(0,60), '→', file);
 }
 fs.writeFileSync(idxPath, JSON.stringify(index));
