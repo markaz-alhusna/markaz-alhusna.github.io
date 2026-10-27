@@ -11,9 +11,12 @@ const only = (process.env.ONLY||'').trim();
 const limit = +(process.env.LIMIT||0) || Infinity;          // сколько новых файлов сделать за запуск
 fs.mkdirSync('voice/files', {recursive:true});
 let made=0, skipped=0, failed=0, chars=0;
+index.__parts = index.__parts || {};
+for(const it of list){ if(it.parts){ index.__parts[it.key] = it.parts; } }
 for(const it of list){
+  if(it.parts) continue;
   if(made>=limit) break;
-  const voice = cfg.voices[it.lang], model = cfg.models[it.lang], st = cfg.settings[it.lang];
+  const voice = cfg.voices[it.lang], model = it.model || cfg.models[it.lang], st = it.settings || cfg.settings[it.lang];
   if(!voice){ skipped++; continue; }
   const h = crypto.createHash('sha1').update([it.lang,voice,model,it.text,JSON.stringify(st)].join('|')).digest('hex').slice(0,16);
   const file = `voice/files/${h}.mp3`;
