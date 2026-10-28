@@ -1,16 +1,267 @@
-ok ru 43 test:A:Ас-саляму алейкум! Это домик звуков. В нём живут букв → voice/files/bc43dde8099a9dba.mp3
-ok ru 15 test:A:Умница! Пусть Аллах благословит тебя! → voice/files/f65d8e1a7db2200f.mp3
-ok ru 6 test:A:Нажми на хамзу. → voice/files/51d9887cd8f9db12.mp3
-ok ru 6 test:A:Попробуй ещё раз → voice/files/d430337d23fd83ac.mp3
-ok ru 39 test:A:Посмотри на небо. Оно не падает на нас, хотя его ниче → voice/files/b6b09d9ac03ebf85.mp3
-ok ru 46 test:B:Ас-саляму алейкум! Это домик звуков. В нём живут букв → voice/files/e80d0f99df6b99b9.mp3
-ok ru 19 test:B:Умница! Пусть Аллах благословит тебя! → voice/files/f2aaa2e31c5f4d41.mp3
-ok ru 10 test:B:Нажми на хамзу. → voice/files/0d2dcdd2796cfcf6.mp3
-ok ru 10 test:B:Попробуй ещё раз → voice/files/99fed3e150c0725d.mp3
-ok ru 42 test:B:Посмотри на небо. Оно не падает на нас, хотя его ниче → voice/files/1013f15585d2d51d.mp3
-ok ru 50 test:C:Ас-саляму алейкум! Это домик звуков. В нём живут букв → voice/files/901aadc06e5edeb3.mp3
-ok ru 22 test:C:Умница! Пусть Аллах благословит тебя! → voice/files/86a079a30bdc813e.mp3
-ok ru 14 test:C:Нажми на хамзу. → voice/files/78798424d95205c7.mp3
-ok ru 14 test:C:Попробуй ещё раз → voice/files/7c2d3d3a8e150454.mp3
-ok ru 46 test:C:Посмотри на небо. Оно не падает на нас, хотя его ниче → voice/files/71c39974c1ab63f1.mp3
-Готово: новых 15, пропущено 0, ошибок 0, списано символов (по ответу сервиса): 382
+ok ru 6 Умница! → voice/files/7467fce47a5ea50b.mp3
+ok ru 7 Молодец! → voice/files/4f3a65b67de0e4ba.mp3
+ok ru 8 Правильно! → voice/files/52e77cecf2767967.mp3
+ok ru 6 Верно! → voice/files/899fe0e24201721e.mp3
+ok ru 16 Пусть Аллах благословит тебя! → voice/files/9090eab0793ea807.mp3
+ok ru 17 Пусть Аллах увеличит твои знания! → voice/files/2d5b53d7af2a97ab.mp3
+ok ru 17 Пусть Аллах будет доволен тобой! → voice/files/829da7129f34680d.mp3
+ok ru 20 Пусть Аллах сделает тебя из людей Корана! → voice/files/0713db047c94b7d6.mp3
+ok ru 8 Подумай ещё → voice/files/1db3af0476276e15.mp3
+ok ru 11 Почти! Попробуй ещё → voice/files/e896216ba0df1af7.mp3
+ok ru 13 фатха — приоткрой ротик → voice/files/82ab6b89969b8298.mp3
+ok ru 10 кясра — улыбнись → voice/files/00d5158af82baa82.mp3
+ok ru 13 дамма — губки трубочкой → voice/files/ac46605d4fe03539.mp3
+ok ru 11 Посмотри на ротик! → voice/files/cab8dafb257ef0ab.mp3
+ok ru 11 Поставь точки букве → voice/files/71efb8c5b8fe378e.mp3
+ok ru 7 Это буква → voice/files/d0d6a1d5cc0260d2.mp3
+ok ru 12 Подумай ещё. Это буква → voice/files/5b6986d014f9a696.mp3
+ok ru 13 Сначала выбери огласовку → voice/files/24f0502916c40607.mp3
+ok ru 17 Послушай себя или отправь учителю → voice/files/403237fef30d1c65.mp3
+ok ru 14 Пусть Аллах облегчит тебе! → voice/files/06e21d5023cc273f.mp3
+ok ru 11 Четверть пройдена! → voice/files/fdd6130ee5f0501e.mp3
+ok ru 16 Без ошибок! Все звёздочки твои. → voice/files/d189ba217ce4c52d.mp3
+ok ru 26 Хорошо! Пройди ещё раз, чтобы получить третью звёздочку. → voice/files/75af72d1f7eaf4a1.mp3
+ok ru 19 Урок пройден! Давай попробуем ещё раз. → voice/files/5133349a420a8d68.mp3
+ok ru 36 Все уроки четверти пройдены. Пусть Аллах благословит тебя и  → voice/files/ac2d796769ba48f8.mp3
+ok ru 18 В рабочей версии запись уйдёт учителю → voice/files/2a0fbf173f208111.mp3
+ok ru 20 Запись у учителя. Она послушает и отметит → voice/files/e93fd465bfded9bf.mp3
+ok ru 10 Это другая буква! → voice/files/9627d9ea73ce6101.mp3
+ok ru 14 Это другая буква. Ищи свою! → voice/files/43b15dc774a9d4f9.mp3
+ok ru 16 Это другая буква. Попробуй ещё! → voice/files/521ea9bd87275549.mp3
+ok ru 20 Ракета собирается! Новая деталь: чертёж. → voice/files/b309a5c91dda2116.mp3
+ok ru 19 Ракета собирается! Новая деталь: опоры. → voice/files/cf5d4fd7454f0921.mp3
+ok ru 20 Ракета собирается! Новая деталь: корпус. → voice/files/784c1166e8073205.mp3
+ok ru 20 Ракета собирается! Новая деталь: окошко. → voice/files/2b8bf2c2334157bb.mp3
+ok ru 21 Ракета собирается! Новая деталь: нос ракеты. → voice/files/37ec3153e1878b50.mp3
+ok ru 21 Ракета собирается! Новая деталь: двигатель. → voice/files/4a663bb202622f70.mp3
+ok ru 23 Ракета собирается! Новая деталь: ракета взлетает. → voice/files/80d7027e3d43fdbf.mp3
+ok ru 19 Твой цветок подрос! Теперь это семечко. → voice/files/ec33eb36799e6c18.mp3
+ok ru 19 Твой цветок подрос! Теперь это росток. → voice/files/54c316136041d901.mp3
+ok ru 20 Твой цветок подрос! Теперь это листочки. → voice/files/df000771a47699ae.mp3
+ok ru 18 Твой цветок подрос! Теперь это бутон. → voice/files/0c68464a908641ce.mp3
+ok ru 19 Твой цветок подрос! Теперь это цветок. → voice/files/1466693ca1746bf0.mp3
+ok ru 21 Твой цветок подрос! Теперь это цветущий сад. → voice/files/5ba8e0c6e2925ba3.mp3
+ok ru 22 Твой цветок подрос! Теперь это сад распустился. → voice/files/e0ad48009cdccf21.mp3
+ok ru 61 Сегодня мы узнаем, что такое таухид. Таухид — это знать, что → voice/files/7a30399d448da53f.mp3
+ok ru 28 Аллах создал растения и животных, моря и горы, небо и людей. → voice/files/380a9869a44cdff2.mp3
+ok ru 38 А ещё Аллах создал горы. Они очень-очень большие, и на них р → voice/files/ab81cc834abc6248.mp3
+ok ru 34 Только Аллах сменяет день и ночь. Никто, кроме Него, не може → voice/files/14a8508051d8405c.mp3
+ok ru 37 Давай проверим! Нажми на карандаш, и он поднимется. Сможет л → voice/files/60343a84f96d1092.mp3
+ok ru 46 Видишь, карандаш упал. Мы не можем удержать его в воздухе. А → voice/files/89b7962ff8125c92.mp3
+ok ru 38 Что мы делаем днём, а что ночью? Посмотри на картинку и нажм → voice/files/c68e2a86aa805260.mp3
+ok ru 5 День → voice/files/5eb307525e58883e.mp3
+ok ru 5 Ночь → voice/files/bb6afcd8b8de0b30.mp3
+ok ru 5 Спим → voice/files/59f7e580f4a39f5f.mp3
+ok ru 6 Учимся → voice/files/9b952f644cf76e61.mp3
+ok ru 6 Рисуем → voice/files/129e4106b18f9de3.mp3
+ok ru 9 Звёзды на небе → voice/files/02e1a8a3650c245e.mp3
+ok ru 9 Ходим в гости → voice/files/09536f2df3b51af2.mp3
+ok ru 29 Может ли человек сделать так, чтобы прямо сейчас наступила н → voice/files/0535b0d99a8fdc2d.mp3
+ok ru 28 Правильно, не может! Сменять день и ночь может только Аллах. → voice/files/800ffc4258c60854.mp3
+ok ru 11 Горы создал Аллах? → voice/files/5ac93969eabe3f33.mp3
+ok ru 23 Да! Аллах создал горы, небо, моря и всё вокруг. → voice/files/8c1b224306bc997f.mp3
+ok ru 14 Небо держится на столбах? → voice/files/cd6683fac9568f17.mp3
+ok ru 24 Нет! Аллах создал небо без опор, и оно не падает. → voice/files/3a1b9548f265d8e8.mp3
+ok ru 17 Поклоняться нужно только Аллаху? → voice/files/6775b9c5d2882881.mp3
+ok ru 14 Верно! Это и есть таухид. → voice/files/ff3a8fa9f8453b80.mp3
+ok ru 31 Всему живому нужны вода и еда. Без них человек не может быть → voice/files/6706ad4799886833.mp3
+ok ru 36 Корова и коза кушают травку, а деревья и цветы пьют воду, ко → voice/files/d2705b13028147cb.mp3
+ok ru 48 Даже маленьких птенчиков, которые ещё не умеют летать, Аллах → voice/files/dce20bfac4f7f892.mp3
+ok ru 48 И рыбкам под водой Аллах дал пропитание. Некоторые рыбки куш → voice/files/52ce132976ba718a.mp3
+ok ru 48 Аллах сказал в Коране: «Нет на земле ни одного живого сущест → voice/files/e861094780ca3dd3.mp3
+ok ru 25 Кто что кушает? Нажми на животное, а потом на его еду. → voice/files/4bc3b58542a31342.mp3
+ok ru 6 Корова → voice/files/c50681e9b4b6f333.mp3
+ok ru 6 Травка → voice/files/a215a544f489457a.mp3
+ok ru 6 Птичка → voice/files/98c0299d5b24cd96.mp3
+ok ru 7 Зёрнышки → voice/files/51d2e4fcd7d10131.mp3
+ok ru 6 Пчёлка → voice/files/4ee4236e6b8a1774.mp3
+ok ru 6 Цветок → voice/files/be73d4ed5d2546eb.mp3
+ok ru 6 Белочка → voice/files/e3b4287e670659f3.mp3
+ok ru 6 Орешки → voice/files/f313b5e933fc2cac.mp3
+ok ru 32 Давай приготовим угощение для того, кто нуждается. Нажми тол → voice/files/e70828ed583c9f80.mp3
+ok ru 6 Яблоко → voice/files/3ad969e67d55052d.mp3
+ok ru 5 Стул → voice/files/2477853ad407b8c2.mp3
+ok ru 5 Хлеб → voice/files/52bc735ed88972ab.mp3
+ok ru 7 Карандаш → voice/files/a61be59146a60d04.mp3
+ok ru 6 Молоко → voice/files/9c326b3ff7ae03b7.mp3
+ok ru 7 Виноград → voice/files/2fb38277b3ca79f1.mp3
+ok ru 6 Конверт → voice/files/4e64c76fd5e91d9f.mp3
+ok ru 6 Банан → voice/files/ddae9176a361d606.mp3
+ok ru 13 Это не едят. Найди еду! → voice/files/e89426af661e68c2.mp3
+ok ru 23 Угостить того, кто нуждается, — очень доброе дело → voice/files/f6f4a99531ab2cc3.mp3
+ok ru 18 Может ли цветок долго жить без воды? → voice/files/bc212887084c98da.mp3
+ok ru 26 Нет, без воды цветок засохнет. Всему живому нужна вода. → voice/files/937e425235d2d899.mp3
+ok ru 22 Аллах даёт пропитание даже рыбкам под водой? → voice/files/85d38036c2c69f11.mp3
+ok ru 21 Да! Аллах никого не оставил без пропитания. → voice/files/9904784b7d102233.mp3
+ok ru 14 Нашу еду нам дарует Аллах? → voice/files/1e2a010a806d39fb.mp3
+ok ru 16 Верно! Всё хорошее — от Аллаха. → voice/files/3709969a326de2f8.mp3
+ok ru 39 Сегодня мы поговорим о воде. Без воды не может жить ни челов → voice/files/bb017e0f757c0eac.mp3
+ok ru 29 Если долго нет дождя, земля засыхает, и ничего на ней не рас → voice/files/9d9df2ba8b342ec1.mp3
+ok ru 50 А когда Аллах посылает дождь, земля оживает: растут цветы, о → voice/files/699ceeee3044ad3d.mp3
+ok ru 71 Когда шёл дождь, наш Пророк, саллаллаху алейхи ва саллям, не → voice/files/1513e8813d36bf95.mp3
+ok ru 28 Вода — милость Аллаха. Поэтому мы бережём её и не льём зря. → voice/files/acf749dc23d4bb31.mp3
+ok ru 39 Земля засохла, цветочки грустят без воды. Давай попросим Алл → voice/files/7536757ed20c6d50.mp3
+ok ru 17 О Аллах, даруй нам благой дождь! → voice/files/1aa46794c6243ecc.mp3
+ok ru 6 Скажи: → voice/files/14b2ba40c2139052.mp3
+ok ru 7 Повтори: → voice/files/d51c2408673720fa.mp3
+ok ru 8 И ещё раз: → voice/files/7e2b70164a016f4b.mp3
+ok ru 40 Аллах послал дождь. Посмотри, цветочки распустились, земля о → voice/files/0a9a3b5b4c8f8182.mp3
+ok ru 17 Найди все картинки, где есть вода. → voice/files/f3c2a41d882117e2.mp3
+ok ru 9 Дождевая туча → voice/files/57441ab6031c54c9.mp3
+ok ru 6 Камень → voice/files/dc3831c979c94c0b.mp3
+ok ru 5 Море → voice/files/747453a13e71b88b.mp3
+ok ru 9 Вода в кувшине → voice/files/917e2edf0f07e12a.mp3
+ok ru 9 Сухая пустыня → voice/files/4c1b923bfcfb7c3e.mp3
+ok ru 7 Капелька → voice/files/47268e171c05a759.mp3
+ok ru 14 Здесь нет воды. Поищи ещё! → voice/files/7df47995f4fa0b97.mp3
+ok ru 31 Молодец! Вода бывает дождевая, морская и речная. Всё это даё → voice/files/34d2541f75db06a6.mp3
+ok ru 22 Можно оставлять воду из крана течь просто так? → voice/files/8bbb02ea734042c0.mp3
+ok ru 22 Нет! Вода — милость Аллаха, её нужно беречь. → voice/files/87833cd3fa24775f.mp3
+ok ru 15 Дождь — это милость Аллаха? → voice/files/fa16d8330c07413c.mp3
+ok ru 14 Да! Дождь оживляет землю. → voice/files/1025e6223e64fc22.mp3
+ok ru 42 Милость — это всё хорошее, что даёт нам Аллах. Милостей так  → voice/files/e788bde7bc4d77fc.mp3
+ok ru 60 Есть милости, о которых мы знаем: Аллах сделал нас мусульман → voice/files/8fb31d498f36dd27.mp3
+ok ru 45 Есть милости, которые мы просим у Аллаха: например, выучить  → voice/files/920174fff22dd00a.mp3
+ok ru 45 А есть милости, которые у нас уже есть, но мы о них забываем → voice/files/b47beb382643bc08.mp3
+ok ru 22 За все милости мы благодарим Аллаха и говорим → voice/files/e1b449d51c8dd9e5.mp3
+ok ru 28 Собери милости Аллаха в корзинку! Нажимай на каждую картинку → voice/files/b2d92b21f86d8b04.mp3
+ok ru 5 Вода → voice/files/dc1e8ba27cb9fc9c.mp3
+ok ru 5 Еда → voice/files/7feba40ced109e49.mp3
+ok ru 5 Дом → voice/files/e9f1006062da2be5.mp3
+ok ru 6 Отдых → voice/files/dfdd789b6a61a67c.mp3
+ok ru 6 Знания → voice/files/24a33c1c10dcb3c2.mp3
+ok ru 6 Солнце → voice/files/2715aea11fb3fa93.mp3
+ok ru 6 Цветы → voice/files/8b0f95896ae946d5.mp3
+ok ru 6 Ислам → voice/files/669cfe1694d76d2e.mp3
+ok ru 32 как много! А на самом деле милостей Аллаха столько, что их н → voice/files/8cfd28001a5c395d.mp3
+ok ru 21 Мама приготовила вкусный обед. Скажем ли мы → voice/files/d4e4683f6498f333.mp3
+ok ru 26 Да! Мы благодарим Аллаха за еду и говорим спасибо маме. → voice/files/808f54b06f7ba418.mp3
+ok ru 23 Наша одежда и наш дом — это тоже милость Аллаха? → voice/files/39df11fb8d39dde8.mp3
+ok ru 29 Конечно! Мы часто забываем об этих милостях, но они от Аллах → voice/files/fa936f7f32f631a1.mp3
+ok ru 24 Можно забывать благодарить Аллаха за Его милости? → voice/files/cb1b9b75a46cf81d.mp3
+ok ru 22 Нет! За каждую милость мы благодарим Аллаха. → voice/files/a7dadd5583a0668f.mp3
+ok ru 30 Вот мы и прошли все уроки четверти! Давай повторим всё, что  → voice/files/5fd3e529495f076e.mp3
+ok ru 20 Нажми на то, что Аллах создал без опор. → voice/files/d06af28824b126c4.mp3
+ok ru 5 Небо → voice/files/4060f484769fb4b0.mp3
+ok ru 18 Нажми на то, что нужно всему живому. → voice/files/12c96ff2cd9956b2.mp3
+ok ru 12 Что мы делаем ночью? → voice/files/8357cce6b4a16fa4.mp3
+ok ru 11 Кто кушает травку? → voice/files/fd021cbf4ec2034d.mp3
+ok ru 6 Рыбка → voice/files/2d3d01f5c9728104.mp3
+ok ru 14 Всё вокруг создал Аллах? → voice/files/b64aa9e2e948bcae.mp3
+ok ru 17 Верно! Аллах Один — Творец всего. → voice/files/da038ff102fe1dea.mp3
+ok ru 12 Можно лить воду зря? → voice/files/012181d263376491.mp3
+ok ru 12 Нет! Воду мы бережём. → voice/files/c3a65d8aa8a22f38.mp3
+ok ru 19 Можно ли сосчитать все милости Аллаха? → voice/files/26418b164d16bad9.mp3
+ok ru 18 Нет! Их так много, что не сосчитать. → voice/files/63c2fcbd74ffe31c.mp3
+ok ru 40 Ас-саляму алейкум! Я хамза. Я звучу коротко и чётко: звук на → voice/files/3d473614dc42864f.mp3
+ok ru 24 Я живу в самой глубине горлышка. Бегу на свой этаж! → voice/files/351c806198b97457.mp3
+ok ru 38 А я буква ха. Я мягкая, как тёплый выдох. Так мы дышим на ст → voice/files/faf0513ef81a68b0.mp3
+ok ru 26 Я живу рядом с хамзой, тоже в глубине горла. Мы соседки! → voice/files/dd188c9b6a28b2e5.mp3
+ok ru 45 Положи ладошку на горлышко и скажи хамзу. А теперь подыши, к → voice/files/d034a0f404e45a13.mp3
+ok ru 4 ха → voice/files/2decbc9179b439f8.mp3
+ok ru 6 хамза → voice/files/40eb8a4779f6cc38.mp3
+ok ru 11 Нажми на букву ха. → voice/files/51d3b6d25afa1416.mp3
+ok ru 16 Лови в корзинку только букву ха! → voice/files/56389d85729b56b6.mp3
+ok ru 13 Полная корзинка буквы ха → voice/files/808c6f7db1f86e65.mp3
+ok ru 15 Натяни лук и попади в хамзу! → voice/files/6e68f89b696f3313.mp3
+ok ru 14 А теперь попади в букву ха! → voice/files/060e46ef72bdd205.mp3
+ok ru 17 Хамза и ха живут в глубине горла → voice/files/394e9b0b984992a9.mp3
+ok ru 28 Поднимаемся на этаж выше — в середину горла. Кто же там живё → voice/files/a50ccb48e65414b6.mp3
+ok ru 6 Я буква → voice/files/8f99ce271feee777.mp3
+ok ru 37 Когда меня говорят, середина горлышка немного сжимается, и з → voice/files/8154f75fd6e0d80a.mp3
+ok ru 20 Мой этаж — середина горла. Побежала домой! → voice/files/447dd70b62fd88aa.mp3
+ok ru 42 А я сильная ха. Воздух сильно проходит через середину горла, → voice/files/0a3ec9c7f109a38c.mp3
+ok ru 26 Не путай меня с мягкой ха из глубины! Я живу в середине. → voice/files/88030a0fd55f511b.mp3
+ok ru 9 Нажми на букву → voice/files/b006620006eccc3a.mp3
+ok ru 8 сильная ха → voice/files/4dd58797fb813f67.mp3
+ok ru 19 Нажми на сильную ха из середины горла. → voice/files/ad7079392ab09331.mp3
+ok ru 7 мягкая ха → voice/files/64fa06ef41bc54ab.mp3
+ok ru 21 Где живёт буква? Нажми на её этаж в домике. → voice/files/c0c70f664a908c24.mp3
+ok ru 9 Все буквы дома → voice/files/e4beb8d697d8b0b9.mp3
+ok ru 6 Помоги → voice/files/9dc5d1d7c55e2f37.mp3
+ok ru 20 перейти речку! Прыгай на камушек с буквой → voice/files/8517388f9c03bc36.mp3
+ok ru 16 Теперь на камушек с сильной ха. → voice/files/c65c13c651fa1b5e.mp3
+ok ru 11 А теперь на хамзу. → voice/files/7a3a28ae6ed5e0a5.mp3
+ok ru 7 ‘Айн дома → voice/files/693cda3bc8e4283f.mp3
+ok ru 29 Самый верхний этаж горла — его начало. Он ближе всего к роти → voice/files/5efe44798e4043b7.mp3
+ok ru 25 Я гайн! Я звучу, как будто полощем горлышко водичкой. → voice/files/990b28ca7d8e3cdf.mp3
+ok ru 13 Начало горла — мой дом. → voice/files/c5948ae61991f904.mp3
+ok ru 32 А я хо. Я звучу твёрдо и толсто. Так звучит, когда прочищаем → voice/files/d6de9e04f72dc156.mp3
+ok ru 21 Теперь на каждом этаже горлышка живут буквы! → voice/files/df60ac94110cd509.mp3
+ok ru 21 Открывай карточки и находи одинаковые буквы! → voice/files/e99079b65577a9b0.mp3
+ok ru 5 гайн → voice/files/1d15ee7ab7b00400.mp3
+ok ru 4 хо → voice/files/313022bfbfb8ff66.mp3
+ok ru 10 Все пары найдены → voice/files/a53b3b7c2ba1b1b8.mp3
+ok ru 15 Ты знаешь все буквы горлышка → voice/files/c3d6ccd28d1ac1d4.mp3
+ok ru 38 Назови вслух все буквы горлышка по порядку, от самой глубоко → voice/files/4aadda894b47a25c.mp3
+ok ru 18 Все буквы горлышка теперь твои друзья → voice/files/5b84a891ab61e7ba.mp3
+ok ru 32 Из горлышка переходим в новый домик — на язычок! У язычка че → voice/files/dffe27274ea0d2e7.mp3
+ok ru 25 Самый нижний этаж, рядом с горлышком, — корень языка. → voice/files/ddb8cf53933fc570.mp3
+ok ru 35 Я каф! Корень языка поднимается к самому верху нёба, и я зву → voice/files/c8238818fc666b95.mp3
+ok ru 13 Мой этаж — корень языка. → voice/files/e7174e5865a9f563.mp3
+ok ru 24 А я кяф. Я живу чуть ближе к ротику и звучу тоньше. → voice/files/dcf0a561a9602745.mp3
+ok ru 24 Мы с кафом соседи, только он толстый, а я тоненькая! → voice/files/d1c9ca77a0921e5b.mp3
+ok ru 14 Нажми на толстую букву каф. → voice/files/76e263a019112ab1.mp3
+ok ru 5 кяф → voice/files/3cde327c486da989.mp3
+ok ru 5 каф → voice/files/9dceade77925a8f2.mp3
+ok ru 14 Нажми на тонкую букву кяф. → voice/files/71e997a778475aa4.mp3
+ok ru 21 Кто лишний? Одна буква живёт не в горлышке. → voice/files/f52d858ebcc59264.mp3
+ok ru 24 Каф живёт на корне языка, а остальные — в горлышке. → voice/files/fe3389ddcea44317.mp3
+ok ru 11 А здесь кто лишний? → voice/files/74d9e81f81eb6f6b.mp3
+ok ru 25 Хо живёт в начале горла, а каф и кяф — на корне языка. → voice/files/f91a8f114604b605.mp3
+ok ru 13 Ты отлично знаешь домики → voice/files/55c7a2267c0f9792.mp3
+ok ru 11 Попади в букву кяф! → voice/files/efec2d262ed9cd21.mp3
+ok ru 11 Попади в букву каф! → voice/files/9ada603b13a0b6eb.mp3
+ok ru 16 Каф и кяф живут на корне языка → voice/files/a25b38850cfa8f50.mp3
+ok ru 34 Ас-саляму алейкум! Я дад — особенная буква. Меня почти нет в → voice/files/e0612affec3cca2c.mp3
+ok ru 31 Арабский язык даже называют языком буквы дад. Вот какая я зн → voice/files/9d7350f170bdf81d.mp3
+ok ru 46 Чтобы сказать меня, краешек язычка прижимается к верхним бок → voice/files/f6bb4a950fd9a2e1.mp3
+ok ru 16 Мой этаж — края языка. Побежала! → voice/files/11633cbc88002e90.mp3
+ok ru 16 Нажми на знаменитую букву дад. → voice/files/f881be8a366a593a.mp3
+ok ru 5 дад → voice/files/9b9f39d01fd416da.mp3
+ok ru 13 Найди ещё раз букву дад. → voice/files/3c1da301c7f01d34.mp3
+ok ru 9 Точки на месте → voice/files/3dd4bc88d53fd701.mp3
+ok ru 16 Лопни все шарики с буквой дад! → voice/files/7acb99bc8ab581fa.mp3
+ok ru 12 Все буквы дад найдены → voice/files/40645dca5179a493.mp3
+ok ru 37 Сегодня в гостях все наши друзья! Шесть букв живут в горлышк → voice/files/9b18a2aa651171ff.mp3
+ok ru 26 Давай вспомним, кто где живёт, и поиграем вместе с ними. → voice/files/3720c7ebd44eca54.mp3
+ok ru 28 Эта буква живёт в горлышке или на язычке? Нажми на её домик. → voice/files/696a63926fe2ff34.mp3
+ok ru 14 Все буквы нашли свои домики → voice/files/6b8482b675ab91bf.mp3
+ok ru 13 Найди одинаковые буквы! → voice/files/dd60ac2ac53841cb.mp3
+ok ru 29 Переправа! Прыгай только на буквы горлышка. Где буква из гор → voice/files/12a00111c9e7e10c.mp3
+ok ru 14 А теперь на букву с языка. → voice/files/316a3238a224bb06.mp3
+ok ru 8 Где хамза? → voice/files/b752dd14f951fc41.mp3
+ok ru 14 И последний камушек — буква → voice/files/0d5ab9d8d0fe2ee0.mp3
+ok ru 13 Ты отлично помнишь буквы → voice/files/3c580c3242ba478e.mp3
+ok ru 34 Идём на самый верхний этаж язычка — кончик языка. Здесь живу → voice/files/95d1d65afbaa0f44.mp3
+ok ru 27 Я лям! Кончик языка касается бугорков над верхними зубками. → voice/files/d4830e1ccb3451a0.mp3
+ok ru 13 Кончик языка — мой дом. → voice/files/042e657ec72da5f6.mp3
+ok ru 25 Я нун. Язычок там же, а звук немножко уходит в носик. → voice/files/bea809ffbf89570e.mp3
+ok ru 22 Попробуй зажать носик, и я сразу стану другой! → voice/files/cf49ed686ab44432.mp3
+ok ru 19 А я ра! Кончик язычка легонько стучит. → voice/files/aa123c493e33230a.mp3
+ok ru 14 Нас на кончике языка трое! → voice/files/317e4665c03eb9d0.mp3
+ok ru 11 Нажми на букву лям. → voice/files/a26347cd2bb752a1.mp3
+ok ru 5 нун → voice/files/0dca28e7d5960037.mp3
+ok ru 5 лям → voice/files/8468b113159e98a4.mp3
+ok ru 4 ра → voice/files/38ff82103e9a2d6d.mp3
+ok ru 11 Нажми на букву нун. → voice/files/fab04cba35854c99.mp3
+ok ru 11 Нажми на букву ра. → voice/files/74eaf7ca093d6ec4.mp3
+ok ru 17 Лови в корзинку только букву нун! → voice/files/c77960cfc17a6652.mp3
+ok ru 12 Все буквы нун пойманы → voice/files/7be8e050780f445f.mp3
+ok ru 31 Прочитай вслух три подружки с кончика языка. Нажми на кнопку → voice/files/9fa1e7ad81d4ae80.mp3
+ok ru 18 Лям, нун и ра живут на кончике языка → voice/files/39dd8b7dd932f1f7.mp3
+ok ru 22 Последний этаж этой четверти — середина языка. → voice/files/9204350aefba1f45.mp3
+ok ru 21 Я джим! Середина язычка поднимается к нёбу. → voice/files/3575b0dc41b046db.mp3
+ok ru 13 Я живу в середине языка. → voice/files/07b60e4a4215f881.mp3
+ok ru 20 Я шин. Я звучу, как когда просим тишины. → voice/files/ef008f06ea88f675.mp3
+ok ru 10 И я в середине! → voice/files/472336392a008c62.mp3
+ok ru 18 А я йа. Я тоже живу в середине языка. → voice/files/d568d1e30ace5f14.mp3
+ok ru 20 Теперь ты знаешь все буквы первой четверти → voice/files/8440ce9a60229707.mp3
+ok ru 11 Все точки на месте → voice/files/c3cd0fb5ea021f25.mp3
+ok ru 21 Где живёт буква на язычке? Нажми на её этаж. → voice/files/05d204c99fd359e1.mp3
+ok ru 5 шин → voice/files/23adc4df411e155c.mp3
+ok ru 5 джим → voice/files/2b507462e178eed4.mp3
+ok ru 12 Все буквы язычка дома → voice/files/304ed35ec9fc1c3f.mp3
+ok ru 16 Лопни все шарики с буквой шин! → voice/files/e08e80c3f67762b7.mp3
+ok ru 17 Первая четверть таджвида пройдена → voice/files/65a45e403765e102.mp3
+Готово: новых 266, пропущено 24, ошибок 0, списано символов (по ответу сервиса): 4881
