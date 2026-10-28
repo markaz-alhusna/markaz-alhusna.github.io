@@ -23,7 +23,7 @@ Promise.all([fetch('index.json',{cache:'no-cache'}).then(r=>r.json()),fetch('lis
   const card=i=>{
     const isAr=/[؀-ۿ]/.test(i.key);
     let h='<div class="it"><div class="n">№ '+i.n+' · '+(i.parts?'по частям':(i.lang==='ar'?'арабский':'русский'))+'</div>';
-    h+='<div class="k" lang="'+(isAr?'ar':'ru')+'">'+esc(i.key)+'</div>';
+    h+=(i.note?'<div class="n" style="font-weight:800;color:#14315C">'+esc(i.note)+'</div>':'')+'<div class="k" lang="'+(isAr?'ar':'ru')+'">'+esc(i.key.replace(/^test:\w+:/,''))+'</div>';
     if(i.parts){
       i.parts.forEach(p=>{ const ar=p.startsWith('ar:'); const k=ar?p.slice(3):p; const f=fileOf(k);
         h+='<div class="t" lang="'+(ar?'ar':'ru')+'">'+(ar?'арабский голос: ':'')+esc(k)+'</div>';

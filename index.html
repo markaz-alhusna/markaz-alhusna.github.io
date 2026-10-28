@@ -4795,7 +4795,7 @@ const realMe = () => user(S.me);
 const app = $('#app');
 function go(route, extra={}){ Object.assign(S, extra, {route}); render(); window.scrollTo(0,0); }
 function render(){
-  closeConfetti(); hideHand(); stopSay();
+  closeConfetti(); hideHand(); stopSay(); if(S.route!=='level') stopPraise();
   const r = S.route;
   if(r==='login') app.innerHTML = viewLogin();
   else if(r==='code') app.innerHTML = viewCode();
@@ -5520,9 +5520,25 @@ function stopSay(){ sayTok++; try{ curAudio && curAudio.pause(); }catch(e){} try
 /* say('текст') или say(['часть 1', 'ar:ل', 'часть 2']) — части звучат по очереди.
    'ar:…' — арабская часть (буква, слог), её читает арабский голос. */
 let sayTok = 0;
+let praiseOn = false, praiseNext = null, praiseAudio = null;
+function playPraise(list, done){
+  praiseOn = true; let j = 0; const parts = list.flatMap(t => VOICE.parts[t] || [t]);
+  const fin = () => { praiseOn = false; praiseAudio = null; const n = praiseNext; praiseNext = null; done && done(); if(n) say(n.text, n.onDone); };
+  const step = () => { if(!praiseOn) return; if(j>=parts.length) return fin(); const t = parts[j++]; const f = VOICE.files[t.startsWith('ar:')?t.slice(3):t];
+    if(f){ try{ const a = new Audio(f); praiseAudio = a; a.onended = step; a.onerror = step; a.play().catch(step); }catch(e){ step(); } }
+    else if(t.startsWith('ar:')){ if(!sayArPart(t.slice(3), step)) step(); }
+    else { try{ const u = new SpeechSynthesisUtterance(t); u.lang='ru-RU'; if(ruVoice) u.voice=ruVoice; u.rate=.9; u.pitch=1.15; u.onend=step; u.onerror=step; speechSynthesis.speak(u); }catch(e){ step(); } } };
+  step();
+}
+function stopPraise(){ praiseOn = false; praiseNext = null; try{ praiseAudio && praiseAudio.pause(); }catch(e){} praiseAudio = null; }
 function say(text, onDone){
-  stopSay(); if(!text) return;
-  const parts = (Array.isArray(text) ? text : [text]).filter(Boolean).flatMap(t => VOICE.parts[t] || [t]); const tok = sayTok; let i = 0;
+  if(!text) return;
+  let list = (Array.isArray(text) ? text.flat(3) : [text]).filter(Boolean);
+  if(praiseOn){ praiseNext = { text:list, onDone }; return; }      // похвалу не обрываем: следующая фраза подождёт
+  let n = 0; while(n<list.length && PRAISE_SET.has(list[n])) n++;
+  if(n){ const rest = list.slice(n); stopSay(); playPraise(list.slice(0,n), rest.length ? null : onDone); if(rest.length) praiseNext = { text:rest, onDone }; return; }
+  stopSay();
+  const parts = list.flatMap(t => VOICE.parts[t] || [t]); const tok = sayTok; let i = 0;
   const tts = t => { if(t.startsWith('ar:')){ if(!sayArPart(t.slice(3), nextPart)) nextPart(); return; }
     try{ const u = new SpeechSynthesisUtterance(t.replace(/ﷺ/g,'саллаллаху алейхи ва саллям'));
       u.lang='ru-RU'; if(ruVoice) u.voice=ruVoice; u.rate=.9; u.pitch=1.15; u.onend=nextPart; u.onerror=nextPart; speechSynthesis.speak(u); }catch(e){} };
@@ -5533,9 +5549,14 @@ function say(text, onDone){
 }
 function sayArPart(t, done){ if(!arVoice) pickAr(); if(!arVoice) return false;
   try{ const u=new SpeechSynthesisUtterance(t); u.lang=arVoice.lang; u.voice=arVoice; u.rate=.7; u.onend=done; u.onerror=done; speechSynthesis.speak(u); return true; }catch(e){ return false; } }
-const K_PRAISE = ['Ма ша Аллах!','Баракаллаху фик!','Пусть Аллах благословит тебя!','Пусть Аллах увеличит твои знания!','Пусть Аллах будет доволен тобой!','Пусть Аллах сделает тебя из людей Корана!'];
+const K_SHORT = ['Умница!','Молодец!','Правильно!','Верно!'];
+const K_DUA = ['Пусть Аллах благословит тебя!','Пусть Аллах увеличит твои знания!','Пусть Аллах будет доволен тобой!','Пусть Аллах сделает тебя из людей Корана!','Ма ша Аллах!','Баракаллаху фик!'];
+const K_PRAISE = K_SHORT.concat(K_DUA);
+const PRAISE_SET = new Set(K_PRAISE);
 const K_TRY = ['Попробуй ещё раз','Подумай ещё','Почти! Попробуй ещё'];
-const kPraise = () => K_PRAISE[Math.floor(Math.random()*K_PRAISE.length)];
+/* похвала: «Умница!» и иногда дуа — чтобы было понятно, за что дуа */
+const pick = a => a[Math.floor(Math.random()*a.length)];
+const kPraise = () => Math.random()<.5 ? [pick(K_SHORT), pick(K_DUA)] : [pick(K_SHORT)];
 const kTry = () => K_TRY[Math.floor(Math.random()*K_TRY.length)];
 
 /* --- ручка-подсказка: показывает, куда нажать --- */
