@@ -1,12 +1,12 @@
 {
- "_note": "Голоса ElevenLabs (Voice ID — не секрет). Ключ API — только в GitHub Secrets. Русский — eleven_multilingual_v2, арабский — eleven_v3 (вариант B).",
+ "_note": "Голоса ElevenLabs (Voice ID — не секрет). Ключ API — только в GitHub Secrets. Русский и арабский — eleven_v3 (русский с пометкой [warmly], вариант B).",
  "voices": {
   "ar": "gMB389pj77Qe5nErWNjd",
   "ru": "GN4wbsbejSnGSa1AzjH5"
  },
  "models": {
   "ar": "eleven_v3",
-  "ru": "eleven_multilingual_v2"
+  "ru": "eleven_v3"
  },
  "settings": {
   "ar": {
@@ -14,10 +14,8 @@
    "similarity_boost": 0.8
   },
   "ru": {
-   "stability": 0.6,
-   "similarity_boost": 0.8,
-   "style": 0.15,
-   "speed": 0.92
+   "stability": 0.5,
+   "similarity_boost": 0.8
   }
  }
 }
