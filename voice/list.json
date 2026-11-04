@@ -1975,9 +1975,10 @@
   },
   {
    "key": "ه",
-   "text": "هَاء",
+   "text": "هَا",
    "lang": "ar",
-   "stage": "q1"
+   "stage": "q1",
+   "old_text": "هَاء"
   },
   {
    "key": "ء",
@@ -1987,15 +1988,17 @@
   },
   {
    "key": "ح",
-   "text": "حَاء",
+   "text": "حَا",
    "lang": "ar",
-   "stage": "q1"
+   "stage": "q1",
+   "old_text": "حَاء"
   },
   {
    "key": "خ",
-   "text": "خَاء",
+   "text": "خَا",
    "lang": "ar",
-   "stage": "q1"
+   "stage": "q1",
+   "old_text": "خَاء"
   },
   {
    "key": "غ",
@@ -2035,9 +2038,10 @@
   },
   {
    "key": "ر",
-   "text": "رَاء",
+   "text": "رَا",
    "lang": "ar",
-   "stage": "q1"
+   "stage": "q1",
+   "old_text": "رَاء"
   },
   {
    "key": "ش",
@@ -2053,9 +2057,10 @@
   },
   {
    "key": "ي",
-   "text": "يَاء",
+   "text": "يَا",
    "lang": "ar",
-   "stage": "q1"
+   "stage": "q1",
+   "old_text": "يَاء"
   }
  ]
 }
