@@ -2,7 +2,8 @@
 import json,subprocess,numpy as np,sys,os
 R='/home/claude/markaz-alhusna.github.io/'
 L=json.load(open(R+'voice/list.json'))['items']; ix=json.load(open(R+'voice/index.json'))
-ru=sorted({ix[i['key']] for i in L if i.get('lang')=='ru' and i['key'] in ix})
+done=set(json.load(open(R+'voice/trimmed.json'))) if os.path.exists(R+'voice/trimmed.json') else set()
+ru=sorted({ix[i['key']] for i in L if i.get('lang')=='ru' and i['key'] in ix} - done)
 SR=44100; W=int(SR*0.02); stats=[]
 for f in ru:
     p=R+f
@@ -18,4 +19,5 @@ for f in ru:
     b=np.concatenate([b,np.zeros(int(SR*0.12),np.float32)])
     stats.append((len(a)-end)/SR)
     subprocess.run(['ffmpeg','-loglevel','error','-y','-f','s16le','-ar',str(SR),'-ac','1','-i','-','-b:a','64k',p],input=(b*32767).astype(np.int16).tobytes(),check=True)
-s=np.array(stats); print(len(s),'trimmed mean',s.mean().round(3),'max',s.max().round(2))
+json.dump(sorted(done|set(ru)),open(R+'voice/trimmed.json','w'),indent=0)
+s=np.array(stats or [0]); print(len(s),'trimmed mean',s.mean().round(3),'max',s.max().round(2))
