@@ -10044,6 +10044,42 @@
    "text": "[warmly] Летим в Россию! Найди Россию и нажми на неё.",
    "lang": "ru",
    "stage": "obzh1"
+  },
+  {
+   "key": "test:m1",
+   "text": "[warmly] Касаемся МУсхафа только с омовением.",
+   "lang": "ru",
+   "stage": "test"
+  },
+  {
+   "key": "test:m2",
+   "text": "[warmly] Касаемся Му́с-хафа только с омовением.",
+   "lang": "ru",
+   "stage": "test"
+  },
+  {
+   "key": "test:m3",
+   "text": "[warmly] Касаемся Му́ссхафа только с омовением.",
+   "lang": "ru",
+   "stage": "test"
+  },
+  {
+   "key": "test:b1",
+   "text": "[warmly] Начнём с БА́смали!",
+   "lang": "ru",
+   "stage": "test"
+  },
+  {
+   "key": "test:b2",
+   "text": "[warmly] Начнём с Ба́-асмали!",
+   "lang": "ru",
+   "stage": "test"
+  },
+  {
+   "key": "test:b3",
+   "text": "[warmly] Начнём с Баасмали!",
+   "lang": "ru",
+   "stage": "test"
   }
  ]
 }
