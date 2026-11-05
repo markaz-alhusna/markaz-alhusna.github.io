@@ -1,7 +1,16 @@
-ok ru 20 test:m1 → voice/files/455eed567cd439b3.mp3
-ok ru 21 test:m2 → voice/files/288ab93315c1b77f.mp3
-ok ru 21 test:m3 → voice/files/ebe54e1b54a56267.mp3
-ok ru 12 test:b1 → voice/files/992e2ab6e828f8c5.mp3
-ok ru 13 test:b2 → voice/files/4f7f482e517141e9.mp3
-ok ru 12 test:b3 → voice/files/be2a1b2ab48bdc60.mp3
-Готово: новых 6, пропущено 0, ошибок 0, списано символов (по ответу сервиса): 99
+ok ru 22 танвин фатха — ротик приоткрыт, в конце → voice/files/5f95aa3c9e65ab07.mp3
+ok ru 19 танвин кясра — улыбнись, в конце → voice/files/88daebbb1046ac01.mp3
+ok ru 22 танвин дамма — губки трубочкой, в конце → voice/files/da6e74350a5240e9.mp3
+ok ru 20 сукун — буква спит, звук остановился → voice/files/23070522b694724f.mp3
+ok ru 23 шадда и фатха — два раза, ротик приоткрыт → voice/files/66c0fa8701a78256.mp3
+ok ru 20 шадда и кясра — два раза, улыбнись → voice/files/48aa1daee51c4c99.mp3
+ok ru 23 шадда и дамма — два раза, губки трубочкой → voice/files/6ff3e569d8005a75.mp3
+ok ru 23 шадда и танвин дамма — два раза, в конце → voice/files/5a1a42cace4b357e.mp3
+ok ru 39 Две палочки сверху — танвин фатха. Ротик приоткрыт, а в конц → voice/files/47b35cb4fcde8edb.mp3
+ok ru 31 Две палочки снизу — танвин кясра. Улыбнись, и в конце звучит → voice/files/053d669022fe1c16.mp3
+ok ru 35 Две запятые сверху — танвин дамма. Губки трубочкой, и в конц → voice/files/1983a51047300036.mp3
+ok ru 18 Где танвин дамма — две запятые? → voice/files/c3a9c9bc58de8952.mp3
+ok ru 12 с танвином дамма! → voice/files/ae8551bc125feb3d.mp3
+ok ru 31 с танвином дамма. Это слово «луна». В конце тихонько звучит → voice/files/e53f5845574167bc.mp3
+ok ru 24 Собери слово «луна»: в конце — танвин дамма. → voice/files/160ef008782d6465.mp3
+Готово: новых 15, пропущено 132, ошибок 0, списано символов (по ответу сервиса): 362
