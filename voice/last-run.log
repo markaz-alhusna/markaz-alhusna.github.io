@@ -1,2 +1,7 @@
-ok ru 27 с кясрой. Нижняя губка касается зубок, и улыбаемся! → voice/files/a8122a84d5e0b7b5.mp3
-Готово: новых 1, пропущено 78, ошибок 0, списано символов (по ответу сервиса): 27
+ok ru 20 test:m1 → voice/files/455eed567cd439b3.mp3
+ok ru 21 test:m2 → voice/files/288ab93315c1b77f.mp3
+ok ru 21 test:m3 → voice/files/ebe54e1b54a56267.mp3
+ok ru 12 test:b1 → voice/files/992e2ab6e828f8c5.mp3
+ok ru 13 test:b2 → voice/files/4f7f482e517141e9.mp3
+ok ru 12 test:b3 → voice/files/be2a1b2ab48bdc60.mp3
+Готово: новых 6, пропущено 0, ошибок 0, списано символов (по ответу сервиса): 99
