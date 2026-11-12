@@ -22,7 +22,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
         with: { distribution: temurin, java-version: '17' }
-      - uses: android-actions/setup-android@v3
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
       - name: Ставим Bubblewrap
@@ -30,7 +29,7 @@ jobs:
           npm i -g @bubblewrap/cli@1
           mkdir -p ~/.bubblewrap
           echo "{\"jdkPath\":\"$JAVA_HOME\",\"androidSdkPath\":\"$ANDROID_HOME\"}" > ~/.bubblewrap/config.json
-          yes | sdkmanager --licenses > /dev/null || true
+          echo "ANDROID_HOME=$ANDROID_HOME"; yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
       - name: Ключ подписи
         env:
           KS_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
