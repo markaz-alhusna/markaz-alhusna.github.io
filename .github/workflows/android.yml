@@ -29,7 +29,7 @@ jobs:
           npm i -g @bubblewrap/cli@1
           mkdir -p ~/.bubblewrap
           echo "{\"jdkPath\":\"$JAVA_HOME\",\"androidSdkPath\":\"$ANDROID_HOME\"}" > ~/.bubblewrap/config.json
-          echo "ANDROID_HOME=$ANDROID_HOME"; yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
+          [ -e "$ANDROID_HOME/tools" ] || sudo ln -s "$ANDROID_HOME/cmdline-tools/latest" "$ANDROID_HOME/tools"; ls "$ANDROID_HOME" "$ANDROID_HOME/build-tools"; yes | "$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager" --licenses > /dev/null || true
       - name: Ключ подписи
         env:
           KS_B64: ${{ secrets.ANDROID_KEYSTORE_B64 }}
