@@ -29,6 +29,6 @@
   "isChromeOSOnly": false,
   "isMetaQuest": false,
   "fullScopeUrl": "https://markaz-alhusna.github.io/",
-  "minSdkVersion": 21,
+  "minSdkVersion": 24,
   "orientation": "portrait"
 }
