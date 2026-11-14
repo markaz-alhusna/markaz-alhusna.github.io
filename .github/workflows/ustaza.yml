@@ -18,6 +18,6 @@ jobs:
       - name: Сохранить
         run: |
           git config user.name "github-actions"; git config user.email "actions@github.com"
-          git add voice/ustaza/out voice/ustaza/last-run.log
+          mkdir -p voice/ustaza/out; git add voice/ustaza/out voice/ustaza/last-run.log
           git commit -m "Голос устазы: результат [skip ci]" || exit 0
           git push origin HEAD:ustaza-voice

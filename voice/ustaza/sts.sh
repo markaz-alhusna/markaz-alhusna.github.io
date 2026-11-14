@@ -8,10 +8,15 @@ MODE=$(python3 -c "import json;print(json.load(open('$CFG'))['mode'])")
 NAME=$(python3 -c "import json;print(json.load(open('$CFG'))['voice'])")
 ST=$(python3 -c "import json;print(json.load(open('$CFG'))['stability'])")
 SIM=$(python3 -c "import json;print(json.load(open('$CFG'))['similarity'])")
+VIDCFG=$(python3 -c "import json;print(json.load(open('$CFG')).get('voice_id',''))")
+for id in gMB389pj77Qe5nErWNjd GN4wbsbejSnGSa1AzjH5; do echo "config voice $id:"; curl -sS https://api.elevenlabs.io/v1/voices/$id -H "xi-api-key: $ELEVENLABS_API_KEY" | python3 -c "import json,sys;d=json.load(sys.stdin);print(' ',d.get('name'),d.get('category'),str(d.get('detail',''))[:200])"; done
 curl -sS https://api.elevenlabs.io/v1/voices -H "xi-api-key: $ELEVENLABS_API_KEY" > /tmp/voices.json
-python3 - "$NAME" <<'PY' > /tmp/vid.txt
+python3 - "$NAME" "$VIDCFG" <<'PY' > /tmp/vid.txt
 import json,sys
-v=json.load(open('/tmp/voices.json'))['voices']; name=sys.argv[1].lower()
+if sys.argv[2]: print(sys.argv[2]); sys.exit()
+d=json.load(open('/tmp/voices.json'))
+if 'voices' not in d: print('voices error:',str(d)[:300],file=sys.stderr); print(''); sys.exit()
+v=d['voices']; name=sys.argv[1].lower()
 for x in v: print('VOICE:',x['voice_id'],x['name'],x.get('category'),file=sys.stderr)
 m=[x for x in v if x['name'].lower().startswith(name)] or [x for x in v if name in x['name'].lower()]
 print(m[0]['voice_id'] if m else '')
