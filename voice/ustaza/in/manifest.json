@@ -1,0 +1,128 @@
+{
+ "razdel1": {
+  "count": 29,
+  "groups": [
+   {
+    "file": "razdel1_g01.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel1_g02.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel1_g03.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel1_g04.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel1_g05.mp3",
+    "n": 5
+   }
+  ]
+ },
+ "razdel2a": {
+  "count": 28,
+  "groups": [
+   {
+    "file": "razdel2a_g01.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2a_g02.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2a_g03.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2a_g04.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2a_g05.mp3",
+    "n": 4
+   }
+  ]
+ },
+ "razdel2b": {
+  "count": 28,
+  "groups": [
+   {
+    "file": "razdel2b_g01.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2b_g02.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2b_g03.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2b_g04.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2b_g05.mp3",
+    "n": 4
+   }
+  ]
+ },
+ "razdel2c": {
+  "count": 28,
+  "groups": [
+   {
+    "file": "razdel2c_g01.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2c_g02.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2c_g03.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2c_g04.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel2c_g05.mp3",
+    "n": 4
+   }
+  ]
+ },
+ "razdel3": {
+  "count": 6,
+  "groups": [
+   {
+    "file": "razdel3_g01.mp3",
+    "n": 6
+   }
+  ]
+ },
+ "razdel4": {
+  "count": 15,
+  "groups": [
+   {
+    "file": "razdel4_g01.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel4_g02.mp3",
+    "n": 6
+   },
+   {
+    "file": "razdel4_g03.mp3",
+    "n": 3
+   }
+  ]
+ }
+}

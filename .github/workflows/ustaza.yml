@@ -1,0 +1,23 @@
+name: Голос устазы → голос платформы
+# Запускается при пуше в ветку ustaza-voice (настройки в voice/ustaza/run.json). Результат кладётся в ту же ветку.
+on:
+  push:
+    branches: [ustaza-voice]
+    paths: ['voice/ustaza/run.json']
+permissions:
+  contents: write
+jobs:
+  sts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Перевод голоса
+        env:
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: bash voice/ustaza/sts.sh 2>&1 | tee voice/ustaza/last-run.log
+      - name: Сохранить
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@github.com"
+          git add voice/ustaza/out voice/ustaza/last-run.log
+          git commit -m "Голос устазы: результат [skip ci]" || exit 0
+          git push origin HEAD:ustaza-voice
