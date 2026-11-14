@@ -1,0 +1,7 @@
+config voice gMB389pj77Qe5nErWNjd:
+  None None {'type': 'authentication_error', 'code': 'unauthorized', 'message': 'The API key you used is missing the permission voices_read to execute this operation.', 'status': 'missing_permissions', 'request_i
+config voice GN4wbsbejSnGSa1AzjH5:
+  None None {'type': 'authentication_error', 'code': 'unauthorized', 'message': 'The API key you used is missing the permission voices_read to execute this operation.', 'status': 'missing_permissions', 'request_i
+voices error: {'detail': {'type': 'authentication_error', 'code': 'unauthorized', 'message': 'The API key you used is missing the permission voices_read to execute this operation.', 'status': 'missing_permissions', 'request_id': 'c085f440be274b57772c48b480aea637'}}
+voice id: 
+голос не найден
