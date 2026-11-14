@@ -2,6 +2,6 @@ config voice gMB389pj77Qe5nErWNjd:
   None None {'type': 'authentication_error', 'code': 'unauthorized', 'message': 'The API key you used is missing the permission voices_read to execute this operation.', 'status': 'missing_permissions', 'request_i
 config voice GN4wbsbejSnGSa1AzjH5:
   None None {'type': 'authentication_error', 'code': 'unauthorized', 'message': 'The API key you used is missing the permission voices_read to execute this operation.', 'status': 'missing_permissions', 'request_i
-voices error: {'detail': {'type': 'authentication_error', 'code': 'unauthorized', 'message': 'The API key you used is missing the permission voices_read to execute this operation.', 'status': 'missing_permissions', 'request_id': 'c085f440be274b57772c48b480aea637'}}
-voice id: 
-голос не найден
+voice id: GN4wbsbejSnGSa1AzjH5
+razdel2c_g01.mp3 -> 401
+{"detail":{"type":"authentication_error","code":"unauthorized","message":"The API key you used is missing the permission speech_to_speech to execute this operation.","status":"missing_permissions","request_id":"a7a728c9a866666c3f3c3aa6ef51a73b"}}кредиты: None / None
