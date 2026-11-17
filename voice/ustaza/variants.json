@@ -1,37 +1,698 @@
 [
- {
-  "name": "kasra_g01",
-  "file": "kasra_g01.mp3",
-  "model": "eleven_english_sts_v2",
-  "stability": 0.4,
-  "similarity": 0.9
- },
- {
-  "name": "kasra_g02",
-  "file": "kasra_g02.mp3",
-  "model": "eleven_english_sts_v2",
-  "stability": 0.4,
-  "similarity": 0.9
- },
- {
-  "name": "kasra_g03",
-  "file": "kasra_g03.mp3",
-  "model": "eleven_english_sts_v2",
-  "stability": 0.4,
-  "similarity": 0.9
- },
- {
-  "name": "kasra_g04",
-  "file": "kasra_g04.mp3",
-  "model": "eleven_english_sts_v2",
-  "stability": 0.4,
-  "similarity": 0.9
- },
- {
-  "name": "kasra_g05",
-  "file": "kasra_g05.mp3",
-  "model": "eleven_english_sts_v2",
-  "stability": 0.4,
-  "similarity": 0.9
- }
+{
+"name": "ks/k01_s11",
+"file": "ks/k01.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k01_s22",
+"file": "ks/k01.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k01_s33",
+"file": "ks/k01.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k02_s11",
+"file": "ks/k02.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k02_s22",
+"file": "ks/k02.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k02_s33",
+"file": "ks/k02.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k03_s11",
+"file": "ks/k03.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k03_s22",
+"file": "ks/k03.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k03_s33",
+"file": "ks/k03.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k04_s11",
+"file": "ks/k04.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k04_s22",
+"file": "ks/k04.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k04_s33",
+"file": "ks/k04.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k05_s11",
+"file": "ks/k05.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k05_s22",
+"file": "ks/k05.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k05_s33",
+"file": "ks/k05.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k06_s11",
+"file": "ks/k06.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k06_s22",
+"file": "ks/k06.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k06_s33",
+"file": "ks/k06.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k07_s11",
+"file": "ks/k07.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k07_s22",
+"file": "ks/k07.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k07_s33",
+"file": "ks/k07.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k08_s11",
+"file": "ks/k08.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k08_s22",
+"file": "ks/k08.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k08_s33",
+"file": "ks/k08.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k09_s11",
+"file": "ks/k09.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k09_s22",
+"file": "ks/k09.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k09_s33",
+"file": "ks/k09.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k10_s11",
+"file": "ks/k10.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k10_s22",
+"file": "ks/k10.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k10_s33",
+"file": "ks/k10.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k11_s11",
+"file": "ks/k11.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k11_s22",
+"file": "ks/k11.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k11_s33",
+"file": "ks/k11.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k12_s11",
+"file": "ks/k12.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k12_s22",
+"file": "ks/k12.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k12_s33",
+"file": "ks/k12.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k13_s11",
+"file": "ks/k13.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k13_s22",
+"file": "ks/k13.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k13_s33",
+"file": "ks/k13.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k14_s11",
+"file": "ks/k14.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k14_s22",
+"file": "ks/k14.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k14_s33",
+"file": "ks/k14.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k15_s11",
+"file": "ks/k15.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k15_s22",
+"file": "ks/k15.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k15_s33",
+"file": "ks/k15.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k16_s11",
+"file": "ks/k16.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k16_s22",
+"file": "ks/k16.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k16_s33",
+"file": "ks/k16.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k17_s11",
+"file": "ks/k17.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k17_s22",
+"file": "ks/k17.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k17_s33",
+"file": "ks/k17.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k18_s11",
+"file": "ks/k18.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k18_s22",
+"file": "ks/k18.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k18_s33",
+"file": "ks/k18.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k19_s11",
+"file": "ks/k19.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k19_s22",
+"file": "ks/k19.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k19_s33",
+"file": "ks/k19.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k20_s11",
+"file": "ks/k20.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k20_s22",
+"file": "ks/k20.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k20_s33",
+"file": "ks/k20.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k21_s11",
+"file": "ks/k21.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k21_s22",
+"file": "ks/k21.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k21_s33",
+"file": "ks/k21.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k22_s11",
+"file": "ks/k22.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k22_s22",
+"file": "ks/k22.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k22_s33",
+"file": "ks/k22.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k23_s11",
+"file": "ks/k23.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k23_s22",
+"file": "ks/k23.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k23_s33",
+"file": "ks/k23.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k24_s11",
+"file": "ks/k24.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k24_s22",
+"file": "ks/k24.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k24_s33",
+"file": "ks/k24.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k25_s11",
+"file": "ks/k25.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k25_s22",
+"file": "ks/k25.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k25_s33",
+"file": "ks/k25.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k26_s11",
+"file": "ks/k26.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k26_s22",
+"file": "ks/k26.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k26_s33",
+"file": "ks/k26.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k27_s11",
+"file": "ks/k27.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k27_s22",
+"file": "ks/k27.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k27_s33",
+"file": "ks/k27.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k28_s11",
+"file": "ks/k28.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k28_s22",
+"file": "ks/k28.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k28_s33",
+"file": "ks/k28.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+},
+{
+"name": "ks/k29_s11",
+"file": "ks/k29.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 11
+},
+{
+"name": "ks/k29_s22",
+"file": "ks/k29.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 22
+},
+{
+"name": "ks/k29_s33",
+"file": "ks/k29.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 0.9,
+"seed": 33
+}
 ]
