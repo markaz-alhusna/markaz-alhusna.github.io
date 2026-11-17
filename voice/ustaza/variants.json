@@ -1,0 +1,7 @@
+[
+ {"name":"v1_st03_sim09","file":"kt.mp3","model":"eleven_multilingual_sts_v2","stability":0.3,"similarity":0.9},
+ {"name":"v2_st05_sim10","file":"kt.mp3","model":"eleven_multilingual_sts_v2","stability":0.5,"similarity":1.0},
+ {"name":"v3_english","file":"kt.mp3","model":"eleven_english_sts_v2","stability":0.5,"similarity":0.9},
+ {"name":"v4_bright_st03","file":"ktb.mp3","model":"eleven_multilingual_sts_v2","stability":0.3,"similarity":0.9},
+ {"name":"v5_bright_english","file":"ktb.mp3","model":"eleven_english_sts_v2","stability":0.4,"similarity":0.9}
+]

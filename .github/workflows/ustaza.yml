@@ -3,7 +3,7 @@ name: Голос устазы → голос платформы
 on:
   push:
     branches: [ustaza-voice]
-    paths: ['voice/ustaza/run.json']
+    paths: ['voice/ustaza/run.json','voice/ustaza/variants.json']
 permissions:
   contents: write
 jobs:
@@ -11,10 +11,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - name: Перевод голоса
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
-        run: bash voice/ustaza/sts.sh 2>&1 | tee voice/ustaza/last-run.log
+        run: |
+          if git diff --name-only HEAD~1 HEAD | grep -q variants.json; then bash voice/ustaza/variants.sh 2>&1 | tee voice/ustaza/last-run.log; else bash voice/ustaza/sts.sh 2>&1 | tee voice/ustaza/last-run.log; fi
       - name: Сохранить
         run: |
           git config user.name "github-actions"; git config user.email "actions@github.com"
