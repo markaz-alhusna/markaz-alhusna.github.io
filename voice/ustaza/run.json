@@ -1,1 +1,1 @@
-{"mode":"full","voice":"Sara","voice_id":"gMB389pj77Qe5nErWNjd","stability":0.8,"similarity":0.75,"test_files":[],"try":5}
+{"mode": "test", "voice": "Sara", "voice_id": "gMB389pj77Qe5nErWNjd", "stability": 0.8, "similarity": 0.75, "test_files": ["new_test_a.mp3", "new_test_b.mp3"], "try": 6}
