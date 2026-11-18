@@ -1,266 +1,258 @@
 [
 {
-"name": "ks/k03_e44",
-"file": "ks/k03.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.4,
-"similarity": 0.9,
-"seed": 44
-},
-{
-"name": "ks/k03_e55",
-"file": "ks/k03.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.55,
-"similarity": 1.0,
-"seed": 55
-},
-{
-"name": "ks/k03_m66",
-"file": "ks/k03.mp3",
+"name": "ks/k12_m71",
+"file": "ks2/k12.mp3",
 "model": "eleven_multilingual_sts_v2",
 "stability": 0.35,
 "similarity": 1.0,
-"seed": 66
+"seed": 71
 },
 {
-"name": "ks/k04_e44",
-"file": "ks/k04.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.4,
-"similarity": 0.9,
-"seed": 44
-},
-{
-"name": "ks/k04_e55",
-"file": "ks/k04.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.55,
-"similarity": 1.0,
-"seed": 55
-},
-{
-"name": "ks/k04_m66",
-"file": "ks/k04.mp3",
+"name": "ks/k12_m72",
+"file": "ks2/k12.mp3",
 "model": "eleven_multilingual_sts_v2",
 "stability": 0.35,
 "similarity": 1.0,
-"seed": 66
+"seed": 72
 },
 {
-"name": "ks/k08_e44",
-"file": "ks/k08.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.4,
-"similarity": 0.9,
-"seed": 44
-},
-{
-"name": "ks/k08_e55",
-"file": "ks/k08.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.55,
-"similarity": 1.0,
-"seed": 55
-},
-{
-"name": "ks/k08_m66",
-"file": "ks/k08.mp3",
+"name": "ks/k12_m73",
+"file": "ks2/k12.mp3",
 "model": "eleven_multilingual_sts_v2",
 "stability": 0.35,
 "similarity": 1.0,
-"seed": 66
+"seed": 73
 },
 {
-"name": "ks/k10_e44",
-"file": "ks/k10.mp3",
+"name": "ks/k12_m74",
+"file": "ks2/k12.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.25,
+"similarity": 1.0,
+"seed": 74
+},
+{
+"name": "ks/k12_m75",
+"file": "ks2/k12.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.25,
+"similarity": 1.0,
+"seed": 75
+},
+{
+"name": "ks/k12_m76",
+"file": "ks2/k12.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.5,
+"similarity": 1.0,
+"seed": 76
+},
+{
+"name": "ks/k12_e77",
+"file": "ks2/k12.mp3",
 "model": "eleven_english_sts_v2",
 "stability": 0.4,
-"similarity": 0.9,
-"seed": 44
-},
-{
-"name": "ks/k10_e55",
-"file": "ks/k10.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.55,
 "similarity": 1.0,
-"seed": 55
+"seed": 77
 },
 {
-"name": "ks/k10_m66",
-"file": "ks/k10.mp3",
+"name": "ks/k12_e78",
+"file": "ks2/k12.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 78
+},
+{
+"name": "ks/k16_m71",
+"file": "ks2/k16.mp3",
 "model": "eleven_multilingual_sts_v2",
 "stability": 0.35,
 "similarity": 1.0,
-"seed": 66
+"seed": 71
 },
 {
-"name": "ks/k11_e44",
-"file": "ks/k11.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.4,
-"similarity": 0.9,
-"seed": 44
-},
-{
-"name": "ks/k11_e55",
-"file": "ks/k11.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.55,
-"similarity": 1.0,
-"seed": 55
-},
-{
-"name": "ks/k11_m66",
-"file": "ks/k11.mp3",
+"name": "ks/k16_m72",
+"file": "ks2/k16.mp3",
 "model": "eleven_multilingual_sts_v2",
 "stability": 0.35,
 "similarity": 1.0,
-"seed": 66
+"seed": 72
 },
 {
-"name": "ks/k12_e44",
-"file": "ks/k12.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.4,
-"similarity": 0.9,
-"seed": 44
-},
-{
-"name": "ks/k12_e55",
-"file": "ks/k12.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.55,
-"similarity": 1.0,
-"seed": 55
-},
-{
-"name": "ks/k12_m66",
-"file": "ks/k12.mp3",
+"name": "ks/k16_m73",
+"file": "ks2/k16.mp3",
 "model": "eleven_multilingual_sts_v2",
 "stability": 0.35,
 "similarity": 1.0,
-"seed": 66
+"seed": 73
 },
 {
-"name": "ks/k16_e44",
-"file": "ks/k16.mp3",
+"name": "ks/k16_m74",
+"file": "ks2/k16.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.25,
+"similarity": 1.0,
+"seed": 74
+},
+{
+"name": "ks/k16_m75",
+"file": "ks2/k16.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.25,
+"similarity": 1.0,
+"seed": 75
+},
+{
+"name": "ks/k16_m76",
+"file": "ks2/k16.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.5,
+"similarity": 1.0,
+"seed": 76
+},
+{
+"name": "ks/k16_e77",
+"file": "ks2/k16.mp3",
 "model": "eleven_english_sts_v2",
 "stability": 0.4,
-"similarity": 0.9,
-"seed": 44
-},
-{
-"name": "ks/k16_e55",
-"file": "ks/k16.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.55,
 "similarity": 1.0,
-"seed": 55
+"seed": 77
 },
 {
-"name": "ks/k16_m66",
-"file": "ks/k16.mp3",
+"name": "ks/k16_e78",
+"file": "ks2/k16.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 78
+},
+{
+"name": "ks/k18_m71",
+"file": "ks2/k18.mp3",
 "model": "eleven_multilingual_sts_v2",
 "stability": 0.35,
 "similarity": 1.0,
-"seed": 66
+"seed": 71
 },
 {
-"name": "ks/k18_e44",
-"file": "ks/k18.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.4,
-"similarity": 0.9,
-"seed": 44
-},
-{
-"name": "ks/k18_e55",
-"file": "ks/k18.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.55,
-"similarity": 1.0,
-"seed": 55
-},
-{
-"name": "ks/k18_m66",
-"file": "ks/k18.mp3",
+"name": "ks/k18_m72",
+"file": "ks2/k18.mp3",
 "model": "eleven_multilingual_sts_v2",
 "stability": 0.35,
 "similarity": 1.0,
-"seed": 66
+"seed": 72
 },
 {
-"name": "ks/k19_e44",
-"file": "ks/k19.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.4,
-"similarity": 0.9,
-"seed": 44
-},
-{
-"name": "ks/k19_e55",
-"file": "ks/k19.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.55,
-"similarity": 1.0,
-"seed": 55
-},
-{
-"name": "ks/k19_m66",
-"file": "ks/k19.mp3",
+"name": "ks/k18_m73",
+"file": "ks2/k18.mp3",
 "model": "eleven_multilingual_sts_v2",
 "stability": 0.35,
 "similarity": 1.0,
-"seed": 66
+"seed": 73
 },
 {
-"name": "ks/k20_e44",
-"file": "ks/k20.mp3",
+"name": "ks/k18_m74",
+"file": "ks2/k18.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.25,
+"similarity": 1.0,
+"seed": 74
+},
+{
+"name": "ks/k18_m75",
+"file": "ks2/k18.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.25,
+"similarity": 1.0,
+"seed": 75
+},
+{
+"name": "ks/k18_m76",
+"file": "ks2/k18.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.5,
+"similarity": 1.0,
+"seed": 76
+},
+{
+"name": "ks/k18_e77",
+"file": "ks2/k18.mp3",
 "model": "eleven_english_sts_v2",
 "stability": 0.4,
-"similarity": 0.9,
-"seed": 44
-},
-{
-"name": "ks/k20_e55",
-"file": "ks/k20.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.55,
 "similarity": 1.0,
-"seed": 55
+"seed": 77
 },
 {
-"name": "ks/k20_m66",
-"file": "ks/k20.mp3",
+"name": "ks/k18_e78",
+"file": "ks2/k18.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 78
+},
+{
+"name": "ks/k23_m71",
+"file": "ks2/k23.mp3",
 "model": "eleven_multilingual_sts_v2",
 "stability": 0.35,
 "similarity": 1.0,
-"seed": 66
+"seed": 71
 },
 {
-"name": "ks/k23_e44",
-"file": "ks/k23.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.4,
-"similarity": 0.9,
-"seed": 44
-},
-{
-"name": "ks/k23_e55",
-"file": "ks/k23.mp3",
-"model": "eleven_english_sts_v2",
-"stability": 0.55,
-"similarity": 1.0,
-"seed": 55
-},
-{
-"name": "ks/k23_m66",
-"file": "ks/k23.mp3",
+"name": "ks/k23_m72",
+"file": "ks2/k23.mp3",
 "model": "eleven_multilingual_sts_v2",
 "stability": 0.35,
 "similarity": 1.0,
-"seed": 66
+"seed": 72
+},
+{
+"name": "ks/k23_m73",
+"file": "ks2/k23.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 73
+},
+{
+"name": "ks/k23_m74",
+"file": "ks2/k23.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.25,
+"similarity": 1.0,
+"seed": 74
+},
+{
+"name": "ks/k23_m75",
+"file": "ks2/k23.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.25,
+"similarity": 1.0,
+"seed": 75
+},
+{
+"name": "ks/k23_m76",
+"file": "ks2/k23.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.5,
+"similarity": 1.0,
+"seed": 76
+},
+{
+"name": "ks/k23_e77",
+"file": "ks2/k23.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 77
+},
+{
+"name": "ks/k23_e78",
+"file": "ks2/k23.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 78
 }
 ]
