@@ -1,0 +1,3 @@
+ключ есть
+баланс: {"data":{"total_credits":20,"total_usage":0}}
+proba-yabloko__google_gemini-2.5-flash-image картинок: 1 | стоимость: {"prompt_tokens": 54, "completion_tokens": 1290, "total_tokens": 1344, "cost": 0.0387162, "is_byok": false, "prompt_tokens_details": {"cached_tokens": 0, "cache_write_tokens": 0, "audio_tokens": 0, "v | текст: 
