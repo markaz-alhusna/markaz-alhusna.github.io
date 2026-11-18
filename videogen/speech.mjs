@@ -14,12 +14,11 @@ async function speak(text, who, file){
   for(const line of txt.split('\n')){ if(!line.startsWith('data: ')||line.includes('[DONE]')) continue;
     try{ const j=JSON.parse(line.slice(6)); const a=j.choices?.[0]?.delta?.audio; if(a?.data) chunks.push(Buffer.from(a.data,'base64')); if(a?.transcript) tr+=a.transcript; if(j.usage) usage=j.usage; }catch{} }
   if(!chunks.length){ say('нет звука', who, txt.slice(0,300)); return false; }
-  fs.writeFileSync('tmp.pcm', Buffer.concat(chunks));
-  execFileSync('ffmpeg',['-y','-loglevel','error','-f','s16le','-ar','24000','-ac','1','-i','tmp.pcm',file]);
+  fs.writeFileSync(file, Buffer.concat(chunks));
   say('ok', file, who, '| прочитано:', tr, '| cost', usage?.cost ?? '?'); return true;
 }
 for(const [i,l] of sp.lines.entries()){
-  const f=`${out}/line${String(i).padStart(2,'0')}-${l.who}.wav`;
+  const f=`${out}/line${String(i).padStart(2,'0')}-${l.who}.pcm`;
   if(!(await speak(l.text, l.who, f))) await speak(l.text, l.who, f);
 }
 fs.writeFileSync(`${out}/log.txt`, log.join('\n'));
