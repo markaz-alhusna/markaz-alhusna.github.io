@@ -13,9 +13,9 @@ async function tts(voice, text, file){
 }
 if(job.stage==='voices-search'){
   const seen = new Map();
-  for(const q of ['boy','kid','child','young boy','little boy']){
+  for(const q of ['boy','kid','child']){
     for(const extra of ['&language=ar','']){
-      const r = await fetch(`${E}/shared-voices?page_size=50&gender=male&search=${encodeURIComponent(q)}${extra}`,{headers:H});
+      let r; try{ r = await fetch(`${E}/shared-voices?page_size=30&gender=male&search=${encodeURIComponent(q)}${extra}`,{headers:H, signal:AbortSignal.timeout(90000)}); }catch(e){ say('поиск таймаут', q, extra); continue; }
       if(!r.ok){ say('поиск', q, r.status, (await r.text()).slice(0,200)); continue; }
       const j = await r.json();
       for(const v of j.voices||[]){ const d=(v.name+' '+(v.description||'')+' '+(v.descriptive||'')+' '+(v.use_case||'')).toLowerCase();
