@@ -33,19 +33,45 @@ async function genImage(model, text, refs){
 
 if(job.stage==='images'){
   let model = null;
+  const tryGen = async (id, text, refs)=>{
+    for(const m of (model ? [model] : job.image_models)){
+      try{ const buf = await genImage(m, text, refs); fs.writeFileSync(`${out}/${id}.png`, buf); model = m; say('ok', id, m); return true; }
+      catch(e){ say('ошибка', id, m, e.message); }
+    }
+    return false;
+  };
+  const base = `STYLE: ${job.style}\nCHARACTERS (keep exactly the same clothes in every image): ${job.characters}\n`;
+  if(job.sheet) await tryGen('sheet', `Create one image.\n${base}IMAGE: ${job.sheet}`, []);
   for(const s of job.scenes){
-    const refs = ['videogen/ref/style1.jpg'];
-    if(fs.existsSync(`${out}/s1.png`) && s.id!=='s1') refs.push(`${out}/s1.png`);
-    const text = `Create one image.\nSTYLE: ${job.style}\nCHARACTERS (keep exactly the same clothes in every scene): ${job.characters}\nSCENE: ${s.prompt}\n` +
-      `The first attached image is ONLY a style reference (look, light, faceless shadow faces) — do not copy its scene or people.` +
-      (refs.length>1 ? ` The second attached image shows the same two boys in this film — keep their clothes and look identical.` : '');
-    const tries = model ? [model] : job.image_models;
-    for(const m of tries){
-      try{ const buf = await genImage(m, text, refs); fs.writeFileSync(`${out}/${s.id}.png`, buf); model = m; say('ok', s.id, m); break; }
-      catch(e){ say('ошибка', s.id, m, e.message); }
+    const refs = fs.existsSync(`${out}/sheet.png`) ? [`${out}/sheet.png`] : [];
+    const text = `Create one image.\n${base}SCENE: ${s.prompt}\n` + (refs.length ? 'The attached image is the character reference sheet: keep the boys and clothes identical, but use the camera angle and composition described in SCENE.' : '');
+    await tryGen(s.id, text, refs);
+  }
+}
+
+if(job.stage==='video'){
+  const src = job.video.from;  // папка с картинками (например videogen/out/run2)
+  for(const c of job.video.clips){
+    const img = `${src}/${c.image}.png`;
+    for(const v of job.video.models){
+      const body = { model: v.model, prompt: c.prompt + ' ' + (job.video.common||''), resolution: v.resolution, aspect_ratio: '16:9', duration: v.duration, generate_audio: false,
+        frame_images: [{ type:'image_url', image_url:{ url: dataUrl(img) }, frame_type:'first_frame' }] };
+      if(v.provider) body.provider = v.provider;
+      const r = await fetch(`${API}/videos`, { method:'POST', headers:H, body: JSON.stringify(body) });
+      const t = await r.text(); if(!r.ok){ say('ошибка запуска', c.id, v.model, r.status, t.slice(0,300)); continue; }
+      const jid = JSON.parse(t).id; say('запущено', c.id, v.model, jid);
+      let st = null;
+      for(let i=0;i<60;i++){ await new Promise(z=>setTimeout(z, 20000));
+        const p = await fetch(`${API}/videos/${jid}`, {headers:H}); st = await p.json();
+        if(['completed','failed','cancelled','expired'].includes(st.status)) break; }
+      if(st?.status!=='completed'){ say('не получилось', c.id, v.model, st?.status, JSON.stringify(st?.error||'').slice(0,300)); continue; }
+      const d = await fetch(`${API}/videos/${jid}/content?index=0`, {headers:H});
+      fs.writeFileSync(`${out}/${c.id}.mp4`, Buffer.from(await d.arrayBuffer()));
+      say('ok', c.id, v.model, 'стоимость', st.usage?.cost ?? '?'); break;
     }
   }
 }
+
 const u1 = await balance('после');
 say(`Этот запуск стоил примерно: $${(u1-u0).toFixed(4)}`);
 fs.writeFileSync(`${out}/log.txt`, log.join('\n'));

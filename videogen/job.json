@@ -1,17 +1,42 @@
 {
-  "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
-  "stage": "images",
-  "run": 1,
-  "image_models": ["google/gemini-2.5-flash-image", "google/gemini-2.5-flash-image-preview"],
-  "style": "Cinematic stylized 3D animated film look, soft warm golden-hour sunlight, shallow depth of field, gentle realistic textures, like the attached style reference. Sunny green city park with a children's playground (wooden swings, a slide, sand), trees, a few blurred people far in the background. IMPORTANT: every person has NO face at all: the face area is a smooth solid deep-black shadow, no eyes, no nose, no mouth, no skin visible on the face. Hands are in dark gloves or hidden in sleeves. No text, no letters, no logos, no toys or plush animals. 16:9 wide frame.",
-  "characters": "Two boys about 8 years old. AHMAD: navy-blue zip jacket, dark-blue knitted beanie hat, grey trousers, white sneakers, small brown backpack. OMAR: olive-green hooded jacket with the hood up, light-grey trousers, dark boots. Both faces are pure black featureless shadow.",
-  "scenes": [
-    {"id": "s1", "prompt": "Wide establishing shot of the playground. OMAR sits alone on a wooden swing on the right. AHMAD walks in from the left along the path toward him."},
-    {"id": "s2", "prompt": "Medium shot: AHMAD stands in front of the swing and raises his right hand in a friendly greeting. OMAR on the swing turns toward him."},
-    {"id": "s3", "prompt": "Medium two-shot from the side: both boys stand facing each other next to the swings, relaxed, friendly body language."},
-    {"id": "s4", "prompt": "Over-the-shoulder shot from behind OMAR (his olive hood in the foreground, out of focus) looking at AHMAD, who points to himself with his gloved hand."},
-    {"id": "s5", "prompt": "Reverse over-the-shoulder shot from behind AHMAD (his navy beanie in the foreground, out of focus) looking at OMAR, who places his gloved hand on his chest."},
-    {"id": "s6", "prompt": "Low-angle two-shot near the slide: both boys standing and talking, the slide and trees behind them, warm sunlight."},
-    {"id": "s7", "prompt": "Medium shot: the two boys shake hands warmly in the middle of the playground, happy friendly mood."}
-  ]
+ "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
+ "stage": "images",
+ "run": 2,
+ "image_models": [
+  "google/gemini-2.5-flash-image",
+  "google/gemini-2.5-flash-image-preview"
+ ],
+ "style": "Cinematic stylized 3D animated film look (like a modern family animated movie), soft warm golden-hour sunlight, shallow depth of field, gentle realistic textures. Sunny green city park with a children's playground (wooden swings, a wooden slide tower, sand). NO other people anywhere in the frame — the park is empty except the two boys. IMPORTANT FACES: every person has a completely blank face — normal warm light-beige skin, but absolutely no facial features: no eyes, no eyebrows, no nose, no mouth, no ears details, just a smooth plain skin-colored face, calm and friendly, not scary, no shadows hiding the face. Hands are normal with the same beige skin. No text, no letters, no logos, no toys or plush animals. 16:9 wide frame.",
+ "characters": "Two Muslim boys about 8 years old. AHMAD: long white qamis (ankle-length robe), white knitted kufi cap, a short navy-blue vest over the qamis, white sneakers, small brown backpack. OMAR: long sand-beige qamis, dark-green knitted kufi cap, a light olive-green jacket over the qamis, dark brown shoes. Both faces are smooth blank beige skin with no features.",
+ "scenes": [
+  {
+   "id": "s1",
+   "prompt": "Wide establishing shot from a high angle: OMAR sits alone on a wooden swing on the right side; AHMAD walks into the playground from the left along the sand path."
+  },
+  {
+   "id": "s2",
+   "prompt": "Medium shot at the swings, camera at child height: AHMAD (left) raises his right hand in a friendly greeting; OMAR on the swing (right) turns toward him."
+  },
+  {
+   "id": "s3",
+   "prompt": "Medium two-shot in profile: both boys stand facing each other next to the swings, relaxed, friendly body language, swing chains in the foreground slightly out of focus."
+  },
+  {
+   "id": "s4",
+   "prompt": "Close over-the-shoulder shot from behind OMAR (his green kufi and olive jacket shoulder blurred in the foreground) looking at AHMAD from the chest up, AHMAD touches his own chest with his hand."
+  },
+  {
+   "id": "s5",
+   "prompt": "Reverse close over-the-shoulder shot from behind AHMAD (his white kufi and navy vest shoulder blurred in the foreground) looking at OMAR from the chest up, OMAR places his hand on his chest."
+  },
+  {
+   "id": "s6",
+   "prompt": "Low-angle two-shot by the wooden slide: both boys standing and talking, trees and blue sky behind them."
+  },
+  {
+   "id": "s7",
+   "prompt": "Medium shot: the two boys shake hands warmly in the middle of the playground, happy friendly mood, warm backlight."
+  }
+ ],
+ "sheet": "Character reference sheet: AHMAD and OMAR standing side by side, full body, front view, neutral plain light background, even soft light."
 }
