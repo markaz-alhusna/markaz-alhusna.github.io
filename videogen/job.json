@@ -1,7 +1,7 @@
 {
  "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
- "stage": "diag",
- "run": 7,
+ "stage": "speech",
+ "run": 8,
  "image_models": [
   "google/gemini-2.5-flash-image",
   "google/gemini-2.5-flash-image-preview"
@@ -80,5 +80,81 @@
   "model": "eleven_v3",
   "samples": 6,
   "sample": "السَّلَامُ عَلَيْكُمْ. اسْمِي أَحْمَدُ. أَنَا مِنْ تُرْكِيَا."
+ },
+ "speech": {
+  "model": "openai/gpt-audio",
+  "system": "You are a text-to-speech voice actor for an Arabic lesson for children. Read the user's text aloud EXACTLY as written, in clear Classical Arabic (fusha), pronouncing every vowel mark (harakat) correctly, at a calm, slightly slow pace for learners. Do not add, translate, explain or repeat anything. Say only the given text once.",
+  "cast": {
+   "ahmad": {
+    "voice": "verse",
+    "style": "a cheerful, bright young boy about 8 years old, high light voice, friendly."
+   },
+   "omar": {
+    "voice": "ash",
+    "style": "a calm, kind young boy about 8 years old, high light voice, slightly softer than his friend."
+   },
+   "title": {
+    "voice": "verse",
+    "style": "a warm, clear narrator announcing a lesson title."
+   }
+  },
+  "lines": [
+   {
+    "who": "title",
+    "text": "الحِوَارُ: التَّعَارُفُ"
+   },
+   {
+    "who": "ahmad",
+    "text": "السَّلَامُ عَلَيْكُمْ."
+   },
+   {
+    "who": "omar",
+    "text": "وَعَلَيْكُمُ السَّلَامُ."
+   },
+   {
+    "who": "ahmad",
+    "text": "كَيْفَ حَالُكَ؟"
+   },
+   {
+    "who": "omar",
+    "text": "بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ. وَكَيْفَ حَالُكَ أَنْتَ؟"
+   },
+   {
+    "who": "ahmad",
+    "text": "أَنَا بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ."
+   },
+   {
+    "who": "omar",
+    "text": "مَا اسْمُكَ؟"
+   },
+   {
+    "who": "ahmad",
+    "text": "اسْمِي أَحْمَدُ. وَمَا اسْمُكَ أَنْتَ؟"
+   },
+   {
+    "who": "omar",
+    "text": "اسْمِي عُمَرُ."
+   },
+   {
+    "who": "ahmad",
+    "text": "مِنْ أَيْنَ أَنْتَ يَا عُمَرُ؟"
+   },
+   {
+    "who": "omar",
+    "text": "أَنَا مِنْ تَشِيشَانَ. وَمِنْ أَيْنَ أَنْتَ؟"
+   },
+   {
+    "who": "ahmad",
+    "text": "أَنَا مِنْ تُرْكِيَا."
+   },
+   {
+    "who": "omar",
+    "text": "أَهْلًا وَسَهْلًا يَا أَحْمَدُ!"
+   },
+   {
+    "who": "ahmad",
+    "text": "أَهْلًا بِكَ يَا عُمَرُ!"
+   }
+  ]
  }
 }
