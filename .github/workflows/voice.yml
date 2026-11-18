@@ -11,6 +11,9 @@ on:
       only:
         description: 'Переозвучить только эту строку (необязательно)'
         required: false
+      recover:
+        description: 'Восстановить из истории ElevenLabs (да — без новой озвучки)'
+        required: false
 permissions:
   contents: write
 concurrency: { group: voice, cancel-in-progress: false }
@@ -32,11 +35,12 @@ jobs:
           STAGES: ${{ github.event.inputs.stages }}
         run: |
           set -o pipefail
-          node voice/gen.mjs 2>&1 | tee voice/last-run.log
+          if [ "${{ github.event.inputs.recover }}" = "да" ]; then node voice/recover.mjs 2>&1 | tee voice/last-run.log; else node voice/gen.mjs 2>&1 | tee voice/last-run.log; fi
       - name: Сохраняем
         if: always()
         run: |
           git config user.name "al-husna-bot"
           git config user.email "actions@users.noreply.github.com"
           git add voice
-          git diff --cached --quiet || (git commit -m "Озвучка: новые файлы" && git pull --rebase && git push)
+          # main защищён правилом «только через запрос на изменения» — кладём в ветку voice-out
+          git diff --cached --quiet || (git commit -m "Озвучка: новые файлы" && git push -f origin HEAD:voice-out)
