@@ -1,7 +1,7 @@
 {
  "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
- "stage": "video",
- "run": 3,
+ "stage": "voices-search",
+ "run": 4,
  "image_models": [
   "google/gemini-2.5-flash-image",
   "google/gemini-2.5-flash-image-preview"
@@ -75,5 +75,10 @@
     "prompt": "The two boys shake hands warmly, then both nod happily and turn together toward the slide."
    }
   ]
+ },
+ "voices": {
+  "model": "eleven_v3",
+  "samples": 8,
+  "sample": "السَّلَامُ عَلَيْكُمْ. اسْمِي أَحْمَدُ. أَنَا مِنْ تُرْكِيَا."
  }
 }

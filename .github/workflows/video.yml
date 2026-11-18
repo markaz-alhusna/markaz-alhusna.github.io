@@ -18,7 +18,9 @@ jobs:
       - name: Генерация
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-        run: node videogen/run.mjs
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+        run: |
+          case "$(node -p "require('./videogen/job.json').stage")" in voices*) node videogen/voices.mjs;; *) node videogen/run.mjs;; esac
       - name: Сохраняем в ветку video-out
         if: always()
         run: |
