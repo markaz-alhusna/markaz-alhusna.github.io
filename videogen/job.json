@@ -1,7 +1,7 @@
 {
  "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
  "stage": "voices-search",
- "run": 5,
+ "run": 6,
  "image_models": [
   "google/gemini-2.5-flash-image",
   "google/gemini-2.5-flash-image-preview"
@@ -78,7 +78,7 @@
  },
  "voices": {
   "model": "eleven_v3",
-  "samples": 8,
+  "samples": 6,
   "sample": "السَّلَامُ عَلَيْكُمْ. اسْمِي أَحْمَدُ. أَنَا مِنْ تُرْكِيَا."
  }
 }

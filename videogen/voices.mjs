@@ -4,6 +4,7 @@ import fs from 'node:fs';
 const KEY = process.env.ELEVENLABS_API_KEY; if(!KEY){ console.log('нет ELEVENLABS_API_KEY'); process.exit(1); }
 const job = JSON.parse(fs.readFileSync('videogen/job.json','utf8'));
 const out = `videogen/out/run${job.run}`; fs.mkdirSync(out,{recursive:true});
+const _f=globalThis.fetch; const fetch=async (u,o={})=>{ for(let k=0;k<2;k++){ try{ return await _f(u,{...o, signal:AbortSignal.timeout(120000)}); }catch(e){ console.log('сеть:', String(u).slice(0,60), e.cause?.code||e.name); } } return {ok:false,status:0,text:async()=>'timeout',json:async()=>({})}; };
 const H = {'xi-api-key':KEY,'content-type':'application/json'}; const E='https://api.elevenlabs.io/v1';
 const log=[]; const say=(...a)=>{const s=a.join(' ');console.log(s);log.push(s);};
 async function tts(voice, text, file){
@@ -13,9 +14,9 @@ async function tts(voice, text, file){
 }
 if(job.stage==='voices-search'){
   const seen = new Map();
-  for(const q of ['boy','kid','child']){
-    for(const extra of ['&language=ar','']){
-      let r; try{ r = await fetch(`${E}/shared-voices?page_size=30&gender=male&search=${encodeURIComponent(q)}${extra}`,{headers:H, signal:AbortSignal.timeout(90000)}); }catch(e){ say('поиск таймаут', q, extra); continue; }
+  for(const q of ['boy','kid']){
+    for(const extra of ['']){
+      let r; try{ r = await fetch(`${E}/shared-voices?page_size=30&gender=male&search=${encodeURIComponent(q)}${extra}`,{headers:H}); }catch(e){ say('поиск таймаут', q, extra); continue; }
       if(!r.ok){ say('поиск', q, r.status, (await r.text()).slice(0,200)); continue; }
       const j = await r.json();
       for(const v of j.voices||[]){ const d=(v.name+' '+(v.description||'')+' '+(v.descriptive||'')+' '+(v.use_case||'')).toLowerCase();
@@ -42,3 +43,4 @@ if(job.stage==='voices'){
 }
 try{ const r=await fetch(`${E}/user/subscription`,{headers:H}); const j=await r.json(); say(`символов использовано ${j.character_count} из ${j.character_limit}`);}catch{}
 fs.writeFileSync(`${out}/log.txt`, log.join('\n'));
+process.on('exit',()=>fs.writeFileSync(`${out}/log.txt`, log.join('\n')));
