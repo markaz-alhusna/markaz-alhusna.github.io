@@ -20,7 +20,7 @@ jobs:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
         run: |
-          case "$(node -p "require('./videogen/job.json').stage")" in voices*) node videogen/voices.mjs;; *) node videogen/run.mjs;; esac
+          case "$(node -p "require('./videogen/job.json').stage")" in voices*) node videogen/voices.mjs;; diag) node videogen/diag.mjs;; *) node videogen/run.mjs;; esac
       - name: Сохраняем в ветку video-out
         if: always()
         run: |
