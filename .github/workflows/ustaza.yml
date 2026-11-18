@@ -3,7 +3,7 @@ name: Голос устазы → голос платформы
 on:
   push:
     branches: [ustaza-voice]
-    paths: ['voice/ustaza/run.json','voice/ustaza/variants.json']
+    paths: ['voice/ustaza/run.json','voice/ustaza/variants.json','voice/ustaza/stt/run.json']
 permissions:
   contents: write
 jobs:
@@ -17,10 +17,10 @@ jobs:
         env:
           ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
         run: |
-          if git diff --name-only HEAD~1 HEAD | grep -q variants.json; then bash voice/ustaza/variants.sh 2>&1 | tee voice/ustaza/last-run.log; else bash voice/ustaza/sts.sh 2>&1 | tee voice/ustaza/last-run.log; fi
+          if git diff --name-only HEAD~1 HEAD | grep -q stt/run.json; then bash voice/ustaza/stt.sh 2>&1 | tee voice/ustaza/last-run.log; elif git diff --name-only HEAD~1 HEAD | grep -q variants.json; then bash voice/ustaza/variants.sh 2>&1 | tee voice/ustaza/last-run.log; else bash voice/ustaza/sts.sh 2>&1 | tee voice/ustaza/last-run.log; fi
       - name: Сохранить
         run: |
           git config user.name "github-actions"; git config user.email "actions@github.com"
-          mkdir -p voice/ustaza/out; git add voice/ustaza/out voice/ustaza/last-run.log
+          mkdir -p voice/ustaza/out; git add voice/ustaza/out voice/ustaza/last-run.log voice/ustaza/stt
           git commit -m "Голос устазы: результат [skip ci]" || exit 0
           git push origin HEAD:ustaza-voice
