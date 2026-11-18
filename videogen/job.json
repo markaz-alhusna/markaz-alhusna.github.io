@@ -1,7 +1,7 @@
 {
  "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
- "stage": "images",
- "run": 2,
+ "stage": "video",
+ "run": 3,
  "image_models": [
   "google/gemini-2.5-flash-image",
   "google/gemini-2.5-flash-image-preview"
@@ -38,5 +38,42 @@
    "prompt": "Medium shot: the two boys shake hands warmly in the middle of the playground, happy friendly mood, warm backlight."
   }
  ],
- "sheet": "Character reference sheet: AHMAD and OMAR standing side by side, full body, front view, neutral plain light background, even soft light."
+ "sheet": "Character reference sheet: AHMAD and OMAR standing side by side, full body, front view, neutral plain light background, even soft light.",
+ "video": {
+  "from": "videogen/out/run2",
+  "common": "Keep both boys' faces completely blank smooth beige skin with no eyes, no nose, no mouth during the whole clip. Keep their clothes exactly the same. No other people appear. Gentle natural motion, very slow camera push-in, warm sunny light, stylized 3D animated film look.",
+  "models": [
+   {
+    "model": "google/veo-3.1-lite",
+    "resolution": "720p",
+    "duration": 6,
+    "provider": {
+     "options": {
+      "google-vertex": {
+       "parameters": {
+        "personGeneration": "allow_all"
+       }
+      }
+     }
+    }
+   },
+   {
+    "model": "x-ai/grok-imagine-video-1.5-lite",
+    "resolution": "720p",
+    "duration": 6
+   }
+  ],
+  "clips": [
+   {
+    "id": "v2",
+    "image": "s2",
+    "prompt": "Ahmad in the white qamis waves his raised hand in greeting; Omar on the swing slows down, turns toward him and raises his hand in reply."
+   },
+   {
+    "id": "v7",
+    "image": "s7",
+    "prompt": "The two boys shake hands warmly, then both nod happily and turn together toward the slide."
+   }
+  ]
+ }
 }
