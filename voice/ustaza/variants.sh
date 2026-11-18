@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Пробы настроек: voice/ustaza/variants.json — список {name,file,model,stability,similarity,style}
 set -uo pipefail
-cd voice/ustaza; mkdir -p out/var/ks
+cd voice/ustaza; mkdir -p out/var/ks out/var/kd
 VID=gMB389pj77Qe5nErWNjd
 python3 -c "import json;[print(v['name'],v['file'],v['model'],v['stability'],v['similarity'],v.get('style',0),v.get('seed',0),v.get('text','-')) for v in json.load(open('variants.json'))]" | while read n f mo st si sy sd tx; do
   if [ "$tx" != - ]; then

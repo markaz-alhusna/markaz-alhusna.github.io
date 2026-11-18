@@ -1,164 +1,674 @@
 [
 {
-"name": "ks/k18_t01",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 81,
-"text": "ظِ"
+"name": "kd/d01_m1",
+"file": "kd/d01.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
 },
 {
-"name": "ks/k18_t02",
-"file": "-",
-"model": "eleven_v3",
-"stability": 0.5,
-"similarity": 0.85,
-"seed": 82,
-"text": "ظِ"
+"name": "kd/d01_m2",
+"file": "kd/d01.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
 },
 {
-"name": "ks/k18_t03",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 83,
-"text": "ظِ"
+"name": "kd/d01_e1",
+"file": "kd/d01.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
 },
 {
-"name": "ks/k18_t04",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 81,
-"text": "ظِ."
+"name": "kd/d02_m1",
+"file": "kd/d02.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
 },
 {
-"name": "ks/k18_t05",
-"file": "-",
-"model": "eleven_v3",
-"stability": 0.5,
-"similarity": 0.85,
-"seed": 82,
-"text": "ظِ."
+"name": "kd/d02_m2",
+"file": "kd/d02.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
 },
 {
-"name": "ks/k18_t06",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 83,
-"text": "ظِ."
+"name": "kd/d02_e1",
+"file": "kd/d02.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
 },
 {
-"name": "ks/k18_t07",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 81,
-"text": "ظِ،"
+"name": "kd/d03_m1",
+"file": "kd/d03.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
 },
 {
-"name": "ks/k18_t08",
-"file": "-",
-"model": "eleven_v3",
-"stability": 0.5,
-"similarity": 0.85,
-"seed": 82,
-"text": "ظِ،"
+"name": "kd/d03_m2",
+"file": "kd/d03.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
 },
 {
-"name": "ks/k18_t09",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 83,
-"text": "ظِ،"
+"name": "kd/d03_e1",
+"file": "kd/d03.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
 },
 {
-"name": "ks/k23_t10",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 81,
-"text": "كِ"
+"name": "kd/d04_m1",
+"file": "kd/d04.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
 },
 {
-"name": "ks/k23_t11",
-"file": "-",
-"model": "eleven_v3",
-"stability": 0.5,
-"similarity": 0.85,
-"seed": 82,
-"text": "كِ"
+"name": "kd/d04_m2",
+"file": "kd/d04.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
 },
 {
-"name": "ks/k23_t12",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 83,
-"text": "كِ"
+"name": "kd/d04_e1",
+"file": "kd/d04.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
 },
 {
-"name": "ks/k23_t13",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 81,
-"text": "كِ."
+"name": "kd/d05_m1",
+"file": "kd/d05.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
 },
 {
-"name": "ks/k23_t14",
-"file": "-",
-"model": "eleven_v3",
-"stability": 0.5,
-"similarity": 0.85,
-"seed": 82,
-"text": "كِ."
+"name": "kd/d05_m2",
+"file": "kd/d05.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
 },
 {
-"name": "ks/k23_t15",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 83,
-"text": "كِ."
+"name": "kd/d05_e1",
+"file": "kd/d05.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
 },
 {
-"name": "ks/k23_t16",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 81,
-"text": "كِ،"
+"name": "kd/d06_m1",
+"file": "kd/d06.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
 },
 {
-"name": "ks/k23_t17",
-"file": "-",
-"model": "eleven_v3",
-"stability": 0.5,
-"similarity": 0.85,
-"seed": 82,
-"text": "كِ،"
+"name": "kd/d06_m2",
+"file": "kd/d06.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
 },
 {
-"name": "ks/k23_t18",
-"file": "-",
-"model": "eleven_multilingual_v2",
-"stability": 0.6,
-"similarity": 0.85,
-"seed": 83,
-"text": "كِ،"
+"name": "kd/d06_e1",
+"file": "kd/d06.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d07_m1",
+"file": "kd/d07.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d07_m2",
+"file": "kd/d07.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d07_e1",
+"file": "kd/d07.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d08_m1",
+"file": "kd/d08.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d08_m2",
+"file": "kd/d08.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d08_e1",
+"file": "kd/d08.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d09_m1",
+"file": "kd/d09.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d09_m2",
+"file": "kd/d09.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d09_e1",
+"file": "kd/d09.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d10_m1",
+"file": "kd/d10.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d10_m2",
+"file": "kd/d10.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d10_e1",
+"file": "kd/d10.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d11_m1",
+"file": "kd/d11.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d11_m2",
+"file": "kd/d11.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d11_e1",
+"file": "kd/d11.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d12_m1",
+"file": "kd/d12.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d12_m2",
+"file": "kd/d12.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d12_e1",
+"file": "kd/d12.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d13_m1",
+"file": "kd/d13.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d13_m2",
+"file": "kd/d13.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d13_e1",
+"file": "kd/d13.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d14_m1",
+"file": "kd/d14.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d14_m2",
+"file": "kd/d14.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d14_e1",
+"file": "kd/d14.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d15_m1",
+"file": "kd/d15.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d15_m2",
+"file": "kd/d15.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d15_e1",
+"file": "kd/d15.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d16_m1",
+"file": "kd/d16.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d16_m2",
+"file": "kd/d16.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d16_e1",
+"file": "kd/d16.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d17_m1",
+"file": "kd/d17.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d17_m2",
+"file": "kd/d17.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d17_e1",
+"file": "kd/d17.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d18_m1",
+"file": "kd/d18.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d18_m2",
+"file": "kd/d18.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d18_e1",
+"file": "kd/d18.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d19_m1",
+"file": "kd/d19.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d19_m2",
+"file": "kd/d19.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d19_e1",
+"file": "kd/d19.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d20_m1",
+"file": "kd/d20.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d20_m2",
+"file": "kd/d20.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d20_e1",
+"file": "kd/d20.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d21_m1",
+"file": "kd/d21.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d21_m2",
+"file": "kd/d21.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d21_e1",
+"file": "kd/d21.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d22_m1",
+"file": "kd/d22.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d22_m2",
+"file": "kd/d22.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d22_e1",
+"file": "kd/d22.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d23_m1",
+"file": "kd/d23.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d23_m2",
+"file": "kd/d23.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d23_e1",
+"file": "kd/d23.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d24_m1",
+"file": "kd/d24.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d24_m2",
+"file": "kd/d24.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d24_e1",
+"file": "kd/d24.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d25_m1",
+"file": "kd/d25.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d25_m2",
+"file": "kd/d25.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d25_e1",
+"file": "kd/d25.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d26_m1",
+"file": "kd/d26.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d26_m2",
+"file": "kd/d26.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d26_e1",
+"file": "kd/d26.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d27_m1",
+"file": "kd/d27.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d27_m2",
+"file": "kd/d27.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d27_e1",
+"file": "kd/d27.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
+},
+{
+"name": "kd/d28_m1",
+"file": "kd/d28.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 91
+},
+{
+"name": "kd/d28_m2",
+"file": "kd/d28.mp3",
+"model": "eleven_multilingual_sts_v2",
+"stability": 0.35,
+"similarity": 1.0,
+"seed": 92
+},
+{
+"name": "kd/d28_e1",
+"file": "kd/d28.mp3",
+"model": "eleven_english_sts_v2",
+"stability": 0.4,
+"similarity": 1.0,
+"seed": 93
 }
 ]
