@@ -1,0 +1,23 @@
+name: Картинки (OpenRouter)
+# Запускается при пуше в ветку images, когда меняется images/gen/run.json. Картинки кладутся в images/gen/out в ту же ветку.
+on:
+  push:
+    branches: [images]
+    paths: ['images/gen/run.json']
+permissions:
+  contents: write
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Генерация
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: python3 images/gen/gen.py 2>&1 | tee images/gen/last-run.log
+      - name: Сохранить
+        run: |
+          git config user.name "github-actions"; git config user.email "actions@github.com"
+          git add images/gen/out images/gen/last-run.log
+          git commit -m "Картинки: результат [skip ci]" || exit 0
+          git push origin HEAD:images

@@ -1,0 +1,6 @@
+{"try": 1,
+ "jobs": [
+  {"name": "proba-yabloko",
+   "models": ["google/gemini-2.5-flash-image"],
+   "prompt": "A single glossy 3D red apple with a small green leaf, soft clay-like 3D render, centered on a plain warm white background, soft studio lighting, gentle shadow, children's educational flashcard style, no text, no faces, square image"}
+ ]}
