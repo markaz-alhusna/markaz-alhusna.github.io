@@ -13101,6 +13101,790 @@
    "text": "[warmly] Это не та огласовка. Попробуй ещё!",
    "lang": "ru",
    "stage": "fix1118"
+  },
+  {
+   "key": "أَبَّ",
+   "text": "أَبَّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أَبْ",
+   "text": "أَبْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أَتْ",
+   "text": "أَتْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أَحْ",
+   "text": "أَحْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أَخْ",
+   "text": "أَخْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أَدْ",
+   "text": "أَدْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أَعْ",
+   "text": "أَعْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أَغْ",
+   "text": "أَغْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أَمَّ",
+   "text": "أَمَّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أَهْ",
+   "text": "أَهْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أُبْ",
+   "text": "أُبْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أُتْ",
+   "text": "أُتْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أُدْ",
+   "text": "أُدْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أُمُّ",
+   "text": "أُمُّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "أُمِّ",
+   "text": "أُمِّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "إِبْ",
+   "text": "إِبْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "إِتْ",
+   "text": "إِتْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "إِدْ",
+   "text": "إِدْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "إِلَّا",
+   "text": "إِلَّا",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "إِلَٰهَ",
+   "text": "إِلَٰهَ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الإِحْسَانُ",
+   "text": "الإِحْسَانُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الإِسْلَامُ",
+   "text": "الإِسْلَامُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الإِيمَانُ",
+   "text": "الإِيمَانُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "التَّنْوِينُ",
+   "text": "التَّنْوِينُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "التَّوْحِيد",
+   "text": "التَّوْحِيد",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "الحَكِيمُ",
+   "text": "الحَكِيمُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الدَّرْسُ",
+   "text": "الدَّرْسُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الرَّجُلُ",
+   "text": "الرَّجُلُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الرَّحْمَٰنُ",
+   "text": "الرَّحْمَٰنُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "السَّمِيعُ",
+   "text": "السَّمِيعُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "السُّكُونُ",
+   "text": "السُّكُونُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الشَّدَّةُ",
+   "text": "الشَّدَّةُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الشَّمْسُ",
+   "text": "الشَّمْسُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الشَّهَادَةُ",
+   "text": "الشَّهَادَةُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الضَّمَّةُ",
+   "text": "الضَّمَّةُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "اللَّهُ",
+   "text": "اللَّهُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "اللَّهِ",
+   "text": "اللَّهِ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "النُّورُ",
+   "text": "النُّورُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الَ",
+   "text": "الَ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الْ",
+   "text": "الْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "الْبَابُ",
+   "text": "الْبَابُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الْبَيْتُ",
+   "text": "الْبَيْتُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الْفِيلُ",
+   "text": "الْفِيلُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الْقَلْبُ",
+   "text": "الْقَلْبُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الْقَمَرُ",
+   "text": "الْقَمَرُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الْقُلُوبِ",
+   "text": "الْقُلُوبِ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الْكِتَابُ",
+   "text": "الْكِتَابُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "الْمَدُّ",
+   "text": "الْمَدُّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "الْوَلَدُ",
+   "text": "الْوَلَدُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "بَا",
+   "text": "بَا",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "بَابٌ",
+   "text": "بَابٌ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "بَطٌّ",
+   "text": "بَطٌّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "بَّ",
+   "text": "بَّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "بُو",
+   "text": "بُو",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "بِفَضْلِ",
+   "text": "بِفَضْلِ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "بِنْتٌ",
+   "text": "بِنْتٌ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "بِي",
+   "text": "بِي",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "تَا",
+   "text": "تَا",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "تَّ",
+   "text": "تَّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "تُو",
+   "text": "تُو",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "تِي",
+   "text": "تِي",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "ثَبِّتْ",
+   "text": "ثَبِّتْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "جَدٌّ",
+   "text": "جَدٌّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "حَجٌّ",
+   "text": "حَجٌّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "خَالِقُ",
+   "text": "خَالِقُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "دَا",
+   "text": "دَا",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "دُبٌّ",
+   "text": "دُبٌّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "دِي",
+   "text": "دِي",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "رَبِّ",
+   "text": "رَبِّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "رُسُلُ",
+   "text": "رُسُلُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "رِي",
+   "text": "رِي",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "سَا",
+   "text": "سَا",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "سُو",
+   "text": "سُو",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "شَمْسٌ",
+   "text": "شَمْسٌ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "شَيْءٌ",
+   "text": "شَيْءٌ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "شَيْءٍ",
+   "text": "شَيْءٍ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "عَنْ",
+   "text": "عَنْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "عِبَادَة",
+   "text": "عِبَادَة",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "فُو",
+   "text": "فُو",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "فِي",
+   "text": "فِي",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "فِيلٌ",
+   "text": "فِيلٌ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "قَا",
+   "text": "قَا",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "قَلْبٌ",
+   "text": "قَلْبٌ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "قَلْبِي",
+   "text": "قَلْبِي",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "قُلْ",
+   "text": "قُلْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "قِطٌّ",
+   "text": "قِطٌّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "كَمِثْلِهِ",
+   "text": "كَمِثْلِهِ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "كُتُبُ",
+   "text": "كُتُبُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "كُلِّ",
+   "text": "كُلِّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "كِي",
+   "text": "كِي",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "لَا",
+   "text": "لَا",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "لَمْ",
+   "text": "لَمْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "لَهُ",
+   "text": "لَهُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "لَيْسَ",
+   "text": "لَيْسَ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "لُو",
+   "text": "لُو",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "لِي",
+   "text": "لِي",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "مٌ",
+   "text": "مٌ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "مَا",
+   "text": "مَا",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "مَّ",
+   "text": "مَّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "مُطِرْنَا",
+   "text": "مُطِرْنَا",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "مُو",
+   "text": "مُو",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "مُّ",
+   "text": "مُّ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "مِنْ",
+   "text": "مِنْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "مِي",
+   "text": "مِي",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "نٍ",
+   "text": "نٍ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "نَا",
+   "text": "نَا",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "نُو",
+   "text": "نُو",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "نُورٌ",
+   "text": "نُورٌ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "نِي",
+   "text": "نِي",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "هَلْ",
+   "text": "هَلْ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": false
+  },
+  {
+   "key": "وَحْدَهُ",
+   "text": "وَحْدَهُ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
+  },
+  {
+   "key": "وَرَحْمَتِهِ",
+   "text": "وَرَحْمَتِهِ",
+   "lang": "ar",
+   "stage": "ar1118",
+   "keepvowel": true
   }
  ]
 }
