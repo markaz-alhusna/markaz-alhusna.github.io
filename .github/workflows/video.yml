@@ -1,0 +1,28 @@
+name: Видео ИИ
+# Запускается пушем в ветку video-work (меняется videogen/job.json). Ключ OpenRouter — только в Secrets.
+on:
+  push:
+    branches: [video-work]
+    paths: ['videogen/job.json']
+permissions:
+  contents: write
+concurrency: { group: video, cancel-in-progress: false }
+jobs:
+  gen:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+      - name: Генерация
+        env:
+          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+        run: node videogen/run.mjs
+      - name: Сохраняем в ветку video-out
+        if: always()
+        run: |
+          git config user.name "al-husna-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add videogen/out || true
+          git diff --cached --quiet || (git commit -m "Видео ИИ: результаты" && git push -f origin HEAD:video-out)
