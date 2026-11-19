@@ -1,7 +1,7 @@
 {
  "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
  "stage": "video",
- "run": 16,
+ "run": 17,
  "image_models": [
   "google/gemini-2.5-flash-image",
   "google/gemini-2.5-flash-image-preview"
@@ -49,7 +49,7 @@
  "sheet": null,
  "video": {
   "from": "videogen/out/run15",
-  "common": "Both boys keep completely blank smooth beige faces with NO eyes, NO eyebrows, NO nose, NO mouth and NO smile for the whole clip. They look at each other, never at the camera, and never turn their faces toward the camera. Same clothes as in the image. No other people. Lively natural movement, stylized 3D animated film look, warm sunny light.",
+  "common": "The boys' faces are smooth, blank beige surfaces like faceless dolls: no eyes, no eyebrows, no nose, no mouth, no lips, no smile, the face stays completely empty and does not move. They communicate only with hand gestures and body movement. They look at each other, never at the camera. Same clothes as in the image. No other people, no animals. Natural lively body movement, stylized 3D animated film look, warm sunny light.",
   "models": [
    {
     "model": "google/veo-3.1-lite",
@@ -59,7 +59,8 @@
      "options": {
       "google-vertex": {
        "parameters": {
-        "personGeneration": "allow_all"
+        "personGeneration": "allow_all",
+        "negativePrompt": "eyes, eyebrows, mouth, lips, smile, teeth, nose, facial features, facial expression, talking mouth, face looking at camera, animals"
        }
       }
      }
@@ -73,49 +74,29 @@
   ],
   "clips": [
    {
-    "id": "m1",
-    "image": "a1",
-    "prompt": "Ahmad walks steadily along the path toward the swings; Omar swings back and forth on the swing. Camera slowly tracks sideways following Ahmad."
-   },
-   {
     "id": "m2",
     "image": "a2",
-    "prompt": "Ahmad waves his raised hand toward Omar in greeting; Omar lands from the swing, steps toward Ahmad and raises his hand back toward him. The empty swing keeps swaying."
+    "prompt": "Ahmad raises his hand toward Omar in greeting; Omar lands from the swing, steps toward Ahmad and raises his hand back toward him. The empty swing keeps swaying."
    },
    {
     "id": "m3",
     "image": "a3",
-    "prompt": "The two boys talk to each other: Omar gestures with his open hand, Ahmad nods and gestures back, small natural body movements, the swing sways behind them."
-   },
-   {
-    "id": "m4",
-    "image": "a4",
-    "prompt": "The two boys walk side by side toward the slide tower, talking and turning their heads toward each other, arms swinging naturally. Camera tracks alongside them."
+    "prompt": "The two boys stand facing each other: Omar gestures with his open hand, Ahmad nods his head and gestures back, small natural body movements, the swing sways behind them."
    },
    {
     "id": "m5",
-    "image": "a5",
-    "prompt": "Ahmad puts his hand on his chest, nods while speaking to Omar, then opens his hand toward Omar as if asking a question. Slight camera drift."
+    "image": "a3",
+    "prompt": "Ahmad puts his hand on his chest and nods, then opens his hand toward Omar; Omar nods. Slight slow camera push-in."
    },
    {
     "id": "m6",
     "image": "a6",
-    "prompt": "Omar puts his hand on his chest, nods while speaking to Ahmad, then lowers his hand. Slight camera drift."
+    "prompt": "Omar puts his hand on his chest and nods, then lowers his hand. Slight camera drift."
    },
    {
     "id": "m7",
     "image": "a7",
-    "prompt": "Sitting on the edge of the slide platform, the boys swing their legs and talk, turning toward each other with lively hand gestures."
-   },
-   {
-    "id": "m8",
-    "image": "a8",
-    "prompt": "Ahmad points into the distance and moves his hand as if describing a faraway place; Omar turns his head to look where he points, then back to Ahmad, nodding."
-   },
-   {
-    "id": "m9",
-    "image": "a9",
-    "prompt": "The boys shake hands warmly, then let go and run off together toward the slide, side by side, seen from the side."
+    "prompt": "Sitting on the edge of the wooden platform, the boys swing their legs and turn toward each other with lively hand gestures."
    }
   ]
  },
