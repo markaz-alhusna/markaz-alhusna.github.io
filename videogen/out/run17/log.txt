@@ -1,0 +1,13 @@
+[до] израсходовано всего: $3.6135; лимит ключа: нет; осталось по лимиту: —
+запущено m2 google/veo-3.1-lite gen-vid-1795072369-I0kq4CN12ISGwVFBGT8D
+ok m2 google/veo-3.1-lite стоимость 0.24
+запущено m3 google/veo-3.1-lite gen-vid-1795072453-c2uInia4ff7TYW5D9QNo
+ok m3 google/veo-3.1-lite стоимость 0.24
+запущено m5 google/veo-3.1-lite gen-vid-1795072537-XeWSE3O1i9SKIFn36ILr
+ok m5 google/veo-3.1-lite стоимость 0.24
+запущено m6 google/veo-3.1-lite gen-vid-1795072601-nvfelQehsrU6lms9yW3i
+ok m6 google/veo-3.1-lite стоимость 0.24
+запущено m7 google/veo-3.1-lite gen-vid-1795072665-b1UaxYkDj0wrMvZFmp9A
+ok m7 google/veo-3.1-lite стоимость 0.24
+[после] израсходовано всего: $4.8135; лимит ключа: нет; осталось по лимиту: —
+Этот запуск стоил примерно: $1.2000
