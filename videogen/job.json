@@ -1,7 +1,7 @@
 {
  "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
- "stage": "speech",
- "run": 10,
+ "stage": "voices-search",
+ "run": 11,
  "image_models": [
   "google/gemini-2.5-flash-image",
   "google/gemini-2.5-flash-image-preview"
