@@ -1,7 +1,7 @@
 {
  "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
  "stage": "voices",
- "run": 13,
+ "run": 14,
  "image_models": [
   "google/gemini-2.5-flash-image",
   "google/gemini-2.5-flash-image-preview"
@@ -179,6 +179,17 @@
     "who": "ahmad",
     "text": "أَهْلًا بِكَ يَا عُمَرُ!"
    }
+  ],
+  "redo": [
+   2,
+   6,
+   8,
+   13
+  ],
+  "attempts": 4,
+  "models": [
+   "eleven_v3",
+   "eleven_multilingual_v2"
   ]
  },
  "speech": {

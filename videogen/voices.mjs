@@ -43,15 +43,28 @@ if(job.stage==='voices-search'){
     if(await tts(vid, job.voices.sample, `${out}/cand-${n}.mp3`)){ say('проба', n, vid, v.name); fs.appendFileSync(`${out}/samples.txt`, `${n}\t${vid}\t${v.name}\t${v.age}\t${v.language}\n`); n++; }
   }
 }
+const norm = x=>(x||'').replace(/[\u064B-\u0652\u0670\u0640«»!?؟.,،:\s]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ة/g,'ه');
+async function hear(f){
+  try{ const r = await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Authorization':`Bearer ${process.env.OPENROUTER_API_KEY}`,'Content-Type':'application/json'},body:JSON.stringify({model:'google/gemini-2.5-flash',messages:[{role:'user',content:[{type:'text',text:'Transcribe this Arabic audio exactly as heard, with full harakat. Output only the transcription.'},{type:'input_audio',input_audio:{data:fs.readFileSync(f).toString('base64'),format:'mp3'}}]}]})});
+    const j = await r.json(); return (j.choices?.[0]?.message?.content||'').trim(); }catch(e){ return ''; }
+}
 if(job.stage==='voices'){
+  const models = job.voices.models || [job.voices.model||'eleven_v3'];
   for(const [i,l] of job.voices.lines.entries()){
+    if(job.voices.redo && !job.voices.redo.includes(i)) continue;
     const f = `${out}/line${String(i).padStart(2,'0')}.mp3`;
-    if(await tts(job.voices.ids[l.who], l.text, f)){
-      say('ok', i, l.who);
-      try{ const r = await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Authorization':`Bearer ${process.env.OPENROUTER_API_KEY}`,'Content-Type':'application/json'},body:JSON.stringify({model:'google/gemini-2.5-flash',messages:[{role:'user',content:[{type:'text',text:'Transcribe this Arabic audio exactly as heard, with full harakat. Output only the transcription.'},{type:'input_audio',input_audio:{data:fs.readFileSync(f).toString('base64'),format:'mp3'}}]}]})});
-        const j = await r.json(); say('   слышно:', (j.choices?.[0]?.message?.content||JSON.stringify(j).slice(0,200)).trim(), '| надо:', l.text); }catch(e){ say('   проверка не вышла', e.message); }
+    let done=false;
+    for(let k=0;k<(job.voices.attempts||1) && !done;k++){
+      const m = models[k % models.length]; job.voices.model = m;
+      const tf = `${out}/tmp.mp3`;
+      if(!(await tts(job.voices.ids[l.who], l.text, tf))) continue;
+      const h = await hear(tf); const good = norm(h)===norm(l.text);
+      say(good?'ok':'не то', i, l.who, m, '| слышно:', h, '| надо:', l.text);
+      if(good || !fs.existsSync(f)) fs.copyFileSync(tf, f);
+      if(good) done=true;
     }
   }
+  if(fs.existsSync(`${out}/tmp.mp3`)) fs.unlinkSync(`${out}/tmp.mp3`);
 }
 try{ const r=await fetch(`${E}/user/subscription`,{headers:H}); const j=await r.json(); say(`символов использовано ${j.character_count} из ${j.character_limit}`);}catch{}
 fs.writeFileSync(`${out}/log.txt`, log.join('\n'));
