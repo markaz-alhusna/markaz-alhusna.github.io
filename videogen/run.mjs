@@ -43,7 +43,7 @@ if(job.stage==='images'){
   const base = `STYLE: ${job.style}\nCHARACTERS (keep exactly the same clothes in every image): ${job.characters}\n`;
   if(job.sheet) await tryGen('sheet', `Create one image.\n${base}IMAGE: ${job.sheet}`, []);
   for(const s of job.scenes){
-    const refs = fs.existsSync(`${out}/sheet.png`) ? [`${out}/sheet.png`] : [];
+    const sheet = job.sheet_file || `${out}/sheet.png`; const refs = fs.existsSync(sheet) ? [sheet] : [];
     const text = `Create one image.\n${base}SCENE: ${s.prompt}\n` + (refs.length ? 'The attached image is the character reference sheet: keep the boys and clothes identical, but use the camera angle and composition described in SCENE.' : '');
     await tryGen(s.id, text, refs);
   }

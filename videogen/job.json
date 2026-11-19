@@ -1,7 +1,7 @@
 {
  "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
- "stage": "voices",
- "run": 14,
+ "stage": "images",
+ "run": 15,
  "image_models": [
   "google/gemini-2.5-flash-image",
   "google/gemini-2.5-flash-image-preview"
@@ -10,35 +10,43 @@
  "characters": "Two Muslim boys about 8 years old. AHMAD: long white qamis (ankle-length robe), white knitted kufi cap, a short navy-blue vest over the qamis, white sneakers, small brown backpack. OMAR: long sand-beige qamis, dark-green knitted kufi cap, a light olive-green jacket over the qamis, dark brown shoes. Both faces are smooth blank beige skin with no features.",
  "scenes": [
   {
-   "id": "s1",
-   "prompt": "Wide establishing shot from a high angle: OMAR sits alone on a wooden swing on the right side; AHMAD walks into the playground from the left along the sand path."
+   "id": "a1",
+   "prompt": "Wide establishing shot, slightly high angle: OMAR swings on a wooden swing on the right; AHMAD walks along the sand path from the left toward the swings, seen in side profile mid-step. The boys are turned toward EACH OTHER (side profile or three-quarter view), never looking at the camera. Natural dynamic poses, mid-movement."
   },
   {
-   "id": "s2",
-   "prompt": "Medium shot at the swings, camera at child height: AHMAD (left) raises his right hand in a friendly greeting; OMAR on the swing (right) turns toward him."
+   "id": "a2",
+   "prompt": "Medium-wide side view: AHMAD (left, side profile) stands a few steps from the swing and raises his right hand in greeting TOWARD OMAR; OMAR (right, side profile) sits on the slowing swing, turned toward Ahmad. Camera from the side, both in profile. The boys are turned toward EACH OTHER (side profile or three-quarter view), never looking at the camera. Natural dynamic poses, mid-movement."
   },
   {
-   "id": "s3",
-   "prompt": "Medium two-shot in profile: both boys stand facing each other next to the swings, relaxed, friendly body language, swing chains in the foreground slightly out of focus."
+   "id": "a3",
+   "prompt": "Medium two-shot from the side: OMAR has just stepped off the swing; the two boys stand facing each other in profile, Omar gestures with an open hand while talking, the swing still moving behind him. The boys are turned toward EACH OTHER (side profile or three-quarter view), never looking at the camera. Natural dynamic poses, mid-movement."
   },
   {
-   "id": "s4",
-   "prompt": "Close over-the-shoulder shot from behind OMAR (his green kufi and olive jacket shoulder blurred in the foreground) looking at AHMAD from the chest up, AHMAD touches his own chest with his hand."
+   "id": "a4",
+   "prompt": "Medium tracking shot from the side: the two boys walk side by side along the sand path toward the wooden slide tower, turned toward each other while talking, mid-step. The boys are turned toward EACH OTHER (side profile or three-quarter view), never looking at the camera. Natural dynamic poses, mid-movement."
   },
   {
-   "id": "s5",
-   "prompt": "Reverse close over-the-shoulder shot from behind AHMAD (his white kufi and navy vest shoulder blurred in the foreground) looking at OMAR from the chest up, OMAR places his hand on his chest."
+   "id": "a5",
+   "prompt": "Medium shot over OMAR's shoulder (his green kufi and olive jacket shoulder blurred in the foreground): AHMAD in three-quarter view facing Omar, putting his hand on his chest as he introduces himself. The boys are turned toward EACH OTHER (side profile or three-quarter view), never looking at the camera. Natural dynamic poses, mid-movement."
   },
   {
-   "id": "s6",
-   "prompt": "Low-angle two-shot by the wooden slide: both boys standing and talking, trees and blue sky behind them."
+   "id": "a6",
+   "prompt": "Medium shot over AHMAD's shoulder (his white kufi and navy vest blurred in the foreground): OMAR in three-quarter view facing Ahmad, putting his hand on his chest as he introduces himself. The boys are turned toward EACH OTHER (side profile or three-quarter view), never looking at the camera. Natural dynamic poses, mid-movement."
   },
   {
-   "id": "s7",
-   "prompt": "Medium shot: the two boys shake hands warmly in the middle of the playground, happy friendly mood, warm backlight."
+   "id": "a7",
+   "prompt": "Medium shot: both boys sit side by side on the edge of the wooden slide platform with legs dangling, turned toward each other talking, seen from the side. The boys are turned toward EACH OTHER (side profile or three-quarter view), never looking at the camera. Natural dynamic poses, mid-movement."
+  },
+  {
+   "id": "a8",
+   "prompt": "Medium side shot near the sandbox: AHMAD (profile) points toward the distance as if describing a faraway country, OMAR (profile) listens turned toward him. The boys are turned toward EACH OTHER (side profile or three-quarter view), never looking at the camera. Natural dynamic poses, mid-movement."
+  },
+  {
+   "id": "a9",
+   "prompt": "Medium side shot: the two boys shake hands warmly, both in side profile facing each other, playground behind them. The boys are turned toward EACH OTHER (side profile or three-quarter view), never looking at the camera. Natural dynamic poses, mid-movement."
   }
  ],
- "sheet": "Character reference sheet: AHMAD and OMAR standing side by side, full body, front view, neutral plain light background, even soft light.",
+ "sheet": null,
  "video": {
   "from": "videogen/out/run2",
   "common": "Keep both boys' faces completely blank smooth beige skin with no eyes, no nose, no mouth during the whole clip. Keep their clothes exactly the same. No other people appear. Gentle natural motion, very slow camera push-in, warm sunny light, stylized 3D animated film look.",
@@ -271,5 +279,6 @@
    1,
    6
   ]
- }
+ },
+ "sheet_file": "videogen/ref/sheet.png"
 }
