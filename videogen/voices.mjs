@@ -12,6 +12,14 @@ async function tts(voice, text, file){
   if(!r.ok){ say('tts ошибка', r.status, (await r.text()).slice(0,300)); return false; }
   fs.writeFileSync(file, Buffer.from(await r.arrayBuffer())); return true;
 }
+if(job.stage==='voices-try'){
+  for(const [n,v] of job.voices.try.entries()){
+    const add = await fetch(`${E}/voices/add/${v.owner}/${v.id}`,{method:'POST',headers:H,body:JSON.stringify({new_name:'kid-'+v.name})});
+    const at = await add.text(); let vid=v.id; try{ vid = JSON.parse(at).voice_id||vid; }catch{}
+    say('добавлен', v.name, add.status, vid);
+    if(await tts(vid, job.voices.sample, `${out}/try-${n}-${v.name}.mp3`)) say('проба', n, vid, v.name);
+  }
+}
 if(job.stage==='voices-search'){
   const seen = new Map();
   for(const q of ['boy','kid']){

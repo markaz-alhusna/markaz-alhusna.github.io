@@ -1,7 +1,7 @@
 {
  "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
- "stage": "voices-search",
- "run": 11,
+ "stage": "voices-try",
+ "run": 12,
  "image_models": [
   "google/gemini-2.5-flash-image",
   "google/gemini-2.5-flash-image-preview"
@@ -79,7 +79,44 @@
  "voices": {
   "model": "eleven_v3",
   "samples": 6,
-  "sample": "السَّلَامُ عَلَيْكُمْ. اسْمِي أَحْمَدُ. أَنَا مِنْ تُرْكِيَا."
+  "sample": "السَّلَامُ عَلَيْكُمْ. اسْمِي أَحْمَدُ. أَنَا مِنْ تُرْكِيَا.",
+  "try": [
+   {
+    "id": "XjGYkUkzth8BPs29fmcV",
+    "owner": "119adcff6f9d8ee3d5194065d19fb9b473760336ad4a7227a6890226bc62167b",
+    "name": "Teddy"
+   },
+   {
+    "id": "5krdMTA5HonvWAlY2vSx",
+    "owner": "7398804d9eaf2f463899a907587c33a390591775784f87857b6d0e1e4e3e66f6",
+    "name": "Bholu"
+   },
+   {
+    "id": "bBG9wwa23659EgIkMbc1",
+    "owner": "7398804d9eaf2f463899a907587c33a390591775784f87857b6d0e1e4e3e66f6",
+    "name": "Vardan"
+   },
+   {
+    "id": "psk8YLODv4ETdKheNwwz",
+    "owner": "7398804d9eaf2f463899a907587c33a390591775784f87857b6d0e1e4e3e66f6",
+    "name": "Gappu"
+   },
+   {
+    "id": "atemG3csutMIyK7AbS5c",
+    "owner": "6fa0b9e9f871151a5df4bbb9174ae32f6500655d387ea4a85e15e47a887901c8",
+    "name": "Quang"
+   },
+   {
+    "id": "loY1uopAz31XyhAEhNSa",
+    "owner": "edb29bf3ecacd3634096c4bc62c0537e04cbfb94cf27cd2babced5c1709800d6",
+    "name": "Valf"
+   },
+   {
+    "id": "Ke48uAiVVsH3M4p3eph9",
+    "owner": "d52552c53e990f11decbf9ca48096d517bf50e6db39def3145e0018ada461e85",
+    "name": "Mark"
+   }
+  ]
  },
  "speech": {
   "model": "openai/gpt-audio",
