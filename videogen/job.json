@@ -1,7 +1,7 @@
 {
  "_note": "Задание для генерации. stage: images — только картинки сцен (центы); video — оживить выбранные сцены (дороже).",
- "stage": "voices-try",
- "run": 12,
+ "stage": "voices",
+ "run": 13,
  "image_models": [
   "google/gemini-2.5-flash-image",
   "google/gemini-2.5-flash-image-preview"
@@ -115,6 +115,69 @@
     "id": "Ke48uAiVVsH3M4p3eph9",
     "owner": "d52552c53e990f11decbf9ca48096d517bf50e6db39def3145e0018ada461e85",
     "name": "Mark"
+   }
+  ],
+  "ids": {
+   "ahmad": "XjGYkUkzth8BPs29fmcV",
+   "omar": "loY1uopAz31XyhAEhNSa",
+   "title": "gMB389pj77Qe5nErWNjd"
+  },
+  "lines": [
+   {
+    "who": "title",
+    "text": "الحِوَارُ: التَّعَارُفُ"
+   },
+   {
+    "who": "ahmad",
+    "text": "السَّلَامُ عَلَيْكُمْ."
+   },
+   {
+    "who": "omar",
+    "text": "وَعَلَيْكُمُ السَّلَامُ."
+   },
+   {
+    "who": "ahmad",
+    "text": "كَيْفَ حَالُكَ؟"
+   },
+   {
+    "who": "omar",
+    "text": "بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ. وَكَيْفَ حَالُكَ أَنْتَ؟"
+   },
+   {
+    "who": "ahmad",
+    "text": "أَنَا بِخَيْرٍ، وَالْحَمْدُ لِلَّهِ."
+   },
+   {
+    "who": "omar",
+    "text": "مَا اسْمُكَ؟"
+   },
+   {
+    "who": "ahmad",
+    "text": "اسْمِي أَحْمَدُ. وَمَا اسْمُكَ أَنْتَ؟"
+   },
+   {
+    "who": "omar",
+    "text": "اسْمِي عُمَرُ."
+   },
+   {
+    "who": "ahmad",
+    "text": "مِنْ أَيْنَ أَنْتَ يَا عُمَرُ؟"
+   },
+   {
+    "who": "omar",
+    "text": "أَنَا مِنْ تَشِيشَانَ. وَمِنْ أَيْنَ أَنْتَ؟"
+   },
+   {
+    "who": "ahmad",
+    "text": "أَنَا مِنْ تُرْكِيَا."
+   },
+   {
+    "who": "omar",
+    "text": "أَهْلًا وَسَهْلًا يَا أَحْمَدُ!"
+   },
+   {
+    "who": "ahmad",
+    "text": "أَهْلًا بِكَ يَا عُمَرُ!"
    }
   ]
  },

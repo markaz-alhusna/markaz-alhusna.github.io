@@ -46,7 +46,11 @@ if(job.stage==='voices-search'){
 if(job.stage==='voices'){
   for(const [i,l] of job.voices.lines.entries()){
     const f = `${out}/line${String(i).padStart(2,'0')}.mp3`;
-    if(await tts(job.voices.ids[l.who], l.text, f)) say('ok', i, l.who);
+    if(await tts(job.voices.ids[l.who], l.text, f)){
+      say('ok', i, l.who);
+      try{ const r = await fetch('https://openrouter.ai/api/v1/chat/completions',{method:'POST',headers:{'Authorization':`Bearer ${process.env.OPENROUTER_API_KEY}`,'Content-Type':'application/json'},body:JSON.stringify({model:'google/gemini-2.5-flash',messages:[{role:'user',content:[{type:'text',text:'Transcribe this Arabic audio exactly as heard, with full harakat. Output only the transcription.'},{type:'input_audio',input_audio:{data:fs.readFileSync(f).toString('base64'),format:'mp3'}}]}]})});
+        const j = await r.json(); say('   слышно:', (j.choices?.[0]?.message?.content||JSON.stringify(j).slice(0,200)).trim(), '| надо:', l.text); }catch(e){ say('   проверка не вышла', e.message); }
+    }
   }
 }
 try{ const r=await fetch(`${E}/user/subscription`,{headers:H}); const j=await r.json(); say(`символов использовано ${j.character_count} из ${j.character_limit}`);}catch{}
