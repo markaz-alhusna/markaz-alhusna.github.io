@@ -1,0 +1,572 @@
+[
+  {
+    "name": "Roger - Laid-Back, Casual, Resonant",
+    "voice_id": "CwhRBWXzGAHq8TQ4Fs17",
+    "category": "premade",
+    "labels": {
+      "descriptive": "classy",
+      "language": "en",
+      "accent": "american",
+      "use_case": "conversational",
+      "gender": "male",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Sarah - Mature, Reassuring, Confident",
+    "voice_id": "EXAVITQu4vr4xnSDxMaL",
+    "category": "premade",
+    "labels": {
+      "descriptive": "professional",
+      "language": "en",
+      "accent": "american",
+      "use_case": "entertainment_tv",
+      "gender": "female",
+      "age": "young"
+    }
+  },
+  {
+    "name": "Laura - Enthusiast, Quirky Attitude",
+    "voice_id": "FGY2WhTYpPnrIDTdsKH5",
+    "category": "premade",
+    "labels": {
+      "descriptive": "sassy",
+      "language": "en",
+      "accent": "american",
+      "use_case": "social_media",
+      "gender": "female",
+      "age": "young"
+    }
+  },
+  {
+    "name": "Charlie - Deep, Confident, Energetic",
+    "voice_id": "IKne3meq5aSn9XLyUdCD",
+    "category": "premade",
+    "labels": {
+      "descriptive": "hyped",
+      "language": "en",
+      "accent": "australian",
+      "use_case": "conversational",
+      "gender": "male",
+      "age": "young"
+    }
+  },
+  {
+    "name": "George - Warm, Captivating Storyteller",
+    "voice_id": "JBFqnCBsd6RMkjVDRZzb",
+    "category": "premade",
+    "labels": {
+      "descriptive": "mature",
+      "language": "en",
+      "accent": "british",
+      "use_case": "narrative_story",
+      "gender": "male",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Callum - Husky Trickster",
+    "voice_id": "N2lVS1w4EtoT3dr4eOWO",
+    "category": "premade",
+    "labels": {
+      "language": "en",
+      "gender": "male",
+      "use_case": "characters_animation",
+      "accent": "american",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "River - Relaxed, Neutral, Informative",
+    "voice_id": "SAz9YHcvj6GT2YYXdXww",
+    "category": "premade",
+    "labels": {
+      "descriptive": "calm",
+      "language": "en",
+      "accent": "american",
+      "use_case": "conversational",
+      "gender": "neutral",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Harry - Fierce Warrior",
+    "voice_id": "SOYHLrjzK2X1ezoPC6cr",
+    "category": "premade",
+    "labels": {
+      "descriptive": "rough",
+      "language": "en",
+      "accent": "american",
+      "use_case": "characters_animation",
+      "gender": "male",
+      "age": "young"
+    }
+  },
+  {
+    "name": "Liam - Energetic, Social Media Creator",
+    "voice_id": "TX3LPaxmHKxFdv7VOQHJ",
+    "category": "premade",
+    "labels": {
+      "descriptive": "confident",
+      "language": "en",
+      "accent": "american",
+      "use_case": "social_media",
+      "gender": "male",
+      "age": "young"
+    }
+  },
+  {
+    "name": "Alice - Clear, Engaging Educator",
+    "voice_id": "Xb7hH8MSUJpSbSDYk0k2",
+    "category": "premade",
+    "labels": {
+      "descriptive": "professional",
+      "language": "en",
+      "accent": "british",
+      "use_case": "informative_educational",
+      "gender": "female",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Matilda - Knowledgable, Professional",
+    "voice_id": "XrExE9yKIg1WjnnlVkGX",
+    "category": "premade",
+    "labels": {
+      "descriptive": "upbeat",
+      "language": "en",
+      "accent": "american",
+      "use_case": "informative_educational",
+      "gender": "female",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Will - Relaxed Optimist",
+    "voice_id": "bIHbv24MWmeRgasZH58o",
+    "category": "premade",
+    "labels": {
+      "descriptive": "chill",
+      "language": "en",
+      "accent": "american",
+      "use_case": "conversational",
+      "gender": "male",
+      "age": "young"
+    }
+  },
+  {
+    "name": "Jessica - Playful, Bright, Warm",
+    "voice_id": "cgSgspJ2msm6clMCkdW9",
+    "category": "premade",
+    "labels": {
+      "descriptive": "cute",
+      "language": "en",
+      "accent": "american",
+      "use_case": "conversational",
+      "gender": "female",
+      "age": "young"
+    }
+  },
+  {
+    "name": "Eric - Smooth, Trustworthy",
+    "voice_id": "cjVigY5qzO86Huf0OWal",
+    "category": "premade",
+    "labels": {
+      "descriptive": "classy",
+      "language": "en",
+      "accent": "american",
+      "use_case": "conversational",
+      "gender": "male",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Bella - Professional, Bright, Warm",
+    "voice_id": "hpp4J3VqNfWAUOO0d1Us",
+    "category": "premade",
+    "labels": {
+      "descriptive": "professional",
+      "language": "en",
+      "accent": "american",
+      "use_case": "informative_educational",
+      "gender": "female",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Chris - Charming, Down-to-Earth",
+    "voice_id": "iP95p4xoKVk53GoZ742B",
+    "category": "premade",
+    "labels": {
+      "descriptive": "casual",
+      "language": "en",
+      "accent": "american",
+      "use_case": "conversational",
+      "gender": "male",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Brian - Deep, Resonant and Comforting",
+    "voice_id": "nPczCjzI2devNBz1zQrb",
+    "category": "premade",
+    "labels": {
+      "descriptive": "classy",
+      "language": "en",
+      "accent": "american",
+      "use_case": "social_media",
+      "gender": "male",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Daniel - Steady Broadcaster",
+    "voice_id": "onwK4e9ZLuTAKqWW03F9",
+    "category": "premade",
+    "labels": {
+      "descriptive": "formal",
+      "language": "en",
+      "accent": "british",
+      "use_case": "informative_educational",
+      "gender": "male",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Lily - Velvety Actress",
+    "voice_id": "pFZP5JQG7iQjIQuC4Bku",
+    "category": "premade",
+    "labels": {
+      "descriptive": "confident",
+      "language": "en",
+      "accent": "british",
+      "use_case": "informative_educational",
+      "gender": "female",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Adam - Dominant, Firm",
+    "voice_id": "pNInz6obpgDQGcFmaJgB",
+    "category": "premade",
+    "labels": {
+      "language": "en",
+      "gender": "male",
+      "use_case": "social_media",
+      "accent": "american",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Bill - Wise, Mature, Balanced",
+    "voice_id": "pqHfZKP75CvOlQylNhV4",
+    "category": "premade",
+    "labels": {
+      "descriptive": "crisp",
+      "language": "en",
+      "accent": "american",
+      "use_case": "advertisement",
+      "gender": "male",
+      "age": "old"
+    }
+  },
+  {
+    "name": "Abdullah - Professional, and Energetic",
+    "voice_id": "pCKbQ4EPGE06zpEPGNvS",
+    "category": "professional",
+    "labels": {
+      "descriptive": "casual",
+      "use_case": "entertainment_tv",
+      "accent": "modern standard",
+      "gender": "male",
+      "language": "ar",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Ekaterina - Soft, Silky and Tender",
+    "voice_id": "GN4wbsbejSnGSa1AzjH5",
+    "category": "professional",
+    "labels": {
+      "gender": "female",
+      "use_case": "narrative_story",
+      "accent": "moscow",
+      "descriptive": "pleasant",
+      "language": "ru",
+      "age": "young"
+    }
+  },
+  {
+    "name": "Marina - Soft, Clear and Warm",
+    "voice_id": "ymDCYd8puC7gYjxIamPt",
+    "category": "professional",
+    "labels": {
+      "descriptive": "calm",
+      "use_case": "narrative_story",
+      "accent": "standard",
+      "gender": "female",
+      "language": "ru",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Mira - Gentle Russian ASMR Charm",
+    "voice_id": "9eaLrh9YGK2eNwzX4htv",
+    "category": "professional",
+    "labels": {
+      "descriptive": "gentle",
+      "use_case": "narrative_story",
+      "accent": "standard",
+      "gender": "female",
+      "language": "ru",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Mona - Attractive and Expressive",
+    "voice_id": "tavIIPLplRB883FzWU0V",
+    "category": "professional",
+    "labels": {
+      "gender": "female",
+      "use_case": "narrative_story",
+      "accent": "modern standard",
+      "descriptive": "pleasant",
+      "language": "ar",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Sara - Friendly, Professional and Clear",
+    "voice_id": "gMB389pj77Qe5nErWNjd",
+    "category": "professional",
+    "labels": {
+      "descriptive": "calm",
+      "use_case": "informative_educational",
+      "accent": "modern standard",
+      "gender": "female",
+      "language": "ar",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Vika Grib - Natural, Clear and Friendly",
+    "voice_id": "gelrownZgbRhxH6LI78J",
+    "category": "professional",
+    "labels": {
+      "descriptive": "gentle",
+      "use_case": "social_media",
+      "accent": "standard",
+      "gender": "female",
+      "language": "ru",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "kid-Bholu",
+    "voice_id": "5krdMTA5HonvWAlY2vSx",
+    "category": "professional",
+    "labels": {
+      "descriptive": "cute",
+      "use_case": "characters_animation",
+      "accent": "standard",
+      "gender": "male",
+      "language": "hi",
+      "age": "young"
+    }
+  },
+  {
+    "name": "kid-Gappu",
+    "voice_id": "psk8YLODv4ETdKheNwwz",
+    "category": "professional",
+    "labels": {
+      "descriptive": "cute",
+      "use_case": "characters_animation",
+      "accent": "standard",
+      "gender": "male",
+      "language": "hi",
+      "age": "young"
+    }
+  },
+  {
+    "name": "kid-Johnny Boy - Action Movie Narr",
+    "voice_id": "7tRwuZTD1EWi6nydVerp",
+    "category": "professional",
+    "labels": {
+      "descriptive": "hyped",
+      "use_case": "narrative_story",
+      "accent": "american",
+      "gender": "male",
+      "language": "en",
+      "age": "young"
+    }
+  },
+  {
+    "name": "kid-Johnny Kid - Serious and Calm ",
+    "voice_id": "8JVbfL6oEdmuxKn5DK2C",
+    "category": "professional",
+    "labels": {
+      "gender": "male",
+      "use_case": "narrative_story",
+      "accent": "british",
+      "descriptive": "calm",
+      "language": "en",
+      "age": "young"
+    }
+  },
+  {
+    "name": "kid-Josh - Teacher for Kids",
+    "voice_id": "nzFihrBIvB34imQBuxub",
+    "category": "professional",
+    "labels": {
+      "gender": "male",
+      "use_case": "narrative_story",
+      "accent": "american",
+      "descriptive": "pleasant",
+      "language": "en",
+      "age": "young"
+    }
+  },
+  {
+    "name": "kid-Mark",
+    "voice_id": "Ke48uAiVVsH3M4p3eph9",
+    "category": "professional",
+    "labels": {
+      "descriptive": "upbeat",
+      "use_case": "narrative_story",
+      "accent": "american",
+      "gender": "male",
+      "language": "en",
+      "age": "young"
+    }
+  },
+  {
+    "name": "kid-Quang",
+    "voice_id": "atemG3csutMIyK7AbS5c",
+    "category": "professional",
+    "labels": {
+      "descriptive": "calm",
+      "use_case": "characters_animation",
+      "accent": "american",
+      "gender": "male",
+      "language": "en",
+      "age": "young"
+    }
+  },
+  {
+    "name": "kid-Taras Boyko - Resonant and Flo",
+    "voice_id": "BFmokXObxZMCBXC0A9ny",
+    "category": "professional",
+    "labels": {
+      "descriptive": "excited",
+      "use_case": "narrative_story",
+      "accent": "standard",
+      "gender": "male",
+      "language": "uk",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "kid-Vardan",
+    "voice_id": "bBG9wwa23659EgIkMbc1",
+    "category": "professional",
+    "labels": {
+      "descriptive": "modulated",
+      "use_case": "characters_animation",
+      "accent": "standard",
+      "gender": "male",
+      "language": "hi",
+      "age": "young"
+    }
+  },
+  {
+    "name": "Viktoriya Voloshina - Curious Educator",
+    "voice_id": "xcVbjGhhLIoKi3va6mAe",
+    "category": "professional",
+    "labels": {
+      "gender": "female",
+      "use_case": "informative_educational",
+      "accent": "standard",
+      "descriptive": "confident",
+      "language": "ru",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "kid-Teddy",
+    "voice_id": "XjGYkUkzth8BPs29fmcV",
+    "category": "professional",
+    "labels": {
+      "descriptive": "cute",
+      "use_case": "characters_animation",
+      "accent": "american",
+      "gender": "male",
+      "language": "en",
+      "age": "young"
+    }
+  },
+  {
+    "name": "kid-Valf",
+    "voice_id": "loY1uopAz31XyhAEhNSa",
+    "category": "professional",
+    "labels": {
+      "descriptive": "cute",
+      "use_case": "characters_animation",
+      "accent": "american",
+      "gender": "male",
+      "language": "en",
+      "age": "young"
+    }
+  },
+  {
+    "name": "kid-Julian - Intimate, Warm, Whisp",
+    "voice_id": "Myap7vX7L9ipoJVdyOVZ",
+    "category": "professional",
+    "labels": {
+      "descriptive": "relaxed",
+      "use_case": "conversational",
+      "accent": "american",
+      "gender": "male",
+      "language": "en",
+      "age": "young"
+    }
+  },
+  {
+    "name": "Victoria - Warm & Cinematic",
+    "voice_id": "D5RRIJYa9pFwxiSpbGbR",
+    "category": "professional",
+    "labels": {
+      "descriptive": "gentle",
+      "use_case": "social_media",
+      "accent": "standard",
+      "gender": "female",
+      "language": "ru",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "kid-Boyd - Versatile, Fatherly and",
+    "voice_id": "gfRt6Z3Z8aTbpLfexQ7N",
+    "category": "professional",
+    "labels": {
+      "gender": "male",
+      "use_case": "conversational",
+      "accent": "american",
+      "descriptive": "casual",
+      "language": "en",
+      "age": "middle_aged"
+    }
+  },
+  {
+    "name": "Sonya - Modern, Clear & Refined",
+    "voice_id": "HOECC1xuy52kRAfQ0vR2",
+    "category": "professional",
+    "labels": {
+      "descriptive": "classy",
+      "use_case": "social_media",
+      "accent": "standard",
+      "gender": "female",
+      "language": "ru",
+      "age": "young"
+    }
+  }
+]
