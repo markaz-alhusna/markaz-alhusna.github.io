@@ -50,7 +50,8 @@ jobs:
       - name: Остаток символов после
         if: always()
         env: { KEY: '${{ secrets.ELEVENLABS_API_KEY }}' }
-        run: curl -s -H "xi-api-key: $KEY" https://api.elevenlabs.io/v1/user/subscription | jq '{character_count, character_limit}' | tee sira/assets/subscription-after.json
+        run: |
+          curl -s -H "xi-api-key: $KEY" https://api.elevenlabs.io/v1/user/subscription | jq '{character_count, character_limit}' | tee sira/assets/subscription-after.json
       - name: Сохраняем
         if: always()
         run: |
