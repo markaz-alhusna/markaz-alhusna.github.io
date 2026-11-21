@@ -15,9 +15,12 @@ jobs:
       - name: Голоса и остаток символов (бесплатные запросы)
         env: { KEY: '${{ secrets.ELEVENLABS_API_KEY }}' }
         run: |
-          curl -s -H "xi-api-key: $KEY" https://api.elevenlabs.io/v1/voices | jq '[.voices[] | {name, voice_id, category, labels}]' > sira/assets/voices.json
-          curl -s -H "xi-api-key: $KEY" https://api.elevenlabs.io/v1/user/subscription | jq '{tier, character_count, character_limit, next_character_count_reset_unix}' > sira/assets/subscription.json
-          cat sira/assets/subscription.json; jq -r '.[].name' sira/assets/voices.json
+          mkdir -p sira/assets
+          curl -s -H "xi-api-key: $KEY" https://api.elevenlabs.io/v1/voices > sira/assets/voices-raw.json || true
+          jq '[.voices[]? | {name, voice_id, category, labels}]' sira/assets/voices-raw.json > sira/assets/voices.json || true
+          curl -s -H "xi-api-key: $KEY" https://api.elevenlabs.io/v1/user/subscription > sira/assets/subscription-raw.json || true
+          jq '{tier, character_count, character_limit, next_character_count_reset_unix}' sira/assets/subscription-raw.json > sira/assets/subscription.json || true
+          head -c 600 sira/assets/voices-raw.json; echo; cat sira/assets/subscription.json || true
       - name: Аяты — чтение аль-Катами
         run: |
           mkdir -p sira/assets/quran
