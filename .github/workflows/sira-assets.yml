@@ -12,25 +12,47 @@ jobs:
     timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
-      - name: Голоса и остаток символов (бесплатные запросы)
+      - name: Остаток символов до
         env: { KEY: '${{ secrets.ELEVENLABS_API_KEY }}' }
         run: |
           mkdir -p sira/assets
-          curl -s -H "xi-api-key: $KEY" https://api.elevenlabs.io/v1/voices > sira/assets/voices-raw.json || true
-          jq '[.voices[]? | {name, voice_id, category, labels}]' sira/assets/voices-raw.json > sira/assets/voices.json || true
-          curl -s -H "xi-api-key: $KEY" https://api.elevenlabs.io/v1/user/subscription > sira/assets/subscription-raw.json || true
-          jq '{tier, character_count, character_limit, next_character_count_reset_unix}' sira/assets/subscription-raw.json > sira/assets/subscription.json || true
-          head -c 600 sira/assets/voices-raw.json; echo; cat sira/assets/subscription.json || true
+          curl -s -H "xi-api-key: $KEY" https://api.elevenlabs.io/v1/user/subscription | jq '{character_count, character_limit}' | tee sira/assets/subscription-before.json
       - name: Аяты — чтение аль-Катами
         run: |
           mkdir -p sira/assets/quran
-          for a in $(jq -r '.ayat[]' sira/request.json); do
-            for r in Nasser_Alqatami_128kbps; do
-              curl -sfL -o sira/assets/quran/$a.mp3 https://everyayah.com/data/$r/$a.mp3 && echo "ok $a" && break || echo "нет $a у $r"
-            done
+          for a in $(jq -r '.ayat[]?' sira/request.json); do
+            [ -f sira/assets/quran/$a.mp3 ] || curl -sfL -o sira/assets/quran/$a.mp3 https://everyayah.com/data/Nasser_Alqatami_128kbps/$a.mp3 || echo "нет $a"
           done
-          ls -la sira/assets/quran
+      - name: Шрифты (Google Fonts, кириллица)
+        run: |
+          mkdir -p sira/assets/fonts
+          for f in $(jq -r '.fonts[]?' sira/request.json); do
+            n=$(basename "$f"); [ -f "sira/assets/fonts/$n" ] || curl -sfL -o "sira/assets/fonts/$n" "https://github.com/google/fonts/raw/main/$f" || echo "нет $f"
+          done
+          ls -la sira/assets/fonts
+      - name: Озвучка (только по запросу, с потолком символов)
+        env: { KEY: '${{ secrets.ELEVENLABS_API_KEY }}' }
+        run: |
+          VF=$(jq -r '.voice // empty' sira/request.json)
+          [ -n "$VF" ] || { echo "озвучка не запрошена"; exit 0; }
+          OUT=sira/assets/voice/$(basename $VF .json); mkdir -p $OUT
+          MAX=$(jq -r '.max_chars' $VF); TOT=$(jq '[.parts[].text|length]|add' $VF)
+          echo "символов: $TOT, потолок: $MAX"; [ "$TOT" -le "$MAX" ] || { echo "больше потолка — стоп"; exit 1; }
+          VID=$(jq -r '.voice_id' $VF); MODEL=$(jq -r '.model' $VF)
+          n=$(jq '.parts|length' $VF)
+          for i in $(seq 0 $((n-1))); do
+            f=$OUT/part$i.mp3; [ -f $f ] && { echo "уже есть $f"; continue; }
+            jq -c --argjson i $i --arg m "$MODEL" '{text: .parts[$i].text, model_id: $m, voice_settings: {stability: 0.5, similarity_boost: 0.8}}' $VF > /tmp/body.json
+            code=$(curl -s -o $f -w '%{http_code}' -X POST "https://api.elevenlabs.io/v1/text-to-speech/$VID?output_format=mp3_44100_128" \
+              -H "xi-api-key: $KEY" -H "Content-Type: application/json" --data @/tmp/body.json)
+            echo "часть $i: $code"; [ "$code" = 200 ] || { cat $f; rm -f $f; exit 1; }
+          done
+      - name: Остаток символов после
+        if: always()
+        env: { KEY: '${{ secrets.ELEVENLABS_API_KEY }}' }
+        run: curl -s -H "xi-api-key: $KEY" https://api.elevenlabs.io/v1/user/subscription | jq '{character_count, character_limit}' | tee sira/assets/subscription-after.json
       - name: Сохраняем
+        if: always()
         run: |
           git config user.name "al-husna-bot"; git config user.email "actions@users.noreply.github.com"
           git add sira/assets; git diff --cached --quiet || (git commit -m "Сира: материалы" && git push origin HEAD:sira-video)

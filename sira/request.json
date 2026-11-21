@@ -1,1 +1,6 @@
-{"lesson": 11, "try": 2, "ayat": ["093007", "042052", "096001", "096002", "096003", "096004", "096005", "073005"]}
+{"lesson": 11, "run": 3,
+ "ayat": ["093007", "042052", "096001", "096002", "096003", "096004", "096005", "073005"],
+ "voice": "sira/l11_voice.json",
+ "fonts": ["ofl/cormorantgaramond/CormorantGaramond[wght].ttf", "ofl/cormorantgaramond/CormorantGaramond-Italic[wght].ttf",
+           "ofl/prata/Prata-Regular.ttf", "ofl/forum/Forum-Regular.ttf", "ofl/manrope/Manrope[wght].ttf",
+           "ofl/playfairdisplay/PlayfairDisplay[wght].ttf", "ofl/playfairdisplay/PlayfairDisplay-Italic[wght].ttf", "ofl/marckscript/MarckScript-Regular.ttf"]}
