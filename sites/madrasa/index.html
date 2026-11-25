@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Мадраса «Аль-Хусна» · для девочек 8–14 лет</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Comfortaa:wght@500;600;700&family=Golos+Text:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* Тема садика: пастель + солнечный жёлтый; тема мадрасы: бирюза + золото + синий школы */
+body.t-sadik{--bg:#FFF9F0;--paper:#FFFDF8;--ink:#14315C;--muted:#4F6380;--acc:#5E8B4C;--acc2:#F6C94B;--accL:#E6F0DD;--soft:#F1E3C8;--line:#EDE1CC;--hero1:#CDE6F1;--hero2:#FFF3DC;--fh:"Comfortaa","Nunito",sans-serif;--card:#fff;--btn:#F6C94B;--btnT:#14315C;--btnS:#D9A926}
+body.t-madrasa{--bg:#F7F4EC;--paper:#FFFDF7;--ink:#14304F;--muted:#4D627A;--acc:#1B8A92;--acc2:#D9B46A;--accL:#D8EFEF;--soft:#F5EACB;--line:#E8DFCB;--hero1:#0F6A72;--hero2:#14304F;--fh:"Nunito",sans-serif;--card:#fff;--btn:#D9B46A;--btnT:#14304F;--btnS:#9E7A35}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Golos Text",system-ui,sans-serif;color:var(--ink);background:var(--bg);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:inherit}button{font:inherit;color:inherit;cursor:pointer;border:0;background:none}
+:focus-visible{outline:3px solid var(--acc2);outline-offset:3px;border-radius:8px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.h2{font-family:var(--fh);font-weight:700;font-size:clamp(28px,5vw,42px);line-height:1.12;color:var(--ink)}
+.eyebrow{display:inline-block;font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
+.sec{padding:clamp(56px,9vw,88px) 0}
+.sec.alt{background:var(--paper)}
+.sec-head{display:flex;flex-direction:column;gap:10px;max-width:700px;margin:0 auto 32px;text-align:center;align-items:center}
+.sec-head p{color:var(--muted);font-size:16.5px}
+.rv{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--i,0)*70ms)}
+.rv.in{opacity:1;transform:none}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 26px;border-radius:999px;font:700 15px "Golos Text",sans-serif;text-decoration:none;transition:transform .2s,box-shadow .2s,background .2s;white-space:nowrap}
+.btn svg{width:18px;height:18px}
+.btn-main{background:var(--btn);color:var(--btnT);box-shadow:0 5px 0 var(--btnS)}
+.btn-main:hover{transform:translateY(-2px)}.btn-main:active{transform:translateY(3px);box-shadow:0 2px 0 var(--btnS)}
+.btn-ghost{background:rgba(255,255,255,.8);color:var(--ink);box-shadow:inset 0 0 0 1.5px var(--line)}
+.t-madrasa .hero .btn-ghost{background:transparent;color:#F5EACB;box-shadow:inset 0 0 0 1.5px rgba(245,234,203,.5)}
+
+/* шапка */
+.hdr{position:sticky;top:0;z-index:40;background:rgba(255,253,248,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.hdr .wrap{display:flex;align-items:center;gap:14px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;flex:none;font-family:var(--fh);font-weight:700;font-size:16px}
+.brand img{width:38px;height:38px;border-radius:50%;object-fit:cover;box-shadow:0 0 0 2px var(--acc)}
+.hdr nav{display:flex;gap:16px;overflow-x:auto;scrollbar-width:none;margin-left:auto;font-size:14px;font-weight:600}
+.hdr nav::-webkit-scrollbar{display:none}
+.hdr nav a{text-decoration:none;color:var(--muted);white-space:nowrap}
+.hdr nav a:hover{color:var(--acc)}
+@media(max-width:760px){.brand span{display:none}.hdr nav{margin-left:4px}}
+
+/* первый экран */
+.hero{position:relative;overflow:hidden}
+.t-sadik .hero{background:linear-gradient(180deg,var(--hero1) 0%,#E6F3F8 45%,var(--hero2) 100%)}
+.t-madrasa .hero{background:radial-gradient(600px 380px at 85% 20%,rgba(217,180,106,.25),transparent 70%),linear-gradient(160deg,var(--hero1),var(--hero2));color:#F5EACB}
+.hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center;padding:64px 20px 110px}
+.hero .eyebrow{color:var(--acc)}
+.t-madrasa .hero .eyebrow{color:var(--acc2)}
+.hero h1{font-family:var(--fh);font-weight:700;font-size:clamp(34px,6vw,60px);line-height:1.08;margin:14px 0 18px}
+.hero h1 span{display:block}
+.hero h1 span:last-child{color:var(--acc)}
+.t-madrasa .hero h1{color:#fff}.t-madrasa .hero h1 span:last-child{color:var(--acc2)}
+.hero .lead{font-size:17.5px;max-width:560px}
+.hero .hook{margin-top:10px;font-weight:600;color:var(--muted)}
+.t-madrasa .hero .hook{color:#CFE3E3}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 26px}
+.chip{padding:7px 14px;border-radius:999px;font-size:13.5px;font-weight:600;background:rgba(255,255,255,.8);box-shadow:inset 0 0 0 1.5px var(--line)}
+.t-madrasa .chip{background:rgba(255,255,255,.08);box-shadow:inset 0 0 0 1px rgba(245,234,203,.3);color:#F5EACB}
+.ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-logo{justify-self:center;width:min(300px,64vw);aspect-ratio:1;border-radius:50%;object-fit:cover;box-shadow:0 0 0 10px rgba(255,255,255,.55),0 30px 60px -30px rgba(20,49,92,.6);animation:floaty 6s ease-in-out infinite}
+.t-madrasa .hero-logo{box-shadow:0 0 0 6px rgba(217,180,106,.8),0 0 0 18px rgba(217,180,106,.12),0 30px 60px -30px rgba(0,0,0,.6)}
+@keyframes floaty{50%{transform:translateY(-10px)}}
+@media(max-width:860px){.hero-grid{grid-template-columns:1fr;padding:36px 20px 100px;gap:26px}.hero-logo{grid-row:1;width:min(200px,54vw)}}
+/* декор садика: облака и солнце; мадрасы: полумесяц и звёзды */
+.deco{position:absolute;inset:0;pointer-events:none;z-index:1}
+.sun{position:absolute;top:9%;right:7%;width:84px;height:84px;border-radius:50%;background:radial-gradient(circle at 40% 40%,#FFE89A,#F6C94B);box-shadow:0 0 0 14px rgba(246,201,75,.18),0 0 0 30px rgba(246,201,75,.08)}
+.cloud{position:absolute;width:150px;height:46px;border-radius:999px;background:#fff;opacity:.9;animation:drift 30s linear infinite}
+.cloud::before,.cloud::after{content:"";position:absolute;background:#fff;border-radius:50%}
+.cloud::before{width:62px;height:62px;left:24px;top:-30px}.cloud::after{width:46px;height:46px;left:74px;top:-20px}
+.c1{top:18%;left:-160px}.c2{top:52%;left:-160px;transform:scale(.7);animation-duration:42s;animation-delay:-18s}.c3{top:30%;left:-160px;transform:scale(.5);animation-duration:36s;animation-delay:-8s}
+@keyframes drift{to{left:110%}}
+.hill{position:absolute;left:0;right:0;bottom:-2px;height:90px}
+.moon{position:absolute;top:9%;right:8%;width:70px;height:70px;border-radius:50%;box-shadow:inset 14px -6px 0 0 #F1DCA0;transform:rotate(-20deg);filter:drop-shadow(0 0 12px rgba(241,220,160,.5))}
+.st{position:absolute;width:3px;height:3px;border-radius:50%;background:#FFF4D6;animation:tw 4s ease-in-out infinite}
+@keyframes tw{0%,100%{opacity:.2}50%{opacity:1}}
+@media(max-width:860px){.sun,.moon{top:4%;right:5%;transform:scale(.75)}}
+
+/* общие блоки */
+.about{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:40px;align-items:start}
+@media(max-width:860px){.about{grid-template-columns:1fr;gap:26px}}
+.about p{font-size:16.5px}.about p+p{margin-top:14px}
+.why{display:grid;gap:12px}
+.why div{background:var(--card);border-radius:22px;padding:18px 20px 18px 62px;position:relative;box-shadow:0 1px 0 var(--line),0 12px 30px -24px rgba(20,49,92,.4)}
+.why div::before{content:"";position:absolute;left:20px;top:20px;width:26px;height:26px;border-radius:50%;background:var(--accL);box-shadow:inset 0 0 0 6px var(--acc)}
+.why b{display:block;font-family:var(--fh);font-size:17px;margin-bottom:2px}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:34px}
+@media(max-width:860px){.story{grid-template-columns:1fr}}
+.panel{background:var(--card);border-radius:26px;padding:26px 24px;box-shadow:0 1px 0 var(--line),0 16px 40px -30px rgba(20,49,92,.45)}
+.panel h3{font-family:var(--fh);font-size:21px;margin-bottom:10px}
+.panel p{color:#2B3A55;font-size:15.5px}.panel p+p{margin-top:10px}
+.dots{list-style:none;display:grid;gap:8px;margin-top:12px}
+.dots li{position:relative;padding-left:22px;font-size:15.5px}
+.dots li::before{content:"";position:absolute;left:2px;top:9px;width:9px;height:9px;border-radius:50%;background:var(--acc2)}
+.admit{margin-top:18px;display:flex;gap:14px;align-items:flex-start;background:var(--accL);border-radius:22px;padding:18px 20px;font-size:15.5px}
+.admit svg{flex:none;width:28px;height:28px;color:var(--acc)}
+
+/* курсы */
+.courses{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+.course{position:relative;background:var(--card);border-radius:28px;padding:26px 22px 22px;box-shadow:0 1px 0 var(--line),0 18px 40px -30px rgba(20,49,92,.5);display:flex;flex-direction:column;gap:12px;transition:transform .3s}
+.course:hover{transform:translateY(-4px)}
+.course .tag{align-self:flex-start;padding:5px 12px;border-radius:999px;background:var(--accL);color:var(--acc);font-size:12.5px;font-weight:700}
+.course h3{font-family:var(--fh);font-size:23px;line-height:1.2}
+.course p{font-size:15px;color:#2B3A55}
+.course .sub{display:flex;flex-wrap:wrap;gap:6px}
+.course .sub span{padding:6px 12px;border-radius:12px;background:var(--soft);font-size:13.5px;font-weight:600}
+.course .foot{margin-top:auto;font-size:13.5px;font-weight:700;color:var(--acc)}
+.course details{background:var(--bg);border-radius:16px;padding:10px 14px}
+.course summary{cursor:pointer;font-weight:700;font-size:14px;color:var(--acc)}
+.course details ul{margin:8px 0 2px 18px;font-size:14.5px}
+.course .bl{display:grid;gap:8px;margin-top:8px}
+.course .bl b{display:block;font-size:14px;margin-top:4px}
+.course .bl span{font-size:13.5px;color:var(--muted)}
+.course .go{align-self:flex-start;margin-top:4px;font-weight:700;color:var(--acc);text-decoration:underline;text-underline-offset:3px}
+
+/* предметы и программа */
+.subj{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-bottom:40px}
+.sj{background:var(--card);border-radius:22px;padding:20px 20px 18px;box-shadow:0 1px 0 var(--line)}
+.sj h3{font-family:var(--fh);font-size:18px;margin-bottom:6px;display:flex;align-items:center;gap:10px}
+.sj h3::before{content:"";flex:none;width:12px;height:12px;border-radius:50%;background:var(--acc2)}
+.sj p{font-size:14.5px;color:var(--muted)}
+.ytabs{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-bottom:12px}
+.ytabs button{padding:11px 20px;border-radius:999px;background:var(--card);box-shadow:inset 0 0 0 1.5px var(--line);font-weight:700}
+.ytabs button[aria-selected=true]{background:var(--acc);color:#fff;box-shadow:none}
+.ysubs{text-align:center;color:var(--muted);font-weight:600;margin-bottom:20px}
+.acc{background:var(--card);border-radius:22px;margin-bottom:12px;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+.acc>button{width:100%;padding:18px 20px;display:flex;gap:14px;align-items:center;text-align:left}
+.acc .n{flex:none;width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:var(--accL);color:var(--acc);font-family:var(--fh);font-weight:700}
+.acc h3{font-family:var(--fh);font-size:19px}
+.acc .f{font-size:13px;color:var(--muted)}
+.acc .ic{margin-left:auto;flex:none;width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:var(--bg);font-size:20px;transition:transform .3s}
+.acc.open .ic{transform:rotate(45deg);background:var(--acc2)}
+.acc .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}
+.acc.open .body{grid-template-rows:1fr}
+.acc .body>div{overflow:hidden}
+.qs{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px;padding:0 20px 20px}
+.q{background:var(--bg);border-radius:16px;padding:14px 14px 10px}
+.q h4{font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:6px}
+.q .qt{font-weight:700;font-size:14.5px;margin-bottom:4px}
+.q ol{list-style:none;counter-reset:l}
+.q li{counter-increment:l;display:grid;grid-template-columns:20px 1fr;gap:6px;padding:5px 0;border-top:1px dashed var(--line);font-size:14px;line-height:1.45}
+.q li::before{content:counter(l);font-weight:700;color:var(--acc)}
+.q li small{display:block;color:var(--muted);font-size:12.5px}
+.q [dir=auto]{unicode-bidi:plaintext}
+
+/* формат */
+.fmt{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
+.fmt div{background:var(--card);border-radius:20px;padding:16px 18px;font-weight:600;box-shadow:0 1px 0 var(--line)}
+.fmt b{display:block;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--acc);margin-bottom:6px}
+
+/* преподавательницы */
+.tch{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.t{background:var(--card);border-radius:24px;overflow:hidden;box-shadow:0 1px 0 var(--line)}
+.t>button{width:100%;display:flex;align-items:center;gap:14px;padding:16px 18px;text-align:left}
+.t .av{flex:none;width:58px;height:58px;border-radius:50%;background:var(--accL);display:grid;place-items:center;color:var(--acc);box-shadow:0 0 0 3px #fff,0 0 0 4.5px var(--acc2)}
+.t .av svg{width:60%;height:60%;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.t h3{font-family:var(--fh);font-size:19px}
+.t .s{font-size:13.5px;color:var(--acc);font-weight:700}
+.t .m{font-size:12.5px;color:var(--muted)}
+.t .ic{margin-left:auto;flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--bg);font-size:19px;transition:transform .3s}
+.t.open .ic{transform:rotate(45deg);background:var(--acc2)}
+.t .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s}
+.t.open .body{grid-template-rows:1fr}
+.t .body>div{overflow:hidden}
+.bio{padding:0 18px 18px}
+.bio h4{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--acc);margin:12px 0 4px}
+.bio h4.sh{color:#9A6B2F}
+.bio ul{list-style:none}
+.bio li{position:relative;padding:3px 0 3px 16px;font-size:14px;line-height:1.45}
+.bio li::before{content:"";position:absolute;left:2px;top:10px;width:6px;height:6px;border-radius:50%;background:var(--acc2)}
+.bio .soon{color:var(--muted);font-style:italic;font-size:14px}
+
+/* материалы */
+.mats{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:16px}
+.mat{display:flex;flex-direction:column;gap:8px;text-decoration:none;background:var(--card);border-radius:20px;padding:10px 10px 14px;box-shadow:0 1px 0 var(--line);transition:transform .3s}
+.mat:hover{transform:translateY(-4px)}
+.mat img{width:100%;aspect-ratio:3/4;object-fit:cover;border-radius:14px;background:var(--bg)}
+.mat b{font-size:14.5px;line-height:1.3;padding:0 4px}
+.mat span{font-size:12.5px;color:var(--muted);padding:0 4px}
+.mat em{font-style:normal;font-size:13px;font-weight:700;color:var(--acc);padding:0 4px}
+
+/* работы */
+.gal{columns:2;column-gap:10px}@media(min-width:720px){.gal{columns:3;column-gap:12px}}
+.gal button{display:block;width:100%;margin:0 0 10px;break-inside:avoid;border-radius:16px;overflow:hidden;box-shadow:0 0 0 1px var(--line)}
+.gal img{display:block;width:100%;height:auto}
+.lb{position:fixed;inset:0;z-index:100;background:rgba(15,25,45,.94);display:none;align-items:center;justify-content:center;padding:20px}
+.lb.on{display:flex}.lb img{max-width:100%;max-height:86vh;border-radius:14px}
+.lb button{position:absolute;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:24px}
+.lb .x{top:16px;right:16px}.lb .pv{left:12px;top:50%}.lb .nx{right:12px;top:50%}
+
+/* отзывы */
+.revs{columns:2 300px;column-gap:16px}
+.rev{break-inside:avoid;margin:0 0 16px;background:var(--card);border-radius:24px;padding:20px 20px 16px;box-shadow:0 1px 0 var(--line)}
+.rev-h{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.rev-av{width:36px;height:36px;border-radius:50%;background:var(--accL)}
+.rev-n{filter:blur(5px);user-select:none;font-weight:700}
+.rev p{font-size:15px;line-height:1.55}
+.rev .bl{filter:blur(4px);user-select:none;font-weight:700}
+.rev small{display:block;margin-top:8px;font-size:12px;color:var(--muted);font-style:italic}
+.rev-note{text-align:center;color:var(--muted);font-size:14px;margin:-14px 0 22px}
+
+/* стоимость */
+.price{max-width:640px;margin:0 auto;text-align:center;background:var(--card);border-radius:30px;padding:36px 24px 30px;box-shadow:0 1px 0 var(--line),0 24px 50px -36px rgba(20,49,92,.5)}
+.p-main{font-family:var(--fh);font-weight:700;font-size:clamp(46px,9vw,64px);line-height:1;margin:10px 0 4px}
+.p-sub{color:var(--muted);font-weight:600}
+.p-opts{display:grid;gap:10px;margin:22px 0 10px;text-align:left}
+.p-opts div{display:flex;justify-content:space-between;gap:12px;background:var(--bg);border-radius:16px;padding:14px 16px;font-weight:600}
+.p-opts b{color:var(--acc)}
+.p-note{font-size:13.5px;color:var(--muted)}
+
+/* вопросы и запись */
+.faq{max-width:780px;margin:0 auto}
+details.fq{background:var(--card);border-radius:20px;margin-bottom:10px;box-shadow:0 1px 0 var(--line)}
+details.fq summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:12px;padding:16px 20px;font-weight:700}
+details.fq summary::-webkit-details-marker{display:none}
+details.fq summary::after{content:"+";margin-left:auto;flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:var(--bg);font-size:18px}
+details.fq[open] summary::after{content:"–";background:var(--acc2)}
+details.fq p{padding:0 20px 18px;color:var(--muted)}
+.final{background:linear-gradient(180deg,var(--accL),var(--bg))}
+.t-madrasa .final{background:linear-gradient(160deg,var(--hero1),var(--hero2));color:#F5EACB}
+.t-madrasa .final .h2{color:#fff}
+.signup{max-width:640px;margin:0 auto;text-align:center}
+.steps{list-style:none;counter-reset:s;display:grid;gap:10px;text-align:left;max-width:460px;margin:22px auto 26px}
+.steps li{counter-increment:s;display:flex;gap:12px;align-items:flex-start}
+.steps li::before{content:counter(s);flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--acc2);color:var(--ink);font-weight:700}
+.contacts{margin-top:18px;font-size:14px;display:flex;flex-wrap:wrap;justify-content:center;gap:6px 18px}
+.contacts a{font-weight:700}
+footer{text-align:center;font-size:13px;color:var(--muted);padding:24px 20px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}}
+</style>
+</head>
+<body class="t-madrasa">
+<header class="hdr"><div class="wrap">
+  <a class="brand" href="#top"><img src="logo-madrasa.jpg" alt=""><span>Мадраса «Аль-Хусна»</span></a>
+  <nav aria-label="Разделы"><a href="#about">О нас</a><a href="#courses">Курсы</a><a href="#program">Программа</a><a href="#teachers">Преподаватели</a><a href="#works">Работы</a><a href="#reviews">Отзывы</a><a href="#price">Стоимость</a><a href="#faq">Вопросы</a><a href="#signup">Запись</a></nav>
+</div></header>
+<main id="app"></main>
+<div class="lb" id="lb" role="dialog" aria-label="Фото"><button class="x" aria-label="Закрыть">×</button><button class="pv" aria-label="Назад">‹</button><img alt=""><button class="nx" aria-label="Вперёд">›</button></div>
+<script>
+const C={"key": "madrasa", "logo": "logo-madrasa.jpg", "name": "Мадраса «Аль-Хусна»", "title": "Мадраса «Аль-Хусна» · для девочек 8–14 лет", "channel": "https://t.me/madrosa_alhusna", "kicker": "Для девочек 8–14 лет · онлайн", "h1": ["Знания, воспитание", "и становление мусульманки"], "lead": "Добро пожаловать в отделение для девочек 8–14 лет нашего образовательного центра Аль-Хусна. Мы обучаем девочек с 2020 года. С тех пор мы выпустили 5 потоков мадраса Аль-Хусна.", "hook": "Помогаем девочкам получать знания об Исламе и применять их в жизни.", "chips": ["девочки 8–14 лет", "группы до 8 учениц", "живые онлайн-уроки", "5 месяцев обучения"], "about": ["Мадраса «Аль-Хусна» — онлайн-обучение для девочек от 8 до 14 лет, направленное на получение исламских знаний и воспитание в соответствии с Кораном и Сунной. Мы помогаем ученицам изучать основы религии, адаб, правила чтения Корана, знакомиться с арабским языком и приобретать знания, которые будут полезны им в повседневной жизни.", "Наш подход сочетает изучение исламских дисциплин с воспитанием адаба и формированием осознанного отношения к религии. Мы учитываем уровень подготовки учениц и стремимся выстроить обучение последовательно, чтобы знания не оставались только теорией, а помогали девочкам расти в вере и благом нраве."], "why": [["Основа — Коран и Сунна", "Изучаем религию, опираясь на исламские источники."], ["Системное обучение", "От основ к более глубокому изучению предметов."], ["Знания и воспитание", "Уделяем внимание не только обучению, но и адабу мусульманок."]], "story": {"title": "Годы работы за каждым курсом", "text": ["За нашими курсами стоят годы работы, поиска, проб, доработок, обучения и практики. Каждый курс — это продуманная программа, эффективность которой проверена годами работы с детьми.", "У нас собственные программы обучения, рабочие тетради, продуманные домашние задания и последовательная система прохождения материала. Но самое главное — всё основано на Коране и Сунне.", "Мы работаем постепенно, не требуем от ребёнка невозможного и не пытаемся охватить всё сразу. Мы берём девочку с нуля и шаг за шагом поднимаемся выше, закладывая прочный фундамент знаний. Именно поэтому многие наши ученицы учатся у нас не один месяц и даже не один год."]}, "method": {"title": "Как проходят уроки", "text": "Каждая тема подаётся через истории, дискуссии и практику. Устазы поддерживают, вдохновляют и уважают мнение учениц, формируются привычки учёбы и ответственности.", "pts": ["К каждому уроку — рабочие тетради: материал не просто прослушивается, а закрепляется", "Задания развивают мышление, усидчивость и интерес к языку", "Девочки не просто заучивают слова, а осмысленно используют их в речи"]}, "admit": "Принимаем детей с разным уровнем подготовки: от новичков до тех, кто уже обучался. Знать арабские буквы заранее не обязательно, уровень ребёнка определяем на индивидуальном собеседовании или прослушивании. Те, кто желает пройти определённый предмет, могут приобрести только его.", "subjects": [["Основы религии", "Девочки знакомятся со своим Создателем поближе: значение таухида, таухид ар-рубубийя и аль-улюхийя, имена и качества Аллаха, виды поклонения, приказы и запреты Аллаха и их мудрость. Мы обсуждаем реальные ситуации, чтобы ребёнок размышлял над Его творениями и понимал, почему он верит в то, во что верит."], ["Таджвид", "Начинаем с букв и махраджей, преподаватель исправляет чтение на каждом уроке, постепенно переходим к правилам — удлинения, идгам, ихфа и другие, и каждая тема обязательно закрепляется практикой."], ["Тасхих", "Ученицы исправляют ошибки в чтении Корана и совершенствуют произношение. На занятиях преподавательница помогает выявлять ошибки и работать над их исправлением."], ["Арабский язык", "Ученицы изучают арабский язык, постепенно развивают навыки чтения и письма."], ["Адаб", "Нормы исламского поведения по отношению к Аллаху, Пророку ﷺ, родителям, всем мусульманам, соседям, а также адаб гостя."], ["Фикх", "Изучение основ исламских предписаний и правил поклонения. Ученицы узнают, как правильно совершать поклонение Аллаху и соблюдать нормы Ислама в повседневной жизни."], ["Истории Матерей Правоверных", "Знакомство с жизнью ‘Аиши и Хафсы رضي الله عنهما начиная с детства: их поведение с родителями, с семьёй и с окружением. Девочки учатся брать с них пример в вере, скромности, терпении и благом нраве."]], "format": [["Возраст", "девочки 8–14 лет"], ["Уровни", "1-й, 2-й и 3-й год обучения"], ["Группы", "небольшие — до 8 учениц"], ["Формат", "живые онлайн-уроки"], ["Рабочие тетради", "по каждому предмету — для закрепления материала"], ["Записи", "видеозаписи занятий сохраняются — для повторения или если ученица пропустила урок"], ["Длительность обучения", "5 месяцев"]], "teachers": [["Умм Хамза", "Основы религии, арабский язык, тасхих"], ["Умм Билал", "Таджвид"], ["Умм Ханифа", "Истории Матерей Правоверных, адаб, основы религии"], ["Умм Камила", "Таджвид, фикх, адаб"], ["Умм Усман", "Адаб"]], "courses": [{"t": "Основное обучение", "tag": "5 месяцев", "d": "Три года обучения: от основ к более глубокому изучению предметов — программа ниже.", "pts": ["1-й год: основы религии, таджвид, адаб", "2-й год: основы религии, арабский язык, фикх, тасхих", "3-й год: основы религии, арабский язык, истории Матерей Правоверных", "Стоимость — 11 500 ₽, можно в 2 или 3 приёма"], "go": "prog"}, {"t": "Ильмляндия", "tag": "6 недель", "d": "Маленькое путешествие для маленьких мусульманок. Мы хотели, чтобы знания не оставались словами — а доходили до сердца и становились частью ребёнка.", "sub": ["Земля Сердца", "Гора Препятствий", "Город Молитвы", "Сад Скромности", "Путь Сокровищ", "Замок величия"], "pts": ["О любви к молитве — через понимание того, что такое молитва", "О сердце и о том, чем оно наполняется", "О том, что делает мусульманку по-настоящему красивой", "Размышления над милостями Аллаха", "2 занятия в неделю, живые онлайн-уроки, записи сохраняются"]}, {"t": "Дети Рамадана", "tag": "3 недели", "d": "Наша цель — не просто дать новые знания, а приучить девочек видеть в обучении форму ‘ибадата, развивать осознанность и любовь к поклонению. В каждый учебный день — два урока:", "sub": ["1-й урок — заучивание Прекрасных Имён Аллаха", "2-й урок — уроки Рамадана"], "topics": ["Прекрасные Имена Аллаха", "Рамадан: достоинства, обязательные постановления, запреты", "История Исра и Ми‘радж — путешествие Посланника ﷺ", "Праздники ‘Ид аль-Фитр и ‘Ид аль-Адха", "Достоинства последних 10 ночей и Ляйлят аль-Кадр", "Наставление"], "pts": ["Для девочек 8–14 лет", "18 занятий, онлайн", "Стоимость — 1 900 ₽ за весь курс"]}, {"t": "Сира Посланника ﷺ", "tag": "Часть 1 — Рамадан", "d": "Курс из нескольких частей. Сейчас готовится первая часть, рассчитанная на месяц Рамадан.", "pts": ["30 ежедневных уроков в записи", "Уроки на нашей образовательной платформе", "После каждого урока — задания для закрепления", "Возраст: 8–12 лет", "Стоимость первой части — 2 500 ₽"], "foot": "Следующие части готовятся."}, {"t": "Летний лагерь", "tag": "летом", "d": "Живые онлайн-занятия для девочек 8+.", "sub": ["История народов Корана", "Открытия ислама", "Адаб через хадисы и дуа", "8 юных сподвижников"], "pts": ["Хадис + обсуждение + ду‘а + практика", "Открытия: как изучали астрономию, развивали медицину и создавали карты", "Юные сподвижники — живые примеры веры и искренности"], "foot": "Даты и стоимость уточняются."}], "materials": [["img/cover-gaid.jpg", "5 причин, почему ребёнок теряет интерес к изучению Ислама", "Бесплатный гайд", "https://t.me/madrosa_alhusna/148"], ["img/cover-dozhd.jpg", "Дождь — милость Аллаха", "Учебное пособие", "https://t.me/madrosa_alhusna/314"]], "faq": [["Нужно ли знать арабские буквы?", "Нет. Принимаем детей с разным уровнем подготовки, уровень ребёнка определяем на индивидуальном собеседовании или прослушивании."], ["Можно ли пройти только один предмет?", "Да, те, кто желает пройти определённый предмет, могут приобрести только его."], ["Сохраняются ли записи уроков?", "Да, видеозаписи занятий сохраняются — их можно использовать для повторения или посмотреть, если ученица пропустила урок."], ["Сколько стоит обучение?", "11 500 ₽ за 5 месяцев. Можно оплатить сразу, в 2 приёма (6 000 ₽ + 5 500 ₽) или в 3 приёма (4 000 ₽ + 4 000 ₽ + 3 500 ₽). Даты оплаты указываются в договоре."]], "tg": "ummrayana83", "flow": ["Напишите администратору — Умм Раяне в Telegram.", "Менеджер присылает маме договор.", "Внимательно ознакомьтесь с ним и подтвердите согласие.", "После этого ребёнка добавляют в учебную группу."], "price": {"sum": "11 500 ₽", "sub": "за 5 месяцев обучения", "opts": [["Сразу", "11 500 ₽"], ["В 2 приёма", "6 000 ₽ + 5 500 ₽"], ["В 3 приёма", "4 000 ₽ + 4 000 ₽ + 3 500 ₽"]], "note": "Даты оплаты указываются в договоре."}, "teach": {"Умм Холид": [["Таджвид и тасхих", ["Таджвид с нуля", "Полный тасхих с правилами", "Кайда нурания", "Тасхих 30 джуза"]], ["Арабский язык", ["Арабский язык, 1 том", "Арабский язык, 0, 1 и 2 мустава", "«Байна ядайк», 1 том"]], ["Шариатское образование преподавателя", ["«Три основы»", "«Четыре правила»", "«Пункты, аннулирующие ислам»", "«Шесть основ»", "Тафсир сур аль-Фатиха, аль-Бакара, Аль ‘Имран", "Сира: мекканский период", "Фикх", "Курс «Сначала ты»"]], ["Светское образование", ["Эколог («Экология и природопользование»)"]]], "Умм Хизир": [["Таджвид и тасхих", ["«Читай и возвышайся» — основы таджвида", "Кайда нурания", "Тасхих 30 джуза"]], ["Арабский язык", ["Арабский язык, 1 уровень"]], ["Шариатское образование преподавателя", ["«Три основы и их доказательства»", "«Четыре правила»", "«Шесть основ»", "«Десять пунктов, аннулирующих ислам»", "Акыда", "Основы фикха", "Тафсир сур аль-Фатиха, аль-Бакара, Аль ‘Имран, аз-Зухруф", "Тафсир", "Сира: мекканский период", "Сира: мединский период", "Истории сподвижниц", "Курс подготовки учителей", "Курсы «Сначала ты», «Степени знаний»"]], ["Сейчас продолжает обучение", ["Арабский язык, 2 уровень"]], ["Светское образование", ["Учитель начальных классов и английского языка"]]], "Умм Хамза": [["Таджвид и тасхих", ["Тасхих 30 джуза", "Тасхих 29 джуза", "Тасхих 28, 27, 26 джуза (не полностью)", "Тасхих всего Корана от суры ан-Нас до суры ат-Тауба"]], ["Арабский язык", ["«Байна ядайк», 1 том", "«Байна ядайк», 2 том, 1 книга", "Шарх и‘раба 1 тома Мединского курса", "2 том Мединского курса с и‘рабом", "Сарф по книге ибн Сауда"]], ["Шариатское образование преподавателя", ["«Три основы»", "«Четыре правила»", "«‘Умдат аль-фикх»: книга очищения, книга молитвы, книга закята, книга поста, книга хайда и нифаса", "«Атлас» Аймана Сувейда"]], ["Сейчас продолжает обучение", ["«Китаб ат-таухид»", "Сира Пророка Мухаммада ﷺ", "Тасхих всего Корана от суры аль-Фатиха до суры ан-Ниса", "«Нахв аль-уадых»"]]], "Умм Камила": [["Таджвид и тасхих", ["Таджвид", "«Читай и возвышайся» — таджвид", "Кайда нурания", "Тасхих 30 джуза", "Тасхих 29 джуза"]], ["Арабский язык", ["«Ясный арабский»", "«Байна ядайк», 1 часть", "Арабский язык, 2 и 3 часть"]], ["Шариатское образование преподавателя", ["«Три основы»", "«Четыре правила»", "«Пункты, аннулирующие ислам»", "«Шесть основ»", "«Кашф аш-шубухат»", "«Китаб ат-таухид» (не полностью)", "Фикх (джумхур)", "«‘Умдат аль-фикх» (не полностью)", "Тафсир", "Сира: мекканский период", "Сира: мединский период (не полностью)", "Истории сподвижниц", "Хадисы", "Курс подготовки преподавателей «Учительница уммы»", "Курсы «Сначала ты», «Рамадан», «Секреты мусульманки», «Степени знаний», «Семь дней для сердец»"]], ["Сейчас продолжает обучение", ["Курс «Имена Аллаха»", "Тасхих 29 джуза", "Фикх"]]], "Умм Усман": [["Таджвид и тасхих", ["«Читай и возвышайся» — основы таджвида", "Тасхих 30 джуза", "Тасхих 29, 30 джуза (не полностью)"]], ["Арабский язык", ["Арабский язык, 0, 1, 2 и 3 мустауа"]], ["Шариатское образование преподавателя", ["«Три основы»", "«Четыре правила»", "«Пункты, аннулирующие ислам»", "«Шесть основ»", "«Кашф аш-шубухат»", "«Китаб ат-таухид» (не все главы)", "Основы фикха", "Сира: мекканский период", "Сира: мединский период (не полностью)", "История сподвижниц", "Хадисы", "Тафсир 30 джуза", "Курсы «Степени знаний», «7 дней для сердца»"]], ["Сейчас продолжает обучение", ["Арабский язык, 3 мустауа", "Тасхих 29 джуза", "Курс «Имена Аллаха»"]], ["Светское образование", ["Среднее медицинское образование, «акушерское дело»", "«Лечение по Сунне. Хиджама»"]]], "Умм Ханифа": [["Таджвид и тасхих", ["Таджвид", "Углублённый таджвид"]], ["Арабский язык", ["«Ясный арабский», 1 уровень", "«Байна ядайк», 1 часть", "Арабский язык, 1, 2 и 3 части"]], ["Шариатское образование преподавателя", ["Курс по акыде «Основы веры»", "«Три основы»", "«Четыре правила»", "«Пункты, аннулирующие Ислам»", "«Шесть основ»", "«Кашф аш-шубухат»", "«Китаб ат-таухид» (не полностью)", "Фикх: по мнению большинства учёных (джумхур)", "Тафсир", "Сира: мекканский период", "Сира: мединский период (не полностью)", "Истории сподвижниц", "Хадисы", "Курсы «Сначала ты», «Степени знаний», «Семь дней для сердец»"]], ["Сейчас продолжает обучение", ["Курс «Имена Аллаха»", "Арабский язык, 3 часть"]]], "Умм Билал": null}, "years": [["1-й год", [{"name": "Основы религии", "fmt": "", "q": [{"n": 1, "title": "", "note": "", "l": [["что такое Таухид", []], ["творения и милости Аллаһа", []], ["Аллаһ- Дарующий пропитание", []], ["как растут деревья и растения", []]]}, {"n": 2, "title": "", "note": "", "l": [["Творец всего сущего - Аллаһ", []], ["ар-Рахман, ас-Сами'", []], ["смысл жизни", []], ["что такое поклонение", []]]}, {"n": 3, "title": "", "note": "", "l": [["что такое Ислам", []], ["шахада и ее условия", []], ["вторая часть шахады", []], ["выстаивание молитвы", []]]}, {"n": 4, "title": "", "note": "", "l": [["опрос прошлых тем", []], ["Ислам- истина", []], ["столпы Ислама", []], ["разбор сочинений учениц на тему Ислам-моя религия", []]]}, {"n": 5, "title": "", "note": "", "l": [["краткая биография Пророка ﷺ", []], ["условия принятия дел", []], ["приказы Аллаһа", []], ["запреты Аллаһа", []]]}]}, {"name": "Таджвид", "fmt": "", "q": [{"n": 1, "title": "", "note": "", "l": [["буквы ه ء", []], ["История ниспослания первого аята", ["буквы ع ح"]], ["После первых аятов", ["буквы خ غ"]], ["Встреча с Варака", ["буквы ق ك"]], ["\"О,завернувшийся\"", ["буквы ج ش ي"]], ["Как приходили откровения", ["буква ض"]], ["Как сохранились откровения", ["буквы ر ن ل"]], ["Коран был ниспослан в течение 23 лет", ["буквы ط د ت"]]]}, {"n": 2, "title": "", "note": "", "l": [["Первый приказ о собирании Кур'ана воедино", ["буквы ز س ص"]], ["Продолжение о собирании Кур'ана", ["буквы ظ ذ ث"]], ["Слова Зейда о собирании Кур'ана", ["буквы و ف"]], ["Ниспослание Кур'ана перед смертью Пророка ﷺ", ["буквы ب م"]], ["Повтор букв", []], ["Закрепление букв", []], ["Танвин", []], ["Мадд тоби'ий (естественный)", []]]}, {"n": 3, "title": "", "note": "", "l": [["Та' марбута", ["Алиф,уау,и йа согыро"]], ["Сукун. Кольколя", []], ["Повтор тем", []], ["Буквы аль-Лин", ["Свойства букв на сукуне"]], ["Аш-шадда", ["Буквы солнечные и лунные"]], ["Практика", []], ["Правила нун сукуна и танвина(изхар,икляб)", []], ["Правила нун сукуна и танвина(идгом без гунны)", []]]}, {"n": 4, "title": "", "note": "", "l": [["Правила нун сукуна и танвина(идгом с гунной)", []], ["Правила нун сукуна и танвина(ихфа)", []], ["Закрепление правил нун сукуна и танвина", []], ["Закрепление правил нун сукуна и танвина", []], ["Правила мим сукун", []], ["Правила идгом", []], ["Мадд( удлинения) 1 часть", []], ["Мадд( удлинения) 2 часть", []]]}, {"n": 5, "title": "", "note": "", "l": [["Мадд( удлинения) 3 часть", []], ["Практика и разбор правил мим и нун сукуна", []], ["Практика и разбор мадда", []], ["Практика и разбор", []], ["Практика и разбор", []], ["Хамза и ее виды", []], ["Твёрдое и мягкое произношение ر ل", []], ["Правила и знаки остановок", ["Практика и разбор некоторых сур Кур'ана"]]]}]}, {"name": "Адаб", "fmt": "", "q": [{"n": 0, "title": "Адаб с Аллахом", "note": "", "l": [["Что такое адаб с Аллахом и в чём он проявляется", []], ["Адаб с Аллахом в поклонении и делах", []]]}, {"n": 0, "title": "Адаб с Посланником Аллаха ﷺ", "note": "", "l": [["Любовь, почтение и подчинение Посланнику Аллаха ﷺ", []]]}, {"n": 0, "title": "Адаб с родителями", "note": "", "l": [["Послушание родителям", []], ["Адаб в разговоре с родителями и дуа за них", []], ["Правила поведения рядом с родителями", []], ["Помощь родителям и стремление к их довольству", []], ["Забота о родителях и поддержание родственных связей", []], ["Благочестие к родителям при их жизни и после смерти", []]]}, {"n": 0, "title": "Адаб братства и отношений с мусульманами", "note": "", "l": [["Выбор праведных друзей и любовь к ним ради Аллаха", []], ["Кого не следует выбирать близким другом", []], ["Адаб при встрече, болезни и других обстоятельствах", []], ["Права мусульманина и доброе отношение к нему", []], ["Помощь мусульманину и запрет причинения ему вреда", []]]}, {"n": 0, "title": "Адаб с соседом", "note": "", "l": [["Доброе отношение к соседу", []], ["Поддержка соседа в трудностях и нужде", []], ["Не причинять соседу вреда", []], ["Уважение к покою и личной жизни соседа", []]]}, {"n": 0, "title": "Адаб гостя", "note": "", "l": [["Адаб перед посещением и при приходе в гости", []]]}]}]], ["2-й год", [{"name": "Основы религии", "fmt": "", "q": [{"n": 1, "title": "", "note": "", "l": [["Виды таухида: ар-рубубия и аль-улюхия", []], ["Важность таухида аль-улюхия", []], ["Положение многобожников в отношении таухида аль-улюхия", []], ["Поклонение и его виды", []]]}, {"n": 2, "title": "", "note": "", "l": [["Условия принятия деяний", []], ["Таухид аль-асма ва-с-сифат", []], ["Имена Аллаха", []], ["Влияние веры в имена и атрибуты Аллаха на человека", []]]}, {"n": 3, "title": "", "note": "", "l": [["Достоинство знания и его важность", []], ["Знания, изучение которых обязательно для каждого мусульманина", []], ["Совершение деяний в соответствии с шариатским знанием", []], ["Аль-ханафия", []]]}, {"n": 4, "title": "", "note": "", "l": [["Познание Господа", []], ["Доводы на познание Господа", []], ["Право Аллаха на поклонение Ему Одному", []], ["Мольба и обращение за спасением (ад-ду‘а ва-ль-истигаса)", []]]}, {"n": 5, "title": "", "note": "", "l": [["Поиск защиты и обращение за помощью (аль-исти‘аза ва-ль-исти‘ана)", []], ["Страх и надежда (аль-хауф ва-р-раджа)", []], ["Упование и жертвоприношение Аллаху (ат-таваккуль ва-з-забх)", []], ["Смирение и обращение к Аллаху (аль-хушу‘ ва-ль-инаба)", []]]}]}, {"name": "Арабский язык", "fmt": "", "q": [{"n": 1, "title": "", "note": "", "l": [["الدِّرَاسَةُ — Учёба", ["Слова по теме учёбы: тетрадь, ручка, учитель, доска и другие."]], ["الدِّرَاسَةُ — Учёба. Продолжение", ["Новые слова по теме: сумка, стул, мел и другие."]], ["أَدَوَاتٌ وَأَجْهِزَةٌ — Предметы и устройства", ["Компьютер, телефон, наушники и другие слова."]], ["Закрепление", []]]}, {"n": 2, "title": "", "note": "", "l": [["وَسَائِلُ النَّقْلِ وَالِاتِّجَاهَاتُ — Транспорт и направления", ["Машина, грузовик и другие виды транспорта; север, юг, восток, запад."]], ["وَسَائِلُ النَّقْلِ — Транспорт. Продолжение", ["Светофор, цвета, станция, улица и другие слова."]], ["السُّوقُ — Рынок", ["Молоко, хлеб, курица и другие продукты."]], ["Закрепление", []]]}, {"n": 3, "title": "", "note": "", "l": [["الْفَوَاكِهُ — Фрукты", ["Лимон, банан, манго и другие фрукты."]], ["التُّوتِيَّاتُ — Ягоды", ["Малина, клубника, виноград и другие."]], ["الْخَضْرَوَاتُ — Овощи", ["Картофель, огурец, помидор, морковь и другие овощи."]], ["Закрепление", []]]}, {"n": 4, "title": "", "note": "", "l": [["الْأَفْعَالُ — Глаголы", ["يَمْشِي — идёт", "يَجْرِي — бежит", "يَصْعَدُ — поднимается", "يَنْزِلُ — спускается"]], ["الْأَفْعَالُ — Глаголы", ["يَتَوَضَّأُ — совершает омовение", "يُكَبِّرُ — произносит такбир", "يَجْلِسُ — сидит", "يَقِفُ — стоит"]], ["أَفْعَالُ الصَّلَاةِ — Глаголы, связанные с молитвой", ["يُصَلِّي — молится", "يَرْكَعُ — совершает руку‘", "يُسَلِّمُ — произносит таслим", "يَسْجُدُ — совершает суджуд"]], ["Закрепление", []]]}, {"n": 5, "title": "", "note": "", "l": [["الْأَفْعَالُ — Глаголы", ["يَأْكُلُ — ест", "يَشْرَبُ — пьёт", "يَقْرَأُ — читает", "يَكْتُبُ — пишет"]], ["الْأَفْعَالُ — Глаголы", ["يَبْكِي — плачет", "يَنَامُ — спит", "يَضْحَكُ — смеётся", "يُسَبِّحُ — произносит тасбих"]], ["الْأَفْعَالُ — Глаголы", ["يَفْتَحُ — открывает", "يُغْلِقُ — закрывает", "يَدْخُلُ — входит", "يَخْرُجُ — выходит"]], ["حُرُوفُ الْجَرِّ — Предлоги", ["فِي — в", "عَلَى — на", "مِنْ — из, от"]]]}]}, {"name": "Фикх", "fmt": "", "q": [{"n": 1, "title": "", "note": "", "l": [["Ат-Тахара и виды хадаса", []], ["Вода и ее виды", []], ["Этикет справления нужды", []], ["Сунны фитры", []]]}, {"n": 2, "title": "", "note": "", "l": [["Аль-Уду", []], ["Фарды уду", []], ["Сунны уду", []], ["Аль-Масх", []]]}, {"n": 3, "title": "", "note": "", "l": [["Аль-Гусль", []], ["Наджаса (нечистоты), её виды и очищение", []], ["Ат-Таяммум и место молитвы", []], ["Условия молитвы", []]]}, {"n": 4, "title": "", "note": "", "l": [["Определение времени молитв", []], ["Азан и икъома", []], ["Омовение", []], ["‘Аурат", []]]}, {"n": 5, "title": "", "note": "", "l": [["Арканы молитвы", []], ["Сунны молитвы", []], ["Уаджибы (обязательные части молитвы)", []], ["Порицаемые вещи (макрух) в молитве", []]]}]}, {"name": "Тасхих", "fmt": "", "q": [{"n": 1, "title": "", "note": "", "l": [["Аль-Фатиха", []], ["Аль-Фатиха", []], ["Ан-Нас", []], ["Аль-Фаляк", []]]}, {"n": 2, "title": "", "note": "", "l": [["Аль-Ихляс", []], ["Аль-Масад", []], ["Ан-Наср", []], ["Аль-Кафирун", []]]}, {"n": 3, "title": "", "note": "", "l": [["Аль-Каусар", []], ["Аль-Маун", []], ["Аль-Маун", []], ["Куройш", []]]}, {"n": 4, "title": "", "note": "", "l": [["Аль-Филь", []], ["Аль-Хумаза", []], ["Аль-Хумаза", []], ["Аль-Аср", []]]}, {"n": 5, "title": "", "note": "", "l": [["Ат-Такасур", []], ["Ат-Такасур", []], ["Аль-Кориа", []], ["Аль-Кориа", []]]}]}]], ["3-й год", [{"name": "Основы религии", "fmt": "", "q": [{"n": 1, "title": "", "note": "", "l": [["Познание религии и её степеней", []], ["Первая степень — аль-Ислям", []], ["Свидетельство «Ля иляха илля-Ллах»", []], ["Свидетельство «Мухаммад — Посланник Аллаха»", []]]}, {"n": 2, "title": "", "note": "", "l": [["Вторая степень — аль-Иман", []], ["Смысл столпов имана", []], ["Третья степень — аль-Ихсан", []], ["Аль-Иман", []]]}, {"n": 3, "title": "", "note": "", "l": [["Ответвления имана", []], ["Что нарушает и ослабляет иман", []], ["Ширк", []], ["Виды ширка", []]]}, {"n": 4, "title": "", "note": "", "l": [["Аль-Бида‘ — нововведения", []], ["Грехи и прегрешения", []], ["Манхадж ахлю-с-Сунна валь-Джама‘а в вопросах акиды", []], ["Вера в Судный день", []]]}, {"n": 5, "title": "", "note": "", "l": [["Рай и Ад", []], ["Права Посланника Аллаха ﷺ и обязанности по отношению к нему", []], ["Права семьи и жён Посланника Аллаха ﷺ", []], ["Права сподвижников и праведных халифов", []]]}]}, {"name": "Арабский язык", "fmt": "", "q": [{"n": 1, "title": "", "note": "", "l": [["Больница", []], ["Практика: больница", []], ["حروف الجر — Предлоги: مِنْ، عَنْ، بِـ، لِـ", []], ["Разговорная практика", []], ["أدوات الاستفهام — Вопросительные слова", []], ["Практика разговорной речи", []], ["المائدة — За столом", []], ["Практика: المائدة", []]]}, {"n": 2, "title": "", "note": "", "l": [["المائدة — За столом. Продолжение темы", ["Кувшин, чайник, холодильник и другая лексика."]], ["Практика: المائدة", []], ["Притяжательные формы — «мой/моя», «твой/твоя»", []], ["أفراد الأسرة — Члены семьи", []], ["Практика: أفراد الأسرة", []], ["الصفات — Прилагательные и описание", ["Большой — маленький, широкий — узкий, много — мало и т. д."]], ["أدوات الاستفهام — Вопросительные слова", []], ["Практика: الصفات", []]]}, {"n": 3, "title": "", "note": "", "l": [["غرفة الجلوس — Гостиная", []], ["Практика: غرفة الجلوس", []], ["غرفة النوم — Спальня", []], ["Практика: غرفة النوم", []], ["Спряжение глаголов в настоящем времени: أنا، أنتَ", []], ["Практика спряжения глаголов", []], ["الحمّام — Ванная комната", []], ["Практика: الحمّام", []]]}, {"n": 4, "title": "", "note": "", "l": [["الأعداد — Числа от 1 до 5", []], ["Практика: الأعداد", []], ["Спряжение глаголов в настоящем времени: نحن، أنتِ، هي", []], ["Практика спряжения глаголов", []], ["الألوان — Цвета", []], ["Практика: الألوان", []], ["Женская одежда", []], ["Практика: женская одежда", []]]}, {"n": 5, "title": "", "note": "", "l": [["Мужская одежда", []], ["Практика: мужская одежда", []], ["المطار — Аэропорт", ["Самолёт, паспорт, билет и другая лексика."]], ["Практика: المطار", []], ["المطار — Люди в аэропорту", ["Пилот, путешественник, грузчик, сотрудник паспортного контроля и др."]], ["Практика: люди в аэропорту", []], ["Общее повторение изученного", []], ["Итоговая разговорная практика", []]]}]}, {"name": "Истории матерей правоверных", "fmt": "", "q": [{"n": 1, "title": "‘Аиша رضي الله عنها: детство и семья", "note": "", "l": [["Знакомство с ‘Аишей رضي الله عنها", []], ["‘Аиша رضي الله عنها в детстве", []], ["‘Аиша رضي الله عنها — дочь и сестра", []], ["Скромность ‘Аиши رضي الله عنها", []]]}, {"n": 2, "title": "Нрав ‘Аиши رضي الله عنها", "note": "", "l": [["Щедрость ‘Аиши رضي الله عنها", []], ["‘Аиша رضي الله عنها и братство", []], ["Уроки нравственности от ‘Аиши رضي الله عنها", []], ["Справедливость ‘Аиши رضي الله عنها", []]]}, {"n": 3, "title": "Знания и поклонение ‘Аиши رضي الله عنها", "note": "", "l": [["‘Аиша رضي الله عنها и Коран", []], ["‘Аиша رضي الله عنها — обладательница знания", []], ["Поклонение ‘Аиши رضي الله عنها", []], ["Характер и достоинства ‘Аиши رضي الله عنها", []]]}, {"n": 4, "title": "Хафса бинт ‘Умар رضي الله عنها", "note": "", "l": [["Знакомство с Хафсой бинт ‘Умар رضي الله عنها", []], ["Хафса رضي الله عنها и первые годы Ислама", []], ["Хафса رضي الله عنها — мухаджира", []], ["Хафса رضي الله عنها — много постившаяся и выстаивавшая молитвы", []]]}, {"n": 5, "title": "Нрав, знания и наследие Хафсы رضي الله عنها", "note": "", "l": [["Нрав и достоинства Хафсы رضي الله عنها", []], ["Хафса رضي الله عنها — обладательница знания", []], ["Хафса رضي الله عنها и сохранение Корана", []], ["Чему нас учит история Хафсы رضي الله عنها", []]]}]}]]], "rev": [["sadik", "Моя дочь на улице увидела кошку, которая пьёт из лужи водичку. И она мне говорит: смотри, мам, тут крыша, и вода не может сюда поступать, но Аллах так сделал, чтоб тут была маленькая лужа, для того чтоб кошка смогла выпить воды. Смотри, Аллах какой Милостивый, она мне говорит. Приятно видеть, когда дети видят милость Аллаха в каждой вещи."], ["sadik", "{имя} после урока таухида говорит: «А зачем люди молятся деревьям, камням?..» Аллахумма барик. Не могу передать свои чувства по этому поводу: плачу, что дети не просто так сидят на уроках, а освоили таухид как следует."], ["sadik", "Огромная работа проделана с нашими детишками! Мы уже потихоньку читаем и знаем некоторые суры, начало положено))) Хадисы даже мама учила с удовольствием))) Мы полюбили вас, АльхамдулиЛлях, очень будем скучать по садику!"], ["sadik", "Моя {имя} вас так полюбила… Сегодня ей говорю, что вроде все экзамены ты сдала… А она чуть не плачет, говорит: я ещё хочу с устазами заниматься, — и давай перечислять все предметы. … Да воздаст Аллах вам благом, что даёте нашим детям знания в такой интересной форме, что они бегут на уроки, оставляют игрушки."], ["sadik", "У меня были сомнения, что она ничего там особо не запомнит, но я ошиблась. Я не говорю, что она прямо всё запомнила, но запомнила достаточно много чего. Куда-то идём, и я ей говорю: скажи мне хадис про чистоту, скажи мне хадис про дружбу, — и всё это она с большим удовольствием мне рассказывает на арабском, АльхамдулиЛлях."], ["sadik", "Вы таким вещам учите, Аллахумма барик. Сама ни разу не додумалась бы учить такому. … Ещё {имя} уроки повторно многократно смотрит."], ["sadik", "АльхамдулиЛлях, после уроков таджвида у нас видимый результат, мы очень рады."], ["sadik", "У нас уроки были практически каждый день: то у дочки, то у сына, у них уже выработалась дисциплина прям, чему я очень рада. … Теперь он идёт в школу уже подготовленным и дисциплинированным."], ["madrasa", "Она очень изменилась, Аллахумма барик, постоянно про Аллаха говорит, постоянно ходит рассуждает о Рае, о своих поступках. … То, о чём я начала задумываться и размышлять в 25 лет, она думает и понимает всё в 8, АльхамдулиЛлях. Как я рада, что она получает знания и что есть школа, где ей дают правильные знания с такого возраста уже."], ["madrasa", "{имя} очень ждала свои уроки в мадрасе, своих устаз девочки уже знают и любят, АльхамдулиЛлях. Первые уроки прошли активно, ма ша Аллах, девочки все уже в осознанном возрасте, отвечают на вопросы о таухиде, пишут свои небольшие конспекты."], ["madrasa", "Мне очень понравился подход устазы к ученицам. Задаёт правильные вопросы. … Я даже не жалею, что отдала дочь в Мадрасу. Её эмоции — это просто не передать словами, она очень-очень рада, что начинает занятия в Мадрасе. Она с нетерпением ждёт следующий урок."], ["madrasa", "Учёба в мадрасе несомненно приносит огромную пользу детям!!! Очень им интересен арабский язык. Если встречают в Коране слова, которые проходили на уроке, это их так удивляет, что понимают арабские слова!!!"], ["madrasa", "Мы очень ждали этот момент, очень приятно слушать устаз. {имя} радовалась встрече, как дорогим гостям, долго выбирала платье, приготовила канцелярию, чувствовалось, что для неё это очень долгожданно))))"], ["all", "В мадрасе первый год учились старшие, в садике в этом году учится младший. Всё просто отлично. … В мадрасе красочные презентации, приятные устазы. Аллахумма барик. Я довольна проделанной работой."], ["all", "Здесь всё понятно объясняют, доходчиво, зачем ещё что-то искать — вот всё ясно и понятно, и детям нравится, и взрослым. … В занятиях ценно то, что есть связь с реалиями жизни. Детей учат практиковать знания. А это огромный плюс. Терпение преподавателей, их мягкость в речи, строгость — всё это очень притягивает."], ["all", "Столько всего важного за урок научили девочек, но в то же время не перегрузили информацией. Уютные, прекрасные, девчачьи уроки. … Устазы — это настоящие жемчужинки, они так общаются с девочками, что каждая малышка почувствовала себя особенной."], ["all", "Моей дочери, АльхамдулиЛлях, как всегда понравились уроки. Очень ждала занятия. Каждый день заходила в группу и проверяла, когда начнутся уроки. … После уроков очень радостная, ждала, когда отправят домашнее задание, чтобы начать выполнять, Аллахумма барик!"], ["all", "Этот прекрасный курс научил не только моих детей, но и меня многому. Например, на арабском я не знала ни одного слова, а теперь, АльхамдулиЛлях, немного хоть знаю)"], ["all", "Дочери очень сильно понравились уроки) Очень рада, говорит, что уроки легко объясняют."], ["all", "Спросила у детей, что такое таухид одним словом) Ответил только {имя}) Сколько радости у него было)) … Насколько это ценно для меня как мамы, думаю, даже не представляете."], ["all", "Пусть Аллах воздаст нашим устазам высшей степенью Фирдауса за ваше терпение и умение найти подход ко всем детям. ДжазакумуЛлаху хайран."], ["all", "БаракаЛлаху фики вам за ваш труд, нам очень нравятся наши уроки, и расставаться с вами не хочется. Поэтому мы с вами на следующий курс))"]], "works": ["img/work01.jpg", "img/work02.jpg", "img/work03.jpg", "img/work04.jpg", "img/work05.jpg", "img/work06.jpg", "img/work07.jpg", "img/work08.jpg", "img/work09.jpg", "img/work10.jpg", "img/work11.jpg", "img/work12.jpg", "img/work13.jpg", "img/work14.jpg", "img/work15.jpg", "img/work16.jpg", "img/work17.jpg", "img/work18.jpg", "img/work19.jpg"]};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const TG="https://t.me/"+C.tg;
+const AR='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+const FL='<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="currentColor" opacity=".85"><circle cx="24" cy="13" r="7"/><circle cx="34.5" cy="20.6" r="7"/><circle cx="30.5" cy="33" r="7"/><circle cx="17.5" cy="33" r="7"/><circle cx="13.5" cy="20.6" r="7"/></g><circle cx="24" cy="24" r="5.5" fill="#F6C94B"/></svg>';
+const head=(e,h,p)=>`<div class="sec-head rv"><span class="eyebrow">${e}</span><h2 class="h2">${h}</h2>${p?`<p>${p}</p>`:''}</div>`;
+const deco=C.key==="sadik"
+ ?`<div class="deco" aria-hidden="true"><div class="sun"></div><i class="cloud c1"></i><i class="cloud c2"></i><i class="cloud c3"></i><svg class="hill" viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 60 C 240 10 480 10 720 50 S 1200 90 1440 40 V90 H0Z" fill="#DCEFC9"/><path d="M0 75 C 300 40 600 50 900 70 S 1300 60 1440 70 V90 H0Z" fill="#FFF9F0"/></svg></div>`
+ :`<div class="deco" aria-hidden="true"><div class="moon"></div>${Array.from({length:34},(_,i)=>`<i class="st" style="left:${(i*37)%100}%;top:${(i*53)%78}%;animation-delay:${(i%7)*.6}s"></i>`).join("")}<svg class="hill" viewBox="0 0 1440 90" preserveAspectRatio="none"><path d="M0 50 C 240 10 480 20 720 50 S 1200 80 1440 40 V90 H0Z" fill="rgba(217,180,106,.25)"/><path d="M0 70 C 300 40 600 50 900 68 S 1300 58 1440 68 V90 H0Z" fill="#F7F4EC"/></svg></div>`;
+
+function hero(){return `<section class="hero" id="top">${deco}<div class="wrap hero-grid">
+ <div><span class="eyebrow">${esc(C.kicker)}</span><h1>${C.h1.map(x=>`<span>${esc(x)}</span>`).join("")}</h1>
+ <p class="lead">${esc(C.lead)}</p><p class="hook">${esc(C.hook)}</p>
+ <div class="chips">${C.chips.map(c=>`<span class="chip">${esc(c)}</span>`).join("")}</div>
+ <div class="ctas"><a class="btn btn-main" href="${TG}">Записаться ${AR}</a><a class="btn btn-ghost" href="#courses">Курсы</a></div></div>
+ <img class="hero-logo" src="${C.logo}" alt="${esc(C.name)}"></div></section>`}
+function about(){return `<section class="sec" id="about"><div class="wrap">${head("О нас",esc(C.name),"")}
+ <div class="about"><div>${C.about.map((p,i)=>`<p class="rv" style="--i:${i}">${esc(p)}</p>`).join("")}
+ <div class="admit rv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg><span>${esc(C.admit)}</span></div></div>
+ <div class="why">${C.why.map((w,i)=>`<div class="rv" style="--i:${i}"><b>${esc(w[0])}</b>${esc(w[1])}</div>`).join("")}</div></div>
+ <div class="story"><div class="panel rv"><h3>${esc(C.story.title)}</h3>${C.story.text.map(p=>`<p>${esc(p)}</p>`).join("")}</div>
+ <div class="panel rv" style="--i:1"><h3>${esc(C.method.title)}</h3><p>${esc(C.method.text)}</p><ul class="dots">${C.method.pts.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div></div>
+ </div></section>`}
+function courses(){return `<section class="sec alt" id="courses"><div class="wrap">${head(C.key==="sadik"?"Курсы садика":"Курсы мадрасы","Наши курсы","Основное обучение и отдельные курсы")}
+ <div class="courses">${C.courses.map((c,i)=>`<article class="course rv" style="--i:${i%3}"><span class="tag">${esc(c.tag)}</span><h3>${esc(c.t)}</h3><p>${esc(c.d)}</p>
+ ${c.sub?`<div class="sub">${c.sub.map(s=>`<span>${esc(s)}</span>`).join("")}</div>`:''}
+ ${c.topics?`<details><summary>Темы курса</summary><ul>${c.topics.map(t=>`<li>${esc(t)}</li>`).join("")}</ul></details>`:''}
+ ${c.blocks?`<details><summary>Предметы и уроки</summary><div class="bl">${c.blocks.map(b=>`<div><b>${esc(b[0])}</b><span>${b[1].map(esc).join(" · ")}</span></div>`).join("")}</div></details>`:''}
+ ${c.pts?`<ul class="dots">${c.pts.map(p=>`<li>${esc(p)}</li>`).join("")}</ul>`:''}
+ ${c.go?`<a class="go" href="#program">Программа по годам</a>`:''}
+ ${c.foot?`<div class="foot">${esc(c.foot)}</div>`:''}</article>`).join("")}</div></div></section>`}
+function program(yi){const y=C.years[yi][1];return y.map((s,i)=>`<div class="acc rv" style="--i:${i}"><button aria-expanded="false"><span class="n">${i+1}</span><span><h3>${esc(s.name)}</h3>${s.fmt?`<div class="f">${esc(s.fmt)}</div>`:''}</span><span class="ic" aria-hidden="true">+</span></button>
+ <div class="body"><div><div class="qs">${s.q.map(q=>`<div class="q"><h4>${q.n?q.n+" четверть":esc(q.title)}</h4>${q.n&&q.title?`<div class="qt" dir="auto">${esc(q.title)}</div>`:''}<ol>${q.l.map(l=>`<li><span dir="auto">${esc(l[0])}${l[1].map(x=>`<small dir="auto">${esc(x)}</small>`).join("")}</span></li>`).join("")}</ol></div>`).join("")}</div></div></div></div>`).join("")}
+function prog(){return `<section class="sec" id="program"><div class="wrap">${head("Предметы","Чему учим",C.key==="sadik"?"Предметы и программа каждого класса садика":"Предметы и программа каждого года обучения")}
+ <div class="subj">${C.subjects.map((s,i)=>`<div class="sj rv" style="--i:${i%3}"><h3>${esc(s[0])}</h3><p>${esc(s[1])}</p></div>`).join("")}</div>
+ <div class="ytabs" role="tablist">${C.years.map((y,i)=>`<button role="tab" aria-selected="${i===0}" data-y="${i}">${esc(y[0])}</button>`).join("")}</div>
+ <p class="ysubs" id="ysubs">${esc(C.years[0][1].map(s=>s.name).join(" · "))}</p>
+ <div id="prog" style="max-width:960px;margin:0 auto">${program(0)}</div>
+ <div style="margin-top:40px">${head("Формат","Как проходит обучение","")}<div class="fmt">${C.format.map((f,i)=>`<div class="rv" style="--i:${i%4}"><b>${esc(f[0])}</b>${esc(f[1])}</div>`).join("")}</div></div>
+ </div></section>`}
+function teachers(){return `<section class="sec alt" id="teachers"><div class="wrap">${head("Преподаватели","Наши устазы","Нажмите на карточку, чтобы посмотреть образование")}
+ <div class="tch">${C.teachers.map(([n,s],i)=>{const b=C.teach[n];return `<div class="t rv" style="--i:${i%3}"><button aria-expanded="false"><span class="av">${FL}</span><span><h3>${esc(n)}</h3><div class="s">${esc(s)}</div><div class="m">${b?'Образование':'Сведения скоро появятся'}</div></span><span class="ic" aria-hidden="true">+</span></button>
+ <div class="body"><div><div class="bio">${b?b.map(([h,it])=>`<h4 class="${h.startsWith('Шариат')?'sh':''}">${esc(h)}</h4><ul>${it.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`).join(""):'<p class="soon">Сведения о преподавательнице готовятся.</p>'}</div></div></div></div>`}).join("")}</div></div></section>`}
+function mats(){return `<section class="sec" id="materials"><div class="wrap">${head("Полезное","Материалы для мам","Пособия и подарки — открываются в нашем Telegram-канале")}
+ <div class="mats">${C.materials.map((m,i)=>`<a class="mat rv" style="--i:${i%4}" href="${m[3]}"><img src="${m[0]}" alt="${esc(m[1])}" loading="lazy"><b>${esc(m[1])}</b><span>${esc(m[2])}</span><em>Открыть →</em></a>`).join("")}</div></div></section>`}
+function works(){return `<section class="sec alt" id="works"><div class="wrap">${head("Работы детей","Что делают наши ученики","Поделки, тетради и задания. Нажмите на фото, чтобы увеличить")}
+ <div class="gal">${C.works.map((w,i)=>`<button class="rv" style="--i:${i%3}" data-w="${i}" aria-label="Фото ${i+1}"><img src="${w}" alt="Работа ученика ${i+1}" loading="lazy"></button>`).join("")}</div></div></section>`}
+function reviews(){const l=C.rev.filter(r=>r[0]===C.key||r[0]==="all");const card=(r,i)=>`<figure class="rev rv" style="--i:${i%2}"><div class="rev-h"><span class="rev-av"></span><span class="rev-n" aria-hidden="true">Имя родителя</span></div><p>${esc(r[1]).replace(/\{имя\}/g,'<span class="bl" aria-label="имя скрыто">Имя</span>')}</p><small>Фрагмент отзыва</small></figure>`;
+ return `<section class="sec" id="reviews"><div class="wrap">${head("Отзывы","Что говорят мамы","")}<p class="rev-note">Приведены фрагменты отзывов из учебных групп. Имена скрыты.</p>
+ <div class="revs">${l.slice(0,6).map(card).join("")}</div>${l.length>6?`<div style="text-align:center;margin-top:6px"><button class="btn btn-ghost" data-more>Показать ещё (${l.length-6})</button></div><template id="more">${l.slice(6).map(card).join("")}</template>`:''}</div></section>`}
+function price(){const p=C.price;return `<section class="sec alt" id="price"><div class="wrap"><div class="price rv"><span class="eyebrow">Стоимость основного обучения</span><div class="p-main">${p.sum}</div><div class="p-sub">${esc(p.sub)}</div>
+ <div class="p-opts">${p.opts.map(o=>`<div><span>${esc(o[0])}</span><b>${esc(o[1])}</b></div>`).join("")}</div><p class="p-note">${esc(p.note)}</p></div></div></section>`}
+function faq(){return `<section class="sec" id="faq"><div class="wrap">${head("Вопросы","Частые вопросы","")}<div class="faq">${C.faq.map((f,i)=>`<details class="fq rv" style="--i:${i%3}"><summary>${esc(f[0])}</summary><p>${esc(f[1])}</p></details>`).join("")}</div></div></section>`}
+function signup(){return `<section class="sec final" id="signup"><div class="wrap"><div class="signup rv"><span class="eyebrow">Запись</span><h2 class="h2">Как записаться</h2>
+ <ol class="steps">${C.flow.map(s=>`<li>${esc(s)}</li>`).join("")}</ol>
+ <a class="btn btn-main" href="${TG}">Написать @${C.tg} ${AR}</a>
+ <div class="contacts"><span>Администратор: Умм Раяна · <a href="${TG}">@${C.tg}</a></span><span>Канал: <a href="${C.channel}">${C.channel.replace("https://","")}</a></span></div></div></div></section>`}
+
+document.getElementById("app").innerHTML=hero()+about()+courses()+prog()+teachers()+mats()+works()+reviews()+price()+faq()+signup()+`<footer>${esc(C.name)} · детское отделение «Аль-Хусна»</footer>`;
+const app=document.getElementById("app");
+function bind(root){root.querySelectorAll(".acc>button,.t>button").forEach(b=>b.onclick=()=>{const o=b.parentElement.classList.toggle("open");b.setAttribute("aria-expanded",o)})}
+bind(app);
+app.querySelectorAll("[data-y]").forEach(b=>b.onclick=()=>{app.querySelectorAll("[data-y]").forEach(x=>x.setAttribute("aria-selected",x===b));const y=+b.dataset.y;document.getElementById("prog").innerHTML=program(y);document.getElementById("ysubs").textContent=C.years[y][1].map(s=>s.name).join(" · ");bind(document.getElementById("prog"));reveal()});
+const mb=app.querySelector("[data-more]");if(mb)mb.onclick=()=>{app.querySelector(".revs").insertAdjacentHTML("beforeend",document.getElementById("more").innerHTML);mb.parentElement.remove();reveal()};
+let io;function reveal(){const els=document.querySelectorAll(".rv:not(.in)");if(!("IntersectionObserver" in window)){els.forEach(e=>e.classList.add("in"));return}io=io||new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.06,rootMargin:"0px 0px -20px 0px"});els.forEach(e=>io.observe(e))}
+reveal();
+const lb=document.getElementById("lb"),li=lb.querySelector("img");let k=0;const open=i=>{k=(i+C.works.length)%C.works.length;li.src=C.works[k];lb.classList.add("on")};
+app.querySelectorAll("[data-w]").forEach(b=>b.onclick=()=>open(+b.dataset.w));
+lb.querySelector(".x").onclick=()=>lb.classList.remove("on");lb.querySelector(".pv").onclick=e=>{e.stopPropagation();open(k-1)};lb.querySelector(".nx").onclick=e=>{e.stopPropagation();open(k+1)};
+lb.onclick=e=>{if(e.target===lb)lb.classList.remove("on")};
+</script>
+</body>
+</html>
